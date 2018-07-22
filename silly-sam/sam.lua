@@ -6,7 +6,7 @@ function Sam:create(world)
     
     local sam = {}
 
-    setmetatable(sam,Sam)
+    setmetatable(sam, Sam)
 
     local spawn = {
         x=1000/2,
@@ -98,6 +98,11 @@ end
 
 function Sam:armForces(dt, arm, xaxis, yaxis)
 
+    -- can this even have keyboard support? Prevent nil crash regardless
+    if not joystick then
+        return
+    end
+
     -- apply force to hands based on controller axis
     local forceFactor = 200*dt
 
@@ -113,7 +118,8 @@ function Sam:armForces(dt, arm, xaxis, yaxis)
         yfactor = 0
     end
 
-    if arm.body:isTouching(solids.ground.body) then
+    -- TODO: How do I check walls here - - from within the state instead of the global state?
+    if arm.body:isTouching(state.solids.ground.body) then
         forceFactor = 4000*dt
         xfactor = 0
     end
@@ -129,19 +135,18 @@ function Sam:armForces(dt, arm, xaxis, yaxis)
 end
 
 function Sam:moveLeft()
-    -- TODO: needs to be 'self' but having problems with the state manager. Need to sort out.
-    if sam.leftLeg.onGround then
-        sam:forceUpLeg(sam.leftLeg)
+    if self.leftLeg.onGround then
+        self:forceUpLeg(self.leftLeg)
 
-        sam.leftLeg.body:applyForce(-1000, 0)
+        self.leftLeg.body:applyForce(-1000, 0)
     end
 end
 
 function Sam:moveRight()
-    if sam.rightLeg.onGround then
-        sam:forceUpLeg(sam.rightLeg)
+    if self.rightLeg.onGround then
+        self:forceUpLeg(self.rightLeg)
         
-        sam.rightLeg.body:applyForce(1000, 0)
+        self.rightLeg.body:applyForce(1000, 0)
     end
 end
 
