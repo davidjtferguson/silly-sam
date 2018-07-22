@@ -55,25 +55,6 @@ function rotateImpulse(angle, xImpulse, yImpulse)
     return xResult, yResult
 end
 
--- not sure how to pass in an object's function to a callback gahh
--- once I figure out that can kill these and have the state's world call the appropriate callback directly
-function beginContact(body1, body2, contact)
-    state:beginContact(body1, body2, contact)
-end
-
-function endContact(body1, body2, contact)
-    state:endContact(body1, body2, contact)
-end
-
--- what are these??
-function preSolve(body1, body2, contact)
-    state:preSolve(body1, body2, contact)
-end
-
-function postSolve(body1, body2, contact)
-    state:postSolve(body1, body2, contact)
-end
-
 function love.draw()
     state:draw()
 

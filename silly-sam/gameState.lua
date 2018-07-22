@@ -11,7 +11,20 @@ function GameState:create()
     gameState.world = love.physics.newWorld(0, 10*100, true)
 
     -- really want to pass in the class' functions for the call back instead of these global ones
-    gameState.world:setCallbacks(beginContact, endContact, preSolve, postSolve)
+    gameState.world:setCallbacks(
+        function(body1, body2, contact)
+            gameState:beginContact(body1, body2, contact)
+        end,
+        function(body1, body2, contact)
+            gameState:endContact(body1, body2, contact)
+        end,
+        function(body1, body2, contact)
+            gameState:preSolve(body1, body2, contact)
+        end,
+        function(body1, body2, contact)
+            gameState:postSolve(body1, body2, contact)
+        end
+    )
 
     -- create the walls
     local solidsFactory = require "solids"
@@ -49,7 +62,7 @@ function GameState:update(dt)
     self.sam:armForces(dt, self.sam.rightArm, "rightx", "righty", self.solids.ground);
 end
 
--- these should all be in a physics helper
+-- Should these should all be in a physics helper?
 function GameState:beginContact(body1, body2, contact)
     -- check the contact created is actually touching
     if not contact:isTouching() then
@@ -68,6 +81,7 @@ function GameState:endContact(body1, body2, contact)
     end
 end
 
+-- what are these?
 function GameState:preSolve(body1, body2, contact)
 end
 
