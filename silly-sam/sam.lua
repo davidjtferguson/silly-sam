@@ -97,6 +97,7 @@ function Sam:create(world)
 end
 
 function Sam:armForces(dt, arm, xaxis, yaxis)
+
     -- apply force to hands based on controller axis
     local forceFactor = 200*dt
 
@@ -127,10 +128,46 @@ function Sam:armForces(dt, arm, xaxis, yaxis)
     arm.body:applyLinearImpulse(xfactor*forceFactor, yfactor*forceFactor, xmove, ymove);
 end
 
+function Sam:moveLeft()
+    -- TODO: needs to be 'self' but having problems with the state manager. Need to sort out.
+    if sam.leftLeg.onGround then
+        sam:forceUpLeg(sam.leftLeg)
+
+        sam.leftLeg.body:applyForce(-1000, 0)
+    end
+end
+
+function Sam:moveRight()
+    if sam.rightLeg.onGround then
+        sam:forceUpLeg(sam.rightLeg)
+        
+        sam.rightLeg.body:applyForce(1000, 0)
+    end
+end
+
 function Sam:forceUpLeg(leg)
     -- the impulse needs to always be acting up the edge of the box, on the corner of the box
     -- so we need to find the impulse direction and the corner point of the object
     leg.body:applyLinearImpulse(rotateImpulse(leg.body:getAngle(), 0, 100));
+end
+
+function Sam:draw()
+    love.graphics.setColor(0.20, 0.20, 0.20)
+
+    for i in pairs(self.parts) do
+        love.graphics.setColor(self:getColor(self.parts[i]))
+        love.graphics.polygon("fill", self.parts[i].body:getWorldPoints(self.parts[i].shape:getPoints()))
+    end
+
+    love.graphics.setColor(self.head.color)
+
+    local wx, wy = self.head.body:getWorldPoint(self.head.shape:getPoint())
+    love.graphics.circle("fill", wx, wy, self.head.shape:getRadius())
+end
+
+-- can remove once we texture sam
+function Sam:getColor(obj)
+    return obj.color[1], obj.color[2], obj.color[3]
 end
 
 return Sam

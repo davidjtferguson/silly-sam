@@ -42,8 +42,8 @@ function reset()
     -- state for input
     state = {
         bindings = {
-            left = moveLeft,
-            right = moveRight,
+            left = sam.moveLeft,
+            right = sam.moveRight,
             start = reset,
         },
         keysPressed = {
@@ -86,29 +86,7 @@ function love.gamepadpressed(gamepad, button)
     return inputHandler(binding)
 end
 
---consolidate both after figuring out applying force at rotation if poss
-function moveLeft()
-    if sam.leftLeg.onGround then
-        forceUpLeg(sam.leftLeg)
-
-        sam.leftLeg.body:applyForce(-1000, 0)
-    end
-end
-
-function moveRight()
-    if sam.rightLeg.onGround then
-        forceUpLeg(sam.rightLeg)
-        
-        sam.rightLeg.body:applyForce(1000, 0)
-    end
-end
-
-function forceUpLeg(leg)
-    -- the impulse needs to always be acting up the edge of the box, on the corner of the box
-    -- so we need to find the impulse direction and the corner point of the object
-    leg.body:applyLinearImpulse(rotateImpulse(leg.body:getAngle(), 0, 100));
-end
-
+-- should have some kinda 'physics helper' class for stuff like this
 function rotateImpulse(angle, xImpulse, yImpulse)
     -- can I use this instead of manual? Can only seem to apply to graphics
     --local rotateMatrix = love.math.newTransform(leg.body:getX(), leg.body:getY(), angle)
@@ -119,8 +97,8 @@ function rotateImpulse(angle, xImpulse, yImpulse)
     return xResult, yResult
 end
 
+-- these should all be in a physics helper
 function beginContact(body1, body2, contact)
-
     -- check the contact created is actually touching
     if not contact:isTouching() then
         return
@@ -148,27 +126,14 @@ function postSolve(body1, body2, contact)
 end
 
 function love.draw()
+    -- draw walls
     love.graphics.setColor(0.28, 0.63, 0.05)
 
     for i in pairs(solids) do
         love.graphics.polygon("fill", solids[i].body:getWorldPoints(solids[i].shape:getPoints()))
     end
 
-    love.graphics.setColor(0.20, 0.20, 0.20)
-
-    for i in pairs(sam.parts) do
-        love.graphics.setColor(getColor(sam.parts[i]))
-        love.graphics.polygon("fill", sam.parts[i].body:getWorldPoints(sam.parts[i].shape:getPoints()))
-    end
-
-    love.graphics.setColor(sam.head.color)
-
-    local wx, wy = sam.head.body:getWorldPoint(sam.head.shape:getPoint())
-    love.graphics.circle("fill", wx, wy, sam.head.shape:getRadius())
+    sam:draw()
 
     love.graphics.print(test, 0, 0)
-end
-
-function getColor(obj)
- return obj.color[1], obj.color[2], obj.color[3]
 end
