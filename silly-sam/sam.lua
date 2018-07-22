@@ -96,9 +96,11 @@ function Sam:create(world)
     return sam
 end
 
-function Sam:armForces(dt, arm, xaxis, yaxis)
+function Sam:armForces(dt, arm, xaxis, yaxis, ground)
 
-    -- can this even have keyboard support? Prevent nil crash regardless
+    -- can this even have keyboard support? The whole point is it's twinstick.
+    -- Maybe should figure something out to integrate into the controlls table.
+    -- Prevent nil crash regardless
     if not joystick then
         return
     end
@@ -118,8 +120,9 @@ function Sam:armForces(dt, arm, xaxis, yaxis)
         yfactor = 0
     end
 
-    -- TODO: How do I check walls here - - from within the state instead of the global state?
-    if arm.body:isTouching(state.solids.ground.body) then
+    -- TODO: obviously needs to be smarter
+    -- need to make 'ground' check all solids with a 'ground' property or something
+    if arm.body:isTouching(ground.body) then
         forceFactor = 4000*dt
         xfactor = 0
     end
