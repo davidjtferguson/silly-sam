@@ -32,93 +32,8 @@ function reset()
     solids.rightWall.fixture = love.physics.newFixture(solids.rightWall.body, solids.rightWall.shape);
     --solids.rightWall.fixture:setMask(2)
 
-    local spawn = {
-        x=1000/2,
-        y=600/2,
-    }
-
-    sam = {}
-
-    -- chest
-    sam.chest = {}
-    sam.chest.body = love.physics.newBody(world, spawn.x, spawn.y, "dynamic")
-    sam.chest.shape = love.physics.newRectangleShape(0, 0, 50, 50)
-    sam.chest.fixture = love.physics.newFixture(sam.chest.body, sam.chest.shape);
-    sam.chest.fixture:setFriction(0.5)
-    sam.chest.color = {1, 1, 1}
-
-
-    sam.chest.onGround = false
-
-    -- left leg
-    sam.leftLeg = {}
-    sam.leftLeg.body = love.physics.newBody(world, spawn.x-20, spawn.y+45, "dynamic")
-    sam.leftLeg.shape = love.physics.newRectangleShape(0, 0, 17, 40)
-    sam.leftLeg.fixture = love.physics.newFixture(sam.leftLeg.body, sam.leftLeg.shape, 3);
-    sam.leftLeg.fixture:setFriction(0.5)
-    sam.leftLeg.color = {0.1, 0.4, 1}
-
-    -- join to chest
-    sam.leftLeg.joint = love.physics.newWeldJoint(sam.chest.body, sam.leftLeg.body, spawn.x-20, spawn.y+25)
-
-    sam.leftLeg.onGround = false
-
-    -- right leg
-    sam.rightLeg = {}
-    sam.rightLeg.body = love.physics.newBody(world, spawn.x+20, spawn.y+45, "dynamic")
-    sam.rightLeg.shape = love.physics.newRectangleShape(0, 0, 17, 40)
-    sam.rightLeg.fixture = love.physics.newFixture(sam.rightLeg.body, sam.rightLeg.shape, 3);
-    sam.rightLeg.fixture:setFriction(0.5)
-    sam.rightLeg.color = {0.7, 0.1, 0.1}
-
-    sam.rightLeg.joint = love.physics.newWeldJoint(sam.chest.body, sam.rightLeg.body, spawn.x+20, spawn.y+25)
-
-    sam.rightLeg.onGround = false
-
-    -- head
-    sam.head = {}
-    sam.head.body = love.physics.newBody(world, spawn.x, spawn.y-45, "dynamic")
-    sam.head.shape = love.physics.newCircleShape(15)
-    sam.head.fixture = love.physics.newFixture(sam.head.body, sam.head.shape, 0.5);
-    sam.head.fixture:setFriction(0.5)
-    --sam.head.fixture:setMask(3)
-    sam.head.color = {0.80, 0.20, 0.20}
-
-    sam.head.joint = love.physics.newRevoluteJoint(sam.chest.body, sam.head.body, spawn.x, spawn.y-55)
-
-    sam.head.onGround = false
-
-    sam.leftArm = {}
-    sam.leftArm.body = love.physics.newBody(world, spawn.x-30, spawn.y, "dynamic")
-    sam.leftArm.shape = love.physics.newRectangleShape(0, 0, 20, 35)
-    sam.leftArm.fixture = love.physics.newFixture(sam.leftArm.body, sam.leftArm.shape, 1);
-    --sam.leftArm.fixture:setMask(1)
-    sam.leftArm.fixture:setFriction(0.5)
-    sam.leftArm.color = {0.1, 0.4, 1}
-
-    sam.leftArm.joint = love.physics.newRevoluteJoint(sam.chest.body, sam.leftArm.body, spawn.x-30, spawn.y-10)
-
-    sam.leftArm.onGround = false
-
-    sam.rightArm = {}
-    sam.rightArm.body = love.physics.newBody(world, spawn.x+30, spawn.y, "dynamic")
-    sam.rightArm.shape = love.physics.newRectangleShape(0, 0, 20, 35)
-    sam.rightArm.fixture = love.physics.newFixture(sam.rightArm.body, sam.rightArm.shape, 1);
-    --sam.rightArm.fixture:setMask(1)
-    sam.rightArm.fixture:setFriction(0.5)
-    sam.rightArm.color = {0.7, 0.1, 0.1}
-
-    sam.rightArm.joint = love.physics.newRevoluteJoint(sam.chest.body, sam.rightArm.body, spawn.x+30, spawn.y-10)
-
-    sam.rightArm.onGround = false
-
-    sam.parts = {
-        sam.chest,
-        sam.leftLeg,
-        sam.rightLeg,
-        sam.leftArm,
-        sam.rightArm,
-    }
+    local samFactory = require "sam"
+    sam = samFactory:create(world)
 
     -- find controller
     local joysticks = love.joystick.getJoysticks()
@@ -149,39 +64,8 @@ end
 function love.update(dt)
     world:update(dt)
 
-    armForces(dt, sam.leftArm, "leftx", "lefty");
-    armForces(dt, sam.rightArm, "rightx", "righty");
-end
-
-function armForces(dt, arm, xaxis, yaxis)
-    -- apply force to hands based on controller axis
-    local forceFactor = 200*dt
-
-    local xfactor = joystick:getGamepadAxis(xaxis)
-
-    if math.abs(xfactor) < 0.2 then
-        xfactor = 0
-    end
-
-    local yfactor = joystick:getGamepadAxis(yaxis)
-
-    if math.abs(yfactor) < 0.2 then
-        yfactor = 0
-    end
-
-    if arm.body:isTouching(solids.ground.body) then
-        forceFactor = 4000*dt
-        xfactor = 0
-    end
-
-    test = xfactor
-
-    local angle = arm.body:getAngle()
-
-    local xmove = arm.body:getX() + math.cos(angle) * 20
-    local ymove = arm.body:getY() + math.sin(angle) * 20
-
-    arm.body:applyLinearImpulse(xfactor*forceFactor, yfactor*forceFactor, xmove, ymove);
+    sam:armForces(dt, sam.leftArm, "leftx", "lefty");
+    sam:armForces(dt, sam.rightArm, "rightx", "righty");
 end
 
 -- these 3 should be moved to a state manager of some kind
