@@ -1,3 +1,8 @@
+--[[
+    SILLY SAM
+    By Davbo and Rory~
+]]
+
 function love.load()
     reset()
 end
@@ -51,6 +56,7 @@ function rotateImpulse(angle, xImpulse, yImpulse)
 end
 
 -- not sure how to pass in an object's function to a callback gahh
+-- once I figure out that can kill these and have the state's world call the appropriate callback directly
 function beginContact(body1, body2, contact)
     state:beginContact(body1, body2, contact)
 end
@@ -71,5 +77,6 @@ end
 function love.draw()
     state:draw()
 
+    -- for debugging
     love.graphics.print(test, 0, 0)
 end

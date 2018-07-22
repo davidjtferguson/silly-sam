@@ -1,12 +1,8 @@
-
 GameState = {}
-
--- need to investigate this -- something to do with hooking up the metatable
 GameState.__index = GameState
 
 function GameState:create()
     local gameState = {}
-
     setmetatable(gameState, GameState)
 
     -- create a world
@@ -60,7 +56,7 @@ function GameState:beginContact(body1, body2, contact)
         return
     end
 
-    -- need to be a lot smarter here - suppose to check the arguments being passed in
+    -- need to be a lot smarter here - supposed to check the arguments being passed in
     for i in pairs(self.sam.parts) do
         self.sam.parts[i].onGround = self.sam.parts[i].body:isTouching(self.solids.ground.body)
     end

@@ -1,11 +1,8 @@
-
 Sam = {}
 Sam.__index = Sam
 
 function Sam:create(world)
-    
     local sam = {}
-
     setmetatable(sam, Sam)
 
     local spawn = {
@@ -97,7 +94,6 @@ function Sam:create(world)
 end
 
 function Sam:armForces(dt, arm, xaxis, yaxis, ground)
-
     -- can this even have keyboard support? The whole point is it's twinstick.
     -- Maybe should figure something out to integrate into the controlls table.
     -- Prevent nil crash regardless

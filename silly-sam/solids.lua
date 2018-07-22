@@ -1,10 +1,8 @@
 Solids = {}
-
 Solids.__index = Solids
 
 function Solids:create(world)
     local solids = {}
-
     setmetatable(solids, Solids)
 
     -- TODO: Load in the solids from a passed in tiled scene??
