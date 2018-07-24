@@ -59,8 +59,10 @@ function Sam:create(world)
     sam.head.onGround = false
 
     sam.leftArm = {}
+    sam.leftArm.width = 20
+    sam.leftArm.height = 35
     sam.leftArm.body = love.physics.newBody(world, spawn.x-30, spawn.y, "dynamic")
-    sam.leftArm.shape = love.physics.newRectangleShape(0, 0, 20, 35)
+    sam.leftArm.shape = love.physics.newRectangleShape(0, 0, sam.leftArm.width, sam.leftArm.height)
     sam.leftArm.fixture = love.physics.newFixture(sam.leftArm.body, sam.leftArm.shape, 1);
     --sam.leftArm.fixture:setMask(1)
     sam.leftArm.fixture:setFriction(0.5)
@@ -71,8 +73,10 @@ function Sam:create(world)
     sam.leftArm.onGround = false
 
     sam.rightArm = {}
+    sam.rightArm.width = 20
+    sam.rightArm.height = 35
     sam.rightArm.body = love.physics.newBody(world, spawn.x+30, spawn.y, "dynamic")
-    sam.rightArm.shape = love.physics.newRectangleShape(0, 0, 20, 35)
+    sam.rightArm.shape = love.physics.newRectangleShape(0, 0, sam.rightArm.width, sam.rightArm.height)
     sam.rightArm.fixture = love.physics.newFixture(sam.rightArm.body, sam.rightArm.shape, 1);
     --sam.rightArm.fixture:setMask(1)
     sam.rightArm.fixture:setFriction(0.5)
@@ -102,35 +106,46 @@ function Sam:armForces(dt, arm, xaxis, yaxis, ground)
     end
 
     -- apply force to hands based on controller axis
-    local forceFactor = 200*dt
+    local forceFactor = 100*dt
 
-    local xfactor = joystick:getGamepadAxis(xaxis)
+    local xFactor = joystick:getGamepadAxis(xaxis)
 
-    if math.abs(xfactor) < 0.2 then
-        xfactor = 0
+    if math.abs(xFactor) < 0.2 then
+        xFactor = 0
     end
 
-    local yfactor = joystick:getGamepadAxis(yaxis)
+    local yFactor = joystick:getGamepadAxis(yaxis)
 
-    if math.abs(yfactor) < 0.2 then
-        yfactor = 0
+    if math.abs(yFactor) < 0.2 then
+        yFactor = 0
     end
 
     -- TODO: obviously needs to be smarter
     -- need to make 'ground' check all solids with a 'ground' property or something
     if arm.body:isTouching(ground.body) then
-        forceFactor = 4000*dt
-        xfactor = 0
+        forceFactor = 3000*dt
+        xFactor = 0
     end
 
-    test = xfactor
+    -- why is the box2D angle and the math angle misaligned?! How annoying.
+    -- or am I doing something stupid?
+    local angle = arm.body:getAngle()+3.14/2
 
-    local angle = arm.body:getAngle()
+    local xMove = arm.body:getX() + (math.cos(angle) * (arm.width*0.6))
+    local yMove = arm.body:getY() + (math.sin(angle) * (arm.height*0.6))
 
-    local xmove = arm.body:getX() + math.cos(angle) * 20
-    local ymove = arm.body:getY() + math.sin(angle) * 20
+    arm.body:applyLinearImpulse(xFactor*forceFactor, yFactor*forceFactor, xMove, yMove);
 
-    arm.body:applyLinearImpulse(xfactor*forceFactor, yfactor*forceFactor, xmove, ymove);
+    -- if any force is being applied arms are 'tense' so apply no gravity
+    if math.abs(xFactor) > 0 or math.abs(yFactor) > 0 then
+        arm.body:setGravityScale(0)
+        arm.body:setAngularDamping(5)
+    else
+        arm.body:setGravityScale(1)
+        arm.body:setAngularDamping(0)
+    end
+    
+    test = math.cos(angle)
 end
 
 function Sam:moveLeft()

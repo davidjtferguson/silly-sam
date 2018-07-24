@@ -19,7 +19,9 @@ function reset()
     local gameStateFactory = require "gameState"
     state = gameStateFactory:create()
 
-    test = ''
+    test = 'hello'
+    xTest = 0
+    yTest = 0
 end
 
 function love.update(dt)
@@ -59,5 +61,5 @@ function love.draw()
     state:draw()
 
     -- for debugging
-    love.graphics.print(test, 0, 0)
+    love.graphics.print(test, xTest, yTest)
 end
