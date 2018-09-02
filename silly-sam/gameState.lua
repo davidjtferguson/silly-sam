@@ -100,13 +100,18 @@ function GameState:draw()
 
     love.graphics.setColor(1, 1, 1)
 
-    for i in pairs(map.tileInstances) do
+    -- seems like map.tiles is a table of the tiles available through the tile sheets,
+    -- not a table of the active tiles on the map like I want.
+    -- My current goal is to be able to check if a collision object that was created
+    -- by the map has a particular attribute so I can dictate if Sam should be able to
+    -- move off that tile or not.
+    for i in pairs(map.tiles) do
         test = "trying"
-        test = map.tileInstances[i].id
-        if map.tileInstances[i].id then
-            test = "not crash1"
-            -- test = map.tileInstances[i].properties[1]
-            -- if map.tileInstances[i].properties[1] == true then
+        test = map.tiles[i].id
+        if map.tiles[i].id then
+            -- test = "not crash1"
+            -- test = map.tiles[i].properties[1]
+            -- if map.tiles[i].properties[1] == true then
             --     test = "not crash2"
             --     love.graphics.setColor(0, 0, 0)
             -- end
