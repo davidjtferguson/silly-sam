@@ -1,6 +1,8 @@
 GameState = {}
 GameState.__index = GameState
 
+local sti = require "Simple-Tiled-Implementation/sti"
+
 function GameState:create()
     local gameState = {}
     setmetatable(gameState, GameState)
@@ -10,7 +12,16 @@ function GameState:create()
     love.physics.setMeter(100)
     gameState.world = love.physics.newWorld(0, 10*100, true)
 
-    -- really want to pass in the class' functions for the call back instead of these global ones
+    -- create the walls
+    -- TODO: want to replace with map loading
+    local solidsFactory = require "solids"
+    gameState.solids = solidsFactory:create(gameState.world)
+
+    -- load the map
+    map = sti("maps/test-map-limited-level.lua", { "box2d" })
+
+    map:box2d_init(gameState.world)
+
     gameState.world:setCallbacks(
         function(body1, body2, contact)
             gameState:beginContact(body1, body2, contact)
@@ -25,10 +36,6 @@ function GameState:create()
             gameState:postSolve(body1, body2, contact)
         end
     )
-
-    -- create the walls
-    local solidsFactory = require "solids"
-    gameState.solids = solidsFactory:create(gameState.world)
 
     -- create sam instance
     local samFactory = require "sam"
@@ -90,6 +97,10 @@ end
 
 function GameState:draw()
     self.solids:draw()
+
+    love.graphics.setColor(1, 1, 1)
+    map:draw()
+    -- map:box2d_draw()
 
     self.sam:draw()
 end
