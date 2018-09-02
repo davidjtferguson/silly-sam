@@ -3,11 +3,13 @@
  <image source="../../assets/art/map/test-tileset-image.png" width="32" height="64"/>
  <tile id="0">
   <properties>
+   <property name="cloud" type="bool" value="true"/>
    <property name="collidable" type="bool" value="false"/>
   </properties>
  </tile>
  <tile id="1">
   <properties>
+   <property name="cloud" type="bool" value="false"/>
    <property name="collidable" type="bool" value="true"/>
   </properties>
  </tile>

@@ -99,6 +99,20 @@ function GameState:draw()
     self.solids:draw()
 
     love.graphics.setColor(1, 1, 1)
+
+    for i in pairs(map.tileInstances) do
+        test = "trying"
+        test = map.tileInstances[i].id
+        if map.tileInstances[i].id then
+            test = "not crash1"
+            -- test = map.tileInstances[i].properties[1]
+            -- if map.tileInstances[i].properties[1] == true then
+            --     test = "not crash2"
+            --     love.graphics.setColor(0, 0, 0)
+            -- end
+        end
+    end
+
     map:draw()
     -- map:box2d_draw()
 

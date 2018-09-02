@@ -144,8 +144,6 @@ function Sam:armForces(dt, arm, xaxis, yaxis, ground)
         arm.body:setGravityScale(1)
         arm.body:setAngularDamping(0)
     end
-    
-    test = math.cos(angle)
 end
 
 function Sam:moveLeft()
