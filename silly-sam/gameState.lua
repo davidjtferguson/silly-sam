@@ -12,11 +12,6 @@ function GameState:create()
     love.physics.setMeter(100)
     gameState.world = love.physics.newWorld(0, 10*100, true)
 
-    -- create the walls
-    -- TODO: want to replace with map loading
-    local solidsFactory = require "solids"
-    gameState.solids = solidsFactory:create(gameState.world)
-
     -- load the map
     map = sti("maps/test-map-limited-level.lua", { "box2d" })
 
@@ -133,27 +128,7 @@ function GameState:postSolve(body1, body2, contact)
 end
 
 function GameState:draw()
-    self.solids:draw()
-
     love.graphics.setColor(1, 1, 1)
-
-    -- seems like map.tiles is a table of the tiles available through the tile sheets,
-    -- not a table of the active tiles on the map like I want.
-    -- My current goal is to be able to check if a collision object that was created
-    -- by the map has a particular attribute so I can dictate if Sam should be able to
-    -- move off that tile or not.
-    -- for i in pairs(map.tiles) do
-    --     test = "trying"
-    --     test = map.tiles[i].id
-    --     if map.tiles[i].id then
-    --         -- test = "not crash1"
-    --         -- test = map.tiles[i].properties[1]
-    --         -- if map.tiles[i].properties[1] == true then
-    --         --     test = "not crash2"
-    --         --     love.graphics.setColor(0, 0, 0)
-    --         -- end
-    --     end
-    -- end
 
     map:draw()
     -- map:box2d_draw()
