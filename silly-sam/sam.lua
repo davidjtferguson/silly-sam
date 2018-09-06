@@ -97,7 +97,7 @@ function Sam:create(world)
     return sam
 end
 
-function Sam:armForces(dt, arm, xaxis, yaxis, ground)
+function Sam:armForces(dt, arm, xaxis, yaxis)
     -- can this even have keyboard support? The whole point is it's twinstick.
     -- Maybe should figure something out to integrate into the controlls table.
     -- Prevent nil crash regardless
@@ -120,9 +120,8 @@ function Sam:armForces(dt, arm, xaxis, yaxis, ground)
         yFactor = 0
     end
 
-    -- TODO: obviously needs to be smarter
-    -- need to make 'ground' check all solids with a 'ground' property or something
-    if arm.body:isTouching(ground.body) then
+    -- onGround calculated on collision callbacks
+    if arm.onGround then
         forceFactor = 3000*dt
         xFactor = 0
     end
