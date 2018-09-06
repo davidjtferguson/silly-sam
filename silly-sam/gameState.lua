@@ -76,22 +76,17 @@ function GameState:beginContact(fixture1, fixture2, contact)
     if not contact:isTouching() then
         return
     end
-
-    self:bodyOnGround(fixture1:getBody(), fixture2:getBody(), true)
-    self:bodyOnGround(fixture2:getBody(), fixture1:getBody(), true)
+    
+    self:bodyOnGround(fixture1:getBody(), fixture2:getBody())
+    self:bodyOnGround(fixture2:getBody(), fixture1:getBody())
 end
 
 function GameState:endContact(fixture1, fixture2, contact)
-    if contact:isTouching() then
-        return
-    end
-
-    self:bodyOnGround(fixture1:getBody(), fixture2:getBody(), false)
-    self:bodyOnGround(fixture2:getBody(), fixture1:getBody(), false)
+    self:bodyOnGround(fixture1:getBody(), fixture2:getBody())
+    self:bodyOnGround(fixture2:getBody(), fixture1:getBody())
 end
 
-function GameState:bodyOnGround(body1, body2, inContact)
-
+function GameState:bodyOnGround(body1, body2)
     -- if one body is a bodypart
     local isBody1Part = false
 
@@ -114,7 +109,7 @@ function GameState:bodyOnGround(body1, body2, inContact)
     if isBody1Part and not isBody2Part then
         for i in pairs(self.sam.allParts) do
             if self.sam.allParts[i].body == body1 then
-                self.sam.allParts[i].onGround = inContact
+                self.sam.allParts[i].onGround = self.sam.allParts[i].body:isTouching(body2)
             end
         end
     end
