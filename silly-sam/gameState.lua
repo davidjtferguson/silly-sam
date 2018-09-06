@@ -82,19 +82,14 @@ function GameState:beginContact(fixture1, fixture2, contact)
         return
     end
 
-    -- need to be a lot smarter here - supposed to check the arguments being passed in
-    -- for i in pairs(self.sam.parts) do
-    --     self.sam.parts[i].onGround = self.sam.parts[i].body:isTouching(self.solids.ground.body)
-    -- end
-
     self:bodyOnGround(fixture1:getBody(), fixture2:getBody(), true)
     self:bodyOnGround(fixture2:getBody(), fixture1:getBody(), true)
 end
 
 function GameState:endContact(fixture1, fixture2, contact)
-    -- for i in pairs(self.sam.parts) do
-    --     self.sam.parts[i].onGround = self.sam.parts[i].body:isTouching(self.solids.ground.body)
-    -- end
+    if contact:isTouching() then
+        return
+    end
 
     self:bodyOnGround(fixture1:getBody(), fixture2:getBody(), false)
     self:bodyOnGround(fixture2:getBody(), fixture1:getBody(), false)
@@ -102,14 +97,11 @@ end
 
 function GameState:bodyOnGround(body1, body2, inContact)
 
-    -- if one body is a bodypart,
-
-    -- if one of sam's bodies && not touching any other of sam's bodys
-
+    -- if one body is a bodypart
     local isBody1Part = false
 
-    for i in pairs(self.sam.parts) do
-        if self.sam.parts[i].body == body1 then
+    for i in pairs(self.sam.allParts) do
+        if self.sam.allParts[i].body == body1 then
             isBody1Part = true
         end
     end
@@ -117,18 +109,17 @@ function GameState:bodyOnGround(body1, body2, inContact)
     -- and the other body is not a body part
     local isBody2Part = false
 
-    for i in pairs(self.sam.parts) do
-        if self.sam.parts[i].body == body2 then
+    for i in pairs(self.sam.allParts) do
+        if self.sam.allParts[i].body == body2 then
             isBody2Part = true
         end
     end
 
-    -- onGround is true
-    -- else false
+    -- then the trigger was a body part hitting a non body part so react
     if isBody1Part and not isBody2Part then
-        for i in pairs(self.sam.parts) do
-            if self.sam.parts[i].body == body1 then
-                self.sam.parts[i].onGround = inContact
+        for i in pairs(self.sam.allParts) do
+            if self.sam.allParts[i].body == body1 then
+                self.sam.allParts[i].onGround = inContact
             end
         end
     end

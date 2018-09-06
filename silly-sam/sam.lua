@@ -86,7 +86,18 @@ function Sam:create(world)
 
     sam.rightArm.onGround = false
 
-    sam.parts = {
+    -- this is for drawing
+    sam.rectParts = {
+        sam.chest,
+        sam.leftLeg,
+        sam.rightLeg,
+        sam.leftArm,
+        sam.rightArm,
+    }
+
+    -- for logic
+    sam.allParts = {
+        sam.head,
         sam.chest,
         sam.leftLeg,
         sam.rightLeg,
@@ -170,9 +181,9 @@ end
 function Sam:draw()
     love.graphics.setColor(0.20, 0.20, 0.20)
 
-    for i in pairs(self.parts) do
-        love.graphics.setColor(self:getColor(self.parts[i]))
-        love.graphics.polygon("fill", self.parts[i].body:getWorldPoints(self.parts[i].shape:getPoints()))
+    for i in pairs(self.rectParts) do
+        love.graphics.setColor(self:getColor(self.rectParts[i]))
+        love.graphics.polygon("fill", self.rectParts[i].body:getWorldPoints(self.rectParts[i].shape:getPoints()))
     end
 
     love.graphics.setColor(self.head.color)
