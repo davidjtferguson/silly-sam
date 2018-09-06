@@ -19,7 +19,7 @@ function reset()
     local gameStateFactory = require "gameState"
     state = gameStateFactory:create()
 
-    test = 'hello'
+    test = "this is test variable's default value"
     xTest = 0
     yTest = 0
 end

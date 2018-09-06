@@ -86,7 +86,18 @@ function Sam:create(world)
 
     sam.rightArm.onGround = false
 
-    sam.parts = {
+    -- this is for drawing
+    sam.rectParts = {
+        sam.chest,
+        sam.leftLeg,
+        sam.rightLeg,
+        sam.leftArm,
+        sam.rightArm,
+    }
+
+    -- for logic
+    sam.allParts = {
+        sam.head,
         sam.chest,
         sam.leftLeg,
         sam.rightLeg,
@@ -97,7 +108,7 @@ function Sam:create(world)
     return sam
 end
 
-function Sam:armForces(dt, arm, xaxis, yaxis, ground)
+function Sam:armForces(dt, arm, xaxis, yaxis)
     -- can this even have keyboard support? The whole point is it's twinstick.
     -- Maybe should figure something out to integrate into the controlls table.
     -- Prevent nil crash regardless
@@ -120,9 +131,8 @@ function Sam:armForces(dt, arm, xaxis, yaxis, ground)
         yFactor = 0
     end
 
-    -- TODO: obviously needs to be smarter
-    -- need to make 'ground' check all solids with a 'ground' property or something
-    if arm.body:isTouching(ground.body) then
+    -- onGround calculated on collision callbacks
+    if arm.onGround then
         forceFactor = 3000*dt
         xFactor = 0
     end
@@ -144,8 +154,6 @@ function Sam:armForces(dt, arm, xaxis, yaxis, ground)
         arm.body:setGravityScale(1)
         arm.body:setAngularDamping(0)
     end
-    
-    test = math.cos(angle)
 end
 
 function Sam:moveLeft()
@@ -173,9 +181,9 @@ end
 function Sam:draw()
     love.graphics.setColor(0.20, 0.20, 0.20)
 
-    for i in pairs(self.parts) do
-        love.graphics.setColor(self:getColor(self.parts[i]))
-        love.graphics.polygon("fill", self.parts[i].body:getWorldPoints(self.parts[i].shape:getPoints()))
+    for i in pairs(self.rectParts) do
+        love.graphics.setColor(self:getColor(self.rectParts[i]))
+        love.graphics.polygon("fill", self.rectParts[i].body:getWorldPoints(self.rectParts[i].shape:getPoints()))
     end
 
     love.graphics.setColor(self.head.color)
