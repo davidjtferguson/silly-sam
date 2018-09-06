@@ -62,12 +62,6 @@ function GameState:update(dt)
 
     self.sam:armForces(dt, self.sam.leftArm, "leftx", "lefty");
     self.sam:armForces(dt, self.sam.rightArm, "rightx", "righty");
-
-    if self.sam.leftLeg.onGround then
-        test = "true"
-    else
-        test = "false"
-    end
 end
 
 -- Should these should all be in a physics helper?
