@@ -5,9 +5,10 @@ function Sam:create(world)
     local sam = {}
     setmetatable(sam, Sam)
 
+    -- TODO: spawn should be read from the map
     local spawn = {
-        x=1000/2,
-        y=600/2,
+        x=700,
+        y=300,
     }
 
     -- chest

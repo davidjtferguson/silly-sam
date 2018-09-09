@@ -64,7 +64,7 @@ end
 function GameState:update(dt)
     self.physicsWorld:update(dt)
 
-    self.updateCamera(dt)
+    self:updateCamera(dt)
 
     self.sam:armForces(dt, self.sam.leftArm, "leftx", "lefty");
     self.sam:armForces(dt, self.sam.rightArm, "rightx", "righty");
