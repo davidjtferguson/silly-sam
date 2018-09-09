@@ -1,23 +1,24 @@
 GameState = {}
 GameState.__index = GameState
 
-local sti = require "Simple-Tiled-Implementation/sti"
+local Sti = require "Simple-Tiled-Implementation/sti"
+local Camera = require "hump.camera"
 
 function GameState:create()
     local gameState = {}
     setmetatable(gameState, GameState)
 
-    -- create a world
+    -- create a physics world
     -- maybe the physics manager should own the world?
     love.physics.setMeter(100)
-    gameState.world = love.physics.newWorld(0, 10*100, true)
+    gameState.physicsWorld = love.physics.newWorld(0, 10*100, true)
 
     -- load the map
-    map = sti("maps/test-map-limited-level.lua", { "box2d" })
+    gameState.map = Sti("maps/test-map-limited-level.lua", { "box2d" })
 
-    map:box2d_init(gameState.world)
+    gameState.map:box2d_init(gameState.physicsWorld)
 
-    gameState.world:setCallbacks(
+    gameState.physicsWorld:setCallbacks(
         function(body1, body2, contact)
             gameState:beginContact(body1, body2, contact)
         end,
@@ -34,7 +35,10 @@ function GameState:create()
 
     -- create sam instance
     local samFactory = require "sam"
-    gameState.sam = samFactory:create(gameState.world)
+    gameState.sam = samFactory:create(gameState.physicsWorld)
+
+    -- make camera focus on Sam
+    gameState.camera = Camera(gameState.sam.chest.body:getPosition())
 
     gameState.controls = {
         bindings = {
@@ -58,11 +62,26 @@ function GameState:create()
 end
 
 function GameState:update(dt)
-    self.world:update(dt)
+    self.physicsWorld:update(dt)
+
+    self:updateCamera(dt)
 
     self.sam:armForces(dt, self.sam.leftArm, "leftx", "lefty");
     self.sam:armForces(dt, self.sam.rightArm, "rightx", "righty");
 end
+
+-- move to some kind of camera class?
+function GameState:updateCamera(dt)
+
+    -- move the camera to follow sam's chest position (as a quick implementation)
+    local samx, samy = self.sam.chest.body:getPosition()
+    local dx,dy = samx - self.camera.x, samy - self.camera.y
+    self.camera:move(dx/2, dy/2)
+
+    -- TODO: want to give camera some room where sam can move without camera
+    -- and smooth it's movement
+end
+
 
 -- Should these should all be in a physics helper?
 function GameState:beginContact(fixture1, fixture2, contact)
@@ -119,10 +138,36 @@ end
 function GameState:draw()
     love.graphics.setColor(1, 1, 1)
 
-    map:draw()
-    -- map:box2d_draw()
+    self.map:draw(self:getCameraToStiTransforms())
+    -- self.map:box2d_draw()
 
+    self.camera:attach()
     self.sam:draw()
+    self.camera:detach()
+end
+
+-- Could move to be part of the bump camera, or extend the class with my own
+function GameState:getCameraToStiTransforms()
+
+    -- Need to transform our camera info into data we can pass to sti
+    -- (thanks to discussion @ https://love2d.org/forums/viewtopic.php?t=84544 !)
+	local tx = self.camera.x - love.graphics.getWidth() / 2
+	local ty = self.camera.y - love.graphics.getHeight() / 2
+
+	if tx < 0 then 
+		tx = 0 
+	end
+	if tx > self.map.width  * self.map.tilewidth  - love.graphics.getWidth()  then
+		tx = self.map.width  * self.map.tilewidth  - love.graphics.getWidth()  
+	end
+	if ty > self.map.height * self.map.tileheight - love.graphics.getHeight() then
+		ty = self.map.height * self.map.tileheight - love.graphics.getHeight()
+	end
+
+	tx = math.floor(tx)
+	ty = math.floor(ty)
+
+    return -tx, -ty, self.camera.scale, self.camera.scale
 end
 
 return GameState
