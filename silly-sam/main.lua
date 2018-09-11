@@ -25,6 +25,11 @@ function reset()
 end
 
 function love.update(dt)
+    -- throttle to 1/60 so if an update takes unusually long the game doesn't freak
+    if dt > 1/60 then
+        dt = 1/60
+    end
+
     state:update(dt)
 end
 
