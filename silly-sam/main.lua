@@ -1,7 +1,5 @@
---[[
-    SILLY SAM
-    By Davbo and Rory~
-]]
+--  SILLY SAM
+--  By Davbo and Rory~
 
 function love.load()
     reset()
@@ -15,9 +13,9 @@ function reset()
     local joysticks = love.joystick.getJoysticks()
     joystick = joysticks[1]
 
-    -- should be as simple as swapping out a state to change situation
-    local gameStateFactory = require "gameState"
-    state = gameStateFactory:create()
+    -- should be as simple as swapping out a state for menus, pausing, etc
+    local GameState = require "gameState"
+    state = GameState()
 
     test = "this is test variable's default value"
     xTest = 0

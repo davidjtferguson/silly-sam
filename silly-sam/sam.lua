@@ -1,10 +1,8 @@
-Sam = {}
-Sam.__index = Sam
+local Class = require "hump.class"
 
-function Sam:create(world)
-    local sam = {}
-    setmetatable(sam, Sam)
+Sam = Class{}
 
+function Sam:init(world)
     -- TODO: spawn should be read from the map
     local spawn = {
         x=700,
@@ -12,101 +10,99 @@ function Sam:create(world)
     }
 
     -- chest
-    sam.chest = {}
-    sam.chest.body = love.physics.newBody(world, spawn.x, spawn.y, "dynamic")
-    sam.chest.shape = love.physics.newRectangleShape(0, 0, 50, 50)
-    sam.chest.fixture = love.physics.newFixture(sam.chest.body, sam.chest.shape);
-    sam.chest.fixture:setFriction(0.5)
-    sam.chest.color = {1, 1, 1}
+    self.chest = {}
+    self.chest.body = love.physics.newBody(world, spawn.x, spawn.y, "dynamic")
+    self.chest.shape = love.physics.newRectangleShape(0, 0, 50, 50)
+    self.chest.fixture = love.physics.newFixture(self.chest.body, self.chest.shape);
+    self.chest.fixture:setFriction(0.5)
+    self.chest.color = {1, 1, 1}
 
-    sam.chest.onGround = false
+    self.chest.onGround = false
 
     -- left leg
-    sam.leftLeg = {}
-    sam.leftLeg.body = love.physics.newBody(world, spawn.x-20, spawn.y+45, "dynamic")
-    sam.leftLeg.shape = love.physics.newRectangleShape(0, 0, 17, 40)
-    sam.leftLeg.fixture = love.physics.newFixture(sam.leftLeg.body, sam.leftLeg.shape, 3);
-    sam.leftLeg.fixture:setFriction(0.5)
-    sam.leftLeg.color = {0.1, 0.4, 1}
+    self.leftLeg = {}
+    self.leftLeg.body = love.physics.newBody(world, spawn.x-20, spawn.y+45, "dynamic")
+    self.leftLeg.shape = love.physics.newRectangleShape(0, 0, 17, 40)
+    self.leftLeg.fixture = love.physics.newFixture(self.leftLeg.body, self.leftLeg.shape, 3);
+    self.leftLeg.fixture:setFriction(0.5)
+    self.leftLeg.color = {0.1, 0.4, 1}
 
     -- join to chest
-    sam.leftLeg.joint = love.physics.newWeldJoint(sam.chest.body, sam.leftLeg.body, spawn.x-20, spawn.y+25)
+    self.leftLeg.joint = love.physics.newWeldJoint(self.chest.body, self.leftLeg.body, spawn.x-20, spawn.y+25)
 
-    sam.leftLeg.onGround = false
+    self.leftLeg.onGround = false
 
     -- right leg
-    sam.rightLeg = {}
-    sam.rightLeg.body = love.physics.newBody(world, spawn.x+20, spawn.y+45, "dynamic")
-    sam.rightLeg.shape = love.physics.newRectangleShape(0, 0, 17, 40)
-    sam.rightLeg.fixture = love.physics.newFixture(sam.rightLeg.body, sam.rightLeg.shape, 3);
-    sam.rightLeg.fixture:setFriction(0.5)
-    sam.rightLeg.color = {0.7, 0.1, 0.1}
+    self.rightLeg = {}
+    self.rightLeg.body = love.physics.newBody(world, spawn.x+20, spawn.y+45, "dynamic")
+    self.rightLeg.shape = love.physics.newRectangleShape(0, 0, 17, 40)
+    self.rightLeg.fixture = love.physics.newFixture(self.rightLeg.body, self.rightLeg.shape, 3);
+    self.rightLeg.fixture:setFriction(0.5)
+    self.rightLeg.color = {0.7, 0.1, 0.1}
 
-    sam.rightLeg.joint = love.physics.newWeldJoint(sam.chest.body, sam.rightLeg.body, spawn.x+20, spawn.y+25)
+    self.rightLeg.joint = love.physics.newWeldJoint(self.chest.body, self.rightLeg.body, spawn.x+20, spawn.y+25)
 
-    sam.rightLeg.onGround = false
+    self.rightLeg.onGround = false
 
     -- head
-    sam.head = {}
-    sam.head.body = love.physics.newBody(world, spawn.x, spawn.y-45, "dynamic")
-    sam.head.shape = love.physics.newCircleShape(15)
-    sam.head.fixture = love.physics.newFixture(sam.head.body, sam.head.shape, 0.5);
-    sam.head.fixture:setFriction(0.5)
-    --sam.head.fixture:setMask(3)
-    sam.head.color = {0.80, 0.20, 0.20}
+    self.head = {}
+    self.head.body = love.physics.newBody(world, spawn.x, spawn.y-45, "dynamic")
+    self.head.shape = love.physics.newCircleShape(15)
+    self.head.fixture = love.physics.newFixture(self.head.body, self.head.shape, 0.5);
+    self.head.fixture:setFriction(0.5)
+    --self.head.fixture:setMask(3)
+    self.head.color = {0.80, 0.20, 0.20}
 
-    sam.head.joint = love.physics.newRevoluteJoint(sam.chest.body, sam.head.body, spawn.x, spawn.y-55)
+    self.head.joint = love.physics.newRevoluteJoint(self.chest.body, self.head.body, spawn.x, spawn.y-55)
 
-    sam.head.onGround = false
+    self.head.onGround = false
 
-    sam.leftArm = {}
-    sam.leftArm.width = 20
-    sam.leftArm.height = 35
-    sam.leftArm.body = love.physics.newBody(world, spawn.x-30, spawn.y, "dynamic")
-    sam.leftArm.shape = love.physics.newRectangleShape(0, 0, sam.leftArm.width, sam.leftArm.height)
-    sam.leftArm.fixture = love.physics.newFixture(sam.leftArm.body, sam.leftArm.shape, 1);
-    --sam.leftArm.fixture:setMask(1)
-    sam.leftArm.fixture:setFriction(0.5)
-    sam.leftArm.color = {0.1, 0.4, 1}
+    self.leftArm = {}
+    self.leftArm.width = 20
+    self.leftArm.height = 35
+    self.leftArm.body = love.physics.newBody(world, spawn.x-30, spawn.y, "dynamic")
+    self.leftArm.shape = love.physics.newRectangleShape(0, 0, self.leftArm.width, self.leftArm.height)
+    self.leftArm.fixture = love.physics.newFixture(self.leftArm.body, self.leftArm.shape, 1);
+    --self.leftArm.fixture:setMask(1)
+    self.leftArm.fixture:setFriction(0.5)
+    self.leftArm.color = {0.1, 0.4, 1}
 
-    sam.leftArm.joint = love.physics.newRevoluteJoint(sam.chest.body, sam.leftArm.body, spawn.x-30, spawn.y-10)
+    self.leftArm.joint = love.physics.newRevoluteJoint(self.chest.body, self.leftArm.body, spawn.x-30, spawn.y-10)
 
-    sam.leftArm.onGround = false
+    self.leftArm.onGround = false
 
-    sam.rightArm = {}
-    sam.rightArm.width = 20
-    sam.rightArm.height = 35
-    sam.rightArm.body = love.physics.newBody(world, spawn.x+30, spawn.y, "dynamic")
-    sam.rightArm.shape = love.physics.newRectangleShape(0, 0, sam.rightArm.width, sam.rightArm.height)
-    sam.rightArm.fixture = love.physics.newFixture(sam.rightArm.body, sam.rightArm.shape, 1);
-    --sam.rightArm.fixture:setMask(1)
-    sam.rightArm.fixture:setFriction(0.5)
-    sam.rightArm.color = {0.7, 0.1, 0.1}
+    self.rightArm = {}
+    self.rightArm.width = 20
+    self.rightArm.height = 35
+    self.rightArm.body = love.physics.newBody(world, spawn.x+30, spawn.y, "dynamic")
+    self.rightArm.shape = love.physics.newRectangleShape(0, 0, self.rightArm.width, self.rightArm.height)
+    self.rightArm.fixture = love.physics.newFixture(self.rightArm.body, self.rightArm.shape, 1);
+    --self.rightArm.fixture:setMask(1)
+    self.rightArm.fixture:setFriction(0.5)
+    self.rightArm.color = {0.7, 0.1, 0.1}
 
-    sam.rightArm.joint = love.physics.newRevoluteJoint(sam.chest.body, sam.rightArm.body, spawn.x+30, spawn.y-10)
+    self.rightArm.joint = love.physics.newRevoluteJoint(self.chest.body, self.rightArm.body, spawn.x+30, spawn.y-10)
 
-    sam.rightArm.onGround = false
+    self.rightArm.onGround = false
 
     -- this is for drawing
-    sam.rectParts = {
-        sam.chest,
-        sam.leftLeg,
-        sam.rightLeg,
-        sam.leftArm,
-        sam.rightArm,
+    self.rectParts = {
+        self.chest,
+        self.leftLeg,
+        self.rightLeg,
+        self.leftArm,
+        self.rightArm,
     }
 
     -- for logic
-    sam.allParts = {
-        sam.head,
-        sam.chest,
-        sam.leftLeg,
-        sam.rightLeg,
-        sam.leftArm,
-        sam.rightArm,
+    self.allParts = {
+        self.head,
+        self.chest,
+        self.leftLeg,
+        self.rightLeg,
+        self.leftArm,
+        self.rightArm,
     }
-
-    return sam
 end
 
 function Sam:armForces(dt, arm, xaxis, yaxis)
