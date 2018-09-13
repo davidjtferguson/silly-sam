@@ -1,7 +1,5 @@
---[[
-    SILLY SAM
-    By Davbo and Rory~
-]]
+--  SILLY SAM
+--  By Davbo and Rory~
 
 function love.load()
     reset()

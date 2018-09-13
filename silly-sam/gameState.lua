@@ -1,9 +1,6 @@
 GameState = {}
 GameState.__index = GameState
 
-local Sti = require "Simple-Tiled-Implementation/sti"
-local Camera = require "hump.camera"
-
 function GameState:create()
     local gameState = {}
     setmetatable(gameState, GameState)
@@ -14,6 +11,7 @@ function GameState:create()
     gameState.physicsWorld = love.physics.newWorld(0, 10*100, true)
 
     -- load the map
+    local Sti = require "Simple-Tiled-Implementation/sti"
     gameState.map = Sti("maps/test-map-limited-level.lua", { "box2d" })
 
     gameState.map:box2d_init(gameState.physicsWorld)
@@ -34,10 +32,11 @@ function GameState:create()
     )
 
     -- create sam instance
-    local samFactory = require "sam"
-    gameState.sam = samFactory:create(gameState.physicsWorld)
+    local Sam = require "sam"
+    gameState.sam = Sam(gameState.physicsWorld)
 
     -- make camera focus on Sam
+    local Camera = require "hump.camera"
     gameState.camera = Camera(gameState.sam.chest.body:getPosition())
 
     gameState.controls = {
