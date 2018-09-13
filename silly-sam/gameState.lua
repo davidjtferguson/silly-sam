@@ -3,7 +3,6 @@ GameState.__index = GameState
 
 local Sti = require "Simple-Tiled-Implementation/sti"
 local Camera = require "hump.camera"
-local CameraHelper = require "cameraHelper"
 
 function GameState:create()
     local gameState = {}
@@ -41,9 +40,6 @@ function GameState:create()
     -- make camera focus on Sam
     gameState.camera = Camera(gameState.sam.chest.body:getPosition())
 
-    -- create camera helper instance
-    gameState.cameraHelper = CameraHelper()
-
     gameState.controls = {
         bindings = {
             left = function() gameState.sam:moveLeft() end,
@@ -68,7 +64,7 @@ end
 function GameState:update(dt)
     self.physicsWorld:update(dt)
 
-    self.cameraHelper:updateCamera(self, dt)
+    self.camera:updateCamera(self.sam, dt)
 
     self.sam:armForces(dt, self.sam.leftArm, "leftx", "lefty");
     self.sam:armForces(dt, self.sam.rightArm, "rightx", "righty");
@@ -129,7 +125,7 @@ end
 function GameState:draw()
     love.graphics.setColor(1, 1, 1)
 
-    self.map:draw(self.cameraHelper:getCameraToStiTransforms(self))
+    self.map:draw(self.camera:getCameraToStiTransforms(self.map))
     -- self.map:box2d_draw()
 
     self.camera:attach()

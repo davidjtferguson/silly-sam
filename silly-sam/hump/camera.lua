@@ -211,6 +211,40 @@ function camera:lockWindow(x, y, x_min, x_max, y_min, y_max, smoother, ...)
 	self:move((smoother or self.smoother)(dx,dy,...))
 end
 
+-- SILLY SAM SPECIFIC FUNCTIONS
+
+function camera:updateCamera(sam, dt)
+    -- move the camera to follow sam's chest position (as a quick implementation)
+    local samx, samy = sam.chest.body:getPosition()
+    local dx,dy = samx - self.x, samy - self.y
+    self:move(dx/2, dy/2)
+
+    -- TODO: want to give camera some room where sam can move without camera
+    -- and smooth it's movement
+end
+
+function camera:getCameraToStiTransforms(map)
+    -- Need to transform our camera info into data we can pass to sti
+    -- (thanks to discussion @ https://love2d.org/forums/viewtopic.php?t=84544 !)
+	local tx = self.x - love.graphics.getWidth() / 2
+	local ty = self.y - love.graphics.getHeight() / 2
+
+	if tx < 0 then 
+		tx = 0 
+	end
+	if tx > map.width  * map.tilewidth  - love.graphics.getWidth()  then
+		tx = map.width  * map.tilewidth  - love.graphics.getWidth()  
+	end
+	if ty > map.height * map.tileheight - love.graphics.getHeight() then
+		ty = map.height * map.tileheight - love.graphics.getHeight()
+	end
+
+	tx = math.floor(tx)
+	ty = math.floor(ty)
+
+    return -tx, -ty, self.scale, self.scale
+end
+
 -- the module
 return setmetatable({new = new, smooth = camera.smooth},
 	{__call = function(_, ...) return new(...) end})
