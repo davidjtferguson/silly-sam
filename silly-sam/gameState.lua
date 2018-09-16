@@ -38,23 +38,27 @@ function GameState:init()
     local Camera = require "hump.camera"
     self.camera = Camera(self.sam.chest.body:getPosition())
 
-    self.camera:zoom(0.5, self.map)
-
     self.controls = {
         bindings = {
             left = function() self.sam:moveLeft() end,
             right = function() self.sam:moveRight() end,
             start = reset,
+            zoomIn = function() self.camera:zoom(1.1, self.map) end,
+            zoomOut = function() self.camera:zoom(0.9, self.map) end,
         },
         keysPressed = {
             f = "left",
             j = "right",
             r = "start",
+            i = "zoomIn",
+            o = "zoomOut",
         },
         buttonsPressed = {
             leftshoulder = "left",
             rightshoulder = "right",
             start = "start",
+            dpup = "zoomIn",
+            dpdown = "zoomOut",
         }
     }
 end
