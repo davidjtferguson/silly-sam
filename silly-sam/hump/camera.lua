@@ -225,30 +225,14 @@ end
 
 function camera:getCameraToStiTransforms(map)
     -- Need to transform our camera info into data we can pass to sti
-	-- (thanks to discussion @ https://love2d.org/forums/viewtopic.php?t=84544 !)
-	
 	local width = love.graphics.getWidth()
 	local height = love.graphics.getHeight()
 
-	local tx = self.x - width / 2
-	local ty = self.y - height / 2
+	-- Transform from the camera's position to the top left corner to tell the camera where to draw from
+	local tx = self.x - (width / self.scale) / 2
+	local ty = self.y - (height / self.scale)  / 2
 
-	if tx < 0 then
-		tx = 0 
-	end
-
-	if tx > map.width  * map.tilewidth - width  then
-		tx = map.width  * map.tilewidth - width 
-	end
-	
-	if ty > map.height * map.tileheight - height then
-		ty = map.height * map.tileheight - height
-	end
-
-	tx = math.floor(tx)
-	ty = math.floor(ty)
-
-	return -tx + width / (1/self.scale), -ty + height / (1/self.scale), self.scale, self.scale
+	return -tx, -ty, self.scale, self.scale
 end
 
 -- the module
