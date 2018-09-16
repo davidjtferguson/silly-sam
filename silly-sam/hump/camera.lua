@@ -98,14 +98,23 @@ local function resizeMapForZoom(camera, map)
 	end
 end
 
+local function setScale(camera, scale)
+	camera.scale = scale
+
+	-- cap to prevent crash in the map
+	if camera.scale < 0.07 then
+		camera.scale = 0.07
+	end
+end
+
 function camera:zoom(mul, map)
-	self.scale = self.scale * mul
+	setScale(self, self.scale * mul)
 	resizeMapForZoom(self, map)
 	return self
 end
 
 function camera:zoomTo(zoom, map)
-	self.scale = zoom
+	setScale(self, zoom)
 	resizeMapForZoom(self, map)
 	return self
 end

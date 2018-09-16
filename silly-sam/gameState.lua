@@ -45,6 +45,7 @@ function GameState:init()
             start = reset,
             zoomIn = function() self.camera:zoom(1.1, self.map) end,
             zoomOut = function() self.camera:zoom(0.9, self.map) end,
+            resetZoom = function() self.camera:zoomTo(1, self.map) end,
         },
         keysPressed = {
             f = "left",
@@ -52,6 +53,7 @@ function GameState:init()
             r = "start",
             i = "zoomIn",
             o = "zoomOut",
+            p = "resetZoom",
         },
         buttonsPressed = {
             leftshoulder = "left",
@@ -59,11 +61,14 @@ function GameState:init()
             start = "start",
             dpup = "zoomIn",
             dpdown = "zoomOut",
+            dpleft = "resetZoom",
         }
     }
 end
 
 function GameState:update(dt)
+
+    test = self.camera.scale
     self.physicsWorld:update(dt)
 
     self.camera:updateCamera(self.sam, dt)
