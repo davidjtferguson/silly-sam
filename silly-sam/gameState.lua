@@ -38,10 +38,7 @@ function GameState:init()
     local Camera = require "hump.camera"
     self.camera = Camera(self.sam.chest.body:getPosition())
 
-    local zoomFactor = 0.5
-
-    self.camera:zoom(zoomFactor)
-    self.map:resize(love.graphics.getWidth() * (1/zoomFactor), love.graphics.getHeight() * (1/zoomFactor))
+    self.camera:zoom(0.5, self.map)
 
     self.controls = {
         bindings = {

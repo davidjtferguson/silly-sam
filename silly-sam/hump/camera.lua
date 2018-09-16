@@ -92,13 +92,21 @@ function camera:rotateTo(phi)
 	return self
 end
 
-function camera:zoom(mul)
+local function resizeMapForZoom(camera, map)
+	if map then
+		map:resize(love.graphics.getWidth() * (1/camera.scale), love.graphics.getHeight() * (1/camera.scale))
+	end
+end
+
+function camera:zoom(mul, map)
 	self.scale = self.scale * mul
+	resizeMapForZoom(self, map)
 	return self
 end
 
-function camera:zoomTo(zoom)
+function camera:zoomTo(zoom, map)
 	self.scale = zoom
+	resizeMapForZoom(self, map)
 	return self
 end
 
@@ -220,7 +228,7 @@ function camera:updateCamera(sam, dt)
     self:move(dx/2, dy/2)
 
     -- TODO: want to give camera some room where sam can move without camera
-    -- and smooth it's movement
+    -- and/or smooth it's movement
 end
 
 function camera:getCameraToStiTransforms(map)
