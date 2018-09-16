@@ -9,6 +9,10 @@ function GameState:init()
     love.physics.setMeter(100)
     self.physicsWorld = love.physics.newWorld(0, 10*100, true)
 
+    -- create sam instance
+    local Sam = require "sam"
+    self.sam = Sam(self.physicsWorld)
+
     -- load the map
     local Sti = require "Simple-Tiled-Implementation/sti"
     self.map = Sti("maps/test-map-limited-level.lua", { "box2d" })
@@ -30,10 +34,6 @@ function GameState:init()
         end
     )
 
-    -- create sam instance
-    local Sam = require "sam"
-    self.sam = Sam(self.physicsWorld)
-
     -- make camera focus on Sam
     local Camera = require "hump.camera"
     self.camera = Camera(self.sam.chest.body:getPosition())
@@ -43,21 +43,32 @@ function GameState:init()
             left = function() self.sam:moveLeft() end,
             right = function() self.sam:moveRight() end,
             start = reset,
+            zoomIn = function() self.camera:zoom(1.1, self.map) end,
+            zoomOut = function() self.camera:zoom(0.9, self.map) end,
+            resetZoom = function() self.camera:zoomTo(1, self.map) end,
         },
         keysPressed = {
             f = "left",
             j = "right",
             r = "start",
+            i = "zoomIn",
+            o = "zoomOut",
+            p = "resetZoom",
         },
         buttonsPressed = {
             leftshoulder = "left",
             rightshoulder = "right",
             start = "start",
+            dpup = "zoomIn",
+            dpdown = "zoomOut",
+            dpleft = "resetZoom",
         }
     }
 end
 
 function GameState:update(dt)
+
+    test = self.camera.scale
     self.physicsWorld:update(dt)
 
     self.camera:updateCamera(self.sam, dt)

@@ -92,13 +92,30 @@ function camera:rotateTo(phi)
 	return self
 end
 
-function camera:zoom(mul)
-	self.scale = self.scale * mul
+local function resizeMapForZoom(camera, map)
+	if map then
+		map:resize(love.graphics.getWidth() * (1/camera.scale), love.graphics.getHeight() * (1/camera.scale))
+	end
+end
+
+local function setScale(camera, scale)
+	camera.scale = scale
+
+	-- cap to prevent crash in the map
+	if camera.scale < 0.07 then
+		camera.scale = 0.07
+	end
+end
+
+function camera:zoom(mul, map)
+	setScale(self, self.scale * mul)
+	resizeMapForZoom(self, map)
 	return self
 end
 
-function camera:zoomTo(zoom)
-	self.scale = zoom
+function camera:zoomTo(zoom, map)
+	setScale(self, zoom)
+	resizeMapForZoom(self, map)
 	return self
 end
 
@@ -220,29 +237,19 @@ function camera:updateCamera(sam, dt)
     self:move(dx/2, dy/2)
 
     -- TODO: want to give camera some room where sam can move without camera
-    -- and smooth it's movement
+    -- and/or smooth it's movement
 end
 
 function camera:getCameraToStiTransforms(map)
     -- Need to transform our camera info into data we can pass to sti
-    -- (thanks to discussion @ https://love2d.org/forums/viewtopic.php?t=84544 !)
-	local tx = self.x - love.graphics.getWidth() / 2
-	local ty = self.y - love.graphics.getHeight() / 2
+	local width = love.graphics.getWidth()
+	local height = love.graphics.getHeight()
 
-	if tx < 0 then 
-		tx = 0 
-	end
-	if tx > map.width  * map.tilewidth  - love.graphics.getWidth()  then
-		tx = map.width  * map.tilewidth  - love.graphics.getWidth()  
-	end
-	if ty > map.height * map.tileheight - love.graphics.getHeight() then
-		ty = map.height * map.tileheight - love.graphics.getHeight()
-	end
+	-- Transform from the camera's position to the top left corner to tell the camera where to draw from
+	local tx = self.x - (width / self.scale) / 2
+	local ty = self.y - (height / self.scale)  / 2
 
-	tx = math.floor(tx)
-	ty = math.floor(ty)
-
-    return -tx, -ty, self.scale, self.scale
+	return -tx, -ty, self.scale, self.scale
 end
 
 -- the module
