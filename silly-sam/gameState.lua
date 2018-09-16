@@ -9,6 +9,10 @@ function GameState:init()
     love.physics.setMeter(100)
     self.physicsWorld = love.physics.newWorld(0, 10*100, true)
 
+    -- create sam instance
+    local Sam = require "sam"
+    self.sam = Sam(self.physicsWorld)
+
     -- load the map
     local Sti = require "Simple-Tiled-Implementation/sti"
     self.map = Sti("maps/test-map-limited-level.lua", { "box2d" })
@@ -30,13 +34,14 @@ function GameState:init()
         end
     )
 
-    -- create sam instance
-    local Sam = require "sam"
-    self.sam = Sam(self.physicsWorld)
-
     -- make camera focus on Sam
     local Camera = require "hump.camera"
     self.camera = Camera(self.sam.chest.body:getPosition())
+
+    local zoomFactor = 0.5
+
+    self.camera:zoom(zoomFactor)
+    self.map:resize(love.graphics.getWidth() * (1/zoomFactor), love.graphics.getHeight() * (1/zoomFactor))
 
     self.controls = {
         bindings = {
