@@ -1,6 +1,7 @@
 local Class = require "hump.class"
+local BaseObject = require "toys/baseObject"
 
-Sam = Class{}
+Sam = Class{__includes = BaseObject}
 
 function Sam:init(world)
     -- TODO: spawn should be read from the map
@@ -176,22 +177,11 @@ function Sam:forceUpLeg(leg)
 end
 
 function Sam:draw()
-    love.graphics.setColor(0.20, 0.20, 0.20)
-
     for i in pairs(self.rectParts) do
-        love.graphics.setColor(self:getColor(self.rectParts[i]))
-        love.graphics.polygon("fill", self.rectParts[i].body:getWorldPoints(self.rectParts[i].shape:getPoints()))
+        self:drawRectPhysicsObject(self.rectParts[i])
     end
-
-    love.graphics.setColor(self.head.color)
-
-    local wx, wy = self.head.body:getWorldPoint(self.head.shape:getPoint())
-    love.graphics.circle("fill", wx, wy, self.head.shape:getRadius())
-end
-
--- can remove once we texture sam
-function Sam:getColor(obj)
-    return obj.color[1], obj.color[2], obj.color[3]
+    
+    self:drawCirclePhysicsObject(self.head)
 end
 
 return Sam

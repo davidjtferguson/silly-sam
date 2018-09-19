@@ -13,6 +13,11 @@ function GameState:init()
     local Sam = require "sam"
     self.sam = Sam(self.physicsWorld)
 
+    -- create a skateboard instance
+    local Skateboard = require "toys/skateboard"
+
+    self.skateboard = Skateboard(self.physicsWorld, 830, 300)
+
     -- load the map
     local Sti = require "Simple-Tiled-Implementation/sti"
     self.map = Sti("maps/test-map-limited-level.lua", { "box2d" })
@@ -137,6 +142,7 @@ function GameState:draw()
 
     self.camera:attach()
     self.sam:draw()
+    self.skateboard:draw()
     self.camera:detach()
 end
 
