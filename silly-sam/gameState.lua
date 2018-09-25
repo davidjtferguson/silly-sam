@@ -15,10 +15,10 @@ function GameState:init()
 
     -- create a skateboard instance
     local Skateboard = require "toys/skateboard"
-    -- self.skateboard = Skateboard(self.physicsWorld, 830, 300)
+    self.skateboard = Skateboard(self.physicsWorld, 830, 300)
 
     local HangingBag = require "toys/hangingBag"
-    self.hangingBag = HangingBag(self.physicsWorld, 800, 200)
+    self.hangingBag = HangingBag(self.physicsWorld, 500, 200)
 
     -- load the map
     local Sti = require "Simple-Tiled-Implementation/sti"
@@ -142,7 +142,7 @@ function GameState:draw()
 
     self.camera:attach()
     self.sam:draw()
-    -- self.skateboard:draw()
+    self.skateboard:draw()
     self.hangingBag:draw()
     self.camera:detach()
 end
