@@ -1,27 +1,37 @@
 local Class = require "hump.class"
+local Sam = require "sam"
+local Skateboard = require "toys/skateboard"
+local HangingBag = require "toys/hangingBag"
+local Sti = require "Simple-Tiled-Implementation/sti"
+local Camera = require "hump.camera"
 
 GameState = Class{}
 
 function GameState:init()
-
     -- create a physics world
     -- maybe the physics manager should own the world?
     love.physics.setMeter(100)
     self.physicsWorld = love.physics.newWorld(0, 10*100, true)
 
     -- create sam instance
-    local Sam = require "sam"
     self.sam = Sam(self.physicsWorld)
 
-    -- create a skateboard instance
-    local Skateboard = require "toys/skateboard"
-    self.skateboard = Skateboard(self.physicsWorld, 830, 300)
+    -- create some stuff to interact with
+    self.toys = {}
 
-    local HangingBag = require "toys/hangingBag"
-    self.hangingBag = HangingBag(self.physicsWorld, 500, 200)
+    table.insert(self.toys, Skateboard(self.physicsWorld, 830, 300))
+
+    table.insert(self.toys, HangingBag(self.physicsWorld, 1600, 1000, 250))
+    table.insert(self.toys, HangingBag(self.physicsWorld, 1670, 1050, 250))
+    table.insert(self.toys, HangingBag(self.physicsWorld, 1700, 1250, 270))
+    table.insert(self.toys, HangingBag(self.physicsWorld, 1750, 1300, 200))
+
+    table.insert(self.toys, HangingBag(self.physicsWorld, 1900, 1400, 450))
+    table.insert(self.toys, HangingBag(self.physicsWorld, 2000, 1550, 350))
+    table.insert(self.toys, HangingBag(self.physicsWorld, 2140, 1650, 420))
+    table.insert(self.toys, HangingBag(self.physicsWorld, 2230, 1700, 300))
 
     -- load the map
-    local Sti = require "Simple-Tiled-Implementation/sti"
     self.map = Sti("maps/test-map-limited-level.lua", { "box2d" })
 
     self.map:box2d_init(self.physicsWorld)
@@ -42,7 +52,6 @@ function GameState:init()
     )
 
     -- make camera focus on Sam
-    local Camera = require "hump.camera"
     self.camera = Camera(self.sam.chest.body:getPosition())
 
     self.controls = {
@@ -142,8 +151,10 @@ function GameState:draw()
 
     self.camera:attach()
     self.sam:draw()
-    self.skateboard:draw()
-    self.hangingBag:draw()
+
+    for i in pairs(self.toys) do
+        self.toys[i]:draw()
+    end
     self.camera:detach()
 end
 
