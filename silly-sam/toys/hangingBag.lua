@@ -46,13 +46,13 @@ function HangingBag:init(world, xSpawn, ySpawn, ropeLength, bagWidth, bagHeight,
 end
 
 function HangingBag:draw()
-    -- draw rope
+    -- draw 'rope'
     love.graphics.setLineWidth(10)
     love.graphics.setColor(self.ropeColour)
     if self.bagPivotPoint then
         love.graphics.line(self.anchor.body:getX(), self.anchor.body:getY(), self.bagPivotPoint.body:getX(), self.bagPivotPoint.body:getY())
 
-        -- some indicator of what type of bag it is
+        -- some visual indicator of what type of bag it is
         self:drawCirclePhysicsObject(self.bagPivotPoint)
     else
         love.graphics.line(self.anchor.body:getX(), self.anchor.body:getY(), self.bag.body:getX(), self.bag.body:getY())

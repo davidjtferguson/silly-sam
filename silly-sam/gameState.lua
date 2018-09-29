@@ -17,7 +17,6 @@ function GameState:init()
     self.map = Sti("maps/test-map-limited-level.lua", { "box2d" })
     self.map:box2d_init(self.physicsWorld)
 
-
     -- table of stuff to interact with
     self.toys = {}
 
@@ -29,7 +28,6 @@ function GameState:init()
         elseif object.name == "skateboard" then
             table.insert(self.toys, Skateboard(self.physicsWorld, object.x, object.y))
         elseif object.name == "hangingBag" then
-            -- create hanging bag object
             local hangingBag =
                 HangingBag(self.physicsWorld,
                 object.x, object.y,
