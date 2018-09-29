@@ -3,11 +3,10 @@ local BaseObject = require "toys/baseObject"
 
 Sam = Class{__includes = BaseObject}
 
-function Sam:init(world)
-    -- TODO: spawn should be read from the map
+function Sam:init(world, xSpawn, ySpawn)
     local spawn = {
-        x=700,
-        y=300,
+        x=xSpawn,
+        y=ySpawn,
     }
 
     -- chest
@@ -51,7 +50,6 @@ function Sam:init(world)
     self.head.shape = love.physics.newCircleShape(15)
     self.head.fixture = love.physics.newFixture(self.head.body, self.head.shape, 0.5);
     self.head.fixture:setFriction(0.5)
-    --self.head.fixture:setMask(3)
     self.head.color = {0.80, 0.20, 0.20}
 
     self.head.joint = love.physics.newRevoluteJoint(self.chest.body, self.head.body, spawn.x, spawn.y-55)
@@ -64,7 +62,6 @@ function Sam:init(world)
     self.leftArm.body = love.physics.newBody(world, spawn.x-30, spawn.y, "dynamic")
     self.leftArm.shape = love.physics.newRectangleShape(0, 0, self.leftArm.width, self.leftArm.height)
     self.leftArm.fixture = love.physics.newFixture(self.leftArm.body, self.leftArm.shape, 1);
-    --self.leftArm.fixture:setMask(1)
     self.leftArm.fixture:setFriction(0.5)
     self.leftArm.color = {0.1, 0.4, 1}
 
@@ -78,7 +75,6 @@ function Sam:init(world)
     self.rightArm.body = love.physics.newBody(world, spawn.x+30, spawn.y, "dynamic")
     self.rightArm.shape = love.physics.newRectangleShape(0, 0, self.rightArm.width, self.rightArm.height)
     self.rightArm.fixture = love.physics.newFixture(self.rightArm.body, self.rightArm.shape, 1);
-    --self.rightArm.fixture:setMask(1)
     self.rightArm.fixture:setFriction(0.5)
     self.rightArm.color = {0.7, 0.1, 0.1}
 

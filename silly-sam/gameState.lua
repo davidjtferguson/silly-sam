@@ -13,28 +13,31 @@ function GameState:init()
     love.physics.setMeter(100)
     self.physicsWorld = love.physics.newWorld(0, 10*100, true)
 
-    -- create sam instance
-    self.sam = Sam(self.physicsWorld)
-
-    -- create some stuff to interact with
-    self.toys = {}
-
-    table.insert(self.toys, Skateboard(self.physicsWorld, 830, 300))
-
-    table.insert(self.toys, HangingBag(self.physicsWorld, 1600, 1000, 250))
-    table.insert(self.toys, HangingBag(self.physicsWorld, 1670, 1050, 250))
-    table.insert(self.toys, HangingBag(self.physicsWorld, 1700, 1250, 270))
-    table.insert(self.toys, HangingBag(self.physicsWorld, 1750, 1300, 200))
-
-    table.insert(self.toys, HangingBag(self.physicsWorld, 1900, 1400, 450))
-    table.insert(self.toys, HangingBag(self.physicsWorld, 2000, 1550, 350))
-    table.insert(self.toys, HangingBag(self.physicsWorld, 2140, 1650, 420))
-    table.insert(self.toys, HangingBag(self.physicsWorld, 2230, 1700, 300))
-
     -- load the map
     self.map = Sti("maps/test-map-limited-level.lua", { "box2d" })
-
     self.map:box2d_init(self.physicsWorld)
+
+    -- table of stuff to interact with
+    self.toys = {}
+
+    -- go through all the objects in the map and assign each
+    for k, object in pairs(self.map.objects) do
+        if object.name == "sam" then
+            -- create sam instance
+            self.sam = Sam(self.physicsWorld, object.x, object.y)
+        elseif object.name == "skateboard" then
+            table.insert(self.toys, Skateboard(self.physicsWorld, object.x, object.y))
+        elseif object.name == "hangingBag" then
+            local hangingBag =
+                HangingBag(self.physicsWorld,
+                object.x, object.y,
+                object.properties.ropeLength,
+                object.properties.bagWidth, object.properties.bagHeight,
+                object.properties.pivotingJoint)
+
+            table.insert(self.toys, hangingBag)
+        end
+    end
 
     self.physicsWorld:setCallbacks(
         function(body1, body2, contact)
