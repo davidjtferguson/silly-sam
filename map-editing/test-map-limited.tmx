@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" tiledversion="1.1.6" orientation="orthogonal" renderorder="right-down" width="100" height="100" tilewidth="32" tileheight="32" infinite="0" nextobjectid="3">
+<map version="1.0" tiledversion="1.1.6" orientation="orthogonal" renderorder="right-down" width="100" height="100" tilewidth="32" tileheight="32" infinite="0" nextobjectid="4">
  <tileset firstgid="1" source="test-tileset.tsx"/>
  <layer name="tileLayer" width="100" height="100">
   <data encoding="csv">
@@ -106,12 +106,21 @@
 </data>
  </layer>
  <objectgroup name="gameObjectLayer">
-  <object id="1" name="hangingBag" x="800" y="128">
+  <object id="1" name="hangingBag" x="770" y="190">
    <properties>
     <property name="bagHeight" type="float" value="70"/>
     <property name="bagWidth" type="float" value="40"/>
-    <property name="pivitingJoint" type="bool" value="false"/>
-    <property name="ropeLength" type="float" value="150"/>
+    <property name="pivotingJoint" type="bool" value="true"/>
+    <property name="ropeLength" type="float" value="250"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="3" name="hangingBag" x="524" y="192">
+   <properties>
+    <property name="bagHeight" type="float" value="70"/>
+    <property name="bagWidth" type="float" value="40"/>
+    <property name="pivotingJoint" type="bool" value="false"/>
+    <property name="ropeLength" type="float" value="250"/>
    </properties>
    <point/>
   </object>

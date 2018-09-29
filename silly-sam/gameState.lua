@@ -23,13 +23,19 @@ function GameState:init()
     -- create some stuff to interact with
     self.toys = {}
 
-    table.insert(self.toys, Skateboard(self.physicsWorld, 830, 300))
+    table.insert(self.toys, Skateboard(self.physicsWorld, 830, 420))
 
     -- go through all the objects in the map and assign each
     for k, object in pairs(self.map.objects) do
         if object.name == "hangingBag" then
             -- create hanging bag object
-            local hangingBag = HangingBag(self.physicsWorld, object.x, object.y, 150)
+            local hangingBag =
+                HangingBag(self.physicsWorld,
+                object.x, object.y,
+                object.properties.ropeLength,
+                object.properties.bagWidth, object.properties.bagHeight,
+                object.properties.pivotingJoint)
+
             table.insert(self.toys, hangingBag)
         end
     end

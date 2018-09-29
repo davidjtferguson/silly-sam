@@ -6,6 +6,10 @@ function love.load()
 end
 
 function reset()
+    test = "this is test variable's default value"
+    xTest = 0
+    yTest = 0
+    
     love.window.setMode(1000, 600, {fullscreen = false})
     love.graphics.setBackgroundColor(0.41, 0.53, 0.97)
 
@@ -17,9 +21,6 @@ function reset()
     local GameState = require "gameState"
     state = GameState()
 
-    test = "this is test variable's default value"
-    xTest = 0
-    yTest = 0
 end
 
 function love.update(dt)

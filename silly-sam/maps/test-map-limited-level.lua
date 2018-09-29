@@ -8,7 +8,7 @@ return {
   height = 100,
   tilewidth = 32,
   tileheight = 32,
-  nextobjectid = 3,
+  nextobjectid = 4,
   properties = {},
   tilesets = {
     {
@@ -184,8 +184,8 @@ return {
           name = "hangingBag",
           type = "",
           shape = "point",
-          x = 800,
-          y = 128,
+          x = 770,
+          y = 190,
           width = 0,
           height = 0,
           rotation = 0,
@@ -193,8 +193,26 @@ return {
           properties = {
             ["bagHeight"] = 70,
             ["bagWidth"] = 40,
-            ["pivitingJoint"] = false,
-            ["ropeLength"] = 150
+            ["pivotingJoint"] = true,
+            ["ropeLength"] = 250
+          }
+        },
+        {
+          id = 3,
+          name = "hangingBag",
+          type = "",
+          shape = "point",
+          x = 524,
+          y = 192,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["bagHeight"] = 70,
+            ["bagWidth"] = 40,
+            ["pivotingJoint"] = false,
+            ["ropeLength"] = 250
           }
         }
       }
