@@ -8,7 +8,7 @@ return {
   height = 100,
   tilewidth = 32,
   tileheight = 32,
-  nextobjectid = 4,
+  nextobjectid = 11,
   properties = {},
   tilesets = {
     {
@@ -184,8 +184,8 @@ return {
           name = "hangingBag",
           type = "",
           shape = "point",
-          x = 770,
-          y = 190,
+          x = 768,
+          y = 48,
           width = 0,
           height = 0,
           rotation = 0,
@@ -213,6 +213,104 @@ return {
             ["bagWidth"] = 40,
             ["pivotingJoint"] = false,
             ["ropeLength"] = 250
+          }
+        },
+        {
+          id = 4,
+          name = "sam",
+          type = "",
+          shape = "point",
+          x = 700,
+          y = 300,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 5,
+          name = "skateboard",
+          type = "",
+          shape = "point",
+          x = 824,
+          y = 470,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 7,
+          name = "hangingBag",
+          type = "",
+          shape = "point",
+          x = 1072,
+          y = 384,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["bagHeight"] = 20,
+            ["bagWidth"] = 100,
+            ["pivotingJoint"] = false,
+            ["ropeLength"] = 250
+          }
+        },
+        {
+          id = 8,
+          name = "hangingBag",
+          type = "",
+          shape = "point",
+          x = 1456,
+          y = 916,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["bagHeight"] = 70,
+            ["bagWidth"] = 40,
+            ["pivotingJoint"] = true,
+            ["ropeLength"] = 300
+          }
+        },
+        {
+          id = 9,
+          name = "hangingBag",
+          type = "",
+          shape = "point",
+          x = 1770,
+          y = 1142,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["bagHeight"] = 70,
+            ["bagWidth"] = 40,
+            ["pivotingJoint"] = true,
+            ["ropeLength"] = 420
+          }
+        },
+        {
+          id = 10,
+          name = "hangingBag",
+          type = "",
+          shape = "point",
+          x = 2094,
+          y = 1526,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["bagHeight"] = 70,
+            ["bagWidth"] = 40,
+            ["pivotingJoint"] = true,
+            ["ropeLength"] = 450
           }
         }
       }

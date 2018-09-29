@@ -17,17 +17,18 @@ function GameState:init()
     self.map = Sti("maps/test-map-limited-level.lua", { "box2d" })
     self.map:box2d_init(self.physicsWorld)
 
-    -- create sam instance
-    self.sam = Sam(self.physicsWorld)
 
-    -- create some stuff to interact with
+    -- table of stuff to interact with
     self.toys = {}
-
-    table.insert(self.toys, Skateboard(self.physicsWorld, 830, 420))
 
     -- go through all the objects in the map and assign each
     for k, object in pairs(self.map.objects) do
-        if object.name == "hangingBag" then
+        if object.name == "sam" then
+            -- create sam instance
+            self.sam = Sam(self.physicsWorld, object.x, object.y)
+        elseif object.name == "skateboard" then
+            table.insert(self.toys, Skateboard(self.physicsWorld, object.x, object.y))
+        elseif object.name == "hangingBag" then
             -- create hanging bag object
             local hangingBag =
                 HangingBag(self.physicsWorld,

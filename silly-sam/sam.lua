@@ -3,11 +3,11 @@ local BaseObject = require "toys/baseObject"
 
 Sam = Class{__includes = BaseObject}
 
-function Sam:init(world)
+function Sam:init(world, xSpawn, ySpawn)
     -- TODO: spawn should be read from the map
     local spawn = {
-        x=700,
-        y=300,
+        x=xSpawn,
+        y=ySpawn,
     }
 
     -- chest
