@@ -65,6 +65,7 @@ function GameState:init()
             zoomIn = function() self.camera:zoom(1.1, self.map) end,
             zoomOut = function() self.camera:zoom(0.9, self.map) end,
             resetZoom = function() self.camera:zoomTo(1, self.map) end,
+            closeGame = function() love.window.close() end,
         },
         keysPressed = {
             f = "left",
@@ -73,6 +74,7 @@ function GameState:init()
             i = "zoomIn",
             o = "zoomOut",
             p = "resetZoom",
+            escape = "closeGame",
         },
         buttonsPressed = {
             leftshoulder = "left",
@@ -81,6 +83,7 @@ function GameState:init()
             dpup = "zoomIn",
             dpdown = "zoomOut",
             dpleft = "resetZoom",
+            back = "closeGame",
         }
     }
 end
