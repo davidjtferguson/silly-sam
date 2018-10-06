@@ -102,28 +102,35 @@ function Sam:init(world, xSpawn, ySpawn)
     }
 end
 
-function Sam:armForces(dt, arm, xaxis, yaxis)
-    -- can this even have keyboard support? The whole point is it's twinstick.
-    -- Maybe should figure something out to integrate into the controlls table.
-    -- Prevent nil crash regardless
-    if not joystick then
-        return
+function Sam:armForces(dt, arm, keyboardInputs, xaxis, yaxis)
+    -- check joystick inputs if joystick
+    if joystick then
+        xFactor = joystick:getGamepadAxis(xaxis)
+
+        if math.abs(xFactor) < 0.2 then
+            xFactor = 0
+        end
+
+        yFactor = joystick:getGamepadAxis(yaxis)
+
+        if math.abs(yFactor) < 0.2 then
+            yFactor = 0
+        end
     end
 
-    -- apply force to hands based on controller axis
+    -- check keyboard inputs
+    local xFactor, yFactor = self:getKeyboardArmAngle(keyboardInputs)
+    
+    -- if there are any inputs, override controller input
+    -- if tempXFactor ~= 0 or tempYFactor ~= 0 then
+    --     xfactor = tempXFactor
+    --     yFactor = tempYFactor
+    -- end
+    
+    print(joystick:getGamepadAxis(yaxis))
+
+    -- apply force to hands based on axis
     local forceFactor = 100*dt
-
-    local xFactor = joystick:getGamepadAxis(xaxis)
-
-    if math.abs(xFactor) < 0.2 then
-        xFactor = 0
-    end
-
-    local yFactor = joystick:getGamepadAxis(yaxis)
-
-    if math.abs(yFactor) < 0.2 then
-        yFactor = 0
-    end
 
     -- onGround calculated on collision callbacks
     if arm.onGround then
@@ -148,6 +155,25 @@ function Sam:armForces(dt, arm, xaxis, yaxis)
         arm.body:setGravityScale(1)
         arm.body:setAngularDamping(0)
     end
+end
+
+function Sam:getKeyboardArmAngle(keyboardInputs)
+    local xFactor, yFactor = 0, 0
+
+    if love.keyboard.isDown(keyboardInputs[1]) then
+        yFactor = -1
+    end
+    if love.keyboard.isDown(keyboardInputs[2]) then
+        xFactor = 1
+    end
+    if love.keyboard.isDown(keyboardInputs[3]) then
+        yFactor = 1
+    end
+    if love.keyboard.isDown(keyboardInputs[4]) then
+        xFactor = -1
+    end
+
+    return xFactor, yFactor
 end
 
 function Sam:moveLeft()
