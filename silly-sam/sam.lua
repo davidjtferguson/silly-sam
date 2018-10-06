@@ -119,15 +119,13 @@ function Sam:armForces(dt, arm, keyboardInputs, xaxis, yaxis)
     end
 
     -- check keyboard inputs
-    local xFactor, yFactor = self:getKeyboardArmAngle(keyboardInputs)
+    local tempXFactor, tempYFactor = self:getKeyboardArmAngle(keyboardInputs)
     
-    -- if there are any inputs, override controller input
-    -- if tempXFactor ~= 0 or tempYFactor ~= 0 then
-    --     xfactor = tempXFactor
-    --     yFactor = tempYFactor
-    -- end
-    
-    print(joystick:getGamepadAxis(yaxis))
+    -- if there are any keyboard inputs, override controller input
+    if tempXFactor ~= 0 or tempYFactor ~= 0 then
+        xFactor = tempXFactor
+        yFactor = tempYFactor
+    end
 
     -- apply force to hands based on axis
     local forceFactor = 100*dt
