@@ -18,11 +18,18 @@ Basics I'm using
 
 Xbox controller recommended.
 
+### Joystick controls
+
 When on the ground left bumper puts a force up Sam's leg to make them move left, and right bumper puts a force up Sam's leg to make them move right.
-F and J have the same effect.
 
 The left and right sticks make Sam's arms point at the same angle you put the stick in.
 So if you push both sticks up Sam will hold their arms in the air.
+
+### Keyboard controls
+
+C shuffles Sam left, N shuffles sam right.
+
+Use WASD to direct the left arm and IJKL to direct the right arm.
 
 ## Branch labels
 

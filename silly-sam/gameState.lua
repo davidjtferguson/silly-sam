@@ -68,10 +68,10 @@ function GameState:init()
             closeGame = function() love.window.close() end,
         },
         keysPressed = {
-            f = "left",
-            j = "right",
+            c = "left",
+            n = "right",
             r = "start",
-            i = "zoomIn",
+            m = "zoomIn",
             o = "zoomOut",
             p = "resetZoom",
             escape = "closeGame",
@@ -84,7 +84,20 @@ function GameState:init()
             dpdown = "zoomOut",
             dpleft = "resetZoom",
             back = "closeGame",
-        }
+        },
+        -- clockwise arm inputs
+        keysLeftArm = {
+            "w",
+            "d",
+            "s",
+            "a",
+        },
+        keysRightArm = {
+            "i",
+            "l",
+            "k",
+            "j",
+        },
     }
 end
 
@@ -93,8 +106,8 @@ function GameState:update(dt)
 
     self.camera:updateCamera(self.sam, dt)
 
-    self.sam:armForces(dt, self.sam.leftArm, "leftx", "lefty");
-    self.sam:armForces(dt, self.sam.rightArm, "rightx", "righty");
+    self.sam:armForces(dt, self.sam.leftArm, self.controls.keysLeftArm, "leftx", "lefty");
+    self.sam:armForces(dt, self.sam.rightArm, self.controls.keysRightArm, "rightx", "righty");
 end
 
 -- Should these should all be in a physics helper?

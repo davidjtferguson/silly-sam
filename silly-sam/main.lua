@@ -6,10 +6,6 @@ function love.load()
 end
 
 function reset()
-    test = "this is test variable's default value"
-    xTest = 0
-    yTest = 0
-    
     love.window.setMode(1000, 600, {fullscreen = false})
     love.graphics.setBackgroundColor(0.41, 0.53, 0.97)
 
@@ -20,7 +16,6 @@ function reset()
     -- should be as simple as swapping out a state for menus, pausing, etc
     local GameState = require "gameState"
     state = GameState()
-
 end
 
 function love.update(dt)
@@ -63,7 +58,4 @@ end
 
 function love.draw()
     state:draw()
-
-    -- for debugging
-    love.graphics.print(test, xTest, yTest)
 end
