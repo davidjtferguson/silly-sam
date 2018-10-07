@@ -7,6 +7,7 @@ local GameState = require "gameState"
 
 function love.load()
     reset()
+    StateManager.registerEvents()
 end
 
 function reset()
@@ -17,7 +18,6 @@ function reset()
     local joysticks = love.joystick.getJoysticks()
     joystick = joysticks[1]
 
-    StateManager.registerEvents()
     StateManager.switch(GameState)
 end
 

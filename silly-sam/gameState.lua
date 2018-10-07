@@ -1,11 +1,12 @@
 local Class = require "hump.class"
 local Camera = require "hump.camera"
 local Sti = require "Simple-Tiled-Implementation/sti"
-local BaseState = require "hump.gamestate"
+local StateManager = require "hump.gamestate"
 
 local Sam = require "sam"
 local Skateboard = require "toys/skateboard"
 local HangingBag = require "toys/hangingBag"
+local PauseState = require "pauseState"
 
 local GameState = {}
 
@@ -63,29 +64,32 @@ function GameState:init()
         bindings = {
             left = function() self.sam:moveLeft() end,
             right = function() self.sam:moveRight() end,
-            start = reset,
+            reset = reset,
             zoomIn = function() self.camera:zoom(1.1, self.map) end,
             zoomOut = function() self.camera:zoom(0.9, self.map) end,
             resetZoom = function() self.camera:zoomTo(1, self.map) end,
             closeGame = function() love.window.close() end,
+            pause = function() StateManager.push(PauseState) end,
         },
         keysPressed = {
             c = "left",
             n = "right",
-            r = "start",
+            r = "reset",
             m = "zoomIn",
             o = "zoomOut",
-            p = "resetZoom",
+            f = "resetZoom",
             escape = "closeGame",
+            p = "pause",
         },
         buttonsPressed = {
             leftshoulder = "left",
             rightshoulder = "right",
-            start = "start",
             dpup = "zoomIn",
             dpdown = "zoomOut",
             dpleft = "resetZoom",
             back = "closeGame",
+            b = "reset",
+            start = "pause",
         },
         -- clockwise arm inputs
         keysLeftArm = {
