@@ -1,11 +1,13 @@
 local Class = require "hump.class"
+local Camera = require "hump.camera"
+local Sti = require "Simple-Tiled-Implementation/sti"
+local BaseState = require "hump.gamestate"
+
 local Sam = require "sam"
 local Skateboard = require "toys/skateboard"
 local HangingBag = require "toys/hangingBag"
-local Sti = require "Simple-Tiled-Implementation/sti"
-local Camera = require "hump.camera"
 
-GameState = Class{}
+local GameState = {}
 
 function GameState:init()
     -- create a physics world
@@ -108,6 +110,18 @@ function GameState:update(dt)
 
     self.sam:armForces(dt, self.sam.leftArm, self.controls.keysLeftArm, "leftx", "lefty");
     self.sam:armForces(dt, self.sam.rightArm, self.controls.keysRightArm, "rightx", "righty");
+end
+
+-- input handling callbacks
+
+function GameState:keypressed(k)
+    local binding = self.controls.keysPressed[k]
+    return inputHandler(binding)
+end
+
+function GameState:gamepadpressed(gamepad, button)
+    local binding = self.controls.buttonsPressed[button]
+    return inputHandler(binding)
 end
 
 -- Should these should all be in a physics helper?

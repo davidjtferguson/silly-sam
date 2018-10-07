@@ -1,6 +1,10 @@
 --  SILLY SAM
 --  By Davbo and Rory~
 
+local StateManager = require "hump.gamestate"
+
+local GameState = require "gameState"
+
 function love.load()
     reset()
 end
@@ -13,9 +17,8 @@ function reset()
     local joysticks = love.joystick.getJoysticks()
     joystick = joysticks[1]
 
-    -- should be as simple as swapping out a state for menus, pausing, etc
-    local GameState = require "gameState"
-    state = GameState()
+    StateManager.registerEvents()
+    StateManager.switch(GameState)
 end
 
 function love.update(dt)
@@ -24,25 +27,15 @@ function love.update(dt)
         dt = 1/60
     end
 
-    state:update(dt)
+    StateManager.update(dt/6)
 end
 
--- these 3 should be moved to a state manager of some kind?
+-- should be moved to a input manager of some kind?
 function inputHandler(input)
-    local action = state.controls.bindings[input]
+    local action = StateManager.current().controls.bindings[input]
     if action then
         return action()
     end
-end
-
-function love.keypressed(k)
-    local binding = state.controls.keysPressed[k]
-    return inputHandler(binding)
-end
-
-function love.gamepadpressed(gamepad, button)
-    local binding = state.controls.buttonsPressed[button]
-    return inputHandler(binding)
 end
 
 -- should have some kinda 'physics helper' class for stuff like this
@@ -57,5 +50,5 @@ function rotateImpulse(angle, xImpulse, yImpulse)
 end
 
 function love.draw()
-    state:draw()
+    StateManager:draw()
 end
