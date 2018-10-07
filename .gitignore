@@ -42,3 +42,5 @@ luac.out
 # Shortcut
 *.lnk
 
+# Mac Files
+*.DS_Store
