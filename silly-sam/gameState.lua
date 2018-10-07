@@ -108,6 +108,11 @@ function GameState:init()
 end
 
 function GameState:update(dt)
+    -- throttle to 1/60 so if an update takes unusually long the game doesn't freak
+    if dt > 1/60 then
+        dt = 1/60
+    end
+    
     self.physicsWorld:update(dt)
 
     self.camera:updateCamera(self.sam, dt)

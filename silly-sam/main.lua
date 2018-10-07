@@ -6,28 +6,31 @@ local StateManager = require "hump.gamestate"
 local GameState = require "gameState"
 
 function love.load()
-    reset()
-    StateManager.registerEvents()
-end
-
-function reset()
+    
     love.window.setMode(1000, 600, {fullscreen = false})
     love.graphics.setBackgroundColor(0.41, 0.53, 0.97)
 
     -- find controller
     local joysticks = love.joystick.getJoysticks()
     joystick = joysticks[1]
+    
+    StateManager.registerEvents()
+    reset()
+end
+
+function reset()
+
+    -- TODO: Clear all states, and switch to a fresh gameState
+    print(StateManager.current)
+    -- while StateManager.current ~= nil do
+    --     StateManager.pop()
+    -- end
 
     StateManager.switch(GameState)
+    --StateManager.current().init()
 end
 
 function love.update(dt)
-    -- throttle to 1/60 so if an update takes unusually long the game doesn't freak
-    if dt > 1/60 then
-        dt = 1/60
-    end
-
-    StateManager.update(dt/6)
 end
 
 -- should be moved to a input manager of some kind?

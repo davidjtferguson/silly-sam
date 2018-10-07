@@ -8,17 +8,15 @@ end
 function PauseState:update(dt)
 end
 
--- input handling callbacks
-
 function PauseState:keypressed(key)
     if key == 'p' then
-        return StateManager.pop() -- return to previous state
+        return StateManager.pop()
     end
 end
 
 function PauseState:gamepadpressed(gamepad, button)
     if button == "start" then
-        return StateManager.pop() -- return to previous state
+        return StateManager.pop()
     end
 end
 
