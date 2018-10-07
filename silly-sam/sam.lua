@@ -103,6 +103,8 @@ function Sam:init(world, xSpawn, ySpawn)
 end
 
 function Sam:armForces(dt, arm, keyboardInputs, xaxis, yaxis)
+    local xFactor, yFactor = 0, 0
+
     -- check joystick inputs if joystick
     if joystick then
         xFactor = joystick:getGamepadAxis(xaxis)
