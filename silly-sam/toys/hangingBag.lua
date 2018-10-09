@@ -1,4 +1,5 @@
 local Class = require "hump.class"
+
 local BaseObject = require "toys/baseObject"
 
 HangingBag = Class{__includes = BaseObject}

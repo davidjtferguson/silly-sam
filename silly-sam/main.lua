@@ -3,7 +3,7 @@
 
 local StateManager = require "hump.gamestate"
 
-local GameState = require "gameState"
+local GameState = require "states/gameState"
 
 function love.load()
     

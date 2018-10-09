@@ -7,7 +7,7 @@ local Sam = require "sam"
 local Skateboard = require "toys/skateboard"
 local HangingBag = require "toys/hangingBag"
 
-local PauseState = require "pauseState"
+local PauseState = require "states/pauseState"
 
 local GameState = {}
 
