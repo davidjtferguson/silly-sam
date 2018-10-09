@@ -6,13 +6,14 @@ local StateManager = require "hump.gamestate"
 local Sam = require "sam"
 local Skateboard = require "toys/skateboard"
 local HangingBag = require "toys/hangingBag"
+
 local PauseState = require "pauseState"
 
 local GameState = {}
 
 function GameState:init()
     -- create a physics world
-    -- maybe the physics manager should own the world?
+    -- maybe some physics manager should own the world?
     love.physics.setMeter(100)
     self.physicsWorld = love.physics.newWorld(0, 10*100, true)
 
@@ -109,6 +110,7 @@ end
 
 function GameState:update(dt)
     -- throttle to 1/60 so if an update takes unusually long the game doesn't freak
+    -- should maybe be in the main update? could do if I only register specific events with StateManager.registerEvents()
     if dt > 1/60 then
         dt = 1/60
     end
@@ -189,7 +191,6 @@ function GameState:draw()
     love.graphics.setColor(1, 1, 1)
 
     self.map:draw(self.camera:getCameraToStiTransforms(self.map))
-    -- self.map:box2d_draw()
 
     self.camera:attach()
     self.sam:draw()
@@ -198,6 +199,11 @@ function GameState:draw()
         self.toys[i]:draw()
     end
     self.camera:detach()
+end
+
+-- if the gamestate is left (popped or switched), reset it so if the same instance is returned to it's back from the start of the level
+function GameState:leave()
+    self:init()
 end
 
 return GameState

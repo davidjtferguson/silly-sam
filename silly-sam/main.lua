@@ -10,7 +10,7 @@ function love.load()
     love.window.setMode(1000, 600, {fullscreen = false})
     love.graphics.setBackgroundColor(0.41, 0.53, 0.97)
 
-    -- find controller
+    -- find controller... should probs be some update check so the controller doesn't need to be in as the game boots up to find it
     local joysticks = love.joystick.getJoysticks()
     joystick = joysticks[1]
     
@@ -18,19 +18,10 @@ function love.load()
     reset()
 end
 
+-- This reset function is more for debugging while creating.
+-- to properly reset I really want to clear everything in the StateManager queue and start a new gamestate but I'm not sure how to do that.
 function reset()
-
-    -- TODO: Clear all states, and switch to a fresh gameState
-    print(StateManager.current)
-    -- while StateManager.current ~= nil do
-    --     StateManager.pop()
-    -- end
-
     StateManager.switch(GameState)
-    --StateManager.current().init()
-end
-
-function love.update(dt)
 end
 
 -- should be moved to a input manager of some kind?
@@ -50,8 +41,4 @@ function rotateImpulse(angle, xImpulse, yImpulse)
     local yResult = xImpulse*math.sin(angle) + yImpulse*-math.cos(angle)
 
     return xResult, yResult
-end
-
-function love.draw()
-    StateManager:draw()
 end
