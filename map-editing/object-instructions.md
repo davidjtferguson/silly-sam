@@ -28,3 +28,10 @@ Each object has a specific name and different flags that are read from the map. 
    pivotingJoint: If false, the bag is revolution joined directly onto the anchor. This means the entire bag is always rotated towards the anchor. This is handy for swinging platforms. If true, the anchor is revolution joined to a pivot point at the other end of the rope and the bag is revolution joined to this pivot point. This means while the bag still rotates around the anchor, it can also rotate 'locally' independantly of the rope, which makes it act a little more like an actual punching bag.
    
    ropeLength: the distance between the anchor and the bag.
+
+- name: ball
+- tiled object: eclipse
+- description: Creates a ball at the x and y position of the eclipse. Note that the ball is always a circle - if the eclipse on the map does not have equal width and height the game will take the average and use this.
+- custom properties:
+
+	None

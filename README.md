@@ -31,6 +31,8 @@ Press B to reset the game.
 
 Press back to close the game.
 
+On the d-pad, use up to zoom in, down to zoom out and right to reset.
+
 ### Keyboard controls
 
 C shuffles Sam left, N shuffles sam right.
@@ -42,6 +44,8 @@ Press P to pause and unpause.
 Press R to reset the game.
 
 Press Esc. to close the game.
+
+Use M to zoom in, O to zoom out and F to reset.
 
 ## Branch labels
 
