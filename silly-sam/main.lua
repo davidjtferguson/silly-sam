@@ -1,48 +1,35 @@
 --  SILLY SAM
---  By Davbo and Rory~
+--  By Berd
+
+local StateManager = require "hump.gamestate"
+
+local GameState = require "states/gameState"
 
 function love.load()
-    reset()
-end
-
-function reset()
+    
     love.window.setMode(1000, 600, {fullscreen = false})
     love.graphics.setBackgroundColor(0.41, 0.53, 0.97)
 
-    -- find controller
+    -- find controller... should probs be some update check so the controller doesn't need to be in as the game boots up to find it
     local joysticks = love.joystick.getJoysticks()
     joystick = joysticks[1]
-
-    -- should be as simple as swapping out a state for menus, pausing, etc
-    local GameState = require "gameState"
-    state = GameState()
+    
+    StateManager.registerEvents()
+    reset()
 end
 
-function love.update(dt)
-    -- throttle to 1/60 so if an update takes unusually long the game doesn't freak
-    if dt > 1/60 then
-        dt = 1/60
-    end
-
-    state:update(dt)
+-- This reset function is more for debugging while creating.
+-- to properly reset I really want to clear everything in the StateManager queue and start a new gamestate but I'm not sure how to do that.
+function reset()
+    StateManager.switch(GameState)
 end
 
--- these 3 should be moved to a state manager of some kind?
+-- should be moved to a input manager of some kind?
 function inputHandler(input)
-    local action = state.controls.bindings[input]
+    local action = StateManager.current().controls.bindings[input]
     if action then
         return action()
     end
-end
-
-function love.keypressed(k)
-    local binding = state.controls.keysPressed[k]
-    return inputHandler(binding)
-end
-
-function love.gamepadpressed(gamepad, button)
-    local binding = state.controls.buttonsPressed[button]
-    return inputHandler(binding)
 end
 
 -- should have some kinda 'physics helper' class for stuff like this
@@ -54,8 +41,4 @@ function rotateImpulse(angle, xImpulse, yImpulse)
     local yResult = xImpulse*math.sin(angle) + yImpulse*-math.cos(angle)
 
     return xResult, yResult
-end
-
-function love.draw()
-    state:draw()
 end

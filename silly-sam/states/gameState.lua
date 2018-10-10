@@ -1,15 +1,19 @@
 local Class = require "hump.class"
+local Camera = require "hump.camera"
+local Sti = require "Simple-Tiled-Implementation/sti"
+local StateManager = require "hump.gamestate"
+
 local Sam = require "sam"
 local Skateboard = require "toys/skateboard"
 local HangingBag = require "toys/hangingBag"
-local Sti = require "Simple-Tiled-Implementation/sti"
-local Camera = require "hump.camera"
 
-GameState = Class{}
+local PauseState = require "states/pauseState"
+
+local GameState = {}
 
 function GameState:init()
     -- create a physics world
-    -- maybe the physics manager should own the world?
+    -- maybe some physics manager should own the world?
     love.physics.setMeter(100)
     self.physicsWorld = love.physics.newWorld(0, 10*100, true)
 
@@ -61,29 +65,32 @@ function GameState:init()
         bindings = {
             left = function() self.sam:moveLeft() end,
             right = function() self.sam:moveRight() end,
-            start = reset,
+            reset = reset,
             zoomIn = function() self.camera:zoom(1.1, self.map) end,
             zoomOut = function() self.camera:zoom(0.9, self.map) end,
             resetZoom = function() self.camera:zoomTo(1, self.map) end,
             closeGame = function() love.window.close() end,
+            pause = function() StateManager.push(PauseState) end,
         },
         keysPressed = {
             c = "left",
             n = "right",
-            r = "start",
+            r = "reset",
             m = "zoomIn",
             o = "zoomOut",
-            p = "resetZoom",
+            f = "resetZoom",
             escape = "closeGame",
+            p = "pause",
         },
         buttonsPressed = {
             leftshoulder = "left",
             rightshoulder = "right",
-            start = "start",
             dpup = "zoomIn",
             dpdown = "zoomOut",
             dpleft = "resetZoom",
             back = "closeGame",
+            b = "reset",
+            start = "pause",
         },
         -- clockwise arm inputs
         keysLeftArm = {
@@ -102,12 +109,30 @@ function GameState:init()
 end
 
 function GameState:update(dt)
+    -- throttle to 1/60 so if an update takes unusually long the game doesn't freak
+    -- should maybe be in the main update? could do if I only register specific events with StateManager.registerEvents()
+    if dt > 1/60 then
+        dt = 1/60
+    end
+    
     self.physicsWorld:update(dt)
 
     self.camera:updateCamera(self.sam, dt)
 
     self.sam:armForces(dt, self.sam.leftArm, self.controls.keysLeftArm, "leftx", "lefty");
     self.sam:armForces(dt, self.sam.rightArm, self.controls.keysRightArm, "rightx", "righty");
+end
+
+-- input handling callbacks
+
+function GameState:keypressed(k)
+    local binding = self.controls.keysPressed[k]
+    return inputHandler(binding)
+end
+
+function GameState:gamepadpressed(gamepad, button)
+    local binding = self.controls.buttonsPressed[button]
+    return inputHandler(binding)
 end
 
 -- Should these should all be in a physics helper?
@@ -166,7 +191,6 @@ function GameState:draw()
     love.graphics.setColor(1, 1, 1)
 
     self.map:draw(self.camera:getCameraToStiTransforms(self.map))
-    -- self.map:box2d_draw()
 
     self.camera:attach()
     self.sam:draw()
@@ -175,6 +199,11 @@ function GameState:draw()
         self.toys[i]:draw()
     end
     self.camera:detach()
+end
+
+-- if the gamestate is left (popped or switched), reset it so if the same instance is returned to it's back from the start of the level
+function GameState:leave()
+    self:init()
 end
 
 return GameState
