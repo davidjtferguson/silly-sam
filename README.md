@@ -1,6 +1,6 @@
 # silly-sam
 
-A game by Davbo and Rory~
+A game by Berd
 
 Physics based silly movement joke toy thing.
 
@@ -25,11 +25,23 @@ When on the ground left bumper puts a force up Sam's leg to make them move left,
 The left and right sticks make Sam's arms point at the same angle you put the stick in.
 So if you push both sticks up Sam will hold their arms in the air.
 
+Press start to pause and unpause.
+
+Press B to reset the game.
+
+Press back to close the game.
+
 ### Keyboard controls
 
 C shuffles Sam left, N shuffles sam right.
 
 Use WASD to direct the left arm and IJKL to direct the right arm.
+
+Press P to pause and unpause.
+
+Press R to reset the game.
+
+Press Esc. to close the game.
 
 ## Branch labels
 

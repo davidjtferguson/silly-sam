@@ -1,5 +1,5 @@
 --  SILLY SAM
---  By Davbo and Rory~
+--  By Berd
 
 local StateManager = require "hump.gamestate"
 
