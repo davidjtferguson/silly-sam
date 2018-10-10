@@ -6,6 +6,7 @@ local StateManager = require "hump.gamestate"
 local Sam = require "sam"
 local Skateboard = require "toys/skateboard"
 local HangingBag = require "toys/hangingBag"
+local Ball = require "toys/ball"
 
 local PauseState = require "states/pauseState"
 
@@ -40,6 +41,10 @@ function GameState:init()
                 object.properties.pivotingJoint)
 
             table.insert(self.toys, hangingBag)
+        elseif object.name == "ball" then
+            local radius = (object.width + object.height) / 4
+            local ball = Ball(self.physicsWorld, object.x + radius, object.y + radius, radius)
+            table.insert(self.toys, ball)
         end
     end
 
