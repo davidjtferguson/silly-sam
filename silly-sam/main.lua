@@ -8,6 +8,12 @@ local GameState = require "states/gameState"
 function love.load()
     
     love.window.setMode(1000, 600, {fullscreen = false})
+
+    imageData = love.image.newImageData( "assets/art/window_icon.png" )
+    love.window.setIcon(imageData)
+
+    love.window.setTitle("Silly Sam")
+
     love.graphics.setBackgroundColor(0.41, 0.53, 0.97)
 
     -- find controller... should probs be some update check so the controller doesn't need to be in as the game boots up to find it
