@@ -56,7 +56,8 @@ function GameState:init()
                 Rectangle(self.physicsWorld,
                     object.x + (object.width / 2),
                     object.y + (object.height / 2),
-                    object.width, object.height)
+                    object.width, object.height,
+                    object.rotation)
 
             table.insert(self.toys, rectangle)
         end
