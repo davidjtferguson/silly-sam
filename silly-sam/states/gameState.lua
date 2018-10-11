@@ -7,6 +7,7 @@ local Sam = require "sam"
 local Skateboard = require "toys/skateboard"
 local HangingBag = require "toys/hangingBag"
 local Ball = require "toys/ball"
+local Rectangle = require "toys/rectangle"
 
 local PauseState = require "states/pauseState"
 
@@ -30,21 +31,34 @@ function GameState:init()
         if object.name == "sam" then
             -- create sam instance
             self.sam = Sam(self.physicsWorld, object.x, object.y)
+
         elseif object.name == "skateboard" then
             table.insert(self.toys, Skateboard(self.physicsWorld, object.x, object.y))
+
         elseif object.name == "hangingBag" then
             local hangingBag =
                 HangingBag(self.physicsWorld,
-                object.x, object.y,
-                object.properties.ropeLength,
-                object.properties.bagWidth, object.properties.bagHeight,
-                object.properties.pivotingJoint)
+                    object.x, object.y,
+                    object.properties.ropeLength,
+                    object.properties.bagWidth, object.properties.bagHeight,
+                    object.properties.pivotingJoint)
 
             table.insert(self.toys, hangingBag)
+
         elseif object.name == "ball" then
             local radius = (object.width + object.height) / 4
             local ball = Ball(self.physicsWorld, object.x + radius, object.y + radius, radius)
+
             table.insert(self.toys, ball)
+
+        elseif object.name == "rectangle" then
+            local rectangle =
+                Rectangle(self.physicsWorld,
+                    object.x + (object.width / 2),
+                    object.y + (object.height / 2),
+                    object.width, object.height)
+
+            table.insert(self.toys, rectangle)
         end
     end
 

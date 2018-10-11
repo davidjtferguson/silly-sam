@@ -8,7 +8,7 @@ return {
   height = 100,
   tilewidth = 32,
   tileheight = 32,
-  nextobjectid = 27,
+  nextobjectid = 29,
   properties = {},
   tilesets = {
     {
@@ -63,24 +63,6 @@ return {
       draworder = "topdown",
       properties = {},
       objects = {
-        {
-          id = 1,
-          name = "hangingBag",
-          type = "",
-          shape = "point",
-          x = 768,
-          y = 48,
-          width = 0,
-          height = 0,
-          rotation = 0,
-          visible = true,
-          properties = {
-            ["bagHeight"] = 70,
-            ["bagWidth"] = 40,
-            ["pivotingJoint"] = true,
-            ["ropeLength"] = 250
-          }
-        },
         {
           id = 3,
           name = "hangingBag",
@@ -209,6 +191,19 @@ return {
           rotation = 0,
           visible = true,
           properties = {}
+        },
+        {
+          id = 27,
+          name = "rectangle",
+          type = "",
+          shape = "rectangle",
+          x = 546,
+          y = 186,
+          width = 82,
+          height = 162,
+          rotation = 40,
+          visible = true,
+          properties = {}
         }
       }
     },
@@ -219,7 +214,7 @@ return {
       y = 0,
       width = 100,
       height = 100,
-      visible = true,
+      visible = false,
       opacity = 1,
       offsetx = 0,
       offsety = 0,
