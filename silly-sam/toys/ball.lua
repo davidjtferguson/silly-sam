@@ -4,8 +4,8 @@ local BaseObject = require "toys/baseObject"
 
 Ball = Class{__includes = BaseObject}
 
-function Ball:init(world, xSpawn, ySpawn, radius)
-    self.body = love.physics.newBody(world, xSpawn, ySpawn, "dynamic")
+function Ball:init(world, xSpawn, ySpawn, radius, bodyType)
+    self.body = love.physics.newBody(world, xSpawn, ySpawn, bodyType)
     self.shape = love.physics.newCircleShape(radius)
     self.fixture = love.physics.newFixture(self.body, self.shape, 0.5);
     self.fixture:setFriction(0.5)
