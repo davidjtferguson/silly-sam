@@ -4,8 +4,8 @@ local BaseObject = require "toys/baseObject"
 
 Rectangle = Class{__includes = BaseObject}
 
-function Rectangle:init(world, xSpawn, ySpawn, width, height, rotation)
-    self.body = love.physics.newBody(world, xSpawn, ySpawn, "static")
+function Rectangle:init(world, xSpawn, ySpawn, width, height, rotation, bodyType)
+    self.body = love.physics.newBody(world, xSpawn, ySpawn, bodyType)
     self.shape = love.physics.newRectangleShape(0, 0, width, height)
     self.fixture = love.physics.newFixture(self.body, self.shape);
     self.fixture:setFriction(0.9)
@@ -22,6 +22,7 @@ function Rectangle:init(world, xSpawn, ySpawn, width, height, rotation)
     xCentre = xCentre - xRotation
     yCentre = yCentre - yRotation
 
+    -- use standard rotation matrix to find rotated point
     local sin = math.sin(math.rad(rotation))
     local cos = math.cos(math.rad(rotation))
 

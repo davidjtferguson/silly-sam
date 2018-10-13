@@ -13,6 +13,13 @@ local PauseState = require "states/pauseState"
 
 local GameState = {}
 
+local function checkStaticBool(static)
+    if static then
+        return "static"
+    end
+    return "dynamic"
+end
+
 function GameState:init()
     -- create a physics world
     -- maybe some physics manager should own the world?
@@ -47,7 +54,12 @@ function GameState:init()
 
         elseif object.name == "ball" then
             local radius = (object.width + object.height) / 4
-            local ball = Ball(self.physicsWorld, object.x + radius, object.y + radius, radius)
+            local ball =
+                Ball(self.physicsWorld,
+                    object.x + radius, object.y + radius,
+                    radius,
+                    checkStaticBool(object.properties.static)
+                )
 
             table.insert(self.toys, ball)
 
@@ -57,7 +69,9 @@ function GameState:init()
                     object.x + (object.width / 2),
                     object.y + (object.height / 2),
                     object.width, object.height,
-                    object.rotation)
+                    object.rotation,
+                    checkStaticBool(object.properties.static)
+                )
 
             table.insert(self.toys, rectangle)
         end
