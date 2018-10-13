@@ -12,35 +12,28 @@ function Rectangle:init(world, xSpawn, ySpawn, width, height, rotation)
     
     self.color = {1, 0.2, 0.7}
 
+    local xCentre, yCentre = self.body:getPosition()
+
     -- get the rotation point (top left corner)
-    local originalX, originalY = self.body:getPosition()
+    local xRotation = xCentre - width/2
+    local yRotation = yCentre - height/2
 
-    originalX = originalX - width/2
-    originalY = originalY - height/2
+    -- move to be around rotation point
+    xCentre = xCentre - xRotation
+    yCentre = yCentre - yRotation
 
-    local originalWorldX, originalWorldY = self.body:getWorldPoint(originalX, originalY)
+    local sin = math.sin(math.rad(rotation))
+    local cos = math.cos(math.rad(rotation))
 
-    -- rotate
+    local xNew = xCentre * cos - yCentre * sin
+    local yNew = xCentre * sin + yCentre * cos
+
+    -- move point back
+    xCentre = xNew + xRotation
+    yCentre = yNew + yRotation
+
+    self.body:setPosition(xCentre, yCentre)
     self.body:setAngle(math.rad(rotation))
-
-    -- TODO find the new position of the top left corner 
-    local originalX, originalY = self.body:getPosition()
-
-    -- need to use some trig to find the now rotated point
-    originalX = originalX - width/2
-    originalY = originalY - height/2
-    
-    local afterWorldX, afterWorldY = self.body:getWorldPoint(originalX, originalY)
-
-    -- find the difference of the original point and the rotated way, and take it away
-    -- to make the new position
-    local afterX, afterY = self.body:getPosition()
-
-    local endX = afterX + (originalWorldX - afterWorldX)
-
-    local endY = afterY + (originalWorldY - afterWorldY)
-
-    self.body:setPosition(endX, endY)
 end
 
 function Rectangle:draw()
@@ -48,13 +41,3 @@ function Rectangle:draw()
 end
 
 return Rectangle
- 
--- b2Vec2 vertexLocalPos;//fulcrum vertex in local (body) coords
-
--- b2Vec2 vertexBeforeWorldPos = body->GetWorldPoint( vertexLocalPos );
-
--- body->SetTransform( body->GetPosition(), body->GetAngle() + angleChange );
-
--- b2Vec2 vertexAfterWorldPos =  body->GetWorldPoint( vertexLocalPos );
-
--- body->SetTransform( body->GetPosition() + vertexBeforePos - vertexAfterPos, body->GetAngle() );
