@@ -1,16 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" tiledversion="1.1.6" orientation="orthogonal" renderorder="right-down" width="100" height="100" tilewidth="32" tileheight="32" infinite="0" nextobjectid="30">
+<map version="1.0" tiledversion="1.1.6" orientation="orthogonal" renderorder="right-down" width="100" height="100" tilewidth="32" tileheight="32" infinite="0" nextobjectid="31">
  <tileset firstgid="1" source="test-tileset.tsx"/>
  <objectgroup name="gameObjectLayer">
-  <object id="3" name="hangingBag" x="1950" y="264">
-   <properties>
-    <property name="bagHeight" type="float" value="70"/>
-    <property name="bagWidth" type="float" value="40"/>
-    <property name="pivotingJoint" type="bool" value="false"/>
-    <property name="ropeLength" type="float" value="250"/>
-   </properties>
-   <point/>
-  </object>
   <object id="4" name="sam" x="700" y="300">
    <point/>
   </object>
@@ -73,8 +64,13 @@
    </properties>
    <point/>
   </object>
+  <object id="30" name="rectangle" x="1875" y="799" width="82" height="366">
+   <properties>
+    <property name="static" type="bool" value="false"/>
+   </properties>
+  </object>
  </objectgroup>
- <layer name="background" width="100" height="100" visible="0">
+ <layer name="background" width="100" height="100">
   <data encoding="csv">
 1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
 1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,

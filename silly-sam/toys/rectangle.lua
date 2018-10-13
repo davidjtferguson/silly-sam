@@ -1,4 +1,5 @@
 local Class = require "hump.class"
+local Vector = require "hump.vector"
 
 local BaseObject = require "toys/baseObject"
 
@@ -9,31 +10,23 @@ function Rectangle:init(world, xSpawn, ySpawn, width, height, rotation, bodyType
     self.shape = love.physics.newRectangleShape(0, 0, width, height)
     self.fixture = love.physics.newFixture(self.body, self.shape);
     self.fixture:setFriction(0.9)
-    
     self.color = {1, 0.2, 0.7}
 
-    local xCentre, yCentre = self.body:getPosition()
+    local centre = Vector(self.body:getPosition())
 
     -- get the rotation point (top left corner)
-    local xRotation = xCentre - width/2
-    local yRotation = yCentre - height/2
+    local rotationPoint = Vector(centre.x - width/2, centre.y - height/2)
 
     -- move to be around rotation point
-    xCentre = xCentre - xRotation
-    yCentre = yCentre - yRotation
+    centre = centre - rotationPoint
 
-    -- use standard rotation matrix to find rotated point
-    local sin = math.sin(math.rad(rotation))
-    local cos = math.cos(math.rad(rotation))
-
-    local xNew = xCentre * cos - yCentre * sin
-    local yNew = xCentre * sin + yCentre * cos
+    -- rotate
+    local new = centre:rotated(math.rad(rotation))
 
     -- move point back
-    xCentre = xNew + xRotation
-    yCentre = yNew + yRotation
+    centre = new + rotationPoint
 
-    self.body:setPosition(xCentre, yCentre)
+    self.body:setPosition(centre:unpack())
     self.body:setAngle(math.rad(rotation))
 end
 

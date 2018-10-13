@@ -43,35 +43,33 @@ function GameState:init()
             table.insert(self.toys, Skateboard(self.physicsWorld, object.x, object.y))
 
         elseif object.name == "hangingBag" then
-            local hangingBag =
-                HangingBag(self.physicsWorld,
-                    object.x, object.y,
-                    object.properties.ropeLength,
-                    object.properties.bagWidth, object.properties.bagHeight,
-                    object.properties.pivotingJoint)
+            local hangingBag = HangingBag(
+                self.physicsWorld,
+                object.x, object.y,
+                object.properties.ropeLength,
+                object.properties.bagWidth, object.properties.bagHeight,
+                object.properties.pivotingJoint)
 
             table.insert(self.toys, hangingBag)
 
         elseif object.name == "ball" then
             local radius = (object.width + object.height) / 4
-            local ball =
-                Ball(self.physicsWorld,
-                    object.x + radius, object.y + radius,
-                    radius,
-                    checkStaticBool(object.properties.static)
-                )
+            local ball = Ball(
+                self.physicsWorld,
+                object.x + radius, object.y + radius,
+                radius,
+                checkStaticBool(object.properties.static))
 
             table.insert(self.toys, ball)
 
         elseif object.name == "rectangle" then
-            local rectangle =
-                Rectangle(self.physicsWorld,
-                    object.x + (object.width / 2),
-                    object.y + (object.height / 2),
-                    object.width, object.height,
-                    object.rotation,
-                    checkStaticBool(object.properties.static)
-                )
+            local rectangle = Rectangle(
+                self.physicsWorld,
+                object.x + (object.width / 2),
+                object.y + (object.height / 2),
+                object.width, object.height,
+                object.rotation,
+                checkStaticBool(object.properties.static))
 
             table.insert(self.toys, rectangle)
         end
