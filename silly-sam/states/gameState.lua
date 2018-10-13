@@ -103,6 +103,7 @@ function GameState:init()
             resetZoom = function() self.camera:zoomTo(1, self.map) end,
             closeGame = function() love.window.close() end,
             pause = function() StateManager.push(PauseState) end,
+            toggleWindow = function() self:toggleFullscreen() end,
         },
         keysPressed = {
             c = "left",
@@ -111,6 +112,7 @@ function GameState:init()
             m = "zoomIn",
             o = "zoomOut",
             f = "resetZoom",
+            t = "toggleWindow",
             escape = "closeGame",
             p = "pause",
         },
@@ -120,6 +122,7 @@ function GameState:init()
             dpup = "zoomIn",
             dpdown = "zoomOut",
             dpleft = "resetZoom",
+            dpright = "toggleWindow",
             back = "closeGame",
             b = "reset",
             start = "pause",
@@ -138,6 +141,13 @@ function GameState:init()
             "j",
         },
     }
+end
+
+function GameState:toggleFullscreen()
+    love.window.setFullscreen(not love.window.getFullscreen())
+
+    -- need to reset the map's scale.
+    self.camera:zoomTo(self.camera.scale, self.map)
 end
 
 function GameState:update(dt)
