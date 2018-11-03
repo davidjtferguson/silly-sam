@@ -100,6 +100,9 @@ function Sam:init(world, xSpawn, ySpawn)
         self.leftArm,
         self.rightArm,
     }
+
+    self.yPrevLeftFactor = 0
+    self.yPrevRightFractor = 0
 end
 
 function Sam:armForces(dt, arm, keyboardInputs, xaxis, yaxis)
@@ -132,12 +135,32 @@ function Sam:armForces(dt, arm, keyboardInputs, xaxis, yaxis)
     -- apply force to hands based on axis
     local forceFactor = 100*dt
 
-    -- onGround calculated on collision callbacks
-    if arm.onGround then
-        forceFactor = 3000*dt
-        xFactor = 0
+    -- minimum required difference in previous stick location and current stick location to apply strong upwards force
+    -- makes pushing oneself up need to be a deliberate move, isntead of trying to drag Sam around then ending up flinging them into the air
+    local shoveThreshold = -0.3
+
+    if xaxis == "leftx" then
+        if arm.onGround and (yFactor - self.yPrevLeftFactor) < shoveThreshold then
+            forceFactor = 3000*dt
+    
+            -- don't want any horizontal
+            xFactor = 0
+        end
+    
+        self.yPrevLeftFactor = yFactor
     end
 
+    if xaxis == "rightx" then
+        if arm.onGround and (yFactor - self.yPrevRightFactor) < shoveThreshold then
+            forceFactor = 3000*dt
+    
+            -- don't want any horizontal
+            xFactor = 0
+        end
+    
+        self.yPrevRightFactor = yFactor
+    end
+    
     -- why is the box2D angle and the math angle misaligned?! How annoying.
     -- or am I doing something stupid?
     local angle = arm.body:getAngle()+3.14/2
