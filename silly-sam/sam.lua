@@ -103,6 +103,9 @@ function Sam:init(world, xSpawn, ySpawn)
 
     self.yPrevLeftFactor = 0
     self.yPrevRightFractor = 0
+
+    self.leftTriggerDown = false
+    self.rightTriggerDown = false
 end
 
 function Sam:armForces(dt, arm, keyboardInputs, xaxis, yaxis)
@@ -195,10 +198,35 @@ function Sam:getKeyboardArmAngle(keyboardInputs)
     return xFactor, yFactor
 end
 
+function Sam:leftLegForces()
+    if joystick:getGamepadAxis("triggerleft") <= 0.7 and self.leftTriggerDown == true then
+        self.leftTriggerDown = false
+    end
+
+    if joystick:getGamepadAxis("triggerleft") > 0.7 and self.leftTriggerDown == false then
+        self:moveLeft()
+
+        self.leftTriggerDown = true
+    end
+end
+
+function Sam:rightLegForces()
+    if joystick:getGamepadAxis("triggerright") <= 0.7 and self.rightTriggerDown == true then
+        self.rightTriggerDown = false
+    end
+
+    if joystick:getGamepadAxis("triggerright") > 0.7 and self.rightTriggerDown == false then
+        self:moveRight()
+
+        self.rightTriggerDown = true
+    end
+end
+
 function Sam:moveLeft()
     if self.leftLeg.onGround then
         self:forceUpLeg(self.leftLeg)
 
+        -- shove a little bit left as well to help travelling
         self.leftLeg.body:applyForce(-1000, 0)
     end
 end
@@ -207,6 +235,7 @@ function Sam:moveRight()
     if self.rightLeg.onGround then
         self:forceUpLeg(self.rightLeg)
         
+        -- shove a little bit right as well to help travelling
         self.rightLeg.body:applyForce(1000, 0)
     end
 end

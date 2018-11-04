@@ -161,6 +161,9 @@ function GameState:update(dt)
 
     self.camera:updateCamera(self.sam, dt)
 
+    self.sam:leftLegForces()
+    self.sam:rightLegForces()
+
     self.sam:armForces(dt, self.sam.leftArm, self.controls.keysLeftArm, "leftx", "lefty");
     self.sam:armForces(dt, self.sam.rightArm, self.controls.keysRightArm, "rightx", "righty");
 end
