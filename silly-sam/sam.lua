@@ -137,10 +137,10 @@ function Sam:armForces(dt, arm, keyboardInputs, xaxis, yaxis)
 
     -- minimum required difference in previous stick location and current stick location to apply strong upwards force
     -- makes pushing oneself up need to be a deliberate move, isntead of trying to drag Sam around then ending up flinging them into the air
-    local shoveThreshold = -0.3
+    local pushThreshold = -20 * dt
 
     if xaxis == "leftx" then
-        if arm.onGround and (yFactor - self.yPrevLeftFactor) < shoveThreshold then
+        if arm.onGround and (yFactor - self.yPrevLeftFactor) < pushThreshold then
             forceFactor = 3000*dt
     
             -- don't want any horizontal
@@ -148,13 +148,9 @@ function Sam:armForces(dt, arm, keyboardInputs, xaxis, yaxis)
         end
     
         self.yPrevLeftFactor = yFactor
-    end
-
-    if xaxis == "rightx" then
-        if arm.onGround and (yFactor - self.yPrevRightFactor) < shoveThreshold then
+    elseif xaxis == "rightx" then
+        if arm.onGround and (yFactor - self.yPrevRightFactor) < pushThreshold then
             forceFactor = 3000*dt
-    
-            -- don't want any horizontal
             xFactor = 0
         end
     
