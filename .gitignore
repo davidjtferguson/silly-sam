@@ -44,3 +44,6 @@ luac.out
 
 # Mac Files
 *.DS_Store
+
+# Art folder
+/arts
