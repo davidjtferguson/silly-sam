@@ -100,6 +100,20 @@ function Sam:init(world, xSpawn, ySpawn)
         self.leftArm,
         self.rightArm,
     }
+
+    self.yPrevLeftFactor = 0
+    self.yPrevRightFractor = 0
+
+    self.leftTriggerDown = false
+    self.rightTriggerDown = false
+end
+
+function Sam:update(dt, controls)
+    self:armForces(dt, self.leftArm, controls.keysLeftArm, "leftx", "lefty");
+    self:armForces(dt, self.rightArm, controls.keysRightArm, "rightx", "righty");
+    
+    self:leftLegForces()
+    self:rightLegForces()
 end
 
 function Sam:armForces(dt, arm, keyboardInputs, xaxis, yaxis)
@@ -132,12 +146,28 @@ function Sam:armForces(dt, arm, keyboardInputs, xaxis, yaxis)
     -- apply force to hands based on axis
     local forceFactor = 100*dt
 
-    -- onGround calculated on collision callbacks
-    if arm.onGround then
-        forceFactor = 3000*dt
-        xFactor = 0
-    end
+    -- minimum required difference in previous stick location and current stick location to apply strong upwards force
+    -- makes pushing oneself up need to be a deliberate move, isntead of trying to drag Sam around then ending up flinging them into the air
+    local pushThreshold = -20 * dt
 
+    if xaxis == "leftx" then
+        if arm.onGround and (yFactor - self.yPrevLeftFactor) < pushThreshold then
+            forceFactor = 3000*dt
+    
+            -- don't want any horizontal
+            xFactor = 0
+        end
+    
+        self.yPrevLeftFactor = yFactor
+    elseif xaxis == "rightx" then
+        if arm.onGround and (yFactor - self.yPrevRightFactor) < pushThreshold then
+            forceFactor = 3000*dt
+            xFactor = 0
+        end
+    
+        self.yPrevRightFactor = yFactor
+    end
+    
     -- why is the box2D angle and the math angle misaligned?! How annoying.
     -- or am I doing something stupid?
     local angle = arm.body:getAngle()+3.14/2
@@ -176,10 +206,35 @@ function Sam:getKeyboardArmAngle(keyboardInputs)
     return xFactor, yFactor
 end
 
+function Sam:leftLegForces()
+    if joystick:getGamepadAxis("triggerleft") < 1 and self.leftTriggerDown == true then
+        self.leftTriggerDown = false
+    end
+
+    if joystick:getGamepadAxis("triggerleft") >= 1 and self.leftTriggerDown == false then
+        self:moveLeft()
+
+        self.leftTriggerDown = true
+    end
+end
+ 
+function Sam:rightLegForces()
+    if joystick:getGamepadAxis("triggerright") < 1 and self.rightTriggerDown == true then
+        self.rightTriggerDown = false
+    end
+
+    if joystick:getGamepadAxis("triggerright") >= 1 and self.rightTriggerDown == false then
+        self:moveRight()
+
+        self.rightTriggerDown = true
+    end
+end
+
 function Sam:moveLeft()
     if self.leftLeg.onGround then
         self:forceUpLeg(self.leftLeg)
 
+        -- shove a little bit left as well to help travelling
         self.leftLeg.body:applyForce(-1000, 0)
     end
 end
@@ -188,6 +243,7 @@ function Sam:moveRight()
     if self.rightLeg.onGround then
         self:forceUpLeg(self.rightLeg)
         
+        -- shove a little bit right as well to help travelling
         self.rightLeg.body:applyForce(1000, 0)
     end
 end

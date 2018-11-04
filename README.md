@@ -20,7 +20,7 @@ Xbox controller recommended.
 
 ### Joystick controls
 
-When on the ground left bumper puts a force up Sam's leg to make them move left, and right bumper puts a force up Sam's leg to make them move right.
+When on the ground left trigger puts a force up Sam's leg to make them move left, and right trigger puts a force up Sam's leg to make them move right.
 
 The left and right sticks make Sam's arms point at the same angle you put the stick in.
 So if you push both sticks up Sam will hold their arms in the air.

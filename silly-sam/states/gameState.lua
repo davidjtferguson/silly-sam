@@ -117,8 +117,7 @@ function GameState:init()
             p = "pause",
         },
         buttonsPressed = {
-            leftshoulder = "left",
-            rightshoulder = "right",
+            -- legs done via update with triggers
             dpup = "zoomIn",
             dpdown = "zoomOut",
             dpleft = "resetZoom",
@@ -161,8 +160,7 @@ function GameState:update(dt)
 
     self.camera:updateCamera(self.sam, dt)
 
-    self.sam:armForces(dt, self.sam.leftArm, self.controls.keysLeftArm, "leftx", "lefty");
-    self.sam:armForces(dt, self.sam.rightArm, self.controls.keysRightArm, "rightx", "righty");
+    self.sam:update(dt, self.controls)
 end
 
 -- input handling callbacks
