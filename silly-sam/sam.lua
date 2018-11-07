@@ -27,8 +27,15 @@ function Sam:init(world, xSpawn, ySpawn)
     self.leftLeg.fixture:setFriction(0.5)
     self.leftLeg.color = {0.1, 0.4, 1}
 
-    -- join to chest
-    self.leftLeg.joint = love.physics.newWeldJoint(self.chest.body, self.leftLeg.body, spawn.x-20, spawn.y+25)
+    -- join to chest with a little wiggle room
+    self.leftLeg.joint = love.physics.newPrismaticJoint(
+        self.chest.body, self.leftLeg.body,
+        spawn.x+20, spawn.y+20,
+        spawn.x+20, spawn.y+20,
+        0, 1, true, 0)
+
+    self.leftLeg.joint:setLimitsEnabled(true)
+    self.leftLeg.joint:setLimits(-5, 5)
 
     self.leftLeg.onGround = false
 
@@ -40,7 +47,14 @@ function Sam:init(world, xSpawn, ySpawn)
     self.rightLeg.fixture:setFriction(0.5)
     self.rightLeg.color = {0.7, 0.1, 0.1}
 
-    self.rightLeg.joint = love.physics.newWeldJoint(self.chest.body, self.rightLeg.body, spawn.x+20, spawn.y+25)
+    self.rightLeg.joint = love.physics.newPrismaticJoint(
+        self.chest.body, self.rightLeg.body,
+        spawn.x+20, spawn.y+20,
+        spawn.x+20, spawn.y+20,
+        0, 1, true, 0)
+
+    self.rightLeg.joint:setLimitsEnabled(true)
+    self.rightLeg.joint:setLimits(-5, 5)
 
     self.rightLeg.onGround = false
 
@@ -84,9 +98,9 @@ function Sam:init(world, xSpawn, ySpawn)
 
     -- this is for drawing
     self.rectParts = {
-        self.chest,
         self.leftLeg,
         self.rightLeg,
+        self.chest,
         self.leftArm,
         self.rightArm,
     }
