@@ -60,6 +60,7 @@ function Sam:init(world, xSpawn, ySpawn)
 
     -- head
     self.head = {}
+    self.head.image = love.graphics.newImage("assets/art/window_icon.png")
     self.head.body = love.physics.newBody(world, spawn.x, spawn.y-45, "dynamic")
     self.head.shape = love.physics.newCircleShape(15)
     self.head.fixture = love.physics.newFixture(self.head.body, self.head.shape, 0.5);
@@ -147,7 +148,7 @@ function Sam:armForces(dt, arm, keyboardInputs, xaxis, yaxis)
             yFactor = 0
         end
     end
-
+    
     -- check keyboard inputs
     local tempXFactor, tempYFactor = self:getKeyboardArmAngle(keyboardInputs)
     
@@ -272,8 +273,15 @@ function Sam:draw()
     for i in pairs(self.rectParts) do
         self:drawRectPhysicsObject(self.rectParts[i])
     end
-    
-    self:drawCirclePhysicsObject(self.head)
+
+    love.graphics.setColor(1, 1, 1, 1)
+
+    -- draw(image, xpos, ypos, angle, ratiox, ratioy, offsetx, offsety)
+    love.graphics.draw(self.head.image,
+        self.head.body:getX(), self.head.body:getY(),
+        self.head.body:getAngle(),
+        (self.head.shape:getRadius()*2)/self.head.image:getWidth(), (self.head.shape:getRadius()*2)/self.head.image:getHeight(),
+        self.head.image:getWidth()/2, self.head.image:getWidth()/2)
 end
 
 return Sam

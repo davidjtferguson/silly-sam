@@ -80,7 +80,7 @@ function GameState:init()
     if self.map.layers["objects"] then
         self.map:removeLayer("objects")
     end
-
+    
     self.physicsWorld:setCallbacks(
         function(body1, body2, contact)
             self:beginContact(body1, body2, contact)
