@@ -27,7 +27,7 @@ function Sam:init(world, xSpawn, ySpawn)
     -- chest
     self.chest = {}
     self.chest.body = love.physics.newBody(world, spawn.x, spawn.y, "dynamic")
-    self.chest.shape = love.physics.newRectangleShape(50, 50)
+    self.chest.shape = love.physics.newRectangleShape(50, 60)
     self.chest.fixture = love.physics.newFixture(self.chest.body, self.chest.shape);
     self.chest.fixture:setFriction(0.5)
     self.chest.color = {1, 1, 1}
@@ -36,7 +36,7 @@ function Sam:init(world, xSpawn, ySpawn)
 
     -- left leg
     self.leftLeg = {}
-    self.leftLeg.body = love.physics.newBody(world, spawn.x-20, spawn.y+45, "dynamic")
+    self.leftLeg.body = love.physics.newBody(world, spawn.x-20, spawn.y+55, "dynamic")
     self.leftLeg.shape = love.physics.newRectangleShape(17, 40)
     self.leftLeg.fixture = love.physics.newFixture(self.leftLeg.body, self.leftLeg.shape, 3);
     self.leftLeg.fixture:setFriction(0.5)
@@ -56,7 +56,7 @@ function Sam:init(world, xSpawn, ySpawn)
 
     -- right leg
     self.rightLeg = {}
-    self.rightLeg.body = love.physics.newBody(world, spawn.x+20, spawn.y+45, "dynamic")
+    self.rightLeg.body = love.physics.newBody(world, spawn.x+20, spawn.y+55, "dynamic")
     self.rightLeg.shape = love.physics.newRectangleShape(17, 40)
     self.rightLeg.fixture = love.physics.newFixture(self.rightLeg.body, self.rightLeg.shape, 3);
     self.rightLeg.fixture:setFriction(0.5)
@@ -75,7 +75,7 @@ function Sam:init(world, xSpawn, ySpawn)
 
     -- head
     self.head = {}
-    self.head.body = love.physics.newBody(world, spawn.x, spawn.y-45, "dynamic")
+    self.head.body = love.physics.newBody(world, spawn.x, spawn.y-55, "dynamic")
     self.head.shape = love.physics.newCircleShape(15)
     self.head.fixture = love.physics.newFixture(self.head.body, self.head.shape, 0.5);
     self.head.fixture:setFriction(0.5)
@@ -84,6 +84,8 @@ function Sam:init(world, xSpawn, ySpawn)
     self.head.joint = love.physics.newRevoluteJoint(self.chest.body, self.head.body, spawn.x, spawn.y-55)
 
     self.head.onGround = false
+
+    -- left arm
 
     self.leftArm = {}
     self.leftArm.width = 20
@@ -97,6 +99,8 @@ function Sam:init(world, xSpawn, ySpawn)
     self.leftArm.joint = love.physics.newRevoluteJoint(self.chest.body, self.leftArm.body, spawn.x-30, spawn.y-10)
 
     self.leftArm.onGround = false
+
+    -- right arm
 
     self.rightArm = {}
     self.rightArm.width = 20
