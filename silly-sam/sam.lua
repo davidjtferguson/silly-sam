@@ -22,7 +22,7 @@ function Sam:init(world, xSpawn, ySpawn)
     self.statics.armForce = 100
 
     -- multiplier when arm on ground and 'push up'
-    self.statics.pushForce = 3000
+    self.statics.pushForce = 4000
 
     -- chest
     self.chest = {}
@@ -36,8 +36,8 @@ function Sam:init(world, xSpawn, ySpawn)
 
     -- left leg
     self.leftLeg = {}
-    self.leftLeg.body = love.physics.newBody(world, spawn.x-20, spawn.y+55, "dynamic")
-    self.leftLeg.shape = love.physics.newRectangleShape(17, 40)
+    self.leftLeg.body = love.physics.newBody(world, spawn.x-20, spawn.y+60, "dynamic")
+    self.leftLeg.shape = love.physics.newRectangleShape(17, 45)
     self.leftLeg.fixture = love.physics.newFixture(self.leftLeg.body, self.leftLeg.shape, 3);
     self.leftLeg.fixture:setFriction(0.5)
     self.leftLeg.color = {0.1, 0.4, 1}
@@ -56,8 +56,8 @@ function Sam:init(world, xSpawn, ySpawn)
 
     -- right leg
     self.rightLeg = {}
-    self.rightLeg.body = love.physics.newBody(world, spawn.x+20, spawn.y+55, "dynamic")
-    self.rightLeg.shape = love.physics.newRectangleShape(17, 40)
+    self.rightLeg.body = love.physics.newBody(world, spawn.x+20, spawn.y+60, "dynamic")
+    self.rightLeg.shape = love.physics.newRectangleShape(17, 45)
     self.rightLeg.fixture = love.physics.newFixture(self.rightLeg.body, self.rightLeg.shape, 3);
     self.rightLeg.fixture:setFriction(0.5)
     self.rightLeg.color = {0.7, 0.1, 0.1}
@@ -81,7 +81,7 @@ function Sam:init(world, xSpawn, ySpawn)
     self.head.fixture:setFriction(0.5)
     self.head.color = {0.80, 0.20, 0.20}
 
-    self.head.joint = love.physics.newRevoluteJoint(self.chest.body, self.head.body, spawn.x, spawn.y-55)
+    self.head.joint = love.physics.newRevoluteJoint(self.chest.body, self.head.body, spawn.x, spawn.y-65)
 
     self.head.onGround = false
 
