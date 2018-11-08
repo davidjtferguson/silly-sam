@@ -1,4 +1,17 @@
-# object instructions
+# map creation instructions
+
+See "test-map-limited.tmx" in Tiled to see examples of everthing described here.
+
+Make sure to call your game objects layer in tiled "objects". This needs to be named as such so the game knows not to draw this layer, since this layer is only used for translating into game objects.
+
+## Tile Custom Properties
+
+- name: collidable
+- type: bool
+- description: Makes this tile create as a box2d static object if true
+- example: see the green tiles in test-tileset as used in test-map-limited
+
+## object instructions
 
 Each object has a specific name and different flags that are read from the map. Here is a description of each name and their related attributes
 

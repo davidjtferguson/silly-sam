@@ -75,6 +75,12 @@ function GameState:init()
         end
     end
 
+    -- remove the objects layer now we've created all the objects from it
+    -- ... the instructions say to call it objects so if it's not called objects it's outta my hands
+    if self.map.layers["objects"] then
+        self.map:removeLayer("objects")
+    end
+
     self.physicsWorld:setCallbacks(
         function(body1, body2, contact)
             self:beginContact(body1, body2, contact)

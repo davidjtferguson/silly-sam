@@ -36,7 +36,11 @@ function HangingBag:init(world, xSpawn, ySpawn, ropeLength, bagWidth, bagHeight,
         self.bagPivotPoint.color = {0.5, 0.5, 0.5}
 
         -- join pivot to the anchor
-        self.anchor.joint = love.physics.newRevoluteJoint(self.anchor.body, self.bagPivotPoint.body, xSpawn, ySpawn)
+        self.anchor.joint = love.physics.newRopeJoint(
+            self.anchor.body, self.bagPivotPoint.body,
+            xSpawn, ySpawn,
+            self.bagPivotPoint.body:getX(), self.bagPivotPoint.body:getY(),
+            ropeLength, false)
 
         -- join bag to pivot
         self.bag.joint = love.physics.newRevoluteJoint(self.bag.body, self.bagPivotPoint.body, self.bagPivotPoint.body:getX(), self.bagPivotPoint.body:getY())
