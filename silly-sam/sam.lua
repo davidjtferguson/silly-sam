@@ -269,19 +269,29 @@ function Sam:forceUpLeg(leg)
     leg.body:applyLinearImpulse(rotateImpulse(leg.body:getAngle(), 0, 100));
 end
 
-function Sam:draw()
-    for i in pairs(self.rectParts) do
-        self:drawRectPhysicsObject(self.rectParts[i])
+function Sam:draw(drawShapes, drawSprites)
+    -- default if no info given
+    drawShapes = drawShapes or false
+    drawSprites = drawSprites or true
+
+    if drawShapes then
+        for i in pairs(self.rectParts) do
+            self:drawRectPhysicsObject(self.rectParts[i])
+        end
+
+        self:drawCirclePhysicsObject(self.head)
     end
 
-    love.graphics.setColor(1, 1, 1, 1)
-
-    -- draw(image, xpos, ypos, angle, ratiox, ratioy, offsetx, offsety)
-    love.graphics.draw(self.head.image,
-        self.head.body:getX(), self.head.body:getY(),
-        self.head.body:getAngle(),
-        (self.head.shape:getRadius()*2)/self.head.image:getWidth(), (self.head.shape:getRadius()*2)/self.head.image:getHeight(),
-        self.head.image:getWidth()/2, self.head.image:getWidth()/2)
+    if drawSprites then
+        love.graphics.setColor(1, 1, 1, 1)
+        
+        -- draw(image, xpos, ypos, angle, ratiox, ratioy, offsetx, offsety)
+        love.graphics.draw(self.head.image,
+            self.head.body:getX(), self.head.body:getY(),
+            self.head.body:getAngle(),
+            (self.head.shape:getRadius()*2)/self.head.image:getWidth(), (self.head.shape:getRadius()*2)/self.head.image:getHeight(),
+            self.head.image:getWidth()/2, self.head.image:getWidth()/2)
+    end
 end
 
 return Sam
