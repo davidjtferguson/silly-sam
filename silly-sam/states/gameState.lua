@@ -239,11 +239,12 @@ function GameState:draw()
     self.map:draw(self.camera:getCameraToStiTransforms(self.map))
 
     self.camera:attach()
-    self.sam:draw(true, true)
-
     for i in pairs(self.toys) do
         self.toys[i]:draw()
     end
+
+    self.sam:draw(true, true)
+
     self.camera:detach()
 end
 

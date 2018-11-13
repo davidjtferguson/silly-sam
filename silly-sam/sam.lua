@@ -26,8 +26,11 @@ function Sam:init(world, xSpawn, ySpawn)
 
     -- chest
     self.chest = {}
+    self.chest.width = 50
+    self.chest.height = 60
+    self.chest.image = love.graphics.newImage("assets/art/sam-textures/chest.png")
     self.chest.body = love.physics.newBody(world, spawn.x, spawn.y, "dynamic")
-    self.chest.shape = love.physics.newRectangleShape(50, 60)
+    self.chest.shape = love.physics.newRectangleShape(self.chest.width, self.chest.height)
     self.chest.fixture = love.physics.newFixture(self.chest.body, self.chest.shape);
     self.chest.fixture:setFriction(0.5)
     self.chest.color = {1, 1, 1}
@@ -36,8 +39,11 @@ function Sam:init(world, xSpawn, ySpawn)
 
     -- left leg
     self.leftLeg = {}
+    self.leftLeg.width = 17
+    self.leftLeg.height = 45
+    self.leftLeg.image = love.graphics.newImage("assets/art/sam-textures/leg-left.png")
     self.leftLeg.body = love.physics.newBody(world, spawn.x-20, spawn.y+60, "dynamic")
-    self.leftLeg.shape = love.physics.newRectangleShape(17, 45)
+    self.leftLeg.shape = love.physics.newRectangleShape(self.leftLeg.width, self.leftLeg.height)
     self.leftLeg.fixture = love.physics.newFixture(self.leftLeg.body, self.leftLeg.shape, 3);
     self.leftLeg.fixture:setFriction(0.5)
     self.leftLeg.color = {0.1, 0.4, 1}
@@ -56,8 +62,11 @@ function Sam:init(world, xSpawn, ySpawn)
 
     -- right leg
     self.rightLeg = {}
+    self.rightLeg.width = 17
+    self.rightLeg.height = 45
+    self.rightLeg.image = love.graphics.newImage("assets/art/sam-textures/leg-right.png")
     self.rightLeg.body = love.physics.newBody(world, spawn.x+20, spawn.y+60, "dynamic")
-    self.rightLeg.shape = love.physics.newRectangleShape(17, 45)
+    self.rightLeg.shape = love.physics.newRectangleShape(self.rightLeg.width, self.rightLeg.height)
     self.rightLeg.fixture = love.physics.newFixture(self.rightLeg.body, self.rightLeg.shape, 3);
     self.rightLeg.fixture:setFriction(0.5)
     self.rightLeg.color = {0.7, 0.1, 0.1}
@@ -90,13 +99,14 @@ function Sam:init(world, xSpawn, ySpawn)
     self.leftArm = {}
     self.leftArm.width = 20
     self.leftArm.height = 35
-    self.leftArm.body = love.physics.newBody(world, spawn.x-30, spawn.y, "dynamic")
+    self.leftArm.image = love.graphics.newImage("assets/art/sam-textures/arm-left.png")
+    self.leftArm.body = love.physics.newBody(world, spawn.x-30, spawn.y-5, "dynamic")
     self.leftArm.shape = love.physics.newRectangleShape(self.leftArm.width, self.leftArm.height)
     self.leftArm.fixture = love.physics.newFixture(self.leftArm.body, self.leftArm.shape, 1);
     self.leftArm.fixture:setFriction(0.5)
     self.leftArm.color = {0.1, 0.4, 1}
 
-    self.leftArm.joint = love.physics.newRevoluteJoint(self.chest.body, self.leftArm.body, spawn.x-30, spawn.y-10)
+    self.leftArm.joint = love.physics.newRevoluteJoint(self.chest.body, self.leftArm.body, spawn.x-30, spawn.y-15)
 
     self.leftArm.onGround = false
 
@@ -104,13 +114,14 @@ function Sam:init(world, xSpawn, ySpawn)
     self.rightArm = {}
     self.rightArm.width = 20
     self.rightArm.height = 35
-    self.rightArm.body = love.physics.newBody(world, spawn.x+30, spawn.y, "dynamic")
+    self.rightArm.image = love.graphics.newImage("assets/art/sam-textures/arm-right.png")
+    self.rightArm.body = love.physics.newBody(world, spawn.x+30, spawn.y-5, "dynamic")
     self.rightArm.shape = love.physics.newRectangleShape(self.rightArm.width, self.rightArm.height)
     self.rightArm.fixture = love.physics.newFixture(self.rightArm.body, self.rightArm.shape, 1);
     self.rightArm.fixture:setFriction(0.5)
     self.rightArm.color = {0.7, 0.1, 0.1}
 
-    self.rightArm.joint = love.physics.newRevoluteJoint(self.chest.body, self.rightArm.body, spawn.x+30, spawn.y-10)
+    self.rightArm.joint = love.physics.newRevoluteJoint(self.chest.body, self.rightArm.body, spawn.x+30, spawn.y-15)
 
     self.rightArm.onGround = false
 
@@ -303,11 +314,41 @@ function Sam:draw(drawShapes, drawSprites)
         love.graphics.setColor(1, 1, 1, 1)
         
         -- draw(image, xpos, ypos, angle, ratiox, ratioy, offsetx, offsety)
+        love.graphics.draw(self.leftLeg.image,
+            self.leftLeg.body:getX(), self.leftLeg.body:getY(),
+            self.leftLeg.body:getAngle(),
+            self.leftLeg.width*1.25/self.leftLeg.image:getWidth(), self.leftLeg.height*1.25/self.leftLeg.image:getHeight(),
+            self.leftLeg.image:getWidth()/2, self.leftLeg.image:getHeight()/2)
+
+        love.graphics.draw(self.rightLeg.image,
+            self.rightLeg.body:getX(), self.rightLeg.body:getY(),
+            self.rightLeg.body:getAngle(),
+            self.rightLeg.width*1.25/self.rightLeg.image:getWidth(), self.rightLeg.height*1.25/self.rightLeg.image:getHeight(),
+            self.rightLeg.image:getWidth()/2, self.rightLeg.image:getHeight()/2)
+
+        love.graphics.draw(self.leftArm.image,
+            self.leftArm.body:getX(), self.leftArm.body:getY(),
+            self.leftArm.body:getAngle(),
+            self.leftArm.width*1.25/self.leftArm.image:getWidth(), self.leftArm.height*1.25/self.leftArm.image:getHeight(),
+            self.leftArm.image:getWidth()/2, self.leftArm.image:getHeight()/2)
+
+        love.graphics.draw(self.rightArm.image,
+            self.rightArm.body:getX(), self.rightArm.body:getY(),
+            self.rightArm.body:getAngle(),
+            self.rightArm.width*1.25/self.rightArm.image:getWidth(), self.rightArm.height*1.25/self.rightArm.image:getHeight(),
+            self.rightArm.image:getWidth()/2, self.rightArm.image:getHeight()/2)
+
+        love.graphics.draw(self.chest.image,
+            self.chest.body:getX(), self.chest.body:getY(),
+            self.chest.body:getAngle(),
+            self.chest.width*1.25/self.chest.image:getWidth(), self.chest.height*1.25/self.chest.image:getHeight(),
+            self.chest.image:getWidth()/2, self.chest.image:getHeight()/2)
+
         love.graphics.draw(self.head.image,
             self.head.body:getX(), self.head.body:getY(),
             self.head.body:getAngle(),
-            (self.head.shape:getRadius()*2)/self.head.image:getWidth(), (self.head.shape:getRadius()*2)/self.head.image:getHeight(),
-            self.head.image:getWidth()/2, self.head.image:getWidth()/2)
+            (self.head.shape:getRadius()*4)/self.head.image:getWidth(), (self.head.shape:getRadius()*4)/self.head.image:getHeight(),
+            self.head.image:getWidth()/2, self.head.image:getHeight()/2)
     end
 end
 
