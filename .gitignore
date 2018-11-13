@@ -47,3 +47,6 @@ luac.out
 
 # Configuration
 *.vscode/
+
+# Art folder
+/arts
