@@ -9,10 +9,25 @@ function Sam:init(world, xSpawn, ySpawn)
         y=ySpawn,
     }
 
+    -- 'statics' to control Sam's movements
+    self.statics = {}
+
+    -- force to move sam horizontally when using leg forces
+    self.statics.sidewardsLegForce = 1000
+
+    -- force going along sam's leg
+    self.statics.upwardsLegForce = 100
+
+    -- hand force from sticks
+    self.statics.armForce = 100
+
+    -- multiplier when arm on ground and 'push up'
+    self.statics.pushForce = 4000
+
     -- chest
     self.chest = {}
     self.chest.body = love.physics.newBody(world, spawn.x, spawn.y, "dynamic")
-    self.chest.shape = love.physics.newRectangleShape(0, 0, 50, 50)
+    self.chest.shape = love.physics.newRectangleShape(50, 60)
     self.chest.fixture = love.physics.newFixture(self.chest.body, self.chest.shape);
     self.chest.fixture:setFriction(0.5)
     self.chest.color = {1, 1, 1}
@@ -21,8 +36,8 @@ function Sam:init(world, xSpawn, ySpawn)
 
     -- left leg
     self.leftLeg = {}
-    self.leftLeg.body = love.physics.newBody(world, spawn.x-20, spawn.y+45, "dynamic")
-    self.leftLeg.shape = love.physics.newRectangleShape(0, 0, 17, 40)
+    self.leftLeg.body = love.physics.newBody(world, spawn.x-20, spawn.y+60, "dynamic")
+    self.leftLeg.shape = love.physics.newRectangleShape(17, 45)
     self.leftLeg.fixture = love.physics.newFixture(self.leftLeg.body, self.leftLeg.shape, 3);
     self.leftLeg.fixture:setFriction(0.5)
     self.leftLeg.color = {0.1, 0.4, 1}
@@ -41,8 +56,8 @@ function Sam:init(world, xSpawn, ySpawn)
 
     -- right leg
     self.rightLeg = {}
-    self.rightLeg.body = love.physics.newBody(world, spawn.x+20, spawn.y+45, "dynamic")
-    self.rightLeg.shape = love.physics.newRectangleShape(0, 0, 17, 40)
+    self.rightLeg.body = love.physics.newBody(world, spawn.x+20, spawn.y+60, "dynamic")
+    self.rightLeg.shape = love.physics.newRectangleShape(17, 45)
     self.rightLeg.fixture = love.physics.newFixture(self.rightLeg.body, self.rightLeg.shape, 3);
     self.rightLeg.fixture:setFriction(0.5)
     self.rightLeg.color = {0.7, 0.1, 0.1}
@@ -60,21 +75,23 @@ function Sam:init(world, xSpawn, ySpawn)
 
     -- head
     self.head = {}
-    self.head.body = love.physics.newBody(world, spawn.x, spawn.y-45, "dynamic")
+    self.head.body = love.physics.newBody(world, spawn.x, spawn.y-55, "dynamic")
     self.head.shape = love.physics.newCircleShape(15)
     self.head.fixture = love.physics.newFixture(self.head.body, self.head.shape, 0.5);
     self.head.fixture:setFriction(0.5)
     self.head.color = {0.80, 0.20, 0.20}
 
-    self.head.joint = love.physics.newRevoluteJoint(self.chest.body, self.head.body, spawn.x, spawn.y-55)
+    self.head.joint = love.physics.newRevoluteJoint(self.chest.body, self.head.body, spawn.x, spawn.y-65)
 
     self.head.onGround = false
+
+    -- left arm
 
     self.leftArm = {}
     self.leftArm.width = 20
     self.leftArm.height = 35
     self.leftArm.body = love.physics.newBody(world, spawn.x-30, spawn.y, "dynamic")
-    self.leftArm.shape = love.physics.newRectangleShape(0, 0, self.leftArm.width, self.leftArm.height)
+    self.leftArm.shape = love.physics.newRectangleShape(self.leftArm.width, self.leftArm.height)
     self.leftArm.fixture = love.physics.newFixture(self.leftArm.body, self.leftArm.shape, 1);
     self.leftArm.fixture:setFriction(0.5)
     self.leftArm.color = {0.1, 0.4, 1}
@@ -83,11 +100,13 @@ function Sam:init(world, xSpawn, ySpawn)
 
     self.leftArm.onGround = false
 
+    -- right arm
+
     self.rightArm = {}
     self.rightArm.width = 20
     self.rightArm.height = 35
     self.rightArm.body = love.physics.newBody(world, spawn.x+30, spawn.y, "dynamic")
-    self.rightArm.shape = love.physics.newRectangleShape(0, 0, self.rightArm.width, self.rightArm.height)
+    self.rightArm.shape = love.physics.newRectangleShape(self.rightArm.width, self.rightArm.height)
     self.rightArm.fixture = love.physics.newFixture(self.rightArm.body, self.rightArm.shape, 1);
     self.rightArm.fixture:setFriction(0.5)
     self.rightArm.color = {0.7, 0.1, 0.1}
@@ -158,15 +177,15 @@ function Sam:armForces(dt, arm, keyboardInputs, xaxis, yaxis)
     end
 
     -- apply force to hands based on axis
-    local forceFactor = 100*dt
+    local forceFactor = self.statics.armForce*dt
 
     -- minimum required difference in previous stick location and current stick location to apply strong upwards force
     -- makes pushing oneself up need to be a deliberate move, isntead of trying to drag Sam around then ending up flinging them into the air
-    local pushThreshold = -20 * dt
+    local pushThreshold = -20*dt
 
     if xaxis == "leftx" then
         if arm.onGround and (yFactor - self.yPrevLeftFactor) < pushThreshold then
-            forceFactor = 3000*dt
+            forceFactor = self.statics.pushForce*dt
     
             -- don't want any horizontal
             xFactor = 0
@@ -175,7 +194,7 @@ function Sam:armForces(dt, arm, keyboardInputs, xaxis, yaxis)
         self.yPrevLeftFactor = yFactor
     elseif xaxis == "rightx" then
         if arm.onGround and (yFactor - self.yPrevRightFactor) < pushThreshold then
-            forceFactor = 3000*dt
+            forceFactor = self.statics.pushForce*dt
             xFactor = 0
         end
     
@@ -249,7 +268,7 @@ function Sam:moveLeft()
         self:forceUpLeg(self.leftLeg)
 
         -- shove a little bit left as well to help travelling
-        self.leftLeg.body:applyForce(-1000, 0)
+        self.leftLeg.body:applyForce(-self.statics.sidewardsLegForce, 0)
     end
 end
 
@@ -258,14 +277,14 @@ function Sam:moveRight()
         self:forceUpLeg(self.rightLeg)
         
         -- shove a little bit right as well to help travelling
-        self.rightLeg.body:applyForce(1000, 0)
+        self.rightLeg.body:applyForce(self.statics.sidewardsLegForce, 0)
     end
 end
 
 function Sam:forceUpLeg(leg)
     -- the impulse needs to always be acting up the edge of the box, on the corner of the box
     -- so we need to find the impulse direction and the corner point of the object
-    leg.body:applyLinearImpulse(rotateImpulse(leg.body:getAngle(), 0, 100));
+    leg.body:applyLinearImpulse(rotateImpulse(leg.body:getAngle(), 0, self.statics.upwardsLegForce));
 end
 
 function Sam:draw()
