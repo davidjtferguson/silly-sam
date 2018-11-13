@@ -395,76 +395,29 @@ function Sam:draw(drawShapes, drawSprites)
     if drawSprites then
         love.graphics.setColor(1, 1, 1, 1)
         
-        -- draw(image, xpos, ypos, angle, ratiox, ratioy, offsetx, offsety)
-        love.graphics.draw(self.leftLeg.image,
-            self.leftLeg.body:getX(), self.leftLeg.body:getY(),
-            self.leftLeg.body:getAngle(),
-            self.leftLeg.width*1.25/self.leftLeg.image:getWidth(), self.leftLeg.height*1.25/self.leftLeg.image:getHeight(),
-            self.leftLeg.image:getWidth()/2, self.leftLeg.image:getHeight()/2)
-
-        love.graphics.draw(self.rightLeg.image,
-            self.rightLeg.body:getX(), self.rightLeg.body:getY(),
-            self.rightLeg.body:getAngle(),
-            self.rightLeg.width*1.25/self.rightLeg.image:getWidth(), self.rightLeg.height*1.25/self.rightLeg.image:getHeight(),
-            self.rightLeg.image:getWidth()/2, self.rightLeg.image:getHeight()/2)
-
-        love.graphics.draw(self.leftArm.image,
-            self.leftArm.body:getX(), self.leftArm.body:getY(),
-            self.leftArm.body:getAngle(),
-            self.leftArm.width*1.25/self.leftArm.image:getWidth(), self.leftArm.height*1.25/self.leftArm.image:getHeight(),
-            self.leftArm.image:getWidth()/2, self.leftArm.image:getHeight()/2)
-
-        love.graphics.draw(self.rightArm.image,
-            self.rightArm.body:getX(), self.rightArm.body:getY(),
-            self.rightArm.body:getAngle(),
-            self.rightArm.width*1.25/self.rightArm.image:getWidth(), self.rightArm.height*1.25/self.rightArm.image:getHeight(),
-            self.rightArm.image:getWidth()/2, self.rightArm.image:getHeight()/2)
-
-        love.graphics.draw(self.chest.image,
-            self.chest.body:getX(), self.chest.body:getY(),
-            self.chest.body:getAngle(),
-            self.chest.width*1.25/self.chest.image:getWidth(), self.chest.height*1.25/self.chest.image:getHeight(),
-            self.chest.image:getWidth()/2, self.chest.image:getHeight()/2)
+        self:drawRectTexturedObject(self.leftLeg, 1.25)
+        self:drawRectTexturedObject(self.rightLeg, 1.25)
+        
+        self:drawRectTexturedObject(self.leftArm, 1.25)
+        self:drawRectTexturedObject(self.rightArm, 1.25)
+        
+        self:drawRectTexturedObject(self.chest, 1.25)
 
         -- just drawing statically - should put into head sprite
         local hairImage = love.graphics.newImage("assets/art/sam-textures/hair.png")
-
         love.graphics.draw(hairImage,
             self.head.body:getX(), self.head.body:getY(),
             self.head.body:getAngle(),
             (self.head.shape:getRadius()*3.5)/hairImage:getWidth(), (self.head.shape:getRadius()*3.5)/hairImage:getHeight(),
             hairImage:getWidth()/2, hairImage:getHeight()/2)
 
-        love.graphics.draw(self.head.image,
-            self.head.body:getX(), self.head.body:getY(),
-            self.head.body:getAngle(),
-            (self.head.shape:getRadius()*4)/self.head.image:getWidth(), (self.head.shape:getRadius()*4)/self.head.image:getHeight(),
-            self.head.image:getWidth()/2, self.head.image:getHeight()/2-35)
+        self:drawCircTexturedObject(self.head, 2, 0, -35)
+        
+        self:drawCircTexturedObject(self.leftEye, 2)
+        self:drawCircTexturedObject(self.rightEye, 2)
 
-        love.graphics.draw(self.leftEye.image,
-            self.leftEye.body:getX(), self.leftEye.body:getY(),
-            self.leftEye.body:getAngle(),
-            (self.leftEye.shape:getRadius()*4)/self.leftEye.image:getWidth(), (self.leftEye.shape:getRadius()*4)/self.leftEye.image:getHeight(),
-            self.leftEye.image:getWidth()/2, self.leftEye.image:getHeight()/2)
-
-        love.graphics.draw(self.rightEye.image,
-            self.rightEye.body:getX(), self.rightEye.body:getY(),
-            self.rightEye.body:getAngle(),
-            (self.rightEye.shape:getRadius()*4)/self.rightEye.image:getWidth(), (self.rightEye.shape:getRadius()*4)/self.rightEye.image:getHeight(),
-            self.rightEye.image:getWidth()/2, self.rightEye.image:getHeight()/2)
-
-        love.graphics.draw(self.nose.image,
-            self.nose.body:getX(), self.nose.body:getY(),
-            self.nose.body:getAngle(),
-            self.nose.width*1.25/self.nose.image:getWidth(), self.nose.height*1.25/self.nose.image:getHeight(),
-            self.nose.image:getWidth()/2, self.nose.image:getHeight()/2)
-
-        love.graphics.draw(self.toupee.image,
-            self.toupee.body:getX(), self.toupee.body:getY(),
-            self.toupee.body:getAngle(),
-            self.toupee.width*2.5/self.toupee.image:getWidth(), self.toupee.height*2.5/self.toupee.image:getHeight(),
-            self.toupee.image:getWidth()/2, self.toupee.image:getHeight()/2)
-
+        self:drawRectTexturedObject(self.nose, 1.25)
+        self:drawRectTexturedObject(self.toupee, 2.5)
     end
 end
 
