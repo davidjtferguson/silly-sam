@@ -16,7 +16,7 @@ function Sam:init(world, xSpawn, ySpawn)
     self.statics.sidewardsLegForce = 1000
 
     -- force going along sam's leg
-    self.statics.upwardsLegForce = 100
+    self.statics.upwardsLegForce = 120
 
     -- hand force from sticks
     self.statics.armForce = 100
@@ -110,17 +110,17 @@ function Sam:init(world, xSpawn, ySpawn)
 
     -- toupee
     self.toupee = {}
-    self.toupee.width = 15
-    self.toupee.height = 7
+    self.toupee.width = 16
+    self.toupee.height = 7.3
     self.toupee.image = love.graphics.newImage("assets/art/sam-textures/toupee.png")
-    self.toupee.body = love.physics.newBody(world, spawn.x, spawn.y-76, "dynamic")
+    self.toupee.body = love.physics.newBody(world, spawn.x, spawn.y-75, "dynamic")
     self.toupee.body:setMass(0)
     self.toupee.shape = love.physics.newRectangleShape(self.toupee.width, self.toupee.height)
     self.toupee.fixture = love.physics.newFixture(self.toupee.body, self.toupee.shape, 1);
     self.toupee.fixture:setFriction(0.5)
     self.toupee.color = {0.1, 0.4, 1}
 
-    self.toupee.joint = love.physics.newRevoluteJoint(self.toupee.body, self.head.body, spawn.x-3, spawn.y-76)
+    self.toupee.joint = love.physics.newRevoluteJoint(self.toupee.body, self.head.body, spawn.x-3, spawn.y-75)
 
     self.toupee.onGround = false
 
@@ -152,14 +152,14 @@ function Sam:init(world, xSpawn, ySpawn)
 
     -- nose
     self.nose = {}
-    self.nose.width = 5
-    self.nose.height = 20
+    self.nose.width = 7
+    self.nose.height = 26
     self.nose.image = love.graphics.newImage("assets/art/sam-textures/nose.png")
-    self.nose.body = love.physics.newBody(world, spawn.x, spawn.y-60, "dynamic")
+    self.nose.body = love.physics.newBody(world, spawn.x, spawn.y-57, "dynamic")
     self.nose.shape = love.physics.newRectangleShape(self.nose.width, self.nose.height)
     self.nose.fixture = love.physics.newFixture(self.nose.body, self.nose.shape, 1);
     self.nose.fixture:setFriction(0.5)
-    self.nose.color = {0.1, 0.4, 1}
+    self.nose.color = {0.20, 0.30, 0.80}
 
     self.nose.joint = love.physics.newRevoluteJoint(self.nose.body, self.head.body, spawn.x, spawn.y-66)
 
@@ -252,6 +252,10 @@ function Sam:init(world, xSpawn, ySpawn)
         self.leftArm,
         self.rightArm,
         self.chin,
+        self.nose,
+        self.toupee,
+        self.leftHand,
+        self.rightHand,
     }
 
     self.yPrevLeftFactor = 0
@@ -461,12 +465,12 @@ function Sam:draw(drawShapes, drawSprites)
     drawSprites = drawSprites or false
 
     if drawShapes then
-        for i in pairs(self.rectParts) do
-            self:drawRectPhysicsObject(self.rectParts[i])
-        end
-
         for i in pairs(self.circParts) do
             self:drawCirclePhysicsObject(self.circParts[i])
+        end
+
+        for i in pairs(self.rectParts) do
+            self:drawRectPhysicsObject(self.rectParts[i])
         end
     end
 
