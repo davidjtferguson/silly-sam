@@ -45,5 +45,8 @@ luac.out
 # Mac Files
 *.DS_Store
 
+# Configuration
+*.vscode/
+
 # Art folder
 /arts

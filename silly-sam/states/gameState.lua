@@ -27,7 +27,7 @@ function GameState:init()
     self.physicsWorld = love.physics.newWorld(0, 10*100, true)
 
     -- load the map
-    self.map = Sti("maps/rory-test-map.lua", { "box2d" })
+    self.map = Sti("maps/test-map-limited-level.lua", { "box2d" })
     self.map:box2d_init(self.physicsWorld)
 
     -- table of stuff to interact with
@@ -80,7 +80,7 @@ function GameState:init()
     if self.map.layers["objects"] then
         self.map:removeLayer("objects")
     end
-
+    
     self.physicsWorld:setCallbacks(
         function(body1, body2, contact)
             self:beginContact(body1, body2, contact)
@@ -110,6 +110,10 @@ function GameState:init()
             closeGame = function() love.window.close() end,
             pause = function() StateManager.push(PauseState) end,
             toggleWindow = function() self:toggleFullscreen() end,
+            leftGrab = function() self.sam:leftGrab() end,
+            rightGrab = function() self.sam:rightGrab() end,
+            leftRelease = function() self.sam:leftRelease() end,
+            rightRelease = function() self.sam:rightRelease() end,
         },
         keysPressed = {
             c = "left",
@@ -121,6 +125,12 @@ function GameState:init()
             t = "toggleWindow",
             escape = "closeGame",
             p = "pause",
+            e = "leftGrab",
+            u = "rightGrab",
+        },
+        keysReleased = {
+            e = "leftRelease",
+            u = "rightRelease",
         },
         buttonsPressed = {
             -- legs done via update with triggers
@@ -131,6 +141,12 @@ function GameState:init()
             back = "closeGame",
             b = "reset",
             start = "pause",
+            leftshoulder = "leftGrab",
+            rightshoulder = "rightGrab",
+        },
+        buttonsReleased = {
+            leftshoulder = "leftRelease",
+            rightshoulder = "rightRelease",
         },
         -- clockwise arm inputs
         keysLeftArm = {
@@ -181,6 +197,16 @@ function GameState:gamepadpressed(gamepad, button)
     return inputHandler(binding)
 end
 
+function GameState:keyreleased(k)
+    local binding = self.controls.keysReleased[k]
+    return inputHandler(binding)
+end
+
+function GameState:gamepadreleased(gamepad, button)
+    local binding = self.controls.buttonsReleased[button]
+    return inputHandler(binding)
+end
+
 -- Should these should all be in a physics helper?
 function GameState:beginContact(fixture1, fixture2, contact)
     -- check the contact created is actually touching
@@ -198,6 +224,8 @@ function GameState:endContact(fixture1, fixture2, contact)
 end
 
 function GameState:bodyOnGround(body1, body2)
+
+    -- TODO: re-write using body:getUserData. Should set the user data for each body part to some identifier and then won't need the sam.allParts table or all this looping.
     -- if one body is a bodypart
     local isBody1Part = false
 
@@ -239,11 +267,12 @@ function GameState:draw()
     self.map:draw(self.camera:getCameraToStiTransforms(self.map))
 
     self.camera:attach()
-    self.sam:draw()
-
     for i in pairs(self.toys) do
         self.toys[i]:draw()
     end
+
+    self.sam:draw(true, true)
+
     self.camera:detach()
 end
 

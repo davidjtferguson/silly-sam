@@ -6,10 +6,9 @@ local StateManager = require "hump.gamestate"
 local GameState = require "states/gameState"
 
 function love.load()
-    
     love.window.setMode(1000, 600, {fullscreen = false})
 
-    imageData = love.image.newImageData( "assets/art/window_icon.png" )
+    imageData = love.image.newImageData("assets/art/window_icon.png")
     love.window.setIcon(imageData)
 
     love.window.setTitle("Silly Sam")
