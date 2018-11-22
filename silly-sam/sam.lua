@@ -180,6 +180,21 @@ function Sam:init(world, xSpawn, ySpawn)
 
     self.leftArm.onGround = false
 
+    local handToArmDistance = -8
+
+    -- left hand
+    self.leftHand = {}
+    self.leftHand.image = love.graphics.newImage("assets/art/sam-textures/hand-left-open.png")
+    self.leftHand.body = love.physics.newBody(world, spawn.x-30, spawn.y+self.leftArm.height+handToArmDistance, "dynamic")
+    self.leftHand.shape = love.physics.newCircleShape(8)
+    self.leftHand.fixture = love.physics.newFixture(self.leftHand.body, self.leftHand.shape, 1);
+    self.leftHand.color = {0.8, 0.4, 1}
+
+    self.leftHand.joint = love.physics.newWeldJoint(self.leftHand.body, self.leftArm.body, spawn.x-30, spawn.y-self.leftArm.height+handToArmDistance)
+
+    -- physics not applied - for checking collisions on 'grabbing'
+    self.leftHand.fixture:setSensor(true)
+
     -- right arm
     self.rightArm = {}
     self.rightArm.width = 20
@@ -194,6 +209,19 @@ function Sam:init(world, xSpawn, ySpawn)
     self.rightArm.joint = love.physics.newRevoluteJoint(self.chest.body, self.rightArm.body, spawn.x+30, spawn.y-15)
 
     self.rightArm.onGround = false
+
+    -- left hand
+    self.rightHand = {}
+    self.rightHand.image = love.graphics.newImage("assets/art/sam-textures/hand-right-open.png")
+    self.rightHand.body = love.physics.newBody(world, spawn.x+30, spawn.y+self.rightArm.height+handToArmDistance, "dynamic")
+    self.rightHand.shape = love.physics.newCircleShape(8)
+    self.rightHand.fixture = love.physics.newFixture(self.rightHand.body, self.rightHand.shape, 1);
+    self.rightHand.color = {0.8, 0.4, 1}
+
+    self.rightHand.joint = love.physics.newWeldJoint(self.rightHand.body, self.rightArm.body, spawn.x+30, spawn.y-self.rightArm.height+handToArmDistance)
+
+    -- physics not applied - for checking collisions on 'grabbing'
+    self.rightHand.fixture:setSensor(true)
 
     -- this is for drawing
     self.rectParts = {
@@ -211,6 +239,8 @@ function Sam:init(world, xSpawn, ySpawn)
         self.leftEye,
         self.rightEye,
         self.chin,
+        self.leftHand,
+        self.rightHand,
     }
 
     -- for logic
@@ -398,9 +428,6 @@ function Sam:draw(drawShapes, drawSprites)
         self:drawRectTexturedObject(self.leftLeg, 1.25)
         self:drawRectTexturedObject(self.rightLeg, 1.25)
         
-        self:drawRectTexturedObject(self.leftArm, 1.25)
-        self:drawRectTexturedObject(self.rightArm, 1.25)
-        
         self:drawRectTexturedObject(self.chest, 1.25)
 
         -- just drawing statically - should put into head sprite
@@ -418,6 +445,12 @@ function Sam:draw(drawShapes, drawSprites)
 
         self:drawRectTexturedObject(self.nose, 1.25)
         self:drawRectTexturedObject(self.toupee, 2.5)
+
+        self:drawRectTexturedObject(self.leftArm, 1.25)
+        self:drawRectTexturedObject(self.rightArm, 1.25)
+
+        self:drawCircTexturedObject(self.leftHand, 1.5)
+        self:drawCircTexturedObject(self.rightHand, 1.5)
     end
 end
 
