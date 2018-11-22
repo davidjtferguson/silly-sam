@@ -267,17 +267,6 @@ function Sam:update(dt, controls)
     
     self:leftLegForces()
     self:rightLegForces()
-
-    if love.keyboard.isDown("e") or joystick and joystick:isGamepadDown("leftshoulder") then
-        self.leftHand.image = love.graphics.newImage("assets/art/sam-textures/hand-left-closed.png")
-    else
-        self.leftHand.image = love.graphics.newImage("assets/art/sam-textures/hand-left-open.png")
-    end
-    if love.keyboard.isDown("u") or joystick and joystick:isGamepadDown("rightshoulder") then
-        self.rightHand.image = love.graphics.newImage("assets/art/sam-textures/hand-right-closed.png")
-    else
-        self.rightHand.image = love.graphics.newImage("assets/art/sam-textures/hand-right-open.png")
-    end
 end
 
 function Sam:armForces(dt, arm, keyboardInputs, xaxis, yaxis)
@@ -416,6 +405,22 @@ function Sam:forceUpLeg(leg)
     -- the impulse needs to always be acting up the edge of the box, on the corner of the box
     -- so we need to find the impulse direction and the corner point of the object
     leg.body:applyLinearImpulse(rotateImpulse(leg.body:getAngle(), 0, self.statics.upwardsLegForce));
+end
+
+function Sam:leftGrab()
+    self.leftHand.image = love.graphics.newImage("assets/art/sam-textures/hand-left-closed.png")
+end
+
+function Sam:leftRelease()
+    self.leftHand.image = love.graphics.newImage("assets/art/sam-textures/hand-left-open.png")
+end
+
+function Sam:rightGrab()
+    self.rightHand.image = love.graphics.newImage("assets/art/sam-textures/hand-right-closed.png")
+end
+
+function Sam:rightRelease()
+    self.rightHand.image = love.graphics.newImage("assets/art/sam-textures/hand-right-open.png")
 end
 
 function Sam:draw(drawShapes, drawSprites)

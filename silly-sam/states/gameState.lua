@@ -110,6 +110,10 @@ function GameState:init()
             closeGame = function() love.window.close() end,
             pause = function() StateManager.push(PauseState) end,
             toggleWindow = function() self:toggleFullscreen() end,
+            leftGrab = function() self.sam:leftGrab() end,
+            rightGrab = function() self.sam:rightGrab() end,
+            leftRelease = function() self.sam:leftRelease() end,
+            rightRelease = function() self.sam:rightRelease() end,
         },
         keysPressed = {
             c = "left",
@@ -121,6 +125,12 @@ function GameState:init()
             t = "toggleWindow",
             escape = "closeGame",
             p = "pause",
+            e = "leftGrab",
+            u = "rightGrab",
+        },
+        keysReleased = {
+            e = "leftRelease",
+            u = "rightRelease",
         },
         buttonsPressed = {
             -- legs done via update with triggers
@@ -131,6 +141,12 @@ function GameState:init()
             back = "closeGame",
             b = "reset",
             start = "pause",
+            leftshoulder = "leftGrab",
+            rightshoulder = "rightGrab",
+        },
+        buttonsReleased = {
+            leftshoulder = "leftRelease",
+            rightshoulder = "rightRelease",
         },
         -- clockwise arm inputs
         keysLeftArm = {
@@ -178,6 +194,16 @@ end
 
 function GameState:gamepadpressed(gamepad, button)
     local binding = self.controls.buttonsPressed[button]
+    return inputHandler(binding)
+end
+
+function GameState:keyreleased(k)
+    local binding = self.controls.keysReleased[k]
+    return inputHandler(binding)
+end
+
+function GameState:gamepadreleased(gamepad, button)
+    local binding = self.controls.buttonsReleased[button]
     return inputHandler(binding)
 end
 
