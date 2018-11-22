@@ -409,18 +409,50 @@ end
 
 function Sam:leftGrab()
     self.leftHand.image = love.graphics.newImage("assets/art/sam-textures/hand-left-closed.png")
-end
-
-function Sam:leftRelease()
-    self.leftHand.image = love.graphics.newImage("assets/art/sam-textures/hand-left-open.png")
+    self:handGrab(self.leftHand)
 end
 
 function Sam:rightGrab()
     self.rightHand.image = love.graphics.newImage("assets/art/sam-textures/hand-right-closed.png")
+
+    self:handGrab(self.rightHand)
+end
+
+-- Grab onto anything we've overlapping
+function Sam:handGrab(hand)
+    if #hand.body:getContacts() > 0 then
+        for _, contact in ipairs(hand.body:getContacts()) do
+            if contact:isTouching() then
+                -- great, find the correct body to join to the hand
+                fixturea, fixtureb = contact:getFixtures()
+
+                if fixturea == hand.fixture then
+                    hand.worldJoint = love.physics.newRevoluteJoint(hand.body, fixtureb:getBody(), hand.body:getX(), hand.body:getY())
+                else
+                    hand.worldJoint = love.physics.newRevoluteJoint(hand.body, fixturea:getBody(), hand.body:getX(), hand.body:getY())
+                end
+
+                break
+            end
+        end
+    end
+end
+
+function Sam:leftRelease()
+    self.leftHand.image = love.graphics.newImage("assets/art/sam-textures/hand-left-open.png")
+    self:handRelease(self.leftHand)
 end
 
 function Sam:rightRelease()
     self.rightHand.image = love.graphics.newImage("assets/art/sam-textures/hand-right-open.png")
+    self:handRelease(self.rightHand)
+end
+
+-- if we'd grabbed anything, release it
+function Sam:handRelease(hand)
+    if hand.worldJoint and not hand.worldJoint:isDestroyed() then
+        hand.worldJoint:destroy()
+    end
 end
 
 function Sam:draw(drawShapes, drawSprites)
