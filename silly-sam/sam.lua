@@ -267,6 +267,17 @@ function Sam:update(dt, controls)
     
     self:leftLegForces()
     self:rightLegForces()
+
+    if love.keyboard.isDown("e") or joystick and joystick:isGamepadDown("leftshoulder") then
+        self.leftHand.image = love.graphics.newImage("assets/art/sam-textures/hand-left-closed.png")
+    else
+        self.leftHand.image = love.graphics.newImage("assets/art/sam-textures/hand-left-open.png")
+    end
+    if love.keyboard.isDown("u") or joystick and joystick:isGamepadDown("rightshoulder") then
+        self.rightHand.image = love.graphics.newImage("assets/art/sam-textures/hand-right-closed.png")
+    else
+        self.rightHand.image = love.graphics.newImage("assets/art/sam-textures/hand-right-open.png")
+    end
 end
 
 function Sam:armForces(dt, arm, keyboardInputs, xaxis, yaxis)
