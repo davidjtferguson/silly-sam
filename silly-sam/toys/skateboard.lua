@@ -58,20 +58,9 @@ function Skateboard:init(world, mapObject)
 end
 
 function Skateboard:draw()
-    if self.board.image then
-        self:drawRectangleTexturedObject(self.board, 1)
-    else
-        self:drawRectanglePhysicsObject(self.board)
-    end
-
-    -- if one wheel has an image they both will
-    if self.leftWheel.image then
-        self:drawCircleTexturedObject(self.leftWheel, 1)
-        self:drawCircleTexturedObject(self.rightWheel, 1)
-    else
-        self:drawCirclePhysicsObject(self.leftWheel)
-        self:drawCirclePhysicsObject(self.rightWheel)
-    end
+    self:drawRectangleObject(self.board)
+    self:drawCircleObject(self.leftWheel)
+    self:drawCircleObject(self.rightWheel)
 end
 
 return Skateboard

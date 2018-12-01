@@ -22,11 +22,7 @@ function Ball:init(world, mapObject)
 end
 
 function Ball:draw()
-    if self.image then
-        self:drawCircleTexturedObject(self, 1)
-    else
-        self:drawCirclePhysicsObject(self)
-    end
+    self:drawCircleObject(self)
 end
 
 return Ball

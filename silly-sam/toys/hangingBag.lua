@@ -65,18 +65,14 @@ function HangingBag:draw()
         love.graphics.line(self.anchor.body:getX(), self.anchor.body:getY(), self.bagPivotPoint.body:getX(), self.bagPivotPoint.body:getY())
 
         -- some visual indicator of what type of bag it is
-        self:drawCirclePhysicsObject(self.bagPivotPoint)
+        self:drawCircleObject(self.bagPivotPoint)
     else
         love.graphics.line(self.anchor.body:getX(), self.anchor.body:getY(), self.bag.body:getX(), self.bag.body:getY())
     end
     
-    self:drawCirclePhysicsObject(self.anchor)
+    self:drawCircleObject(self.anchor)
 
-    if self.bag.image then
-        self:drawRectangleTexturedObject(self.bag, 1)
-    else
-        self:drawRectanglePhysicsObject(self.bag)
-    end
+    self:drawRectangleObject(self.bag)
 end
 
 return HangingBag

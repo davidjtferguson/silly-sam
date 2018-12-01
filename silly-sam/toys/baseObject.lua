@@ -2,16 +2,18 @@ local Class = require "hump.class"
 
 BaseObject = Class{}
 
+-- draws textured object if possible, otherwise defaults to the shape
+function BaseObject:drawRectangleObject(object)
+    if object.image then
+        self:drawRectangleTexturedObject(object, 1)
+    else
+        self:drawRectanglePhysicsObject(object)
+    end
+end
+
 function BaseObject:drawRectanglePhysicsObject(object)
     love.graphics.setColor(object.color)
     love.graphics.polygon("fill", object.body:getWorldPoints(object.shape:getPoints()))
-end
-
-function BaseObject:drawCirclePhysicsObject(object)
-    love.graphics.setColor(object.color)
-
-    local wx, wy = object.body:getWorldPoint(object.shape:getPoint())
-    love.graphics.circle("fill", wx, wy, object.shape:getRadius())
 end
 
 function BaseObject:drawRectangleTexturedObject(object, upscale)
@@ -23,6 +25,22 @@ function BaseObject:drawRectangleTexturedObject(object, upscale)
         object.body:getAngle(),
         object.width*upscale/object.image:getWidth(), object.height*upscale/object.image:getHeight(),
         object.image:getWidth()/2, object.image:getHeight()/2)
+end
+
+-- draws textured object if possible, otherwise defaults to the shape
+function BaseObject:drawCircleObject(object)
+    if object.image then
+        self:drawCircleTexturedObject(object, 1)
+    else
+        self:drawCirclePhysicsObject(object)
+    end
+end
+
+function BaseObject:drawCirclePhysicsObject(object)
+    love.graphics.setColor(object.color)
+
+    local wx, wy = object.body:getWorldPoint(object.shape:getPoint())
+    love.graphics.circle("fill", wx, wy, object.shape:getRadius())
 end
 
 function BaseObject:drawCircleTexturedObject(object, upscale, xOffset, yOffset)
