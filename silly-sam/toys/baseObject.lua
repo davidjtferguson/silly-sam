@@ -2,13 +2,6 @@ local Class = require "hump.class"
 
 BaseObject = Class{}
 
-local function checkStaticBool(static)
-    if static then
-        return "static"
-    end
-    return "dynamic"
-end
-
 function BaseObject:drawRectPhysicsObject(object)
     love.graphics.setColor(object.color)
     love.graphics.polygon("fill", object.body:getWorldPoints(object.shape:getPoints()))
@@ -40,6 +33,14 @@ function BaseObject:drawCircTexturedObject(object, upscale, xOffset, yOffset)
         object.body:getAngle(),
         (object.shape:getRadius()*2*upscale)/object.image:getWidth(), (object.shape:getRadius()*2*upscale)/object.image:getHeight(),
         object.image:getWidth()/2 + xOffset, object.image:getHeight()/2 + yOffset)
+end
+
+-- doesn't really make any sense to be on the base object isntead of floating around in some helper file but whatever.
+function BaseObject:checkStaticBool(static)
+    if static then
+        return "static"
+    end
+    return "dynamic"
 end
 
 return BaseObject

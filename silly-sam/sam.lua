@@ -3,10 +3,10 @@ local BaseObject = require "toys/baseObject"
 
 Sam = Class{__includes = BaseObject}
 
-function Sam:init(world, xSpawn, ySpawn)
+function Sam:init(world, mapObject)
     local spawn = {
-        x=xSpawn,
-        y=ySpawn,
+        x = mapObject.x,
+        y = mapObject.y,
     }
 
     -- 'statics' to control Sam's movements
