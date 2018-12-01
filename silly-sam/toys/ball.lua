@@ -19,6 +19,13 @@ function Ball:init(world, mapObject)
     if mapObject.properties.texturePath then
         self.image = love.graphics.newImage(mapObject.properties.texturePath)
     end
+    
+    -- check if we're important to the camera
+    self.cameraDistance = mapObject.properties.cameraDistance
+end
+
+function Ball:getPosition()
+    return self.body:getPosition()
 end
 
 function Ball:draw()

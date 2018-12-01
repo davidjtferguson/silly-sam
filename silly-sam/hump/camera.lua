@@ -230,12 +230,74 @@ end
 
 -- SILLY SAM SPECIFIC FUNCTIONS
 
-function camera:updateCamera(sam, dt)
-    -- move the camera to follow sam's chest position (as a quick implementation)
-    local samx, samy = sam.chest.body:getPosition()
-    local dx,dy = samx - self.x, samy - self.y
-    self:move(dx/2, dy/2)
+-- named as such incase we want different updates for different states.
+function camera:gamestateUpdate(sam, toys, map, dt)
+    -- all the positions we want the camera to focus on
+    local anchors = {
+        {
+            sam.chest.body:getPosition(),
+        },
+    }
 
+    for _, toy in ipairs(toys) do
+        -- find out how far away sam and the object are
+        local xsam, ysam = sam.chest.body:getPosition()
+
+        local xtoy, ytoy = toy:getPosition()
+
+        -- if the object is within distance, add it to the anchors
+        if toy.cameraDistance and math.abs(xsam - xtoy) < toy.cameraDistance and math.abs(ysam - ytoy) < toy.cameraDistance then
+            table.insert(anchors, { toy:getPosition() } )
+        end
+	end
+	
+	-- find centre of all anchors to focus camera on
+	local xtotal, ytotal = 0, 0
+
+	-- for scaling the camera. Set to whatever to default
+	local xmin, xmax, ymin, ymax = math.abs(anchors[1][1]), math.abs(anchors[1][1]), math.abs(anchors[1][2]), math.abs(anchors[1][2])
+
+    for i in pairs(anchors) do
+		xtotal = xtotal + anchors[i][1]
+		ytotal = ytotal + anchors[i][2]
+
+		if math.abs(anchors[i][1]) < xmin then
+			xmin = math.abs(anchors[i][1])
+		end
+		
+		if math.abs(anchors[i][1]) > xmax then
+			xmax = math.abs(anchors[i][1])
+		end
+		
+		if math.abs(anchors[i][2]) < ymin then
+			ymin = math.abs(anchors[i][2])
+		end
+		
+		if math.abs(anchors[i][2]) > ymax then
+			ymax = math.abs(anchors[i][2])
+		end
+	end
+
+	-- find distance to move and move to
+	local xcenter, ycenter = xtotal / #anchors, ytotal / #anchors
+
+    local dx, dy = xcenter - self.x, ycenter - self.y
+	self:move(dx/2, dy/2)
+
+	if #anchors > 1 then
+		-- find scale of farthest parts and zoom in or out accordingly
+		xdiff, ydiff = xmax-xmin, ymax-ymin
+
+		-- need to scale properly so each object can't leave the screen no matter how far away they are from eachother
+		-- as long as they're within cameraDistance of eachother
+		local zoomFactor = 1.5-((xdiff + ydiff)/2 / 500)
+
+		self:zoomTo(zoomFactor, map)
+	else
+		-- TODO: Should 'snap back' to sam a little more smoothly instead of chunking in the zoom in a onner.
+		self:zoomTo(1.1, map)
+	end
+	
     -- TODO: want to give camera some room where sam can move without camera
     -- and/or smooth it's movement
 end

@@ -323,8 +323,8 @@ return {
           rotation = 0,
           visible = true,
           properties = {
-            ["static"] = false,
-            ["texturePath"] = "assets/art/window_icon.png"
+            ["cameraDistance"] = 700,
+            ["static"] = false
           }
         },
         {
@@ -374,22 +374,6 @@ return {
           visible = true,
           properties = {
             ["static"] = false
-          }
-        },
-        {
-          id = 50,
-          name = "rectangle",
-          type = "",
-          shape = "rectangle",
-          x = 404.567,
-          y = 264.016,
-          width = 50.6667,
-          height = 49.3333,
-          rotation = 0.9,
-          gid = 6,
-          visible = true,
-          properties = {
-            ["static"] = true
           }
         }
       }

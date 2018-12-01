@@ -55,6 +55,13 @@ function Skateboard:init(world, mapObject)
     self.rightWheel.joint = love.physics.newRevoluteJoint(self.board.body, self.rightWheel.body, xRightWheelSpawn, yRightWheelSpawn)
 
     self.rightWheel.image = wheelImage
+
+    -- check if we're important to the camera
+    self.cameraDistance = mapObject.properties.cameraDistance
+end
+
+function Skateboard:getPosition()
+    return self.board.body:getPosition()
 end
 
 function Skateboard:draw()

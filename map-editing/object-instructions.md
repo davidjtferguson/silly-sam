@@ -30,6 +30,8 @@ Each object has a specific name and different flags that are read from the map. 
    texturePathBoard - string: a filepath to the texture to be used for the board.
    
    texturePathWheel - string: a filepath to the texture to be used for the wheels.
+   
+   cameraDistance - float: If the distance between sam and this object is less than cameraDistance both in the x and the y axis the camera will move and zoom in or out to get both sam and this object in frame. If no objects with the cameraDistance attribute are close enough to Sam the camera will focus on Sam. If multiple objects are within cameraDistance of Sam the camera will centre on the average of all those object's positions and Sam's position and zoom out accordingly.
 
 - name: hangingBag
 - tiled object: point
@@ -45,6 +47,8 @@ Each object has a specific name and different flags that are read from the map. 
    ropeLength - float: the distance between the anchor and the bag.
    
    texturePath - string: a filepath to the texture to be used for the bag.
+   
+   cameraDistance - float: same as for other objects.
 
 - name: ball
 - tiled object: eclipse
@@ -54,6 +58,8 @@ Each object has a specific name and different flags that are read from the map. 
 	static - bool: if true, object will never move. If false will be a 'dynamic' object and move.
 	
 	texturePath - string: a filepath to the texture to be used for the ball.
+   
+    cameraDistance - float: same as for other objects.
 	
 - name: rectangle
 - tiled object: rectangle
@@ -63,3 +69,5 @@ Each object has a specific name and different flags that are read from the map. 
 	static - bool: if true, object will never move. If false will be a 'dynamic' object and move.
 	
 	texturePath - string: a filepath to the texture to be used for the rectangle.
+	
+    cameraDistance - float: same as for other objects.

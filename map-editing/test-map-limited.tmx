@@ -156,8 +156,8 @@
   </object>
   <object id="15" name="ball" x="1223" y="429" width="210" height="210">
    <properties>
+    <property name="cameraDistance" type="float" value="700"/>
     <property name="static" type="bool" value="false"/>
-    <property name="texturePath" value="assets/art/window_icon.png"/>
    </properties>
    <ellipse/>
   </object>

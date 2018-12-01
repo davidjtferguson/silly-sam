@@ -31,8 +31,6 @@ Press B to reset the game.
 
 Press back to close the game.
 
-On the d-pad, use up to zoom in, down to zoom out and left to reset.
-
 Press right on the d-pad to toggle fullscreen.
 
 ### Keyboard controls
@@ -47,9 +45,7 @@ Press R to reset the game.
 
 Press Esc. to close the game.
 
-Use M to zoom in, O to zoom out and F to reset.
-
-Use T to toggle fullscreen.
+Use F to toggle fullscreen.
 
 ## Branch labels
 
