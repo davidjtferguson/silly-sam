@@ -181,11 +181,6 @@
     <property name="static" type="bool" value="false"/>
    </properties>
   </object>
-  <object id="50" name="rectangle" gid="6" x="404.567" y="264.016" width="50.6667" height="49.3333" rotation="0.9">
-   <properties>
-    <property name="static" type="bool" value="true"/>
-   </properties>
-  </object>
  </objectgroup>
  <layer id="3" name="terrain" width="100" height="100">
   <data encoding="csv">
