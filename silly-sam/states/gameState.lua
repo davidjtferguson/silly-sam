@@ -63,13 +63,7 @@ function GameState:init()
             table.insert(self.toys, ball)
 
         elseif object.name == "rectangle" then
-            local rectangle = Rectangle(
-                self.physicsWorld,
-                object.x + (object.width / 2),
-                object.y + (object.height / 2),
-                object.width, object.height,
-                object.rotation,
-                checkStaticBool(object.properties.static))
+            local rectangle = Rectangle(self.physicsWorld, object)
 
             table.insert(self.toys, rectangle)
         end

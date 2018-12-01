@@ -2,6 +2,13 @@ local Class = require "hump.class"
 
 BaseObject = Class{}
 
+local function checkStaticBool(static)
+    if static then
+        return "static"
+    end
+    return "dynamic"
+end
+
 function BaseObject:drawRectPhysicsObject(object)
     love.graphics.setColor(object.color)
     love.graphics.polygon("fill", object.body:getWorldPoints(object.shape:getPoints()))
