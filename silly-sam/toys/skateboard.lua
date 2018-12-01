@@ -9,14 +9,15 @@ function Skateboard:init(world, mapObject)
 
     -- board
     self.board = {}
+    self.board.width, self.board.height = 100, 5
     self.board.body = love.physics.newBody(world, xSpawn, ySpawn, "dynamic")
-    self.board.shape = love.physics.newRectangleShape(0, 0, 100, 5)
+    self.board.shape = love.physics.newRectangleShape(0, 0, self.board.width, self.board.height)
     self.board.fixture = love.physics.newFixture(self.board.body, self.board.shape);
     self.board.fixture:setFriction(0.9)
     self.board.color = {1, 0.2, 0.7}
 
     if mapObject.properties.texturePathBoard then
-        self.board.image = love.graphics.newImage(mapObject.properties.texturePath)
+        self.board.image = love.graphics.newImage(mapObject.properties.texturePathBoard)
     end
 
     -- Some vars for controlling wheel positions and size
@@ -57,9 +58,20 @@ function Skateboard:init(world, mapObject)
 end
 
 function Skateboard:draw()
-    self:drawRectPhysicsObject(self.board)
-    self:drawCirclePhysicsObject(self.leftWheel)
-    self:drawCirclePhysicsObject(self.rightWheel)
+    if self.board.image then
+        self:drawRectangleTexturedObject(self.board, 1)
+    else
+        self:drawRectanglePhysicsObject(self.board)
+    end
+
+    -- if one wheel has an image they both will
+    if self.leftWheel.image then
+        self:drawCircleTexturedObject(self.leftWheel, 1)
+        self:drawCircleTexturedObject(self.rightWheel, 1)
+    else
+        self:drawCirclePhysicsObject(self.leftWheel)
+        self:drawCirclePhysicsObject(self.rightWheel)
+    end
 end
 
 return Skateboard

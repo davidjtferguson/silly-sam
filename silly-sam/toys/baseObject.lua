@@ -2,7 +2,7 @@ local Class = require "hump.class"
 
 BaseObject = Class{}
 
-function BaseObject:drawRectPhysicsObject(object)
+function BaseObject:drawRectanglePhysicsObject(object)
     love.graphics.setColor(object.color)
     love.graphics.polygon("fill", object.body:getWorldPoints(object.shape:getPoints()))
 end
@@ -14,7 +14,9 @@ function BaseObject:drawCirclePhysicsObject(object)
     love.graphics.circle("fill", wx, wy, object.shape:getRadius())
 end
 
-function BaseObject:drawRectTexturedObject(object, upscale)
+function BaseObject:drawRectangleTexturedObject(object, upscale)
+    love.graphics.setColor(1, 1, 1, 1)
+
     -- draw(image, xpos, ypos, angle, ratiox, ratioy, offsetx, offsety)
     love.graphics.draw(object.image,
         object.body:getX(), object.body:getY(),
@@ -23,9 +25,11 @@ function BaseObject:drawRectTexturedObject(object, upscale)
         object.image:getWidth()/2, object.image:getHeight()/2)
 end
 
-function BaseObject:drawCircTexturedObject(object, upscale, xOffset, yOffset)
+function BaseObject:drawCircleTexturedObject(object, upscale, xOffset, yOffset)
     xOffset = xOffset or 0
     yOffset = yOffset or 0
+
+    love.graphics.setColor(1, 1, 1, 1)
 
     -- draw(image, xpos, ypos, angle, ratiox, ratioy, offsetx, offsety)
     love.graphics.draw(object.image,

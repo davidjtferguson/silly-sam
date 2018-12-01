@@ -8,7 +8,6 @@ function HangingBag:init(world, mapObject)
     -- calculate values from map object
     local xSpawn, ySpawn = mapObject.x, mapObject.y
     local ropeLength = mapObject.properties.ropeLength
-    self.bagWidth, self.bagHeight = mapObject.properties.bagWidth, mapObject.properties.bagHeight
     local pivotingJoint = mapObject.properties.pivotingJoint
 
     self.ropeColour = {0.9, 0.9, 0.9}
@@ -22,8 +21,9 @@ function HangingBag:init(world, mapObject)
     self.anchor.color = {0.5, 0.5, 0.5}
 
     self.bag = {}
+    self.bag.width, self.bag.height = mapObject.properties.bagWidth, mapObject.properties.bagHeight
     self.bag.body = love.physics.newBody(world, xSpawn, ySpawn+ropeLength, "dynamic")
-    self.bag.shape = love.physics.newRectangleShape(0, 0, self.bagWidth, self.bagHeight)
+    self.bag.shape = love.physics.newRectangleShape(0, 0, self.bag.width, self.bag.height)
     self.bag.fixture = love.physics.newFixture(self.bag.body, self.bag.shape, 0.5);
     self.bag.fixture:setFriction(0.5)
     self.bag.fixture:setDensity(1)
@@ -36,7 +36,7 @@ function HangingBag:init(world, mapObject)
     if pivotingJoint then
         -- create another object between the bag and the rope to allow the bag to rotate around the join to the rope
         self.bagPivotPoint = {}
-        self.bagPivotPoint.body = love.physics.newBody(world, xSpawn, ySpawn+ropeLength-self.bagHeight/2, "dynamic")
+        self.bagPivotPoint.body = love.physics.newBody(world, xSpawn, ySpawn+ropeLength-self.bag.height/2, "dynamic")
         self.bagPivotPoint.shape = love.physics.newCircleShape(5)
         self.bagPivotPoint.fixture = love.physics.newFixture(self.bagPivotPoint.body, self.bagPivotPoint.shape, 0.5);
         self.bagPivotPoint.fixture:setFriction(0.5)
@@ -71,7 +71,12 @@ function HangingBag:draw()
     end
     
     self:drawCirclePhysicsObject(self.anchor)
-    self:drawRectPhysicsObject(self.bag)
+
+    if self.bag.image then
+        self:drawRectangleTexturedObject(self.bag, 1)
+    else
+        self:drawRectanglePhysicsObject(self.bag)
+    end
 end
 
 return HangingBag

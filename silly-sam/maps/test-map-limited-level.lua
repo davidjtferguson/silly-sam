@@ -89,7 +89,7 @@ return {
       y = 0,
       width = 100,
       height = 100,
-      visible = false,
+      visible = true,
       opacity = 1,
       offsetx = 0,
       offsety = 0,
@@ -233,7 +233,10 @@ return {
           height = 0,
           rotation = 0,
           visible = true,
-          properties = {}
+          properties = {
+            ["texturePathBoard"] = "assets/art/sam-textures/arm-left.png",
+            ["texturePathWheel"] = "assets/art/sam-textures/eye-left.png"
+          }
         },
         {
           id = 7,
@@ -250,7 +253,8 @@ return {
             ["bagHeight"] = 40,
             ["bagWidth"] = 100,
             ["pivotingJoint"] = false,
-            ["ropeLength"] = 250
+            ["ropeLength"] = 250,
+            ["texturePath"] = "assets/art/sam-textures/arm-left.png"
           }
         },
         {
@@ -319,7 +323,8 @@ return {
           rotation = 0,
           visible = true,
           properties = {
-            ["static"] = false
+            ["static"] = false,
+            ["texturePath"] = "assets/art/window_icon.png"
           }
         },
         {
@@ -334,7 +339,8 @@ return {
           rotation = -53.3838,
           visible = true,
           properties = {
-            ["static"] = true
+            ["static"] = true,
+            ["texturePath"] = "assets/art/map/BGtile.png"
           }
         },
         {

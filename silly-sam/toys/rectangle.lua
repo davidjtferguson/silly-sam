@@ -41,7 +41,11 @@ function Rectangle:init(world, mapObject)
 end
 
 function Rectangle:draw()
-    self:drawRectPhysicsObject(self)
+    if self.image then
+        self:drawRectangleTexturedObject(self, 1)
+    else
+        self:drawRectanglePhysicsObject(self)
+    end
 end
 
 return Rectangle

@@ -470,17 +470,17 @@ function Sam:draw(drawShapes, drawSprites)
         end
 
         for i in pairs(self.rectParts) do
-            self:drawRectPhysicsObject(self.rectParts[i])
+            self:drawRectanglePhysicsObject(self.rectParts[i])
         end
     end
 
     if drawSprites then
         love.graphics.setColor(1, 1, 1, 1)
         
-        self:drawRectTexturedObject(self.leftLeg, 1.25)
-        self:drawRectTexturedObject(self.rightLeg, 1.25)
+        self:drawRectangleTexturedObject(self.leftLeg, 1.25)
+        self:drawRectangleTexturedObject(self.rightLeg, 1.25)
         
-        self:drawRectTexturedObject(self.chest, 1.25)
+        self:drawRectangleTexturedObject(self.chest, 1.25)
 
         -- just drawing statically - should put into head sprite
         local hairImage = love.graphics.newImage("assets/art/sam-textures/hair.png")
@@ -490,19 +490,19 @@ function Sam:draw(drawShapes, drawSprites)
             (self.head.shape:getRadius()*3.5)/hairImage:getWidth(), (self.head.shape:getRadius()*3.5)/hairImage:getHeight(),
             hairImage:getWidth()/2, hairImage:getHeight()/2)
 
-        self:drawCircTexturedObject(self.head, 2, 0, -35)
+        self:drawCircleTexturedObject(self.head, 2, 0, -35)
         
-        self:drawCircTexturedObject(self.leftEye, 2)
-        self:drawCircTexturedObject(self.rightEye, 2)
+        self:drawCircleTexturedObject(self.leftEye, 2)
+        self:drawCircleTexturedObject(self.rightEye, 2)
 
-        self:drawRectTexturedObject(self.nose, 1.25)
-        self:drawRectTexturedObject(self.toupee, 2.5)
+        self:drawRectangleTexturedObject(self.nose, 1.25)
+        self:drawRectangleTexturedObject(self.toupee, 2.5)
 
-        self:drawRectTexturedObject(self.leftArm, 1.25)
-        self:drawRectTexturedObject(self.rightArm, 1.25)
+        self:drawRectangleTexturedObject(self.leftArm, 1.25)
+        self:drawRectangleTexturedObject(self.rightArm, 1.25)
 
-        self:drawCircTexturedObject(self.leftHand, 1.5)
-        self:drawCircTexturedObject(self.rightHand, 1.5)
+        self:drawCircleTexturedObject(self.leftHand, 1.5)
+        self:drawCircleTexturedObject(self.rightHand, 1.5)
     end
 end
 
