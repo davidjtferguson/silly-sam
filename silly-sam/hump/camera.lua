@@ -294,10 +294,8 @@ function camera:gamestateUpdate(sam, toys, map, dt)
 
 		self:zoomTo(zoomFactor, map)
 	else
-		-- Do we just want this, or do we want it to remain controllable?
-		-- Camera should be controlled by objects with cameraDistance, so outside of that is kinda fair game.
-		-- Not going to change rn since I'd also have to remove the zoom in and out code.
-		--self:zoomTo(1.1, map)
+		-- TODO: Should 'snap back' to sam a little more smoothly instead of chunking in the zoom in a onner.
+		self:zoomTo(1.1, map)
 	end
 	
     -- TODO: want to give camera some room where sam can move without camera
