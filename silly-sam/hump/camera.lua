@@ -231,7 +231,7 @@ end
 -- SILLY SAM SPECIFIC FUNCTIONS
 
 -- named as such incase we want different updates for different states.
-function camera:gamestateUpdate(sam, toys, dt)
+function camera:gamestateUpdate(sam, toys, map, dt)
     -- all the positions we want the camera to focus on
     local anchors = {
         {
@@ -292,9 +292,14 @@ function camera:gamestateUpdate(sam, toys, dt)
 		-- as long as they're within cameraDistance of eachother
 		local zoomFactor = 1.5-((xdiff + ydiff)/2 / 500)
 
-		self:zoomTo(zoomFactor)
+		self:zoomTo(zoomFactor, map)
+	else
+		-- Do we just want this, or do we want it to remain controllable?
+		-- Camera should be controlled by objects with cameraDistance, so outside of that is kinda fair game.
+		-- Not going to change rn since I'd also have to remove the zoom in and out code.
+		--self:zoomTo(1.1, map)
 	end
-
+	
     -- TODO: want to give camera some room where sam can move without camera
     -- and/or smooth it's movement
 end

@@ -323,8 +323,8 @@ return {
           rotation = 0,
           visible = true,
           properties = {
-            ["static"] = false,
-            ["texturePath"] = "assets/art/window_icon.png"
+            ["cameraDistance"] = 700,
+            ["static"] = false
           }
         },
         {
@@ -339,7 +339,6 @@ return {
           rotation = -53.3838,
           visible = true,
           properties = {
-            ["cameraDistance"] = 500,
             ["static"] = true,
             ["texturePath"] = "assets/art/map/BGtile.png"
           }

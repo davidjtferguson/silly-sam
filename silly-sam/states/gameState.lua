@@ -85,7 +85,7 @@ function GameState:init()
             zoomIn = function() self.camera:zoom(1.1, self.map) end,
             zoomOut = function() self.camera:zoom(0.9, self.map) end,
             resetZoom = function() self.camera:zoomTo(1, self.map) end,
-            closeGame = function() love.window.close() end,
+            closeGame = function() love.event.quit() end,
             pause = function() StateManager.push(PauseState) end,
             toggleWindow = function() self:toggleFullscreen() end,
             leftGrab = function() self.sam:leftGrab() end,
@@ -158,7 +158,7 @@ function GameState:update(dt)
     
     self.physicsWorld:update(dt)
 
-    self.camera:gamestateUpdate(self.sam, self.toys, dt)
+    self.camera:gamestateUpdate(self.sam, self.toys, self.map, dt)
 
     self.sam:update(dt, self.controls)
 end
