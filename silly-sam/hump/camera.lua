@@ -254,15 +254,46 @@ function camera:gamestateUpdate(sam, toys, dt)
 	-- find centre of all anchors to focus camera on
 	local xtotal, ytotal = 0, 0
 
+	-- for scaling the camera. Set to whatever to default
+	local xmin, xmax, ymin, ymax = math.abs(anchors[1][1]), math.abs(anchors[1][1]), math.abs(anchors[1][2]), math.abs(anchors[1][2])
+
     for i in pairs(anchors) do
 		xtotal = xtotal + anchors[i][1]
 		ytotal = ytotal + anchors[i][2]
+
+		if math.abs(anchors[i][1]) < xmin then
+			xmin = math.abs(anchors[i][1])
+		end
+		
+		if math.abs(anchors[i][1]) > xmax then
+			xmax = math.abs(anchors[i][1])
+		end
+		
+		if math.abs(anchors[i][2]) < ymin then
+			ymin = math.abs(anchors[i][2])
+		end
+		
+		if math.abs(anchors[i][2]) > ymax then
+			ymax = math.abs(anchors[i][2])
+		end
 	end
 
+	-- find distance to move and move to
 	local xcenter, ycenter = xtotal / #anchors, ytotal / #anchors
 
     local dx, dy = xcenter - self.x, ycenter - self.y
-    self:move(dx/2, dy/2)
+	self:move(dx/2, dy/2)
+
+	if #anchors > 1 then
+		-- find scale of farthest parts and zoom in or out accordingly
+		xdiff, ydiff = xmax-xmin, ymax-ymin
+
+		-- need to scale properly so each object can't leave the screen no matter how far away they are from eachother
+		-- as long as they're within cameraDistance of eachother
+		local zoomFactor = 1.5-((xdiff + ydiff)/2 / 500)
+
+		self:zoomTo(zoomFactor)
+	end
 
     -- TODO: want to give camera some room where sam can move without camera
     -- and/or smooth it's movement
