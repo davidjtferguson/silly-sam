@@ -27,11 +27,13 @@ Each object has a specific name and different flags that are read from the map. 
 - description: Spawns a Skateboard object at the x and y position of this tiled point
 - custom properties:
 
-   None
+   texturePathBoard - string: a filepath to the texture to be used for the board.
+   
+   texturePathWheel - string: a filepath to the texture to be used for the wheels.
 
 - name: hangingBag
 - tiled object: point
-- description: a hanging bag object. A static 'anchor' with a 'rope' and a dynamic block ('bag') at the end of the rope. The static anchor spawns at the x and y position of this tiled point.
+- description: a hanging bag object. A static 'anchor' with a 'rope' and a dynamic block ('bag') at the end of the rope. The static anchor spawns at the x and y position of this tiled point. The 'rope' is not a physics object, it's just a line drawn from the anchor to the bag object.
 - custom properties:
 
    bagHeight - float: the height of the bag object.
@@ -41,6 +43,8 @@ Each object has a specific name and different flags that are read from the map. 
    pivotingJoint - bool: If false, the bag is revolution joined directly onto the anchor. This means the entire bag is always rotated towards the anchor. This is handy for swinging platforms. If true, the anchor is revolution joined to a pivot point at the other end of the rope and the bag is revolution joined to this pivot point. This means while the bag still rotates around the anchor, it can also rotate 'locally' independantly of the rope, which makes it act a little more like an actual punching bag.
    
    ropeLength - float: the distance between the anchor and the bag.
+   
+   texturePath - string: a filepath to the texture to be used for the bag.
 
 - name: ball
 - tiled object: eclipse
@@ -49,9 +53,13 @@ Each object has a specific name and different flags that are read from the map. 
 
 	static - bool: if true, object will never move. If false will be a 'dynamic' object and move.
 	
+	texturePath - string: a filepath to the texture to be used for the ball.
+	
 - name: rectangle
 - tiled object: rectangle
 - description: creates a rectangle at the x and y position of the tiled rectangle, with the same rotation.
 - custom properties:
 
 	static - bool: if true, object will never move. If false will be a 'dynamic' object and move.
+	
+	texturePath - string: a filepath to the texture to be used for the rectangle.

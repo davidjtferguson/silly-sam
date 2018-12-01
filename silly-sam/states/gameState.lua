@@ -37,41 +37,19 @@ function GameState:init()
     for k, object in pairs(self.map.objects) do
         if object.name == "sam" then
             -- create sam instance
-            self.sam = Sam(self.physicsWorld, object.x, object.y)
+            self.sam = Sam(self.physicsWorld, object)
 
         elseif object.name == "skateboard" then
-            table.insert(self.toys, Skateboard(self.physicsWorld, object.x, object.y))
+            table.insert(self.toys, Skateboard(self.physicsWorld, object))
 
         elseif object.name == "hangingBag" then
-            local hangingBag = HangingBag(
-                self.physicsWorld,
-                object.x, object.y,
-                object.properties.ropeLength,
-                object.properties.bagWidth, object.properties.bagHeight,
-                object.properties.pivotingJoint)
-
-            table.insert(self.toys, hangingBag)
+            table.insert(self.toys, HangingBag(self.physicsWorld, object))
 
         elseif object.name == "ball" then
-            local radius = (object.width + object.height) / 4
-            local ball = Ball(
-                self.physicsWorld,
-                object.x + radius, object.y + radius,
-                radius,
-                checkStaticBool(object.properties.static))
-
-            table.insert(self.toys, ball)
+            table.insert(self.toys, Ball(self.physicsWorld, object))
 
         elseif object.name == "rectangle" then
-            local rectangle = Rectangle(
-                self.physicsWorld,
-                object.x + (object.width / 2),
-                object.y + (object.height / 2),
-                object.width, object.height,
-                object.rotation,
-                checkStaticBool(object.properties.static))
-
-            table.insert(self.toys, rectangle)
+            table.insert(self.toys, Rectangle(self.physicsWorld, object))
         end
     end
 

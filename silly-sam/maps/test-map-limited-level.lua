@@ -1,14 +1,15 @@
 return {
-  version = "1.1",
+  version = "1.2",
   luaversion = "5.1",
-  tiledversion = "1.1.6",
+  tiledversion = "1.2.1",
   orientation = "orthogonal",
   renderorder = "right-down",
   width = 100,
   height = 100,
   tilewidth = 32,
   tileheight = 32,
-  nextobjectid = 41,
+  nextlayerid = 5,
+  nextobjectid = 52,
   properties = {},
   tilesets = {
     {
@@ -19,6 +20,7 @@ return {
       tileheight = 32,
       spacing = 0,
       margin = 0,
+      columns = 1,
       image = "../assets/art/map/test-tileset-image.png",
       imagewidth = 32,
       imageheight = 64,
@@ -50,11 +52,38 @@ return {
           }
         }
       }
+    },
+    {
+      name = "BG",
+      firstgid = 3,
+      filename = "../../map-editing/rory-tileset.tsx",
+      tilewidth = 32,
+      tileheight = 32,
+      spacing = 0,
+      margin = 0,
+      columns = 2,
+      image = "../assets/art/map/BGtile.png",
+      imagewidth = 88,
+      imageheight = 88,
+      tileoffset = {
+        x = 0,
+        y = 0
+      },
+      grid = {
+        orientation = "orthogonal",
+        width = 32,
+        height = 32
+      },
+      properties = {},
+      terrains = {},
+      tilecount = 4,
+      tiles = {}
     }
   },
   layers = {
     {
       type = "tilelayer",
+      id = 1,
       name = "background",
       x = 0,
       y = 0,
@@ -171,6 +200,7 @@ return {
     },
     {
       type = "objectgroup",
+      id = 2,
       name = "objects",
       visible = true,
       opacity = 1,
@@ -203,7 +233,10 @@ return {
           height = 0,
           rotation = 0,
           visible = true,
-          properties = {}
+          properties = {
+            ["texturePathBoard"] = "assets/art/sam-textures/arm-left.png",
+            ["texturePathWheel"] = "assets/art/sam-textures/eye-left.png"
+          }
         },
         {
           id = 7,
@@ -220,7 +253,8 @@ return {
             ["bagHeight"] = 40,
             ["bagWidth"] = 100,
             ["pivotingJoint"] = false,
-            ["ropeLength"] = 250
+            ["ropeLength"] = 250,
+            ["texturePath"] = "assets/art/sam-textures/arm-left.png"
           }
         },
         {
@@ -289,7 +323,8 @@ return {
           rotation = 0,
           visible = true,
           properties = {
-            ["static"] = false
+            ["static"] = false,
+            ["texturePath"] = "assets/art/window_icon.png"
           }
         },
         {
@@ -304,7 +339,8 @@ return {
           rotation = -53.3838,
           visible = true,
           properties = {
-            ["static"] = true
+            ["static"] = true,
+            ["texturePath"] = "assets/art/map/BGtile.png"
           }
         },
         {
@@ -339,11 +375,28 @@ return {
           properties = {
             ["static"] = false
           }
+        },
+        {
+          id = 50,
+          name = "rectangle",
+          type = "",
+          shape = "rectangle",
+          x = 404.567,
+          y = 264.016,
+          width = 50.6667,
+          height = 49.3333,
+          rotation = 0.9,
+          gid = 6,
+          visible = true,
+          properties = {
+            ["static"] = true
+          }
         }
       }
     },
     {
       type = "tilelayer",
+      id = 3,
       name = "terrain",
       x = 0,
       y = 0,
