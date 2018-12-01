@@ -339,6 +339,7 @@ return {
           rotation = -53.3838,
           visible = true,
           properties = {
+            ["cameraDistance"] = 500,
             ["static"] = true,
             ["texturePath"] = "assets/art/map/BGtile.png"
           }
@@ -374,22 +375,6 @@ return {
           visible = true,
           properties = {
             ["static"] = false
-          }
-        },
-        {
-          id = 50,
-          name = "rectangle",
-          type = "",
-          shape = "rectangle",
-          x = 404.567,
-          y = 264.016,
-          width = 50.6667,
-          height = 49.3333,
-          rotation = 0.9,
-          gid = 6,
-          visible = true,
-          properties = {
-            ["static"] = true
           }
         }
       }

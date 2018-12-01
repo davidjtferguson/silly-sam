@@ -230,10 +230,38 @@ end
 
 -- SILLY SAM SPECIFIC FUNCTIONS
 
-function camera:updateCamera(sam, dt)
-    -- move the camera to follow sam's chest position (as a quick implementation)
-    local samx, samy = sam.chest.body:getPosition()
-    local dx,dy = samx - self.x, samy - self.y
+-- named as such incase we want different updates for different states.
+function camera:gamestateUpdate(sam, toys, dt)
+    -- all the positions we want the camera to focus on
+    local anchors = {
+        {
+            sam.chest.body:getPosition(),
+        },
+    }
+
+    for _, toy in ipairs(toys) do
+        -- find out how far away sam and the object are
+        local xsam, ysam = sam.chest.body:getPosition()
+
+        local xtoy, ytoy = toy:getPosition()
+
+        -- if the object is within distance, add it to the anchors
+        if toy.cameraDistance and math.abs(xsam - xtoy) < toy.cameraDistance and math.abs(ysam - ytoy) < toy.cameraDistance then
+            table.insert(anchors, { toy:getPosition() } )
+        end
+	end
+	
+	-- find centre of all anchors to focus camera on
+	local xtotal, ytotal = 0, 0
+
+    for i in pairs(anchors) do
+		xtotal = xtotal + anchors[i][1]
+		ytotal = ytotal + anchors[i][2]
+	end
+
+	local xcenter, ycenter = xtotal / #anchors, ytotal / #anchors
+
+    local dx, dy = xcenter - self.x, ycenter - self.y
     self:move(dx/2, dy/2)
 
     -- TODO: want to give camera some room where sam can move without camera

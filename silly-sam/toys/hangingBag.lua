@@ -55,6 +55,13 @@ function HangingBag:init(world, mapObject)
         -- connect the anchor to the bag directly
         self.anchor.joint = love.physics.newRevoluteJoint(self.anchor.body, self.bag.body, xSpawn, ySpawn)
     end
+    
+    -- check if we're important to the camera
+    self.cameraDistance = mapObject.properties.cameraDistance
+end
+
+function HangingBag:getPosition()
+    return self.bag.body:getPosition()
 end
 
 function HangingBag:draw()

@@ -158,7 +158,7 @@ function GameState:update(dt)
     
     self.physicsWorld:update(dt)
 
-    self.camera:updateCamera(self.sam, dt)
+    self.camera:gamestateUpdate(self.sam, self.toys, dt)
 
     self.sam:update(dt, self.controls)
 end
