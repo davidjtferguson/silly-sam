@@ -110,40 +110,46 @@ function Sam:init(world, mapObject)
 
     -- toupee
     self.toupee = {}
-    self.toupee.width = 16
+    self.toupee.width = 20
     self.toupee.height = 7.3
     self.toupee.image = love.graphics.newImage("assets/art/sam-textures/toupee.png")
-    self.toupee.body = love.physics.newBody(world, spawn.x, spawn.y-75, "dynamic")
+    self.toupee.body = love.physics.newBody(world, spawn.x+5, spawn.y-75, "dynamic")
     self.toupee.body:setMass(0)
     self.toupee.shape = love.physics.newRectangleShape(self.toupee.width, self.toupee.height)
     self.toupee.fixture = love.physics.newFixture(self.toupee.body, self.toupee.shape, 1);
-    self.toupee.fixture:setFriction(0.5)
+    self.toupee.fixture:setFriction(1)
     self.toupee.color = {0.1, 0.4, 1}
 
-    self.toupee.joint = love.physics.newRevoluteJoint(self.toupee.body, self.head.body, spawn.x-3, spawn.y-75)
+    self.toupee.joint = love.physics.newRevoluteJoint(self.toupee.body, self.head.body, spawn.x-20, spawn.y-75)
+    
+    -- self.toupee.joint:enableLimit(enable) trying to enable limit on joint
 
     self.toupee.onGround = false
 
     -- left eye
     self.leftEye = {}
-    self.leftEye.image = love.graphics.newImage("assets/art/sam-textures/eye-left.png")
-    self.leftEye.body = love.physics.newBody(world, spawn.x-7, spawn.y-59, "dynamic")
+    self.leftEye.width = 20
+    self.leftEye.height = 100
+    self.leftEye.image = love.graphics.newImage("assets/art/sam-textures/eye-right.png")
+    self.leftEye.body = love.physics.newBody(world, spawn.x-7, spawn.y-51, "dynamic")
     self.leftEye.shape = love.physics.newCircleShape(2)
     self.leftEye.fixture = love.physics.newFixture(self.leftEye.body, self.leftEye.shape, 0.5);
-    self.leftEye.fixture:setFriction(0.5)
+    self.leftEye.fixture:setFriction(0.9)
     self.leftEye.color = {0.20, 0.70, 0.20}
 
-    self.leftEye.joint = love.physics.newRevoluteJoint(self.leftEye.body, self.head.body, spawn.x-7, spawn.y-59)
+    self.leftEye.joint = love.physics.newRevoluteJoint(self.leftEye.body, self.head.body, spawn.x, spawn.y-51)
 
     self.leftEye.onGround = false
 
     -- right eye
     self.rightEye = {}
-    self.rightEye.image = love.graphics.newImage("assets/art/sam-textures/eye-right.png")
-    self.rightEye.body = love.physics.newBody(world, spawn.x+7, spawn.y-55, "dynamic")
+    self.rightEye.width = 20
+    self.rightEye.height = 100
+    self.rightEye.image = love.graphics.newImage("assets/art/sam-textures/eye-left.png")
+    self.rightEye.body = love.physics.newBody(world, spawn.x+10, spawn.y-50, "dynamic")
     self.rightEye.shape = love.physics.newCircleShape(2)
     self.rightEye.fixture = love.physics.newFixture(self.rightEye.body, self.rightEye.shape, 0.5);
-    self.rightEye.fixture:setFriction(0.5)
+    self.rightEye.fixture:setFriction(0.9)
     self.rightEye.color = {0.20, 0.70, 0.20}
 
     self.rightEye.joint = love.physics.newRevoluteJoint(self.rightEye.body, self.head.body, spawn.x+7, spawn.y-56)
@@ -152,16 +158,16 @@ function Sam:init(world, mapObject)
 
     -- nose
     self.nose = {}
-    self.nose.width = 7
-    self.nose.height = 26
+    self.nose.width = 15
+    self.nose.height = 28
     self.nose.image = love.graphics.newImage("assets/art/sam-textures/nose.png")
-    self.nose.body = love.physics.newBody(world, spawn.x, spawn.y-57, "dynamic")
+    self.nose.body = love.physics.newBody(world, spawn.x+1, spawn.y-57, "dynamic")
     self.nose.shape = love.physics.newRectangleShape(self.nose.width, self.nose.height)
     self.nose.fixture = love.physics.newFixture(self.nose.body, self.nose.shape, 1);
-    self.nose.fixture:setFriction(0.5)
+    self.nose.fixture:setFriction(.8)
     self.nose.color = {0.20, 0.30, 0.80}
 
-    self.nose.joint = love.physics.newRevoluteJoint(self.nose.body, self.head.body, spawn.x, spawn.y-66)
+    self.nose.joint = love.physics.newRevoluteJoint(self.nose.body, self.head.body, spawn.x+1, spawn.y-66)
 
     self.nose.onGround = false
 
@@ -170,13 +176,13 @@ function Sam:init(world, mapObject)
     self.leftArm.width = 20
     self.leftArm.height = 35
     self.leftArm.image = love.graphics.newImage("assets/art/sam-textures/arm-left.png")
-    self.leftArm.body = love.physics.newBody(world, spawn.x-30, spawn.y-5, "dynamic")
+    self.leftArm.body = love.physics.newBody(world, spawn.x-30, spawn.y, "dynamic")
     self.leftArm.shape = love.physics.newRectangleShape(self.leftArm.width, self.leftArm.height)
     self.leftArm.fixture = love.physics.newFixture(self.leftArm.body, self.leftArm.shape, 1);
     self.leftArm.fixture:setFriction(0.5)
     self.leftArm.color = {0.1, 0.4, 1}
 
-    self.leftArm.joint = love.physics.newRevoluteJoint(self.chest.body, self.leftArm.body, spawn.x-30, spawn.y-15)
+    self.leftArm.joint = love.physics.newRevoluteJoint(self.chest.body, self.leftArm.body, spawn.x-30, spawn.y-10)
 
     self.leftArm.onGround = false
 
@@ -200,13 +206,13 @@ function Sam:init(world, mapObject)
     self.rightArm.width = 20
     self.rightArm.height = 35
     self.rightArm.image = love.graphics.newImage("assets/art/sam-textures/arm-right.png")
-    self.rightArm.body = love.physics.newBody(world, spawn.x+30, spawn.y-5, "dynamic")
+    self.rightArm.body = love.physics.newBody(world, spawn.x+30, spawn.y, "dynamic")
     self.rightArm.shape = love.physics.newRectangleShape(self.rightArm.width, self.rightArm.height)
     self.rightArm.fixture = love.physics.newFixture(self.rightArm.body, self.rightArm.shape, 1);
     self.rightArm.fixture:setFriction(0.5)
     self.rightArm.color = {0.7, 0.1, 0.1}
 
-    self.rightArm.joint = love.physics.newRevoluteJoint(self.chest.body, self.rightArm.body, spawn.x+30, spawn.y-15)
+    self.rightArm.joint = love.physics.newRevoluteJoint(self.chest.body, self.rightArm.body, spawn.x+30, spawn.y-10)
 
     self.rightArm.onGround = false
 
@@ -487,16 +493,16 @@ function Sam:draw(drawShapes, drawSprites)
         love.graphics.draw(hairImage,
             self.head.body:getX(), self.head.body:getY(),
             self.head.body:getAngle(),
-            (self.head.shape:getRadius()*3.5)/hairImage:getWidth(), (self.head.shape:getRadius()*3.5)/hairImage:getHeight(),
-            hairImage:getWidth()/2, hairImage:getHeight()/2)
+            (self.head.shape:getRadius()*3.5)/hairImage:getWidth(), (self.head.shape:getRadius()*4.5)/hairImage:getHeight(),
+            hairImage:getWidth()/2, hairImage:getHeight()/1.75)
 
         self:drawCircleTexturedObject(self.head, 2, 0, -35)
         
-        self:drawCircleTexturedObject(self.leftEye, 2)
-        self:drawCircleTexturedObject(self.rightEye, 2)
+        self:drawCircleTexturedObject(self.leftEye, 3, 10, 10)
+        self:drawCircleTexturedObject(self.rightEye, 3, 10, 10)
 
         self:drawRectangleTexturedObject(self.nose, 1.25)
-        self:drawRectangleTexturedObject(self.toupee, 2.5)
+        self:drawRectangleTexturedObject(self.toupee, 3)
 
         self:drawRectangleTexturedObject(self.leftArm, 1.25)
         self:drawRectangleTexturedObject(self.rightArm, 1.25)

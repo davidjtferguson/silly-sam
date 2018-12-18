@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" tiledversion="1.1.6" orientation="orthogonal" renderorder="right-down" width="100" height="100" tilewidth="32" tileheight="32" infinite="0" nextobjectid="15">
+<map version="1.0" tiledversion="1.1.6" orientation="orthogonal" renderorder="right-down" width="100" height="100" tilewidth="32" tileheight="32" infinite="0" nextobjectid="22">
  <tileset firstgid="1" source="test-tileset.tsx"/>
  <tileset firstgid="3" source="rory-tileset.tsx"/>
  <layer name="Background" width="100" height="100">
@@ -107,24 +107,19 @@
 </data>
  </layer>
  <objectgroup name="gameObjectLayer">
-  <object id="2" name="ball" x="1446.33" y="1433.67" width="220" height="220">
+  <object id="2" name="ball" x="1517.33" y="1456.67" width="220" height="220">
    <properties>
     <property name="static" type="bool" value="true"/>
    </properties>
    <ellipse/>
   </object>
-  <object id="5" name="rectangle" x="1121.33" y="1500" width="1049.33" height="244">
-   <properties>
-    <property name="static" type="bool" value="true"/>
-   </properties>
-  </object>
-  <object id="7" name="ball" x="1587.33" y="1371.33" width="417.333" height="401.333">
+  <object id="7" name="ball" x="1600.33" y="1415.33" width="417.333" height="401.333">
    <properties>
     <property name="static" type="bool" value="true"/>
    </properties>
    <ellipse/>
   </object>
-  <object id="8" name="ball" x="1839.33" y="1442" width="220" height="220">
+  <object id="8" name="ball" x="1834.33" y="1457" width="220" height="220">
    <properties>
     <property name="static" type="bool" value="true"/>
    </properties>
@@ -145,16 +140,23 @@
    </properties>
    <point/>
   </object>
-  <object id="13" name="rectangle" x="1671.34" y="1502" width="1049.33" height="244">
-   <properties>
-    <property name="static" type="bool" value="true"/>
-   </properties>
-  </object>
   <object id="14" name="ball" x="2325.33" y="1429.33" width="281.333" height="261.333">
    <properties>
     <property name="static" type="bool" value="true"/>
    </properties>
    <ellipse/>
+  </object>
+  <object id="20" name="rectangle" x="1162.42" y="1201.92" width="214.054" height="365.828" rotation="-9.60624">
+   <properties>
+    <property name="static" type="bool" value="true"/>
+    <property name="texturePath" value="assets/art/environment-textures/tree-triangle.png"/>
+   </properties>
+  </object>
+  <object id="21" name="rectangle" x="1114.37" y="1772.22" width="267.371" height="1080.76" rotation="-90.0932">
+   <properties>
+    <property name="static" type="bool" value="true"/>
+    <property name="texturePath" value="assets/art/environment-textures/ground-base.png"/>
+   </properties>
   </object>
  </objectgroup>
  <layer name="terrain" width="100" height="100">

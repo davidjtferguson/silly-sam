@@ -27,7 +27,7 @@ function GameState:init()
     self.physicsWorld = love.physics.newWorld(0, 10*100, true)
 
     -- load the map
-    self.map = Sti("maps/test-map-limited-level.lua", { "box2d" })
+    self.map = Sti("maps/rory-test-map.lua", { "box2d" })
     self.map:box2d_init(self.physicsWorld)
 
     -- table of stuff to interact with
@@ -240,7 +240,7 @@ function GameState:draw()
         self.toys[i]:draw()
     end
 
-    self.sam:draw(true, true)
+    self.sam:draw(false, true)
 
     self.camera:detach()
 end
