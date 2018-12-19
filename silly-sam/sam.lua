@@ -265,7 +265,7 @@ function Sam:init(world, mapObject)
     }
 
     self.yPrevLeftFactor = 0
-    self.yPrevRightFractor = 0
+    self.yPrevRightFactor = 0
 
     self.leftTriggerDown = false
     self.rightTriggerDown = false
