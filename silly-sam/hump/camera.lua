@@ -230,29 +230,31 @@ end
 -- SILLY SAM SPECIFIC FUNCTIONS
 
 -- named as such incase we want different updates for different states.
-function camera:gamestateUpdate(sam, influencers, anchors, map, dt)
+function camera:gamestateUpdate(sam, influencers, focusses, map, dt)
 	-- all the positions we want the camera to focus on
-	-- this is the anchors that are within range
-	local activeAnchors = {}
+	-- this is the focusses that are within range
+	local activeFocusses = {}
 
-    for _, anchor in ipairs(anchors) do
+    for _, focus in ipairs(focusses) do
         -- find out how far away sam and the object are
         local xsam, ysam = sam.chest.body:getPosition()
 
-        local xanchor, yanchor = anchor:getPosition()
+        local xfocus, yfocus = focus:getPosition()
 
         -- if the object is within distance, add it to the influencers
-        if anchor.cameraDistance and math.abs(xsam - xanchor) < anchor.cameraDistance and math.abs(ysam - yanchor) < anchor.cameraDistance then
-            table.insert(activeAnchors, { anchor:getPosition() } )
+        if focus.cameraDistance and math.abs(xsam - xfocus) < focus.cameraDistance and math.abs(ysam - yfocus) < focus.cameraDistance then
+            table.insert(activeFocusses, { focus:getPosition() } )
         end
 	end
 	
-	if #activeAnchors > 0 then
-		self:lockPosition(activeAnchors[1][1], activeAnchors[1][2])
+	if #activeFocusses > 0 then
+		-- we don't interpolate between all inrange focusses. We just use the first one. Should only be one in range at a time.
+		-- (could change if needed)
+		self:lockPosition(activeFocusses[1][1], activeFocusses[1][2])
 		return
 	end
 
-	-- if no anchors are within range, we want to use the influencers
+	-- if no focusses are within range, we want to use the influencers
     local activeInfluencers = {
         {
             sam.chest.body:getPosition(),

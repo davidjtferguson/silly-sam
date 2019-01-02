@@ -9,7 +9,7 @@ return {
   tilewidth = 32,
   tileheight = 32,
   nextlayerid = 5,
-  nextobjectid = 55,
+  nextobjectid = 57,
   properties = {},
   tilesets = {
     {
@@ -389,6 +389,39 @@ return {
           visible = true,
           properties = {
             ["cameraDistance"] = 400
+          }
+        },
+        {
+          id = 55,
+          name = "cameraInfluence",
+          type = "",
+          shape = "point",
+          x = 2272.73,
+          y = 2618.18,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["cameraDistance"] = 400
+          }
+        },
+        {
+          id = 56,
+          name = "skateboard",
+          type = "",
+          shape = "point",
+          x = 1777.09,
+          y = 2634.67,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["cameraDistance"] = 400,
+            ["cameraFocus"] = true,
+            ["texturePathBoard"] = "assets/art/sam-textures/arm-left.png",
+            ["texturePathWheel"] = "assets/art/sam-textures/eye-left.png"
           }
         }
       }

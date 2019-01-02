@@ -153,10 +153,15 @@ function GameState:init()
     }
 end
 
--- check for anchor/influence flag and add to anchor or influence
 function GameState:assignObjectToCameraTable(object)
     if object.cameraDistance then
-        table.insert(self.cameraInfluencePoints, object)
+
+        -- check for focus/influence flag and add to focus or influence
+        if object.cameraFocus then
+            table.insert(self.cameraFocusPoints, object)
+        else
+            table.insert(self.cameraInfluencePoints, object)
+        end
     end
 end
 
