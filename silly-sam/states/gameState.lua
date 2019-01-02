@@ -30,6 +30,7 @@ function GameState:init()
 
     -- load the map
     self.map = Sti("maps/cliff.lua", { "box2d" })
+    --self.map = Sti("maps/test-map-limited-level.lua", { "box2d" })
     self.map:box2d_init(self.physicsWorld)
 
     -- table of stuff to interact with
@@ -178,7 +179,7 @@ function GameState:update(dt)
     
     self.physicsWorld:update(dt)
 
-    self.camera:gamestateUpdate(self.sam, self.toys, self.map, dt)
+    self.camera:gamestateUpdate(self.sam, self.cameraInfluencePoints, self.cameraFocusPoints, self.map, dt)
 
     self.sam:update(dt, self.controls)
 end

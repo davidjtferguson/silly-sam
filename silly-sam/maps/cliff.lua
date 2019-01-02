@@ -9,7 +9,7 @@ return {
   tilewidth = 32,
   tileheight = 32,
   nextlayerid = 5,
-  nextobjectid = 53,
+  nextobjectid = 54,
   properties = {},
   tilesets = {
     {
@@ -252,6 +252,21 @@ return {
           properties = {
             ["static"] = true,
             ["texturePath"] = "assets/art/map/BGtile.png"
+          }
+        },
+        {
+          id = 53,
+          name = "cameraFocus",
+          type = "",
+          shape = "point",
+          x = 463.636,
+          y = 227.273,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["cameraDistance"] = 700
           }
         }
       }

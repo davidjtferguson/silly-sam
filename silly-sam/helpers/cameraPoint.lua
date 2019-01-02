@@ -10,7 +10,7 @@ end
 
 -- so all objects that can be in the camera tables are uniform
 function CameraPoint:getPosition()
-    return x, y
+    return self.x, self.y
 end
 
 return CameraPoint
