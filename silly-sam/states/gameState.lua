@@ -29,7 +29,8 @@ function GameState:init()
     self.physicsWorld = love.physics.newWorld(0, 10*100, true)
 
     -- load the map
-    self.map = Sti("maps/cliff.lua", { "box2d" })
+    self.map = Sti("maps/rory-test-map.lua", { "box2d" })
+    --self.map = Sti("maps/cliff.lua", { "box2d" })
     --self.map = Sti("maps/test-map-limited-level.lua", { "box2d" })
     self.map:box2d_init(self.physicsWorld)
 
@@ -52,10 +53,6 @@ function GameState:init()
         elseif object.name == "sam" then
             -- create sam instance
             self.sam = Sam(self.physicsWorld, object)
-
-            --?
-            -- table.insert(self.cameraInfluencePoints, self.sam)
-
         elseif object.name == "skateboard" then
             local skateboard = Skateboard(self.physicsWorld, object)
             table.insert(self.toys, skateboard)

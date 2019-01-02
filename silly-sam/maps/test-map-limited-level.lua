@@ -9,7 +9,7 @@ return {
   tilewidth = 32,
   tileheight = 32,
   nextlayerid = 5,
-  nextobjectid = 54,
+  nextobjectid = 55,
   properties = {},
   tilesets = {
     {
@@ -374,6 +374,21 @@ return {
           visible = true,
           properties = {
             ["static"] = false
+          }
+        },
+        {
+          id = 54,
+          name = "cameraFocus",
+          type = "",
+          shape = "point",
+          x = 2417.33,
+          y = 2081.33,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["cameraDistance"] = 400
           }
         }
       }

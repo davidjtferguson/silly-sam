@@ -232,7 +232,27 @@ end
 -- named as such incase we want different updates for different states.
 function camera:gamestateUpdate(sam, influencers, anchors, map, dt)
 	-- all the positions we want the camera to focus on
-	-- this is the influencers that are within range
+	-- this is the anchors that are within range
+	local activeAnchors = {}
+
+    for _, anchor in ipairs(anchors) do
+        -- find out how far away sam and the object are
+        local xsam, ysam = sam.chest.body:getPosition()
+
+        local xanchor, yanchor = anchor:getPosition()
+
+        -- if the object is within distance, add it to the influencers
+        if anchor.cameraDistance and math.abs(xsam - xanchor) < anchor.cameraDistance and math.abs(ysam - yanchor) < anchor.cameraDistance then
+            table.insert(activeAnchors, { anchor:getPosition() } )
+        end
+	end
+	
+	if #activeAnchors > 0 then
+		self:lockPosition(activeAnchors[1][1], activeAnchors[1][2])
+		return
+	end
+
+	-- if no anchors are within range, we want to use the influencers
     local activeInfluencers = {
         {
             sam.chest.body:getPosition(),
