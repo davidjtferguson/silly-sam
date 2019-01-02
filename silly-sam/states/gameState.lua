@@ -9,6 +9,8 @@ local HangingBag = require "toys/hangingBag"
 local Ball = require "toys/ball"
 local Rectangle = require "toys/rectangle"
 
+local CameraPoint = require "helpers/cameraPoint"
+
 local PauseState = require "states/pauseState"
 
 local GameState = {}
@@ -27,20 +29,35 @@ function GameState:init()
     self.physicsWorld = love.physics.newWorld(0, 10*100, true)
 
     -- load the map
-    self.map = Sti("maps/rory-test-map.lua", { "box2d" })
+    self.map = Sti("maps/cliff.lua", { "box2d" })
     self.map:box2d_init(self.physicsWorld)
 
     -- table of stuff to interact with
     self.toys = {}
 
+    -- tables for camera focus points
+    -- (should be in camera but cba figuring out metatables rn)
+    self.cameraFocusPoints = {}
+    self.cameraInfluencePoints = {}
+
     -- go through all the objects in the map and assign each
     for k, object in pairs(self.map.objects) do
-        if object.name == "sam" then
+        if object.name == "cameraFocus" then
+            table.insert(self.cameraFocusPoints, CameraPoint(object))
+
+        elseif object.name == "cameraInfluence" then
+            table.insert(self.cameraInfluencePoints, CameraPoint(object))
+
+        elseif object.name == "sam" then
             -- create sam instance
             self.sam = Sam(self.physicsWorld, object)
 
+            --?
+            -- table.insert(self.cameraInfluencePoints, self.sam)
+
         elseif object.name == "skateboard" then
-            table.insert(self.toys, Skateboard(self.physicsWorld, object))
+            local skateboard = Skateboard(self.physicsWorld, object)
+            table.insert(self.toys, skateboard)
 
         elseif object.name == "hangingBag" then
             table.insert(self.toys, HangingBag(self.physicsWorld, object))
@@ -51,6 +68,11 @@ function GameState:init()
         elseif object.name == "rectangle" then
             table.insert(self.toys, Rectangle(self.physicsWorld, object))
         end
+    end
+
+    -- go through all objects and assign to a camera table if nessessary
+    for _, toy in pairs(self.toys) do
+        self:assignObjectToCameraTable(toy)
     end
 
     -- remove the objects layer now we've created all the objects from it
@@ -131,6 +153,13 @@ function GameState:init()
             "j",
         },
     }
+end
+
+-- check for anchor/influence flag and add to anchor or influence
+function GameState:assignObjectToCameraTable(object)
+    if object.cameraDistance then
+        table.insert(self.cameraInfluencePoints, object)
+    end
 end
 
 function GameState:toggleFullscreen()

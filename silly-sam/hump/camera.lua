@@ -59,7 +59,6 @@ function camera.smooth.damped(stiffness)
 	end
 end
 
-
 local function new(x,y, zoom, rot, smoother)
 	x,y  = x or love.graphics.getWidth()/2, y or love.graphics.getHeight()/2
 	zoom = zoom or 1
