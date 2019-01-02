@@ -1,21 +1,21 @@
-#### map creation instructions
+# map creation instructions
 
 See "test-map-limited.tmx" in Tiled to see examples of everthing described here.
 
 Make sure to call your game objects layer in tiled "objects". This needs to be named as such so the game knows not to draw this layer, since this layer is only for translating into game objects.
 
-### tile custom properties
+## tile custom properties
 
 - name: collidable
 - type: bool
 - description: Makes this tile create as a box2d static object if true
 - example: see the green tiles in test-tileset as used in test-map-limited
 
-### object instructions
+## object instructions
 
 Each object has a specific name and different flags that are read from the map. Here is a description of each name and their related attributes
 
-## camera objects
+### camera objects
 
 If no objects with the cameraDistance attribute are close enough to Sam the camera will focus on Sam. The camera can be controled through cameraInfluence points and cameraFocus points.
 
@@ -33,9 +33,9 @@ If no objects with the cameraDistance attribute are close enough to Sam the came
 
 	cameraDistance - float: specifies how close Sam needs to be to activate the camera focus in both the x and the y axes.
 
-## game objects
+### game objects
 
-# avatar
+#### avatar
 
 - name: sam
 - tiled object: point
@@ -44,9 +44,9 @@ If no objects with the cameraDistance attribute are close enough to Sam the came
 
    None
 
-# toys
+#### toys
 
-Toys are a type of game object which all can have the following optional custom properties:
+- Toys are a type of game object which all can have the following optional custom properties:
 
 	cameraDistance - float: If this is present, this toy will be recognised by the camera. specifies how close Sam needs to be to activate the camera behaviour in both the x and the y axes. By default makes the object act as a cameraInfluence object. (this is on top of all the objects normal behaviour.)
 	
