@@ -41,6 +41,7 @@ function Rectangle:init(world, mapObject)
 
     -- check if we're important to the camera
     self.cameraDistance = mapObject.properties.cameraDistance
+    self.cameraFocus = mapObject.properties.cameraFocus
 end
 
 function Rectangle:getPosition()
