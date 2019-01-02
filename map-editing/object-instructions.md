@@ -26,6 +26,7 @@ If no objects with the cameraDistance attribute are close enough to Sam the came
 
 	cameraDistance - float: specifies how close Sam needs to be to activate the camera influence in both the x and the y axes.
 
+
 - name: cameraFocus
 - tiled object: point
 - description: If sam is within the cameraDistance specified in both the x and the y axes the camera with 'focus' on this point, meaning the x and y of this point will be the central point of the camera. Note - this overrides camera influence points and if Sam is within range of more than one cameraFocus point one will be chosen abritrarily so they should not overlap.
@@ -51,7 +52,8 @@ If no objects with the cameraDistance attribute are close enough to Sam the came
 	cameraDistance - float: If this is present, this toy will be recognised by the camera. specifies how close Sam needs to be to activate the camera behaviour in both the x and the y axes. By default makes the object act as a cameraInfluence object. (this is on top of all the objects normal behaviour.)
 	
 	cameraFocus - bool: Only have this property if the toy in question also has a cameraDistance attribute. If this is false or does not exist and the toy has the cameraDistance property the toy will be treated as a cameraInfluence object. If this is true and the toy has the cameraDistance property the toy will be treated as a cameraFocus object.
-   
+
+
 Here are the descriptions of the specific objects.
    
 - name: skateboard
@@ -62,7 +64,8 @@ Here are the descriptions of the specific objects.
    texturePathBoard - string: a filepath to the texture to be used for the board.
    
    texturePathWheel - string: a filepath to the texture to be used for the wheels.
-   
+
+
 - name: hangingBag
 - tiled object: point
 - description: a hanging bag object. A static 'anchor' with a 'rope' and a dynamic block ('bag') at the end of the rope. The static anchor spawns at the x and y position of this tiled point. The 'rope' is not a physics object, it's just a line drawn from the anchor to the bag object.
@@ -77,7 +80,8 @@ Here are the descriptions of the specific objects.
    ropeLength - float: the distance between the anchor and the bag.
    
    texturePath - string: a filepath to the texture to be used for the bag.
-   
+
+
 - name: ball
 - tiled object: eclipse
 - description: Creates a ball at the x and y position of the eclipse. Note that the ball is always a circle - if the eclipse on the map does not have equal width and height the game will take the average and use this. Ignores rotation (do not rotate the tiled eclipse as this will cause the game to desync from the map position).
@@ -86,7 +90,8 @@ Here are the descriptions of the specific objects.
 	static - bool: if true, object will never move. If false will be a 'dynamic' object and move.
 	
 	texturePath - string: a filepath to the texture to be used for the ball.
-   
+
+
 - name: rectangle
 - tiled object: rectangle
 - description: creates a rectangle at the x and y position of the tiled rectangle, with the same rotation.
