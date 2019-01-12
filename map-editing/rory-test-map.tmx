@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" tiledversion="1.1.6" orientation="orthogonal" renderorder="right-down" width="100" height="100" tilewidth="32" tileheight="32" infinite="0" nextobjectid="22">
+<map version="1.0" tiledversion="1.1.6" orientation="orthogonal" renderorder="right-down" width="100" height="100" tilewidth="32" tileheight="32" infinite="0" nextobjectid="74">
  <tileset firstgid="1" source="test-tileset.tsx"/>
  <tileset firstgid="3" source="rory-tileset.tsx"/>
  <layer name="Background" width="100" height="100">
@@ -128,16 +128,7 @@
   <object id="9" name="sam" x="1273.33" y="1401.33">
    <point/>
   </object>
-  <object id="10" name="skateboard" x="1786.67" y="1336">
-   <point/>
-  </object>
-  <object id="11" name="hangingBag" x="1109.33" y="1297.33">
-   <properties>
-    <property name="bagHeight" type="float" value="40"/>
-    <property name="bagWidth" type="float" value="100"/>
-    <property name="pivotingJoint" type="bool" value="false"/>
-    <property name="ropeLength" type="float" value="250"/>
-   </properties>
+  <object id="10" name="skateboard" x="2134.67" y="1438">
    <point/>
   </object>
   <object id="14" name="ball" x="2325.33" y="1429.33" width="281.333" height="261.333">
@@ -152,10 +143,46 @@
     <property name="texturePath" value="assets/art/environment-textures/tree-triangle.png"/>
    </properties>
   </object>
-  <object id="21" name="rectangle" x="1114.37" y="1772.22" width="267.371" height="1080.76" rotation="-90.0932">
+  <object id="21" name="rectangle" x="1095.37" y="1775.22" width="267.371" height="1080.76" rotation="-90.0932">
    <properties>
     <property name="static" type="bool" value="true"/>
     <property name="texturePath" value="assets/art/environment-textures/ground-base.png"/>
+   </properties>
+  </object>
+  <object id="22" name="rectangle" x="1684.9" y="1217.97" width="191.904" height="313.433" rotation="5.79917">
+   <properties>
+    <property name="static" type="bool" value="true"/>
+    <property name="texturePath" value="assets/art/environment-textures/tree-leaf.png"/>
+   </properties>
+  </object>
+  <object id="23" name="rectangle" x="1556.16" y="1312.62" width="157.347" height="267.707" rotation="-11.6154">
+   <properties>
+    <property name="static" type="bool" value="true"/>
+    <property name="texturePath" value="assets/art/environment-textures/tree-square.png"/>
+   </properties>
+  </object>
+  <object id="24" name="rectangle" x="1353.62" y="1315.63" width="137.418" height="224.637" rotation="3.16699">
+   <properties>
+    <property name="static" type="bool" value="true"/>
+    <property name="texturePath" value="assets/art/environment-textures/tree-leaf.png"/>
+   </properties>
+  </object>
+  <object id="25" name="rectangle" x="1197.69" y="1121.13" width="122.709" height="210.405" rotation="266.56">
+   <properties>
+    <property name="static" type="bool" value="true"/>
+    <property name="texturePath" value="assets/art/environment-textures/cloud-001.png"/>
+   </properties>
+  </object>
+  <object id="26" name="rectangle" x="1519.28" y="1148.52" width="146.231" height="247.644" rotation="277.194">
+   <properties>
+    <property name="static" type="bool" value="true"/>
+    <property name="texturePath" value="assets/art/environment-textures/cloud-002.png"/>
+   </properties>
+  </object>
+  <object id="27" name="rectangle" x="1359.34" y="1515.11" width="52.0243" height="169.314" rotation="273.387">
+   <properties>
+    <property name="static" type="bool" value="true"/>
+    <property name="texturePath" value="assets/art/environment-textures/grass-tuft-001.png"/>
    </properties>
   </object>
  </objectgroup>
