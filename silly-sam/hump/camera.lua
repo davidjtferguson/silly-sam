@@ -59,7 +59,6 @@ function camera.smooth.damped(stiffness)
 	end
 end
 
-
 local function new(x,y, zoom, rot, smoother)
 	x,y  = x or love.graphics.getWidth()/2, y or love.graphics.getHeight()/2
 	zoom = zoom or 1
@@ -231,60 +230,83 @@ end
 -- SILLY SAM SPECIFIC FUNCTIONS
 
 -- named as such incase we want different updates for different states.
-function camera:gamestateUpdate(sam, toys, map, dt)
-    -- all the positions we want the camera to focus on
-    local anchors = {
+function camera:gamestateUpdate(sam, influencers, focusses, map, dt)
+	-- all the positions we want the camera to focus on
+	-- this is the focusses that are within range
+	local activeFocusses = {}
+
+    for _, focus in ipairs(focusses) do
+        -- find out how far away sam and the object are
+        local xsam, ysam = sam.chest.body:getPosition()
+
+        local xfocus, yfocus = focus:getPosition()
+
+        -- if the object is within distance, add it to the influencers
+        if focus.cameraDistance and math.abs(xsam - xfocus) < focus.cameraDistance and math.abs(ysam - yfocus) < focus.cameraDistance then
+            table.insert(activeFocusses, { focus:getPosition() } )
+        end
+	end
+	
+	if #activeFocusses > 0 then
+		-- we don't interpolate between all inrange focusses. We just use the first one. Should only be one in range at a time.
+		-- (could change if needed)
+		self:lockPosition(activeFocusses[1][1], activeFocusses[1][2])
+		return
+	end
+
+	-- if no focusses are within range, we want to use the influencers
+    local activeInfluencers = {
         {
             sam.chest.body:getPosition(),
         },
     }
 
-    for _, toy in ipairs(toys) do
+    for _, influencer in ipairs(influencers) do
         -- find out how far away sam and the object are
         local xsam, ysam = sam.chest.body:getPosition()
 
-        local xtoy, ytoy = toy:getPosition()
+        local xinfluence, yinfluence = influencer:getPosition()
 
-        -- if the object is within distance, add it to the anchors
-        if toy.cameraDistance and math.abs(xsam - xtoy) < toy.cameraDistance and math.abs(ysam - ytoy) < toy.cameraDistance then
-            table.insert(anchors, { toy:getPosition() } )
+        -- if the object is within distance, add it to the influencers
+        if influencer.cameraDistance and math.abs(xsam - xinfluence) < influencer.cameraDistance and math.abs(ysam - yinfluence) < influencer.cameraDistance then
+            table.insert(activeInfluencers, { influencer:getPosition() } )
         end
 	end
 	
-	-- find centre of all anchors to focus camera on
+	-- find centre of all activeInfluencers to focus camera on
 	local xtotal, ytotal = 0, 0
 
 	-- for scaling the camera. Set to whatever to default
-	local xmin, xmax, ymin, ymax = math.abs(anchors[1][1]), math.abs(anchors[1][1]), math.abs(anchors[1][2]), math.abs(anchors[1][2])
+	local xmin, xmax, ymin, ymax = math.abs(activeInfluencers[1][1]), math.abs(activeInfluencers[1][1]), math.abs(activeInfluencers[1][2]), math.abs(activeInfluencers[1][2])
 
-    for i in pairs(anchors) do
-		xtotal = xtotal + anchors[i][1]
-		ytotal = ytotal + anchors[i][2]
+    for i in pairs(activeInfluencers) do
+		xtotal = xtotal + activeInfluencers[i][1]
+		ytotal = ytotal + activeInfluencers[i][2]
 
-		if math.abs(anchors[i][1]) < xmin then
-			xmin = math.abs(anchors[i][1])
+		if math.abs(activeInfluencers[i][1]) < xmin then
+			xmin = math.abs(activeInfluencers[i][1])
 		end
 		
-		if math.abs(anchors[i][1]) > xmax then
-			xmax = math.abs(anchors[i][1])
+		if math.abs(activeInfluencers[i][1]) > xmax then
+			xmax = math.abs(activeInfluencers[i][1])
 		end
 		
-		if math.abs(anchors[i][2]) < ymin then
-			ymin = math.abs(anchors[i][2])
+		if math.abs(activeInfluencers[i][2]) < ymin then
+			ymin = math.abs(activeInfluencers[i][2])
 		end
 		
-		if math.abs(anchors[i][2]) > ymax then
-			ymax = math.abs(anchors[i][2])
+		if math.abs(activeInfluencers[i][2]) > ymax then
+			ymax = math.abs(activeInfluencers[i][2])
 		end
 	end
 
 	-- find distance to move and move to
-	local xcenter, ycenter = xtotal / #anchors, ytotal / #anchors
+	local xcenter, ycenter = xtotal / #activeInfluencers, ytotal / #activeInfluencers
 
     local dx, dy = xcenter - self.x, ycenter - self.y
 	self:move(dx/2, dy/2)
 
-	if #anchors > 1 then
+	if #activeInfluencers > 1 then
 		-- find scale of farthest parts and zoom in or out accordingly
 		xdiff, ydiff = xmax-xmin, ymax-ymin
 
