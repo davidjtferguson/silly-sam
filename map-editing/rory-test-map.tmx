@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" tiledversion="1.1.6" orientation="orthogonal" renderorder="right-down" width="100" height="100" tilewidth="32" tileheight="32" infinite="0" nextobjectid="90">
+<map version="1.0" tiledversion="1.1.6" orientation="orthogonal" renderorder="right-down" width="100" height="100" tilewidth="32" tileheight="32" infinite="0" nextobjectid="130">
  <tileset firstgid="1" source="test-tileset.tsx"/>
  <tileset firstgid="3" source="rory-tileset.tsx"/>
  <tileset firstgid="7" source="environment-test-tileset.tsx"/>
@@ -137,7 +137,10 @@
    <point/>
   </object>
  </objectgroup>
- <objectgroup name="EnvironmentMid">
+ <objectgroup name="GroundBaseMid">
+  <object id="127" gid="25" x="1596" y="1860" width="426" height="426"/>
+ </objectgroup>
+ <objectgroup name="EnvironmentMidOld">
   <object id="77" gid="7" x="1222.51" y="1528.11" width="220.072" height="401.347" rotation="-12.4563"/>
   <object id="80" gid="8" x="1738.18" y="1420.72" width="193.638" height="350.558" rotation="15.2061"/>
   <object id="81" gid="9" x="1330.5" y="1492.5" width="151" height="233" rotation="6.2773"/>
@@ -146,7 +149,16 @@
   <object id="87" gid="11" x="860" y="1144" width="178" height="98"/>
   <object id="88" gid="11" x="2185" y="1025" width="178" height="92"/>
  </objectgroup>
- <objectgroup name="EnvironmentFront"/>
+ <objectgroup name="EnvironmentFront">
+  <object id="111" gid="21" x="1357" y="1509" width="144" height="40"/>
+  <object id="112" gid="20" x="1799" y="1506" width="226" height="42"/>
+  <object id="113" gid="22" x="1290.64" y="1523.44" width="36" height="52" rotation="-28.5991"/>
+  <object id="114" gid="21" x="969" y="1516" width="114" height="56"/>
+  <object id="115" gid="20" x="2110.19" y="1514.02" width="57" height="45" rotation="-322.535"/>
+ </objectgroup>
+ <objectgroup name="GroundBaseFront">
+  <object id="125" gid="24" x="764" y="1861" width="1637" height="359"/>
+ </objectgroup>
  <layer name="terrain" width="100" height="100">
   <data encoding="csv">
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
