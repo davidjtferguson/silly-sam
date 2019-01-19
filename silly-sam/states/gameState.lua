@@ -28,21 +28,6 @@ function GameState:init()
     --self:loadMap("maps/cliff.lua")
     --self:loadMap("maps/test-map-limited-level.lua")
     
-    self.physicsWorld:setCallbacks(
-        function(body1, body2, contact)
-            self:beginContact(body1, body2, contact)
-        end,
-        function(body1, body2, contact)
-            self:endContact(body1, body2, contact)
-        end,
-        function(body1, body2, contact)
-            self:preSolve(body1, body2, contact)
-        end,
-        function(body1, body2, contact)
-            self:postSolve(body1, body2, contact)
-        end
-    )
-
     self.controls = {
         bindings = {
             left = function() self.sam:moveLeft() end,
@@ -172,6 +157,22 @@ function GameState:loadMap(mapPath)
     
     -- make camera focus on Sam
     self.camera = Camera(self.sam.chest.body:getPosition())
+
+    -- [re]initialise callbacks
+    self.physicsWorld:setCallbacks(
+        function(body1, body2, contact)
+            self:beginContact(body1, body2, contact)
+        end,
+        function(body1, body2, contact)
+            self:endContact(body1, body2, contact)
+        end,
+        function(body1, body2, contact)
+            self:preSolve(body1, body2, contact)
+        end,
+        function(body1, body2, contact)
+            self:postSolve(body1, body2, contact)
+        end
+    )
 end
 
 function GameState:assignObjectToCameraTable(object)
@@ -273,7 +274,7 @@ function GameState:bodyOnGround(body1, body2)
             isBody1Part = true
         end
     end
-    
+
     -- and the other body is not a body part
     local isBody2Part = false
 
