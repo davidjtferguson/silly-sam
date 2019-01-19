@@ -370,26 +370,30 @@ function Sam:getKeyboardArmAngle(keyboardInputs)
 end
 
 function Sam:leftLegForces()
-    if joystick:getGamepadAxis("triggerleft") < 1 and self.leftTriggerDown == true then
-        self.leftTriggerDown = false
-    end
+    if joystick then
+        if joystick:getGamepadAxis("triggerleft") < 1 and self.leftTriggerDown == true then
+            self.leftTriggerDown = false
+        end
 
-    if joystick:getGamepadAxis("triggerleft") >= 1 and self.leftTriggerDown == false then
-        self:moveLeft()
+        if joystick:getGamepadAxis("triggerleft") >= 1 and self.leftTriggerDown == false then
+            self:moveLeft()
 
-        self.leftTriggerDown = true
+            self.leftTriggerDown = true
+        end
     end
 end
  
 function Sam:rightLegForces()
-    if joystick:getGamepadAxis("triggerright") < 1 and self.rightTriggerDown == true then
-        self.rightTriggerDown = false
-    end
+    if joystick then
+        if joystick:getGamepadAxis("triggerright") < 1 and self.rightTriggerDown == true then
+            self.rightTriggerDown = false
+        end
 
-    if joystick:getGamepadAxis("triggerright") >= 1 and self.rightTriggerDown == false then
-        self:moveRight()
+        if joystick:getGamepadAxis("triggerright") >= 1 and self.rightTriggerDown == false then
+            self:moveRight()
 
-        self.rightTriggerDown = true
+            self.rightTriggerDown = true
+        end
     end
 end
 
