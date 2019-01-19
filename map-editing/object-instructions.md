@@ -38,6 +38,7 @@ If no objects with the cameraDistance attribute are close enough to Sam the came
 
 	cameraDistance - float: specifies how close Sam needs to be to activate the camera influence in both the x and the y axes.
 
+------
 
 - name: cameraFocus
 - tiled object: point
@@ -78,6 +79,7 @@ Here are the descriptions of the specific objects.
    
    texturePathWheel - string: a filepath to the texture to be used for the wheels.
 
+------
 
 - name: hangingBag
 - tiled object: point
@@ -94,6 +96,7 @@ Here are the descriptions of the specific objects.
    
    texturePath - string: a filepath to the texture to be used for the bag.
 
+------
 
 - name: ball
 - tiled object: eclipse
@@ -104,6 +107,7 @@ Here are the descriptions of the specific objects.
 	
 	texturePath - string: a filepath to the texture to be used for the ball.
 
+------
 
 - name: rectangle
 - tiled object: rectangle
