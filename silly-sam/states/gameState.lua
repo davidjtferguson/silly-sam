@@ -29,7 +29,7 @@ function GameState:init()
     self.physicsWorld = love.physics.newWorld(0, 10*100, true)
 
     -- load the map
-    self.map = Sti("maps/rory-test-map.lua", { "box2d" })
+    self.map = Sti("maps/rory-test-map-2.lua", { "box2d" })
     --self.map = Sti("maps/cliff.lua", { "box2d" })
     --self.map = Sti("maps/test-map-limited-level.lua", { "box2d" })
     self.map:box2d_init(self.physicsWorld)

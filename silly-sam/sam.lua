@@ -22,7 +22,7 @@ function Sam:init(world, mapObject)
     self.statics.armForce = 100
 
     -- multiplier when arm on ground and 'push up'
-    self.statics.pushForce = 4000
+    self.statics.pushForce = 10000
 
     -- chest
     self.chest = {}
