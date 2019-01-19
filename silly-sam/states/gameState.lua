@@ -10,6 +10,7 @@ local Ball = require "toys/ball"
 local Rectangle = require "toys/rectangle"
 
 local CameraPoint = require "helpers/cameraPoint"
+local NewLevelPoint = require "helpers/newLevelPoint"
 
 local PauseState = require "states/pauseState"
 
@@ -23,80 +24,10 @@ local function checkStaticBool(static)
 end
 
 function GameState:init()
-    -- create a physics world
-    -- maybe some physics manager should own the world?
-    love.physics.setMeter(100)
-    self.physicsWorld = love.physics.newWorld(0, 10*100, true)
-
-    -- load the map
-    self.map = Sti("maps/rory-test-map-2.lua", { "box2d" })
-    --self.map = Sti("maps/cliff.lua", { "box2d" })
-    --self.map = Sti("maps/test-map-limited-level.lua", { "box2d" })
-    self.map:box2d_init(self.physicsWorld)
-
-    -- table of stuff to interact with
-    self.toys = {}
-
-    -- tables for camera focus points
-    -- (should be in camera but cba figuring out metatables rn)
-    self.cameraFocusPoints = {}
-    self.cameraInfluencePoints = {}
-
-    -- go through all the objects in the map and assign each
-    for k, object in pairs(self.map.objects) do
-        if object.name == "cameraFocus" then
-            table.insert(self.cameraFocusPoints, CameraPoint(object))
-
-        elseif object.name == "cameraInfluence" then
-            table.insert(self.cameraInfluencePoints, CameraPoint(object))
-
-        elseif object.name == "sam" then
-            -- create sam instance
-            self.sam = Sam(self.physicsWorld, object)
-        elseif object.name == "skateboard" then
-            local skateboard = Skateboard(self.physicsWorld, object)
-            table.insert(self.toys, skateboard)
-
-        elseif object.name == "hangingBag" then
-            table.insert(self.toys, HangingBag(self.physicsWorld, object))
-
-        elseif object.name == "ball" then
-            table.insert(self.toys, Ball(self.physicsWorld, object))
-
-        elseif object.name == "rectangle" then
-            table.insert(self.toys, Rectangle(self.physicsWorld, object))
-        end
-    end
-
-    -- go through all objects and assign to a camera table if nessessary
-    for _, toy in pairs(self.toys) do
-        self:assignObjectToCameraTable(toy)
-    end
-
-    -- remove the objects layer now we've created all the objects from it
-    -- ... the instructions say to call it objects so if it's not called objects it's outta my hands
-    if self.map.layers["objects"] then
-        self.map:removeLayer("objects")
-    end
+    self:loadMap("maps/rory-test-map-2.lua")
+    --self:loadMap("maps/cliff.lua")
+    --self:loadMap("maps/test-map-limited-level.lua")
     
-    self.physicsWorld:setCallbacks(
-        function(body1, body2, contact)
-            self:beginContact(body1, body2, contact)
-        end,
-        function(body1, body2, contact)
-            self:endContact(body1, body2, contact)
-        end,
-        function(body1, body2, contact)
-            self:preSolve(body1, body2, contact)
-        end,
-        function(body1, body2, contact)
-            self:postSolve(body1, body2, contact)
-        end
-    )
-
-    -- make camera focus on Sam
-    self.camera = Camera(self.sam.chest.body:getPosition())
-
     self.controls = {
         bindings = {
             left = function() self.sam:moveLeft() end,
@@ -153,6 +84,97 @@ function GameState:init()
     }
 end
 
+-- Everything that needs reset on loading a new map
+function GameState:loadMap(mapPath)
+    -- [re]create a physics world
+    -- maybe some physics manager should own the world?
+    love.physics.setMeter(100)
+    if self.physicsWorld then
+        self.physicsWorld:destroy()
+    end
+
+    self.physicsWorld = love.physics.newWorld(0, 10*100, true)
+
+    -- load the map
+    self.map = Sti(mapPath, { "box2d" })
+
+    self.map:box2d_init(self.physicsWorld)
+
+    -- Clear all info that might be hanging around from a prev. map
+    -- and update the tables with our new map.
+
+    -- table of stuff to interact with
+    self.toys = {}
+
+    -- tables for camera focus points
+    -- (should be in camera but cba figuring out metatables rn)
+    self.cameraFocusPoints = {}
+    self.cameraInfluencePoints = {}
+
+    -- table for level change points
+    self.changeLevelPoints = {}
+
+    -- go through all the objects in the map and assign each
+    for k, object in pairs(self.map.objects) do
+        if object.name == "cameraFocus" then
+            table.insert(self.cameraFocusPoints, CameraPoint(object))
+
+        elseif object.name == "cameraInfluence" then
+            table.insert(self.cameraInfluencePoints, CameraPoint(object))
+
+        elseif object.name == "changeLevel" then
+            table.insert(self.changeLevelPoints, NewLevelPoint(object))
+
+        elseif object.name == "sam" then
+            -- create sam instance
+            self.sam = Sam(self.physicsWorld, object)
+
+        elseif object.name == "skateboard" then
+            local skateboard = Skateboard(self.physicsWorld, object)
+            table.insert(self.toys, skateboard)
+
+        elseif object.name == "hangingBag" then
+            table.insert(self.toys, HangingBag(self.physicsWorld, object))
+
+        elseif object.name == "ball" then
+            table.insert(self.toys, Ball(self.physicsWorld, object))
+
+        elseif object.name == "rectangle" then
+            table.insert(self.toys, Rectangle(self.physicsWorld, object))
+        end
+    end
+
+    -- go through all objects and assign to a camera table if nessessary
+    for _, toy in pairs(self.toys) do
+        self:assignObjectToCameraTable(toy)
+    end
+
+    -- remove the objects layer now we've created all the objects from it
+    -- ... the instructions say to call it objects so if it's not called objects it's outta my hands
+    if self.map.layers["objects"] then
+        self.map:removeLayer("objects")
+    end
+    
+    -- make camera focus on Sam
+    self.camera = Camera(self.sam.chest.body:getPosition())
+
+    -- [re]initialise callbacks
+    self.physicsWorld:setCallbacks(
+        function(body1, body2, contact)
+            self:beginContact(body1, body2, contact)
+        end,
+        function(body1, body2, contact)
+            self:endContact(body1, body2, contact)
+        end,
+        function(body1, body2, contact)
+            self:preSolve(body1, body2, contact)
+        end,
+        function(body1, body2, contact)
+            self:postSolve(body1, body2, contact)
+        end
+    )
+end
+
 function GameState:assignObjectToCameraTable(object)
     if object.cameraDistance then
 
@@ -184,6 +206,23 @@ function GameState:update(dt)
     self.camera:gamestateUpdate(self.sam, self.cameraInfluencePoints, self.cameraFocusPoints, self.map, dt)
 
     self.sam:update(dt, self.controls)
+
+    self:checkNewLevelPoints()
+end
+
+function GameState:checkNewLevelPoints()
+    -- Go through all our new level points, and if any within cameraDistance load the new level
+    for _, levelChanger in ipairs(self.changeLevelPoints) do
+        -- find out how far away sam and the object are
+        local xsam, ysam = self.sam.chest.body:getPosition()
+
+        local xfocus, yfocus = levelChanger:getPosition()
+
+        -- if the object is within distance, re-load to that level
+        if levelChanger.cameraDistance and math.abs(xsam - xfocus) < levelChanger.cameraDistance and math.abs(ysam - yfocus) < levelChanger.cameraDistance then
+            self:loadMap(levelChanger.newLevelPath)
+        end
+    end
 end
 
 -- input handling callbacks
@@ -235,7 +274,7 @@ function GameState:bodyOnGround(body1, body2)
             isBody1Part = true
         end
     end
-    
+
     -- and the other body is not a body part
     local isBody2Part = false
 

@@ -9,7 +9,7 @@ return {
   tilewidth = 32,
   tileheight = 32,
   nextlayerid = 9,
-  nextobjectid = 247,
+  nextobjectid = 257,
   properties = {},
   tilesets = {
     {
@@ -2282,6 +2282,70 @@ return {
           properties = {
             ["static"] = false,
             ["texturePath"] = "assets/art/environment-textures/ground-base-circle.png"
+          }
+        },
+        {
+          id = 252,
+          name = "changeLevel",
+          type = "",
+          shape = "point",
+          x = 982.909,
+          y = 9292.36,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["cameraDistance"] = 1000,
+            ["newLevelPath"] = "maps/rory-test-map-2.lua"
+          }
+        },
+        {
+          id = 254,
+          name = "changeLevel",
+          type = "",
+          shape = "point",
+          x = 2064.73,
+          y = 9289.33,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["cameraDistance"] = 1000,
+            ["newLevelPath"] = "maps/rory-test-map-2.lua"
+          }
+        },
+        {
+          id = 255,
+          name = "changeLevel",
+          type = "",
+          shape = "point",
+          x = 2734.42,
+          y = 9280.24,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["cameraDistance"] = 1000,
+            ["newLevelPath"] = "maps/rory-test-map-2.lua"
+          }
+        },
+        {
+          id = 256,
+          name = "changeLevel",
+          type = "",
+          shape = "point",
+          x = 337.455,
+          y = 9234.79,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["cameraDistance"] = 1000,
+            ["newLevelPath"] = "maps/rory-test-map-2.lua"
           }
         }
       }
