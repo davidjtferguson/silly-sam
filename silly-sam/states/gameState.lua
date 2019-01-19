@@ -10,6 +10,7 @@ local Ball = require "toys/ball"
 local Rectangle = require "toys/rectangle"
 
 local CameraPoint = require "helpers/cameraPoint"
+local NewLevelPoint = require "helpers/newLevelPoint"
 
 local PauseState = require "states/pauseState"
 
@@ -23,7 +24,7 @@ local function checkStaticBool(static)
 end
 
 function GameState:init()
-    self:loadMap("maps/rory-test-map-2.lua")
+    self:loadMap("maps/cliff.lua")
     
     self.physicsWorld:setCallbacks(
         function(body1, body2, contact)
@@ -47,7 +48,7 @@ function GameState:init()
             reset = reset,
             closeGame = function() love.event.quit() end,
             pause = function() StateManager.push(PauseState) end,
-            toggleFullscreen = function() self:loadMap("maps/cliff.lua") end,
+            toggleFullscreen = function() self:toggleFullscreen() end,
             leftGrab = function() self.sam:leftGrab() end,
             rightGrab = function() self.sam:rightGrab() end,
             leftRelease = function() self.sam:leftRelease() end,
@@ -124,6 +125,9 @@ function GameState:loadMap(mapPath)
     self.cameraFocusPoints = {}
     self.cameraInfluencePoints = {}
 
+    -- table for level change points
+    self.changeLevelPoints = {}
+
     -- go through all the objects in the map and assign each
     for k, object in pairs(self.map.objects) do
         if object.name == "cameraFocus" then
@@ -132,9 +136,13 @@ function GameState:loadMap(mapPath)
         elseif object.name == "cameraInfluence" then
             table.insert(self.cameraInfluencePoints, CameraPoint(object))
 
+        elseif object.name == "changeLevel" then
+            table.insert(self.changeLevelPoints, NewLevelPoint(object))
+
         elseif object.name == "sam" then
             -- create sam instance
             self.sam = Sam(self.physicsWorld, object)
+
         elseif object.name == "skateboard" then
             local skateboard = Skateboard(self.physicsWorld, object)
             table.insert(self.toys, skateboard)
@@ -196,6 +204,23 @@ function GameState:update(dt)
     self.camera:gamestateUpdate(self.sam, self.cameraInfluencePoints, self.cameraFocusPoints, self.map, dt)
 
     self.sam:update(dt, self.controls)
+
+    self:checkNewLevelPoints()
+end
+
+function GameState:checkNewLevelPoints()
+    -- Go through all our new level points, and if any within cameraDistance load the new level
+    for _, levelChanger in ipairs(self.changeLevelPoints) do
+        -- find out how far away sam and the object are
+        local xsam, ysam = self.sam.chest.body:getPosition()
+
+        local xfocus, yfocus = levelChanger:getPosition()
+
+        -- if the object is within distance, re-load to that level
+        if levelChanger.cameraDistance and math.abs(xsam - xfocus) < levelChanger.cameraDistance and math.abs(ysam - yfocus) < levelChanger.cameraDistance then
+            self:loadMap(levelChanger.newLevelPath)
+        end
+	end
 end
 
 -- input handling callbacks

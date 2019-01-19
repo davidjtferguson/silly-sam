@@ -9,7 +9,7 @@ return {
   tilewidth = 32,
   tileheight = 32,
   nextlayerid = 9,
-  nextobjectid = 247,
+  nextobjectid = 248,
   properties = {},
   tilesets = {
     {
@@ -2282,6 +2282,22 @@ return {
           properties = {
             ["static"] = false,
             ["texturePath"] = "assets/art/environment-textures/ground-base-circle.png"
+          }
+        },
+        {
+          id = 247,
+          name = "changeLevel",
+          type = "",
+          shape = "point",
+          x = 2382,
+          y = 1606,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["cameraDistance"] = 50,
+            ["newLevelPath"] = "maps/rory-test-map-2.lua"
           }
         }
       }
