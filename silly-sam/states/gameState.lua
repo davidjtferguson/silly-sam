@@ -24,7 +24,9 @@ local function checkStaticBool(static)
 end
 
 function GameState:init()
-    self:loadMap("maps/cliff.lua")
+    self:loadMap("maps/rory-test-map-2.lua")
+    --self:loadMap("maps/cliff.lua")
+    --self:loadMap("maps/test-map-limited-level.lua")
     
     self.physicsWorld:setCallbacks(
         function(body1, body2, contact)
@@ -110,8 +112,7 @@ function GameState:loadMap(mapPath)
 
     -- load the map
     self.map = Sti(mapPath, { "box2d" })
-    --self.map = Sti("maps/cliff.lua", { "box2d" })
-    --self.map = Sti("maps/test-map-limited-level.lua", { "box2d" })
+
     self.map:box2d_init(self.physicsWorld)
 
     -- Clear all info that might be hanging around from a prev. map

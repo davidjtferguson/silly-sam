@@ -15,6 +15,18 @@ Make sure to call your game objects layer in tiled "objects". This needs to be n
 
 Each object has a specific name and different flags that are read from the map. Here is a description of each name and their related attributes
 
+### level objects
+
+- name: changeLevel
+- tiled object: point
+- description: Triggers a new level if Sam gets close enough to it
+- custom properties:
+
+	cameraDistance - float: specifies how close Sam needs to be to activate the new level trigger in both the x and y axes.
+	
+	newLevelPath - string: filepath to the level to be loaded. e.g. maps/cliff.lua
+   
+   
 ### camera objects
 
 If no objects with the cameraDistance attribute are close enough to Sam the camera will focus on Sam. The camera can be controled through cameraInfluence points and cameraFocus points.
@@ -44,6 +56,7 @@ If no objects with the cameraDistance attribute are close enough to Sam the came
 - custom properties:
 
    None
+   
 
 #### toys
 
