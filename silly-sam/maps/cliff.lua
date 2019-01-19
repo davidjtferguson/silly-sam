@@ -9,7 +9,7 @@ return {
   tilewidth = 32,
   tileheight = 32,
   nextlayerid = 9,
-  nextobjectid = 188,
+  nextobjectid = 247,
   properties = {},
   tilesets = {
     {
@@ -870,8 +870,8 @@ return {
           name = "",
           type = "",
           shape = "rectangle",
-          x = 2276.99,
-          y = 4627.86,
+          x = 2279.66,
+          y = 4630.52,
           width = 70.193,
           height = 44,
           rotation = 141.124,
@@ -884,8 +884,8 @@ return {
           name = "",
           type = "",
           shape = "rectangle",
-          x = 2458.18,
-          y = 4490.62,
+          x = 2460.85,
+          y = 4492.62,
           width = 88,
           height = 38,
           rotation = 143.315,
@@ -898,8 +898,8 @@ return {
           name = "",
           type = "",
           shape = "rectangle",
-          x = 2299.09,
-          y = 4767.55,
+          x = 2337.75,
+          y = 4673.55,
           width = 289.855,
           height = 166,
           rotation = 8.83884,
@@ -912,8 +912,8 @@ return {
           name = "hangingBag",
           type = "",
           shape = "point",
-          x = 1510.91,
-          y = 4589.94,
+          x = 1466.91,
+          y = 4391.94,
           width = 0,
           height = 0,
           rotation = 0,
@@ -962,48 +962,12 @@ return {
           }
         },
         {
-          id = 99,
-          name = "hangingBag",
-          type = "",
-          shape = "point",
-          x = 1534.24,
-          y = 5021.94,
-          width = 0,
-          height = 0,
-          rotation = 0,
-          visible = true,
-          properties = {
-            ["bagHeight"] = 70,
-            ["bagWidth"] = 40,
-            ["pivotingJoint"] = true,
-            ["ropeLength"] = 420
-          }
-        },
-        {
           id = 100,
           name = "hangingBag",
           type = "",
           shape = "point",
-          x = 1600.91,
-          y = 4457.27,
-          width = 0,
-          height = 0,
-          rotation = 0,
-          visible = true,
-          properties = {
-            ["bagHeight"] = 70,
-            ["bagWidth"] = 40,
-            ["pivotingJoint"] = true,
-            ["ropeLength"] = 420
-          }
-        },
-        {
-          id = 101,
-          name = "hangingBag",
-          type = "",
-          shape = "point",
-          x = 858.242,
-          y = 5056.61,
+          x = 1556.91,
+          y = 4259.27,
           width = 0,
           height = 0,
           rotation = 0,
@@ -1056,62 +1020,8 @@ return {
           name = "hangingBag",
           type = "",
           shape = "point",
-          x = 1420.91,
-          y = 4661.94,
-          width = 0,
-          height = 0,
-          rotation = 0,
-          visible = true,
-          properties = {
-            ["bagHeight"] = 70,
-            ["bagWidth"] = 40,
-            ["pivotingJoint"] = true,
-            ["ropeLength"] = 420
-          }
-        },
-        {
-          id = 105,
-          name = "hangingBag",
-          type = "",
-          shape = "point",
-          x = 964.909,
-          y = 4787.94,
-          width = 0,
-          height = 0,
-          rotation = 0,
-          visible = true,
-          properties = {
-            ["bagHeight"] = 70,
-            ["bagWidth"] = 40,
-            ["pivotingJoint"] = true,
-            ["ropeLength"] = 420
-          }
-        },
-        {
-          id = 106,
-          name = "hangingBag",
-          type = "",
-          shape = "point",
-          x = 1102.91,
-          y = 5263.94,
-          width = 0,
-          height = 0,
-          rotation = 0,
-          visible = true,
-          properties = {
-            ["bagHeight"] = 70,
-            ["bagWidth"] = 40,
-            ["pivotingJoint"] = true,
-            ["ropeLength"] = 420
-          }
-        },
-        {
-          id = 107,
-          name = "hangingBag",
-          type = "",
-          shape = "point",
-          x = 1452.24,
-          y = 5205.94,
+          x = 1362.91,
+          y = 4415.94,
           width = 0,
           height = 0,
           rotation = 0,
@@ -1128,8 +1038,8 @@ return {
           name = "hangingBag",
           type = "",
           shape = "point",
-          x = 1560.24,
-          y = 4815.94,
+          x = 1306.24,
+          y = 4629.94,
           width = 0,
           height = 0,
           rotation = 0,
@@ -1182,8 +1092,8 @@ return {
           name = "hangingBag",
           type = "",
           shape = "point",
-          x = 1266.91,
-          y = 4761.94,
+          x = 1208.91,
+          y = 4515.94,
           width = 0,
           height = 0,
           rotation = 0,
@@ -1214,174 +1124,12 @@ return {
           }
         },
         {
-          id = 116,
-          name = "hangingBag",
-          type = "",
-          shape = "point",
-          x = 1482.66,
-          y = 5435.33,
-          width = 0,
-          height = 0,
-          rotation = 0,
-          visible = true,
-          properties = {
-            ["bagHeight"] = 70,
-            ["bagWidth"] = 40,
-            ["pivotingJoint"] = true,
-            ["ropeLength"] = 420
-          }
-        },
-        {
-          id = 117,
-          name = "hangingBag",
-          type = "",
-          shape = "point",
-          x = 1291.33,
-          y = 5523.33,
-          width = 0,
-          height = 0,
-          rotation = 0,
-          visible = true,
-          properties = {
-            ["bagHeight"] = 70,
-            ["bagWidth"] = 40,
-            ["pivotingJoint"] = true,
-            ["ropeLength"] = 420
-          }
-        },
-        {
-          id = 118,
-          name = "hangingBag",
-          type = "",
-          shape = "point",
-          x = 1640.66,
-          y = 5465.33,
-          width = 0,
-          height = 0,
-          rotation = 0,
-          visible = true,
-          properties = {
-            ["bagHeight"] = 70,
-            ["bagWidth"] = 40,
-            ["pivotingJoint"] = true,
-            ["ropeLength"] = 420
-          }
-        },
-        {
-          id = 119,
-          name = "hangingBag",
-          type = "",
-          shape = "point",
-          x = 1242,
-          y = 5330,
-          width = 0,
-          height = 0,
-          rotation = 0,
-          visible = true,
-          properties = {
-            ["bagHeight"] = 70,
-            ["bagWidth"] = 40,
-            ["pivotingJoint"] = true,
-            ["ropeLength"] = 420
-          }
-        },
-        {
-          id = 121,
-          name = "hangingBag",
-          type = "",
-          shape = "point",
-          x = 804.24,
-          y = 4947.94,
-          width = 0,
-          height = 0,
-          rotation = 0,
-          visible = true,
-          properties = {
-            ["bagHeight"] = 70,
-            ["bagWidth"] = 40,
-            ["pivotingJoint"] = true,
-            ["ropeLength"] = 420
-          }
-        },
-        {
-          id = 125,
-          name = "hangingBag",
-          type = "",
-          shape = "point",
-          x = 722.24,
-          y = 5131.94,
-          width = 0,
-          height = 0,
-          rotation = 0,
-          visible = true,
-          properties = {
-            ["bagHeight"] = 70,
-            ["bagWidth"] = 40,
-            ["pivotingJoint"] = true,
-            ["ropeLength"] = 420
-          }
-        },
-        {
-          id = 128,
-          name = "hangingBag",
-          type = "",
-          shape = "point",
-          x = 567.812,
-          y = 5337.09,
-          width = 0,
-          height = 0,
-          rotation = 0,
-          visible = true,
-          properties = {
-            ["bagHeight"] = 70,
-            ["bagWidth"] = 40,
-            ["pivotingJoint"] = true,
-            ["ropeLength"] = 420
-          }
-        },
-        {
-          id = 131,
-          name = "hangingBag",
-          type = "",
-          shape = "point",
-          x = 1770.24,
-          y = 5251.27,
-          width = 0,
-          height = 0,
-          rotation = 0,
-          visible = true,
-          properties = {
-            ["bagHeight"] = 70,
-            ["bagWidth"] = 40,
-            ["pivotingJoint"] = true,
-            ["ropeLength"] = 420
-          }
-        },
-        {
-          id = 132,
-          name = "hangingBag",
-          type = "",
-          shape = "point",
-          x = 2072.24,
-          y = 5299.94,
-          width = 0,
-          height = 0,
-          rotation = 0,
-          visible = true,
-          properties = {
-            ["bagHeight"] = 70,
-            ["bagWidth"] = 40,
-            ["pivotingJoint"] = true,
-            ["ropeLength"] = 420
-          }
-        },
-        {
           id = 133,
           name = "hangingBag",
           type = "",
           shape = "point",
-          x = 1396.24,
-          y = 5334.61,
+          x = 1410.24,
+          y = 5408.61,
           width = 0,
           height = 0,
           rotation = 0,
@@ -1412,138 +1160,12 @@ return {
           }
         },
         {
-          id = 135,
-          name = "hangingBag",
-          type = "",
-          shape = "point",
-          x = 1640.91,
-          y = 5541.94,
-          width = 0,
-          height = 0,
-          rotation = 0,
-          visible = true,
-          properties = {
-            ["bagHeight"] = 70,
-            ["bagWidth"] = 40,
-            ["pivotingJoint"] = true,
-            ["ropeLength"] = 420
-          }
-        },
-        {
-          id = 136,
-          name = "hangingBag",
-          type = "",
-          shape = "point",
-          x = 1990.24,
-          y = 5483.94,
-          width = 0,
-          height = 0,
-          rotation = 0,
-          visible = true,
-          properties = {
-            ["bagHeight"] = 70,
-            ["bagWidth"] = 40,
-            ["pivotingJoint"] = true,
-            ["ropeLength"] = 420
-          }
-        },
-        {
-          id = 137,
-          name = "hangingBag",
-          type = "",
-          shape = "point",
-          x = 1591.58,
-          y = 5348.61,
-          width = 0,
-          height = 0,
-          rotation = 0,
-          visible = true,
-          properties = {
-            ["bagHeight"] = 70,
-            ["bagWidth"] = 40,
-            ["pivotingJoint"] = true,
-            ["ropeLength"] = 420
-          }
-        },
-        {
           id = 138,
           name = "hangingBag",
           type = "",
           shape = "point",
           x = 1584.66,
           y = 5594,
-          width = 0,
-          height = 0,
-          rotation = 0,
-          visible = true,
-          properties = {
-            ["bagHeight"] = 70,
-            ["bagWidth"] = 40,
-            ["pivotingJoint"] = true,
-            ["ropeLength"] = 420
-          }
-        },
-        {
-          id = 139,
-          name = "hangingBag",
-          type = "",
-          shape = "point",
-          x = 2172.66,
-          y = 5753.33,
-          width = 0,
-          height = 0,
-          rotation = 0,
-          visible = true,
-          properties = {
-            ["bagHeight"] = 70,
-            ["bagWidth"] = 40,
-            ["pivotingJoint"] = true,
-            ["ropeLength"] = 420
-          }
-        },
-        {
-          id = 140,
-          name = "hangingBag",
-          type = "",
-          shape = "point",
-          x = 1981.33,
-          y = 5841.33,
-          width = 0,
-          height = 0,
-          rotation = 0,
-          visible = true,
-          properties = {
-            ["bagHeight"] = 70,
-            ["bagWidth"] = 40,
-            ["pivotingJoint"] = true,
-            ["ropeLength"] = 420
-          }
-        },
-        {
-          id = 141,
-          name = "hangingBag",
-          type = "",
-          shape = "point",
-          x = 1780,
-          y = 5608,
-          width = 0,
-          height = 0,
-          rotation = 0,
-          visible = true,
-          properties = {
-            ["bagHeight"] = 70,
-            ["bagWidth"] = 40,
-            ["pivotingJoint"] = true,
-            ["ropeLength"] = 420
-          }
-        },
-        {
-          id = 142,
-          name = "hangingBag",
-          type = "",
-          shape = "point",
-          x = 774.24,
-          y = 5459.27,
           width = 0,
           height = 0,
           rotation = 0,
@@ -1574,156 +1196,12 @@ return {
           }
         },
         {
-          id = 145,
-          name = "hangingBag",
-          type = "",
-          shape = "point",
-          x = 836.24,
-          y = 5661.94,
-          width = 0,
-          height = 0,
-          rotation = 0,
-          visible = true,
-          properties = {
-            ["bagHeight"] = 70,
-            ["bagWidth"] = 40,
-            ["pivotingJoint"] = true,
-            ["ropeLength"] = 420
-          }
-        },
-        {
-          id = 146,
-          name = "hangingBag",
-          type = "",
-          shape = "point",
-          x = 644.91,
-          y = 5749.94,
-          width = 0,
-          height = 0,
-          rotation = 0,
-          visible = true,
-          properties = {
-            ["bagHeight"] = 70,
-            ["bagWidth"] = 40,
-            ["pivotingJoint"] = true,
-            ["ropeLength"] = 420
-          }
-        },
-        {
-          id = 147,
-          name = "hangingBag",
-          type = "",
-          shape = "point",
-          x = 994.24,
-          y = 5691.94,
-          width = 0,
-          height = 0,
-          rotation = 0,
-          visible = true,
-          properties = {
-            ["bagHeight"] = 70,
-            ["bagWidth"] = 40,
-            ["pivotingJoint"] = true,
-            ["ropeLength"] = 420
-          }
-        },
-        {
           id = 150,
           name = "hangingBag",
           type = "",
           shape = "point",
           x = 1024.66,
           y = 5921.33,
-          width = 0,
-          height = 0,
-          rotation = 0,
-          visible = true,
-          properties = {
-            ["bagHeight"] = 70,
-            ["bagWidth"] = 40,
-            ["pivotingJoint"] = true,
-            ["ropeLength"] = 420
-          }
-        },
-        {
-          id = 151,
-          name = "hangingBag",
-          type = "",
-          shape = "point",
-          x = 833.33,
-          y = 6009.33,
-          width = 0,
-          height = 0,
-          rotation = 0,
-          visible = true,
-          properties = {
-            ["bagHeight"] = 70,
-            ["bagWidth"] = 40,
-            ["pivotingJoint"] = true,
-            ["ropeLength"] = 420
-          }
-        },
-        {
-          id = 152,
-          name = "hangingBag",
-          type = "",
-          shape = "point",
-          x = 784,
-          y = 5816,
-          width = 0,
-          height = 0,
-          rotation = 0,
-          visible = true,
-          properties = {
-            ["bagHeight"] = 70,
-            ["bagWidth"] = 40,
-            ["pivotingJoint"] = true,
-            ["ropeLength"] = 420
-          }
-        },
-        {
-          id = 153,
-          name = "hangingBag",
-          type = "",
-          shape = "point",
-          x = 1454.24,
-          y = 5623.27,
-          width = 0,
-          height = 0,
-          rotation = 0,
-          visible = true,
-          properties = {
-            ["bagHeight"] = 70,
-            ["bagWidth"] = 40,
-            ["pivotingJoint"] = true,
-            ["ropeLength"] = 420
-          }
-        },
-        {
-          id = 154,
-          name = "hangingBag",
-          type = "",
-          shape = "point",
-          x = 1908.24,
-          y = 5711.94,
-          width = 0,
-          height = 0,
-          rotation = 0,
-          visible = true,
-          properties = {
-            ["bagHeight"] = 70,
-            ["bagWidth"] = 40,
-            ["pivotingJoint"] = true,
-            ["ropeLength"] = 420
-          }
-        },
-        {
-          id = 155,
-          name = "hangingBag",
-          type = "",
-          shape = "point",
-          x = 1080.24,
-          y = 5706.61,
           width = 0,
           height = 0,
           rotation = 0,
@@ -1754,30 +1232,12 @@ return {
           }
         },
         {
-          id = 157,
-          name = "hangingBag",
-          type = "",
-          shape = "point",
-          x = 1324.91,
-          y = 5913.94,
-          width = 0,
-          height = 0,
-          rotation = 0,
-          visible = true,
-          properties = {
-            ["bagHeight"] = 70,
-            ["bagWidth"] = 40,
-            ["pivotingJoint"] = true,
-            ["ropeLength"] = 420
-          }
-        },
-        {
           id = 158,
           name = "hangingBag",
           type = "",
           shape = "point",
-          x = 1826.24,
-          y = 5895.94,
+          x = 1705.03,
+          y = 5771.7,
           width = 0,
           height = 0,
           rotation = 0,
@@ -1808,48 +1268,12 @@ return {
           }
         },
         {
-          id = 160,
-          name = "hangingBag",
-          type = "",
-          shape = "point",
-          x = 1268.66,
-          y = 5966,
-          width = 0,
-          height = 0,
-          rotation = 0,
-          visible = true,
-          properties = {
-            ["bagHeight"] = 70,
-            ["bagWidth"] = 40,
-            ["pivotingJoint"] = true,
-            ["ropeLength"] = 420
-          }
-        },
-        {
           id = 161,
           name = "hangingBag",
           type = "",
           shape = "point",
-          x = 1856.66,
-          y = 6125.33,
-          width = 0,
-          height = 0,
-          rotation = 0,
-          visible = true,
-          properties = {
-            ["bagHeight"] = 70,
-            ["bagWidth"] = 40,
-            ["pivotingJoint"] = true,
-            ["ropeLength"] = 420
-          }
-        },
-        {
-          id = 162,
-          name = "hangingBag",
-          type = "",
-          shape = "point",
-          x = 1513.33,
-          y = 6173.33,
+          x = 1874.84,
+          y = 6031.39,
           width = 0,
           height = 0,
           rotation = 0,
@@ -1866,8 +1290,8 @@ return {
           name = "hangingBag",
           type = "",
           shape = "point",
-          x = 1464,
-          y = 5980,
+          x = 1579.15,
+          y = 6019.39,
           width = 0,
           height = 0,
           rotation = 0,
@@ -1884,8 +1308,8 @@ return {
           name = "hangingBag",
           type = "",
           shape = "point",
-          x = 1408.24,
-          y = 6125.94,
+          x = 1374.24,
+          y = 6123.94,
           width = 0,
           height = 0,
           rotation = 0,
@@ -1922,42 +1346,6 @@ return {
           shape = "point",
           x = 1752.24,
           y = 6229.94,
-          width = 0,
-          height = 0,
-          rotation = 0,
-          visible = true,
-          properties = {
-            ["bagHeight"] = 70,
-            ["bagWidth"] = 40,
-            ["pivotingJoint"] = true,
-            ["ropeLength"] = 420
-          }
-        },
-        {
-          id = 175,
-          name = "hangingBag",
-          type = "",
-          shape = "point",
-          x = 1560.91,
-          y = 6317.94,
-          width = 0,
-          height = 0,
-          rotation = 0,
-          visible = true,
-          properties = {
-            ["bagHeight"] = 70,
-            ["bagWidth"] = 40,
-            ["pivotingJoint"] = true,
-            ["ropeLength"] = 420
-          }
-        },
-        {
-          id = 176,
-          name = "hangingBag",
-          type = "",
-          shape = "point",
-          x = 1504.66,
-          y = 6471.33,
           width = 0,
           height = 0,
           rotation = 0,
@@ -2018,10 +1406,10 @@ return {
           name = "rectangle",
           type = "",
           shape = "rectangle",
-          x = 585.891,
-          y = 834.45,
-          width = 184.512,
-          height = 385.812,
+          x = 455.425,
+          y = 1142.56,
+          width = 519.105,
+          height = 432.004,
           rotation = 292.95,
           visible = true,
           properties = {
@@ -2034,10 +1422,10 @@ return {
           name = "rectangle",
           type = "",
           shape = "rectangle",
-          x = 34.1702,
-          y = 864.063,
-          width = 227.123,
-          height = 567.849,
+          x = -54.2934,
+          y = 1170.9,
+          width = 537.198,
+          height = 644.183,
           rotation = -87.7473,
           visible = true,
           properties = {
@@ -2050,14 +1438,14 @@ return {
           name = "cameraFocus",
           type = "",
           shape = "point",
-          x = 232.788,
+          x = 404.788,
           y = 385.637,
           width = 0,
           height = 0,
           rotation = 0,
           visible = true,
           properties = {
-            ["cameraDistance"] = 450
+            ["cameraDistance"] = 425
           }
         },
         {
@@ -2099,9 +1487,9 @@ return {
           name = "rectangle",
           type = "",
           shape = "rectangle",
-          x = 933.233,
-          y = 982.973,
-          width = 184.512,
+          x = 814.68,
+          y = 1333.87,
+          width = 554.891,
           height = 407.013,
           rotation = 288.668,
           visible = true,
@@ -2131,11 +1519,11 @@ return {
           name = "rectangle",
           type = "",
           shape = "rectangle",
-          x = 3229.53,
-          y = 1511.26,
-          width = 756.702,
-          height = 1521.51,
-          rotation = 540.651,
+          x = 3255.41,
+          y = 1613.38,
+          width = 790.095,
+          height = 1638.25,
+          rotation = 538.475,
           visible = true,
           properties = {
             ["static"] = true,
@@ -2179,9 +1567,9 @@ return {
           name = "rectangle",
           type = "",
           shape = "rectangle",
-          x = 1306.03,
-          y = 1107.44,
-          width = 184.512,
+          x = 1152.61,
+          y = 1469.76,
+          width = 577.973,
           height = 410.891,
           rotation = 292.95,
           visible = true,
@@ -2195,10 +1583,10 @@ return {
           name = "rectangle",
           type = "",
           shape = "rectangle",
-          x = 1673.46,
-          y = 1262.75,
-          width = 184.512,
-          height = 385.812,
+          x = 1463.46,
+          y = 1669.13,
+          width = 636.727,
+          height = 491.408,
           rotation = 288.668,
           visible = true,
           properties = {
@@ -2211,10 +1599,10 @@ return {
           name = "rectangle",
           type = "",
           shape = "rectangle",
-          x = 2539.05,
-          y = 1984.48,
-          width = 371.528,
-          height = 555.484,
+          x = 3071.92,
+          y = 2439.8,
+          width = 996.096,
+          height = 904.397,
           rotation = 221.239,
           visible = true,
           properties = {
@@ -2227,27 +1615,11 @@ return {
           name = "rectangle",
           type = "",
           shape = "rectangle",
-          x = 1951.17,
-          y = 1789.62,
+          x = 1859.85,
+          y = 1915.29,
           width = 184.512,
-          height = 528.58,
+          height = 678.467,
           rotation = 219.49,
-          visible = true,
-          properties = {
-            ["static"] = true,
-            ["texturePath"] = "assets/art/environment-textures/ground-base.png"
-          }
-        },
-        {
-          id = 80,
-          name = "rectangle",
-          type = "",
-          shape = "rectangle",
-          x = 1751.74,
-          y = 1953.18,
-          width = 184.512,
-          height = 201.646,
-          rotation = 268.052,
           visible = true,
           properties = {
             ["static"] = true,
@@ -2275,9 +1647,9 @@ return {
           name = "rectangle",
           type = "",
           shape = "rectangle",
-          x = 3039.91,
-          y = 2435.05,
-          width = 806.364,
+          x = 3052.9,
+          y = 2423.63,
+          width = 823.664,
           height = 246.391,
           rotation = 498.696,
           visible = true,
@@ -2292,9 +1664,9 @@ return {
           name = "rectangle",
           type = "",
           shape = "rectangle",
-          x = 1848.99,
-          y = 4211.05,
-          width = 1873.51,
+          x = 1848.26,
+          y = 4194.73,
+          width = 1925.28,
           height = 246.391,
           rotation = 267.454,
           visible = true,
@@ -2310,7 +1682,7 @@ return {
           shape = "rectangle",
           x = 2684.25,
           y = 2744.01,
-          width = 1472.79,
+          width = 1649.15,
           height = 246.391,
           rotation = 451.289,
           visible = true,
@@ -2338,28 +1710,12 @@ return {
           }
         },
         {
-          id = 88,
-          name = "rectangle",
-          type = "",
-          shape = "rectangle",
-          x = 3134.12,
-          y = 2496.41,
-          width = 929.913,
-          height = 757.874,
-          rotation = 221.239,
-          visible = true,
-          properties = {
-            ["static"] = true,
-            ["texturePath"] = "assets/art/environment-textures/ground-base.png"
-          }
-        },
-        {
           id = 91,
           name = "ball",
           type = "",
           shape = "ellipse",
-          x = 2239.82,
-          y = 1675.09,
+          x = 2295.82,
+          y = 1737.09,
           width = 240,
           height = 240,
           rotation = 0,
@@ -2440,7 +1796,7 @@ return {
           shape = "rectangle",
           x = 131.239,
           y = 4779.59,
-          width = 1873.51,
+          width = 1910.16,
           height = 246.391,
           rotation = 333.306,
           visible = true,
@@ -2498,30 +1854,12 @@ return {
           }
         },
         {
-          id = 167,
-          name = "ball",
-          type = "",
-          shape = "ellipse",
-          x = 1308.12,
-          y = 7447.15,
-          width = 415.758,
-          height = 409.697,
-          rotation = 0,
-          visible = true,
-          properties = {
-            ["cameraDistance"] = 700,
-            ["cameraFocus"] = false,
-            ["static"] = true,
-            ["texturePath"] = "assets/art/environment-textures/ground-base-circle.png"
-          }
-        },
-        {
           id = 168,
           name = "rectangle",
           type = "",
           shape = "rectangle",
-          x = 1198.12,
-          y = 7122.55,
+          x = 1204.12,
+          y = 7124.55,
           width = 371.995,
           height = 201.646,
           rotation = 268.052,
@@ -2536,8 +1874,8 @@ return {
           name = "rectangle",
           type = "",
           shape = "rectangle",
-          x = 1638.33,
-          y = 7185.51,
+          x = 1629.33,
+          y = 7189.51,
           width = 421.354,
           height = 201.646,
           rotation = 271.53,
@@ -2545,6 +1883,405 @@ return {
           properties = {
             ["static"] = true,
             ["texturePath"] = "assets/art/environment-textures/ground-base.png"
+          }
+        },
+        {
+          id = 188,
+          name = "ball",
+          type = "",
+          shape = "ellipse",
+          x = 1486.12,
+          y = 4787.15,
+          width = 415.758,
+          height = 409.697,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["static"] = true,
+            ["texturePath"] = "assets/art/environment-textures/ground-base-circle.png"
+          }
+        },
+        {
+          id = 223,
+          name = "ball",
+          type = "",
+          shape = "ellipse",
+          x = 1301.45,
+          y = 7809.84,
+          width = 415.758,
+          height = 409.697,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["static"] = true,
+            ["texturePath"] = "assets/art/environment-textures/ground-base-circle.png"
+          }
+        },
+        {
+          id = 224,
+          name = "cameraFocus",
+          type = "",
+          shape = "point",
+          x = 1506.51,
+          y = 7646.82,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["cameraDistance"] = 1000
+          }
+        },
+        {
+          id = 225,
+          name = "rectangle",
+          type = "",
+          shape = "rectangle",
+          x = 1253.02,
+          y = 7907.32,
+          width = 503.96,
+          height = 201.646,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["static"] = true,
+            ["texturePath"] = "assets/art/environment-textures/ground-base.png"
+          }
+        },
+        {
+          id = 226,
+          name = "rectangle",
+          type = "",
+          shape = "rectangle",
+          x = 1711.32,
+          y = 7826.47,
+          width = 41.96,
+          height = 78.9793,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["static"] = false,
+            ["texturePath"] = "assets/art/environment-textures/ground-base.png"
+          }
+        },
+        {
+          id = 227,
+          name = "rectangle",
+          type = "",
+          shape = "rectangle",
+          x = 1709.32,
+          y = 7739.64,
+          width = 41.96,
+          height = 86.4793,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["static"] = false,
+            ["texturePath"] = "assets/art/environment-textures/ground-base.png"
+          }
+        },
+        {
+          id = 228,
+          name = "rectangle",
+          type = "",
+          shape = "rectangle",
+          x = 1256.32,
+          y = 7827.81,
+          width = 41.96,
+          height = 78.9793,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["static"] = false,
+            ["texturePath"] = "assets/art/environment-textures/ground-base.png"
+          }
+        },
+        {
+          id = 229,
+          name = "rectangle",
+          type = "",
+          shape = "rectangle",
+          x = 1258.32,
+          y = 7737.48,
+          width = 41.96,
+          height = 88.4793,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["static"] = false,
+            ["texturePath"] = "assets/art/environment-textures/ground-base.png"
+          }
+        },
+        {
+          id = 230,
+          name = "rectangle",
+          type = "",
+          shape = "rectangle",
+          x = 1258.33,
+          y = 7701.18,
+          width = 224.739,
+          height = 33.646,
+          rotation = 1.57887,
+          visible = true,
+          properties = {
+            ["static"] = false,
+            ["texturePath"] = "assets/art/environment-textures/ground-base.png"
+          }
+        },
+        {
+          id = 231,
+          name = "rectangle",
+          type = "",
+          shape = "rectangle",
+          x = 1531.33,
+          y = 7706.8,
+          width = 234.548,
+          height = 33.646,
+          rotation = -0.80849,
+          visible = true,
+          properties = {
+            ["static"] = false,
+            ["texturePath"] = "assets/art/environment-textures/ground-base.png"
+          }
+        },
+        {
+          id = 232,
+          name = "rectangle",
+          type = "",
+          shape = "rectangle",
+          x = 1264.73,
+          y = 7621.68,
+          width = 41.96,
+          height = 78.9793,
+          rotation = 1.77751,
+          visible = true,
+          properties = {
+            ["static"] = false,
+            ["texturePath"] = "assets/art/environment-textures/ground-base.png"
+          }
+        },
+        {
+          id = 233,
+          name = "rectangle",
+          type = "",
+          shape = "rectangle",
+          x = 1270,
+          y = 7540.63,
+          width = 41.96,
+          height = 78.9793,
+          rotation = 2.41106,
+          visible = true,
+          properties = {
+            ["static"] = false,
+            ["texturePath"] = "assets/art/environment-textures/ground-base.png"
+          }
+        },
+        {
+          id = 234,
+          name = "rectangle",
+          type = "",
+          shape = "rectangle",
+          x = 1709.49,
+          y = 7624.81,
+          width = 41.96,
+          height = 78.9793,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["static"] = false,
+            ["texturePath"] = "assets/art/environment-textures/ground-base.png"
+          }
+        },
+        {
+          id = 235,
+          name = "rectangle",
+          type = "",
+          shape = "rectangle",
+          x = 1706.49,
+          y = 7544.48,
+          width = 41.96,
+          height = 78.9793,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["static"] = false,
+            ["texturePath"] = "assets/art/environment-textures/ground-base.png"
+          }
+        },
+        {
+          id = 236,
+          name = "rectangle",
+          type = "",
+          shape = "rectangle",
+          x = 1608.99,
+          y = 7624.81,
+          width = 41.96,
+          height = 78.9793,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["static"] = false,
+            ["texturePath"] = "assets/art/environment-textures/ground-base.png"
+          }
+        },
+        {
+          id = 237,
+          name = "rectangle",
+          type = "",
+          shape = "rectangle",
+          x = 1606.99,
+          y = 7540.48,
+          width = 41.96,
+          height = 82.9793,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["static"] = false,
+            ["texturePath"] = "assets/art/environment-textures/ground-base.png"
+          }
+        },
+        {
+          id = 238,
+          name = "rectangle",
+          type = "",
+          shape = "rectangle",
+          x = 1364,
+          y = 7624.29,
+          width = 41.96,
+          height = 78.9793,
+          rotation = 1.45315,
+          visible = true,
+          properties = {
+            ["static"] = false,
+            ["texturePath"] = "assets/art/environment-textures/ground-base.png"
+          }
+        },
+        {
+          id = 239,
+          name = "rectangle",
+          type = "",
+          shape = "rectangle",
+          x = 1364.49,
+          y = 7538.48,
+          width = 41.96,
+          height = 84.9793,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["static"] = false,
+            ["texturePath"] = "assets/art/environment-textures/ground-base.png"
+          }
+        },
+        {
+          id = 240,
+          name = "rectangle",
+          type = "",
+          shape = "rectangle",
+          x = 1272.78,
+          y = 7506.59,
+          width = 105.459,
+          height = 33.646,
+          rotation = -1.98811,
+          visible = true,
+          properties = {
+            ["static"] = false,
+            ["texturePath"] = "assets/art/environment-textures/ground-base.png"
+          }
+        },
+        {
+          id = 241,
+          name = "rectangle",
+          type = "",
+          shape = "rectangle",
+          x = 1401.27,
+          y = 7503.02,
+          width = 208.427,
+          height = 33.646,
+          rotation = 0.59665,
+          visible = true,
+          properties = {
+            ["static"] = false,
+            ["texturePath"] = "assets/art/environment-textures/ground-base.png"
+          }
+        },
+        {
+          id = 242,
+          name = "rectangle",
+          type = "",
+          shape = "rectangle",
+          x = 1629.22,
+          y = 7506.38,
+          width = 105.459,
+          height = 33.646,
+          rotation = 1.50587,
+          visible = true,
+          properties = {
+            ["static"] = false,
+            ["texturePath"] = "assets/art/environment-textures/ground-base.png"
+          }
+        },
+        {
+          id = 243,
+          name = "rectangle",
+          type = "",
+          shape = "rectangle",
+          x = 1365.98,
+          y = 7485.05,
+          width = 169.227,
+          height = 33.646,
+          rotation = -39.8523,
+          visible = true,
+          properties = {
+            ["static"] = false,
+            ["texturePath"] = "assets/art/environment-textures/ground-base.png"
+          }
+        },
+        {
+          id = 244,
+          name = "rectangle",
+          type = "",
+          shape = "rectangle",
+          x = 1541.14,
+          y = 7376.72,
+          width = 153.504,
+          height = 33.646,
+          rotation = -313.887,
+          visible = true,
+          properties = {
+            ["static"] = false,
+            ["texturePath"] = "assets/art/environment-textures/ground-base.png"
+          }
+        },
+        {
+          id = 245,
+          name = "ball",
+          type = "",
+          shape = "ellipse",
+          x = 1504.64,
+          y = 7368.46,
+          width = 25,
+          height = 25,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["static"] = false,
+            ["texturePath"] = "assets/art/environment-textures/ground-base-circle.png"
+          }
+        },
+        {
+          id = 246,
+          name = "ball",
+          type = "",
+          shape = "ellipse",
+          x = 1468.08,
+          y = 7731.16,
+          width = 80,
+          height = 80,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["static"] = false,
+            ["texturePath"] = "assets/art/environment-textures/ground-base-circle.png"
           }
         }
       }

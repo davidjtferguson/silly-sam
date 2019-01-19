@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.2" tiledversion="1.2.1" orientation="orthogonal" renderorder="right-down" width="100" height="500" tilewidth="32" tileheight="32" infinite="0" nextlayerid="9" nextobjectid="188">
+<map version="1.2" tiledversion="1.2.1" orientation="orthogonal" renderorder="right-down" width="100" height="500" tilewidth="32" tileheight="32" infinite="0" nextlayerid="9" nextobjectid="247">
  <tileset firstgid="1" source="test-tileset.tsx"/>
  <tileset firstgid="3" source="rory-tileset.tsx"/>
  <tileset firstgid="7" source="could-001-tileset.tsx"/>
@@ -521,10 +521,10 @@
   <object id="75" gid="8" x="1728.24" y="846.125" width="276.455" height="124.953" rotation="24.362"/>
   <object id="76" gid="11" x="1563.76" y="787.875" width="225" height="102.857" rotation="19.2318"/>
   <object id="77" gid="7" x="1333.65" y="674.938" width="210.782" height="112.079" rotation="28.9908"/>
-  <object id="89" gid="9" x="2276.99" y="4627.86" width="70.193" height="44" rotation="141.124"/>
-  <object id="90" gid="10" x="2458.18" y="4490.62" width="88" height="38" rotation="143.315"/>
-  <object id="95" gid="7" x="2299.09" y="4767.55" width="289.855" height="166" rotation="8.83884"/>
-  <object id="96" name="hangingBag" x="1510.91" y="4589.94">
+  <object id="89" gid="9" x="2279.66" y="4630.52" width="70.193" height="44" rotation="141.124"/>
+  <object id="90" gid="10" x="2460.85" y="4492.62" width="88" height="38" rotation="143.315"/>
+  <object id="95" gid="7" x="2337.75" y="4673.55" width="289.855" height="166" rotation="8.83884"/>
+  <object id="96" name="hangingBag" x="1466.91" y="4391.94">
    <properties>
     <property name="bagHeight" type="float" value="70"/>
     <property name="bagWidth" type="float" value="40"/>
@@ -551,25 +551,7 @@
    </properties>
    <point/>
   </object>
-  <object id="99" name="hangingBag" x="1534.24" y="5021.94">
-   <properties>
-    <property name="bagHeight" type="float" value="70"/>
-    <property name="bagWidth" type="float" value="40"/>
-    <property name="pivotingJoint" type="bool" value="true"/>
-    <property name="ropeLength" type="float" value="420"/>
-   </properties>
-   <point/>
-  </object>
-  <object id="100" name="hangingBag" x="1600.91" y="4457.27">
-   <properties>
-    <property name="bagHeight" type="float" value="70"/>
-    <property name="bagWidth" type="float" value="40"/>
-    <property name="pivotingJoint" type="bool" value="true"/>
-    <property name="ropeLength" type="float" value="420"/>
-   </properties>
-   <point/>
-  </object>
-  <object id="101" name="hangingBag" x="858.242" y="5056.61">
+  <object id="100" name="hangingBag" x="1556.91" y="4259.27">
    <properties>
     <property name="bagHeight" type="float" value="70"/>
     <property name="bagWidth" type="float" value="40"/>
@@ -596,7 +578,7 @@
    </properties>
    <point/>
   </object>
-  <object id="104" name="hangingBag" x="1420.91" y="4661.94">
+  <object id="104" name="hangingBag" x="1362.91" y="4415.94">
    <properties>
     <property name="bagHeight" type="float" value="70"/>
     <property name="bagWidth" type="float" value="40"/>
@@ -605,34 +587,7 @@
    </properties>
    <point/>
   </object>
-  <object id="105" name="hangingBag" x="964.909" y="4787.94">
-   <properties>
-    <property name="bagHeight" type="float" value="70"/>
-    <property name="bagWidth" type="float" value="40"/>
-    <property name="pivotingJoint" type="bool" value="true"/>
-    <property name="ropeLength" type="float" value="420"/>
-   </properties>
-   <point/>
-  </object>
-  <object id="106" name="hangingBag" x="1102.91" y="5263.94">
-   <properties>
-    <property name="bagHeight" type="float" value="70"/>
-    <property name="bagWidth" type="float" value="40"/>
-    <property name="pivotingJoint" type="bool" value="true"/>
-    <property name="ropeLength" type="float" value="420"/>
-   </properties>
-   <point/>
-  </object>
-  <object id="107" name="hangingBag" x="1452.24" y="5205.94">
-   <properties>
-    <property name="bagHeight" type="float" value="70"/>
-    <property name="bagWidth" type="float" value="40"/>
-    <property name="pivotingJoint" type="bool" value="true"/>
-    <property name="ropeLength" type="float" value="420"/>
-   </properties>
-   <point/>
-  </object>
-  <object id="108" name="hangingBag" x="1560.24" y="4815.94">
+  <object id="108" name="hangingBag" x="1306.24" y="4629.94">
    <properties>
     <property name="bagHeight" type="float" value="70"/>
     <property name="bagWidth" type="float" value="40"/>
@@ -659,7 +614,7 @@
    </properties>
    <point/>
   </object>
-  <object id="111" name="hangingBag" x="1266.91" y="4761.94">
+  <object id="111" name="hangingBag" x="1208.91" y="4515.94">
    <properties>
     <property name="bagHeight" type="float" value="70"/>
     <property name="bagWidth" type="float" value="40"/>
@@ -677,88 +632,7 @@
    </properties>
    <point/>
   </object>
-  <object id="116" name="hangingBag" x="1482.66" y="5435.33">
-   <properties>
-    <property name="bagHeight" type="float" value="70"/>
-    <property name="bagWidth" type="float" value="40"/>
-    <property name="pivotingJoint" type="bool" value="true"/>
-    <property name="ropeLength" type="float" value="420"/>
-   </properties>
-   <point/>
-  </object>
-  <object id="117" name="hangingBag" x="1291.33" y="5523.33">
-   <properties>
-    <property name="bagHeight" type="float" value="70"/>
-    <property name="bagWidth" type="float" value="40"/>
-    <property name="pivotingJoint" type="bool" value="true"/>
-    <property name="ropeLength" type="float" value="420"/>
-   </properties>
-   <point/>
-  </object>
-  <object id="118" name="hangingBag" x="1640.66" y="5465.33">
-   <properties>
-    <property name="bagHeight" type="float" value="70"/>
-    <property name="bagWidth" type="float" value="40"/>
-    <property name="pivotingJoint" type="bool" value="true"/>
-    <property name="ropeLength" type="float" value="420"/>
-   </properties>
-   <point/>
-  </object>
-  <object id="119" name="hangingBag" x="1242" y="5330">
-   <properties>
-    <property name="bagHeight" type="float" value="70"/>
-    <property name="bagWidth" type="float" value="40"/>
-    <property name="pivotingJoint" type="bool" value="true"/>
-    <property name="ropeLength" type="float" value="420"/>
-   </properties>
-   <point/>
-  </object>
-  <object id="121" name="hangingBag" x="804.24" y="4947.94">
-   <properties>
-    <property name="bagHeight" type="float" value="70"/>
-    <property name="bagWidth" type="float" value="40"/>
-    <property name="pivotingJoint" type="bool" value="true"/>
-    <property name="ropeLength" type="float" value="420"/>
-   </properties>
-   <point/>
-  </object>
-  <object id="125" name="hangingBag" x="722.24" y="5131.94">
-   <properties>
-    <property name="bagHeight" type="float" value="70"/>
-    <property name="bagWidth" type="float" value="40"/>
-    <property name="pivotingJoint" type="bool" value="true"/>
-    <property name="ropeLength" type="float" value="420"/>
-   </properties>
-   <point/>
-  </object>
-  <object id="128" name="hangingBag" x="567.812" y="5337.09">
-   <properties>
-    <property name="bagHeight" type="float" value="70"/>
-    <property name="bagWidth" type="float" value="40"/>
-    <property name="pivotingJoint" type="bool" value="true"/>
-    <property name="ropeLength" type="float" value="420"/>
-   </properties>
-   <point/>
-  </object>
-  <object id="131" name="hangingBag" x="1770.24" y="5251.27">
-   <properties>
-    <property name="bagHeight" type="float" value="70"/>
-    <property name="bagWidth" type="float" value="40"/>
-    <property name="pivotingJoint" type="bool" value="true"/>
-    <property name="ropeLength" type="float" value="420"/>
-   </properties>
-   <point/>
-  </object>
-  <object id="132" name="hangingBag" x="2072.24" y="5299.94">
-   <properties>
-    <property name="bagHeight" type="float" value="70"/>
-    <property name="bagWidth" type="float" value="40"/>
-    <property name="pivotingJoint" type="bool" value="true"/>
-    <property name="ropeLength" type="float" value="420"/>
-   </properties>
-   <point/>
-  </object>
-  <object id="133" name="hangingBag" x="1396.24" y="5334.61">
+  <object id="133" name="hangingBag" x="1410.24" y="5408.61">
    <properties>
     <property name="bagHeight" type="float" value="70"/>
     <property name="bagWidth" type="float" value="40"/>
@@ -776,70 +650,7 @@
    </properties>
    <point/>
   </object>
-  <object id="135" name="hangingBag" x="1640.91" y="5541.94">
-   <properties>
-    <property name="bagHeight" type="float" value="70"/>
-    <property name="bagWidth" type="float" value="40"/>
-    <property name="pivotingJoint" type="bool" value="true"/>
-    <property name="ropeLength" type="float" value="420"/>
-   </properties>
-   <point/>
-  </object>
-  <object id="136" name="hangingBag" x="1990.24" y="5483.94">
-   <properties>
-    <property name="bagHeight" type="float" value="70"/>
-    <property name="bagWidth" type="float" value="40"/>
-    <property name="pivotingJoint" type="bool" value="true"/>
-    <property name="ropeLength" type="float" value="420"/>
-   </properties>
-   <point/>
-  </object>
-  <object id="137" name="hangingBag" x="1591.58" y="5348.61">
-   <properties>
-    <property name="bagHeight" type="float" value="70"/>
-    <property name="bagWidth" type="float" value="40"/>
-    <property name="pivotingJoint" type="bool" value="true"/>
-    <property name="ropeLength" type="float" value="420"/>
-   </properties>
-   <point/>
-  </object>
   <object id="138" name="hangingBag" x="1584.66" y="5594">
-   <properties>
-    <property name="bagHeight" type="float" value="70"/>
-    <property name="bagWidth" type="float" value="40"/>
-    <property name="pivotingJoint" type="bool" value="true"/>
-    <property name="ropeLength" type="float" value="420"/>
-   </properties>
-   <point/>
-  </object>
-  <object id="139" name="hangingBag" x="2172.66" y="5753.33">
-   <properties>
-    <property name="bagHeight" type="float" value="70"/>
-    <property name="bagWidth" type="float" value="40"/>
-    <property name="pivotingJoint" type="bool" value="true"/>
-    <property name="ropeLength" type="float" value="420"/>
-   </properties>
-   <point/>
-  </object>
-  <object id="140" name="hangingBag" x="1981.33" y="5841.33">
-   <properties>
-    <property name="bagHeight" type="float" value="70"/>
-    <property name="bagWidth" type="float" value="40"/>
-    <property name="pivotingJoint" type="bool" value="true"/>
-    <property name="ropeLength" type="float" value="420"/>
-   </properties>
-   <point/>
-  </object>
-  <object id="141" name="hangingBag" x="1780" y="5608">
-   <properties>
-    <property name="bagHeight" type="float" value="70"/>
-    <property name="bagWidth" type="float" value="40"/>
-    <property name="pivotingJoint" type="bool" value="true"/>
-    <property name="ropeLength" type="float" value="420"/>
-   </properties>
-   <point/>
-  </object>
-  <object id="142" name="hangingBag" x="774.24" y="5459.27">
    <properties>
     <property name="bagHeight" type="float" value="70"/>
     <property name="bagWidth" type="float" value="40"/>
@@ -857,79 +668,7 @@
    </properties>
    <point/>
   </object>
-  <object id="145" name="hangingBag" x="836.24" y="5661.94">
-   <properties>
-    <property name="bagHeight" type="float" value="70"/>
-    <property name="bagWidth" type="float" value="40"/>
-    <property name="pivotingJoint" type="bool" value="true"/>
-    <property name="ropeLength" type="float" value="420"/>
-   </properties>
-   <point/>
-  </object>
-  <object id="146" name="hangingBag" x="644.91" y="5749.94">
-   <properties>
-    <property name="bagHeight" type="float" value="70"/>
-    <property name="bagWidth" type="float" value="40"/>
-    <property name="pivotingJoint" type="bool" value="true"/>
-    <property name="ropeLength" type="float" value="420"/>
-   </properties>
-   <point/>
-  </object>
-  <object id="147" name="hangingBag" x="994.24" y="5691.94">
-   <properties>
-    <property name="bagHeight" type="float" value="70"/>
-    <property name="bagWidth" type="float" value="40"/>
-    <property name="pivotingJoint" type="bool" value="true"/>
-    <property name="ropeLength" type="float" value="420"/>
-   </properties>
-   <point/>
-  </object>
   <object id="150" name="hangingBag" x="1024.66" y="5921.33">
-   <properties>
-    <property name="bagHeight" type="float" value="70"/>
-    <property name="bagWidth" type="float" value="40"/>
-    <property name="pivotingJoint" type="bool" value="true"/>
-    <property name="ropeLength" type="float" value="420"/>
-   </properties>
-   <point/>
-  </object>
-  <object id="151" name="hangingBag" x="833.33" y="6009.33">
-   <properties>
-    <property name="bagHeight" type="float" value="70"/>
-    <property name="bagWidth" type="float" value="40"/>
-    <property name="pivotingJoint" type="bool" value="true"/>
-    <property name="ropeLength" type="float" value="420"/>
-   </properties>
-   <point/>
-  </object>
-  <object id="152" name="hangingBag" x="784" y="5816">
-   <properties>
-    <property name="bagHeight" type="float" value="70"/>
-    <property name="bagWidth" type="float" value="40"/>
-    <property name="pivotingJoint" type="bool" value="true"/>
-    <property name="ropeLength" type="float" value="420"/>
-   </properties>
-   <point/>
-  </object>
-  <object id="153" name="hangingBag" x="1454.24" y="5623.27">
-   <properties>
-    <property name="bagHeight" type="float" value="70"/>
-    <property name="bagWidth" type="float" value="40"/>
-    <property name="pivotingJoint" type="bool" value="true"/>
-    <property name="ropeLength" type="float" value="420"/>
-   </properties>
-   <point/>
-  </object>
-  <object id="154" name="hangingBag" x="1908.24" y="5711.94">
-   <properties>
-    <property name="bagHeight" type="float" value="70"/>
-    <property name="bagWidth" type="float" value="40"/>
-    <property name="pivotingJoint" type="bool" value="true"/>
-    <property name="ropeLength" type="float" value="420"/>
-   </properties>
-   <point/>
-  </object>
-  <object id="155" name="hangingBag" x="1080.24" y="5706.61">
    <properties>
     <property name="bagHeight" type="float" value="70"/>
     <property name="bagWidth" type="float" value="40"/>
@@ -947,16 +686,7 @@
    </properties>
    <point/>
   </object>
-  <object id="157" name="hangingBag" x="1324.91" y="5913.94">
-   <properties>
-    <property name="bagHeight" type="float" value="70"/>
-    <property name="bagWidth" type="float" value="40"/>
-    <property name="pivotingJoint" type="bool" value="true"/>
-    <property name="ropeLength" type="float" value="420"/>
-   </properties>
-   <point/>
-  </object>
-  <object id="158" name="hangingBag" x="1826.24" y="5895.94">
+  <object id="158" name="hangingBag" x="1705.03" y="5771.7">
    <properties>
     <property name="bagHeight" type="float" value="70"/>
     <property name="bagWidth" type="float" value="40"/>
@@ -974,7 +704,7 @@
    </properties>
    <point/>
   </object>
-  <object id="160" name="hangingBag" x="1268.66" y="5966">
+  <object id="161" name="hangingBag" x="1874.84" y="6031.39">
    <properties>
     <property name="bagHeight" type="float" value="70"/>
     <property name="bagWidth" type="float" value="40"/>
@@ -983,7 +713,7 @@
    </properties>
    <point/>
   </object>
-  <object id="161" name="hangingBag" x="1856.66" y="6125.33">
+  <object id="163" name="hangingBag" x="1579.15" y="6019.39">
    <properties>
     <property name="bagHeight" type="float" value="70"/>
     <property name="bagWidth" type="float" value="40"/>
@@ -992,25 +722,7 @@
    </properties>
    <point/>
   </object>
-  <object id="162" name="hangingBag" x="1513.33" y="6173.33">
-   <properties>
-    <property name="bagHeight" type="float" value="70"/>
-    <property name="bagWidth" type="float" value="40"/>
-    <property name="pivotingJoint" type="bool" value="true"/>
-    <property name="ropeLength" type="float" value="420"/>
-   </properties>
-   <point/>
-  </object>
-  <object id="163" name="hangingBag" x="1464" y="5980">
-   <properties>
-    <property name="bagHeight" type="float" value="70"/>
-    <property name="bagWidth" type="float" value="40"/>
-    <property name="pivotingJoint" type="bool" value="true"/>
-    <property name="ropeLength" type="float" value="420"/>
-   </properties>
-   <point/>
-  </object>
-  <object id="170" name="hangingBag" x="1408.24" y="6125.94">
+  <object id="170" name="hangingBag" x="1374.24" y="6123.94">
    <properties>
     <property name="bagHeight" type="float" value="70"/>
     <property name="bagWidth" type="float" value="40"/>
@@ -1037,24 +749,6 @@
    </properties>
    <point/>
   </object>
-  <object id="175" name="hangingBag" x="1560.91" y="6317.94">
-   <properties>
-    <property name="bagHeight" type="float" value="70"/>
-    <property name="bagWidth" type="float" value="40"/>
-    <property name="pivotingJoint" type="bool" value="true"/>
-    <property name="ropeLength" type="float" value="420"/>
-   </properties>
-   <point/>
-  </object>
-  <object id="176" name="hangingBag" x="1504.66" y="6471.33">
-   <properties>
-    <property name="bagHeight" type="float" value="70"/>
-    <property name="bagWidth" type="float" value="40"/>
-    <property name="pivotingJoint" type="bool" value="true"/>
-    <property name="ropeLength" type="float" value="420"/>
-   </properties>
-   <point/>
-  </object>
   <object id="177" name="hangingBag" x="1562.67" y="6622.67">
    <properties>
     <property name="bagHeight" type="float" value="70"/>
@@ -1069,21 +763,21 @@
   <object id="4" name="sam" x="233.333" y="503.031">
    <point/>
   </object>
-  <object id="27" name="rectangle" x="585.891" y="834.45" width="184.512" height="385.812" rotation="292.95">
+  <object id="27" name="rectangle" x="455.425" y="1142.56" width="519.105" height="432.004" rotation="292.95">
    <properties>
     <property name="static" type="bool" value="true"/>
     <property name="texturePath" value="assets/art/environment-textures/ground-base.png"/>
    </properties>
   </object>
-  <object id="52" name="rectangle" x="34.1702" y="864.063" width="227.123" height="567.849" rotation="-87.7473">
+  <object id="52" name="rectangle" x="-54.2934" y="1170.9" width="537.198" height="644.183" rotation="-87.7473">
    <properties>
     <property name="static" type="bool" value="true"/>
     <property name="texturePath" value="assets/art/environment-textures/ground-base.png"/>
    </properties>
   </object>
-  <object id="53" name="cameraFocus" x="232.788" y="385.637">
+  <object id="53" name="cameraFocus" x="404.788" y="385.637">
    <properties>
-    <property name="cameraDistance" type="float" value="450"/>
+    <property name="cameraDistance" type="float" value="425"/>
    </properties>
    <point/>
   </object>
@@ -1102,7 +796,7 @@
    </properties>
    <point/>
   </object>
-  <object id="56" name="rectangle" x="933.233" y="982.973" width="184.512" height="407.013" rotation="288.668">
+  <object id="56" name="rectangle" x="814.68" y="1333.87" width="554.891" height="407.013" rotation="288.668">
    <properties>
     <property name="static" type="bool" value="true"/>
     <property name="texturePath" value="assets/art/environment-textures/ground-base.png"/>
@@ -1114,7 +808,7 @@
     <property name="texturePath" value="assets/art/environment-textures/ground-base.png"/>
    </properties>
   </object>
-  <object id="59" name="rectangle" x="3229.53" y="1511.26" width="756.702" height="1521.51" rotation="540.651">
+  <object id="59" name="rectangle" x="3255.41" y="1613.38" width="790.095" height="1638.25" rotation="538.475">
    <properties>
     <property name="static" type="bool" value="true"/>
     <property name="texturePath" value="assets/art/environment-textures/ground-base.png"/>
@@ -1134,31 +828,25 @@
    </properties>
    <ellipse/>
   </object>
-  <object id="62" name="rectangle" x="1306.03" y="1107.44" width="184.512" height="410.891" rotation="292.95">
+  <object id="62" name="rectangle" x="1152.61" y="1469.76" width="577.973" height="410.891" rotation="292.95">
    <properties>
     <property name="static" type="bool" value="true"/>
     <property name="texturePath" value="assets/art/environment-textures/ground-base.png"/>
    </properties>
   </object>
-  <object id="63" name="rectangle" x="1673.46" y="1262.75" width="184.512" height="385.812" rotation="288.668">
+  <object id="63" name="rectangle" x="1463.46" y="1669.13" width="636.727" height="491.408" rotation="288.668">
    <properties>
     <property name="static" type="bool" value="true"/>
     <property name="texturePath" value="assets/art/environment-textures/ground-base.png"/>
    </properties>
   </object>
-  <object id="78" name="rectangle" x="2539.05" y="1984.48" width="371.528" height="555.484" rotation="221.239">
+  <object id="78" name="rectangle" x="3071.92" y="2439.8" width="996.096" height="904.397" rotation="221.239">
    <properties>
     <property name="static" type="bool" value="true"/>
     <property name="texturePath" value="assets/art/environment-textures/ground-base.png"/>
    </properties>
   </object>
-  <object id="79" name="rectangle" x="1951.17" y="1789.62" width="184.512" height="528.58" rotation="219.49">
-   <properties>
-    <property name="static" type="bool" value="true"/>
-    <property name="texturePath" value="assets/art/environment-textures/ground-base.png"/>
-   </properties>
-  </object>
-  <object id="80" name="rectangle" x="1751.74" y="1953.18" width="184.512" height="201.646" rotation="268.052">
+  <object id="79" name="rectangle" x="1859.85" y="1915.29" width="184.512" height="678.467" rotation="219.49">
    <properties>
     <property name="static" type="bool" value="true"/>
     <property name="texturePath" value="assets/art/environment-textures/ground-base.png"/>
@@ -1170,14 +858,14 @@
     <property name="texturePath" value="assets/art/environment-textures/ground-base.png"/>
    </properties>
   </object>
-  <object id="84" name="rectangle" x="3039.91" y="2435.05" width="806.364" height="246.391" rotation="498.696">
+  <object id="84" name="rectangle" x="3052.9" y="2423.63" width="823.664" height="246.391" rotation="498.696">
    <properties>
     <property name="cameraDistance" type="float" value="300"/>
     <property name="static" type="bool" value="true"/>
     <property name="texturePath" value="assets/art/environment-textures/ground-base.png"/>
    </properties>
   </object>
-  <object id="85" name="rectangle" x="1848.99" y="4211.05" width="1873.51" height="246.391" rotation="267.454">
+  <object id="85" name="rectangle" x="1848.26" y="4194.73" width="1925.28" height="246.391" rotation="267.454">
    <properties>
     <property name="static" type="bool" value="true"/>
     <property name="texturePath" value="assets/art/environment-textures/ground-base.png"/>
@@ -1197,13 +885,7 @@
     <property name="texturePath" value="assets/art/environment-textures/ground-base.png"/>
    </properties>
   </object>
-  <object id="88" name="rectangle" x="3134.12" y="2496.41" width="929.913" height="757.874" rotation="221.239">
-   <properties>
-    <property name="static" type="bool" value="true"/>
-    <property name="texturePath" value="assets/art/environment-textures/ground-base.png"/>
-   </properties>
-  </object>
-  <object id="91" name="ball" x="2239.82" y="1675.09" width="240" height="240">
+  <object id="91" name="ball" x="2295.82" y="1737.09" width="240" height="240">
    <properties>
     <property name="static" type="bool" value="true"/>
     <property name="texturePath" value="assets/art/environment-textures/ground-base-circle.png"/>
@@ -1238,7 +920,7 @@
    </properties>
    <ellipse/>
   </object>
-  <object id="113" name="rectangle" x="131.239" y="4779.59" width="1873.51" height="246.391" rotation="333.306">
+  <object id="113" name="rectangle" x="131.239" y="4779.59" width="1910.16" height="246.391" rotation="333.306">
    <properties>
     <property name="static" type="bool" value="true"/>
     <property name="texturePath" value="assets/art/environment-textures/ground-base.png"/>
@@ -1263,15 +945,6 @@
     <property name="texturePath" value="assets/art/environment-textures/ground-base.png"/>
    </properties>
   </object>
-  <object id="167" name="ball" x="1308.12" y="7447.15" width="415.758" height="409.697">
-   <properties>
-    <property name="cameraDistance" type="float" value="700"/>
-    <property name="cameraFocus" type="bool" value="true"/>
-    <property name="static" type="bool" value="true"/>
-    <property name="texturePath" value="assets/art/environment-textures/ground-base-circle.png"/>
-   </properties>
-   <ellipse/>
-  </object>
   <object id="168" name="rectangle" x="1204.12" y="7124.55" width="371.995" height="201.646" rotation="268.052">
    <properties>
     <property name="static" type="bool" value="true"/>
@@ -1283,6 +956,160 @@
     <property name="static" type="bool" value="true"/>
     <property name="texturePath" value="assets/art/environment-textures/ground-base.png"/>
    </properties>
+  </object>
+  <object id="188" name="ball" x="1486.12" y="4787.15" width="415.758" height="409.697">
+   <properties>
+    <property name="static" type="bool" value="true"/>
+    <property name="texturePath" value="assets/art/environment-textures/ground-base-circle.png"/>
+   </properties>
+   <ellipse/>
+  </object>
+  <object id="223" name="ball" x="1301.45" y="7809.84" width="415.758" height="409.697">
+   <properties>
+    <property name="static" type="bool" value="true"/>
+    <property name="texturePath" value="assets/art/environment-textures/ground-base-circle.png"/>
+   </properties>
+   <ellipse/>
+  </object>
+  <object id="224" name="cameraFocus" x="1506.51" y="7646.82">
+   <properties>
+    <property name="cameraDistance" type="float" value="1000"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="225" name="rectangle" x="1253.02" y="7907.32" width="503.96" height="201.646">
+   <properties>
+    <property name="static" type="bool" value="true"/>
+    <property name="texturePath" value="assets/art/environment-textures/ground-base.png"/>
+   </properties>
+  </object>
+  <object id="226" name="rectangle" x="1711.32" y="7826.47" width="41.96" height="78.9793">
+   <properties>
+    <property name="static" type="bool" value="false"/>
+    <property name="texturePath" value="assets/art/environment-textures/ground-base.png"/>
+   </properties>
+  </object>
+  <object id="227" name="rectangle" x="1709.32" y="7739.64" width="41.96" height="86.4793">
+   <properties>
+    <property name="static" type="bool" value="false"/>
+    <property name="texturePath" value="assets/art/environment-textures/ground-base.png"/>
+   </properties>
+  </object>
+  <object id="228" name="rectangle" x="1256.32" y="7827.81" width="41.96" height="78.9793">
+   <properties>
+    <property name="static" type="bool" value="false"/>
+    <property name="texturePath" value="assets/art/environment-textures/ground-base.png"/>
+   </properties>
+  </object>
+  <object id="229" name="rectangle" x="1258.32" y="7737.48" width="41.96" height="88.4793">
+   <properties>
+    <property name="static" type="bool" value="false"/>
+    <property name="texturePath" value="assets/art/environment-textures/ground-base.png"/>
+   </properties>
+  </object>
+  <object id="230" name="rectangle" x="1258.33" y="7701.18" width="224.739" height="33.646" rotation="1.57887">
+   <properties>
+    <property name="static" type="bool" value="false"/>
+    <property name="texturePath" value="assets/art/environment-textures/ground-base.png"/>
+   </properties>
+  </object>
+  <object id="231" name="rectangle" x="1531.33" y="7706.8" width="234.548" height="33.646" rotation="-0.80849">
+   <properties>
+    <property name="static" type="bool" value="false"/>
+    <property name="texturePath" value="assets/art/environment-textures/ground-base.png"/>
+   </properties>
+  </object>
+  <object id="232" name="rectangle" x="1264.73" y="7621.68" width="41.96" height="78.9793" rotation="1.77751">
+   <properties>
+    <property name="static" type="bool" value="false"/>
+    <property name="texturePath" value="assets/art/environment-textures/ground-base.png"/>
+   </properties>
+  </object>
+  <object id="233" name="rectangle" x="1270" y="7540.63" width="41.96" height="78.9793" rotation="2.41106">
+   <properties>
+    <property name="static" type="bool" value="false"/>
+    <property name="texturePath" value="assets/art/environment-textures/ground-base.png"/>
+   </properties>
+  </object>
+  <object id="234" name="rectangle" x="1709.49" y="7624.81" width="41.96" height="78.9793">
+   <properties>
+    <property name="static" type="bool" value="false"/>
+    <property name="texturePath" value="assets/art/environment-textures/ground-base.png"/>
+   </properties>
+  </object>
+  <object id="235" name="rectangle" x="1706.49" y="7544.48" width="41.96" height="78.9793">
+   <properties>
+    <property name="static" type="bool" value="false"/>
+    <property name="texturePath" value="assets/art/environment-textures/ground-base.png"/>
+   </properties>
+  </object>
+  <object id="236" name="rectangle" x="1608.99" y="7624.81" width="41.96" height="78.9793">
+   <properties>
+    <property name="static" type="bool" value="false"/>
+    <property name="texturePath" value="assets/art/environment-textures/ground-base.png"/>
+   </properties>
+  </object>
+  <object id="237" name="rectangle" x="1606.99" y="7540.48" width="41.96" height="82.9793">
+   <properties>
+    <property name="static" type="bool" value="false"/>
+    <property name="texturePath" value="assets/art/environment-textures/ground-base.png"/>
+   </properties>
+  </object>
+  <object id="238" name="rectangle" x="1364" y="7624.29" width="41.96" height="78.9793" rotation="1.45315">
+   <properties>
+    <property name="static" type="bool" value="false"/>
+    <property name="texturePath" value="assets/art/environment-textures/ground-base.png"/>
+   </properties>
+  </object>
+  <object id="239" name="rectangle" x="1364.49" y="7538.48" width="41.96" height="84.9793">
+   <properties>
+    <property name="static" type="bool" value="false"/>
+    <property name="texturePath" value="assets/art/environment-textures/ground-base.png"/>
+   </properties>
+  </object>
+  <object id="240" name="rectangle" x="1272.78" y="7506.59" width="105.459" height="33.646" rotation="-1.98811">
+   <properties>
+    <property name="static" type="bool" value="false"/>
+    <property name="texturePath" value="assets/art/environment-textures/ground-base.png"/>
+   </properties>
+  </object>
+  <object id="241" name="rectangle" x="1401.27" y="7503.02" width="208.427" height="33.646" rotation="0.59665">
+   <properties>
+    <property name="static" type="bool" value="false"/>
+    <property name="texturePath" value="assets/art/environment-textures/ground-base.png"/>
+   </properties>
+  </object>
+  <object id="242" name="rectangle" x="1629.22" y="7506.38" width="105.459" height="33.646" rotation="1.50587">
+   <properties>
+    <property name="static" type="bool" value="false"/>
+    <property name="texturePath" value="assets/art/environment-textures/ground-base.png"/>
+   </properties>
+  </object>
+  <object id="243" name="rectangle" x="1365.98" y="7485.05" width="169.227" height="33.646" rotation="-39.8523">
+   <properties>
+    <property name="static" type="bool" value="false"/>
+    <property name="texturePath" value="assets/art/environment-textures/ground-base.png"/>
+   </properties>
+  </object>
+  <object id="244" name="rectangle" x="1541.14" y="7376.72" width="153.504" height="33.646" rotation="-313.887">
+   <properties>
+    <property name="static" type="bool" value="false"/>
+    <property name="texturePath" value="assets/art/environment-textures/ground-base.png"/>
+   </properties>
+  </object>
+  <object id="245" name="ball" x="1504.64" y="7368.46" width="25" height="25">
+   <properties>
+    <property name="static" type="bool" value="false"/>
+    <property name="texturePath" value="assets/art/environment-textures/ground-base-circle.png"/>
+   </properties>
+   <ellipse/>
+  </object>
+  <object id="246" name="ball" x="1468.08" y="7731.16" width="80" height="80">
+   <properties>
+    <property name="static" type="bool" value="false"/>
+    <property name="texturePath" value="assets/art/environment-textures/ground-base-circle.png"/>
+   </properties>
+   <ellipse/>
   </object>
  </objectgroup>
  <layer id="8" name="terrain" width="100" height="500">
