@@ -222,7 +222,7 @@ function GameState:checkNewLevelPoints()
         if levelChanger.cameraDistance and math.abs(xsam - xfocus) < levelChanger.cameraDistance and math.abs(ysam - yfocus) < levelChanger.cameraDistance then
             self:loadMap(levelChanger.newLevelPath)
         end
-	end
+    end
 end
 
 -- input handling callbacks
