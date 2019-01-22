@@ -1393,8 +1393,8 @@ return {
           name = "sam",
           type = "",
           shape = "point",
-          x = 233.333,
-          y = 503.031,
+          x = 240.333,
+          y = 98.031,
           width = 0,
           height = 0,
           rotation = 0,
@@ -1469,8 +1469,8 @@ return {
           name = "skateboard",
           type = "",
           shape = "point",
-          x = 233.121,
-          y = 591.909,
+          x = 240.121,
+          y = 186.909,
           width = 0,
           height = 0,
           rotation = 0,
@@ -1478,8 +1478,8 @@ return {
           properties = {
             ["cameraDistance"] = 400,
             ["cameraFocus"] = true,
-            ["texturePathBoard"] = "assets/art/sam-textures/arm-left.png",
-            ["texturePathWheel"] = "assets/art/sam-textures/eye-left.png"
+            ["texturePathBoard"] = "assets/art/gameobject-textures/skateboard-deck.png",
+            ["texturePathWheel"] = "assets/art/gameobject-textures/skateboard-wheel.png"
           }
         },
         {
