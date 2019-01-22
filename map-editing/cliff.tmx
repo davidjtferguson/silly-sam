@@ -760,7 +760,7 @@
   </object>
  </objectgroup>
  <objectgroup id="2" name="objects">
-  <object id="4" name="sam" x="233.333" y="503.031">
+  <object id="4" name="sam" x="240.333" y="98.031">
    <point/>
   </object>
   <object id="27" name="rectangle" x="455.425" y="1142.56" width="519.105" height="432.004" rotation="292.95">
@@ -787,7 +787,7 @@
     <property name="texturePath" value="assets/art/environment-textures/ground-base.png"/>
    </properties>
   </object>
-  <object id="55" name="skateboard" x="233.121" y="591.909">
+  <object id="55" name="skateboard" x="240.121" y="186.909">
    <properties>
     <property name="cameraDistance" type="float" value="400"/>
     <property name="cameraFocus" type="bool" value="true"/>
