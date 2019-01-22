@@ -112,8 +112,8 @@
   </object>
   <object id="5" name="skateboard" x="824" y="470">
    <properties>
-    <property name="texturePathBoard" value="assets/art/sam-textures/arm-left.png"/>
-    <property name="texturePathWheel" value="assets/art/sam-textures/eye-left.png"/>
+    <property name="texturePathBoard" value="assets/art/gameobject-textures/skateboard-deck.png"/>
+    <property name="texturePathWheel" value="assets/art/gameobject-textures/skateboard-wheel.png"/>
    </properties>
    <point/>
   </object>

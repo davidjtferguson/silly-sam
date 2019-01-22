@@ -234,8 +234,8 @@ return {
           rotation = 0,
           visible = true,
           properties = {
-            ["texturePathBoard"] = "assets/art/sam-textures/arm-left.png",
-            ["texturePathWheel"] = "assets/art/sam-textures/eye-left.png"
+            ["texturePathBoard"] = "assets/art/gameobject-textures/skateboard-deck.png",
+            ["texturePathWheel"] = "assets/art/gameobject-textures/skateboard-wheel.png"
           }
         },
         {
