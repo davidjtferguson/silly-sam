@@ -29,6 +29,7 @@ function GameState:init()
     --self:loadMap("maps/cliff.lua")
     --self:loadMap("maps/test-map-limited-level.lua")
     self:loadMap("maps/survival-map.lua")
+    --self:loadMap("maps/intro-map.lua")
     
     self.controls = {
         bindings = {

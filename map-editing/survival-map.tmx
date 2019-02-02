@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.2" tiledversion="1.2.1" orientation="orthogonal" renderorder="right-down" width="50" height="50" tilewidth="32" tileheight="32" infinite="0" nextlayerid="10" nextobjectid="159">
+<map version="1.2" tiledversion="1.2.1" orientation="orthogonal" renderorder="right-down" width="50" height="50" tilewidth="32" tileheight="32" infinite="0" nextlayerid="10" nextobjectid="177">
  <tileset firstgid="1" source="test-tileset.tsx"/>
  <tileset firstgid="3" source="rory-tileset.tsx"/>
  <tileset firstgid="7" source="tree-square-tileset.tsx"/>
@@ -55,32 +55,142 @@
 1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
 1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
 1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
-47,47,47,47,47,47,47,47,47,47,47,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
-47,47,47,47,47,47,47,47,47,47,47,47,47,47,47,47,47,47,47,47,47,47,47,47,47,47,47,47,47,47,47,47,47,47,47,47,47,47,47,47,47,47,47,47,47,47,47,47,47,47,
-47,47,47,47,47,47,47,47,47,47,47,47,47,47,47,47,47,47,47,47,47,47,47,47,47,47,47,47,47,47,47,47,47,47,47,47,47,47,47,47,47,47,47,47,47,47,47,47,47,47,
-47,47,47,47,47,47,47,47,47,47,47,47,47,47,47,47,47,47,47,47,47,47,47,47,47,47,47,47,47,47,47,47,47,47,47,47,47,47,47,47,47,47,47,47,47,47,47,47,47,47,
-47,47,47,47,47,47,47,47,47,47,47,47,47,47,47,47,47,47,47,47,47,47,47,47,47,47,47,47,47,47,47,47,47,47,47,47,47,47,47,47,47,47,47,47,47,47,47,47,47,47
+1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1
 </data>
  </layer>
  <objectgroup id="8" name="background objects">
-  <object id="111" gid="7" x="137.998" y="1069.16" width="196.226" height="378" rotation="-2.71126"/>
-  <object id="112" gid="8" x="533.632" y="1047.53" width="225.339" height="414.023" rotation="9.0832"/>
+  <object id="111" gid="7" x="477.392" y="1035.83" width="196.226" height="378" rotation="-2.71126"/>
+  <object id="112" gid="8" x="873.026" y="1014.2" width="225.339" height="414.023" rotation="9.0832"/>
  </objectgroup>
  <objectgroup id="2" name="objects">
-  <object id="4" name="sam" x="410.788" y="904.303">
+  <object id="4" name="sam" x="760" y="396.97">
    <point/>
   </object>
-  <object id="87" name="rectangle" x="-169.273" y="1411.21" width="1979.92" height="569.865">
+  <object id="158" name="explodingPlatform" x="645" y="995" width="230" height="54.7135">
    <properties>
     <property name="static" type="bool" value="true"/>
     <property name="texturePath" value="assets/art/environment-textures/ground-base.png"/>
    </properties>
   </object>
-  <object id="158" name="explodingPlatform" x="268.222" y="1036.4" width="279.92" height="54.7135">
+  <object id="160" name="explodingPlatform" x="415" y="995" width="230" height="54.7135">
    <properties>
     <property name="static" type="bool" value="true"/>
     <property name="texturePath" value="assets/art/environment-textures/ground-base.png"/>
    </properties>
+  </object>
+  <object id="161" name="explodingPlatform" x="875" y="995" width="230" height="54.7135">
+   <properties>
+    <property name="static" type="bool" value="true"/>
+    <property name="texturePath" value="assets/art/environment-textures/ground-base.png"/>
+   </properties>
+  </object>
+  <object id="162" name="cameraFocus" x="760" y="790">
+   <properties>
+    <property name="cameraDistance" type="float" value="1000"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="163" name="changeLevel" x="-41.94" y="1528.48">
+   <properties>
+    <property name="cameraDistance" type="float" value="50"/>
+    <property name="newLevelPath" value="maps/cliff.lua"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="164" name="changeLevel" x="120.06" y="1518.48">
+   <properties>
+    <property name="cameraDistance" type="float" value="50"/>
+    <property name="newLevelPath" value="maps/cliff.lua"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="165" name="changeLevel" x="258.06" y="1514.48">
+   <properties>
+    <property name="cameraDistance" type="float" value="50"/>
+    <property name="newLevelPath" value="maps/cliff.lua"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="166" name="changeLevel" x="370.06" y="1514.48">
+   <properties>
+    <property name="cameraDistance" type="float" value="50"/>
+    <property name="newLevelPath" value="maps/cliff.lua"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="167" name="changeLevel" x="488.06" y="1498.48">
+   <properties>
+    <property name="cameraDistance" type="float" value="50"/>
+    <property name="newLevelPath" value="maps/cliff.lua"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="168" name="changeLevel" x="656" y="1494">
+   <properties>
+    <property name="cameraDistance" type="float" value="50"/>
+    <property name="newLevelPath" value="maps/cliff.lua"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="169" name="changeLevel" x="818" y="1484">
+   <properties>
+    <property name="cameraDistance" type="float" value="50"/>
+    <property name="newLevelPath" value="maps/cliff.lua"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="170" name="changeLevel" x="774.06" y="1588.48">
+   <properties>
+    <property name="cameraDistance" type="float" value="50"/>
+    <property name="newLevelPath" value="maps/cliff.lua"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="171" name="changeLevel" x="936.06" y="1578.48">
+   <properties>
+    <property name="cameraDistance" type="float" value="50"/>
+    <property name="newLevelPath" value="maps/cliff.lua"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="172" name="changeLevel" x="1074.06" y="1574.48">
+   <properties>
+    <property name="cameraDistance" type="float" value="50"/>
+    <property name="newLevelPath" value="maps/cliff.lua"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="173" name="changeLevel" x="1186.06" y="1574.48">
+   <properties>
+    <property name="cameraDistance" type="float" value="50"/>
+    <property name="newLevelPath" value="maps/cliff.lua"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="174" name="changeLevel" x="1304.06" y="1558.48">
+   <properties>
+    <property name="cameraDistance" type="float" value="50"/>
+    <property name="newLevelPath" value="maps/cliff.lua"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="175" name="changeLevel" x="1472" y="1554">
+   <properties>
+    <property name="cameraDistance" type="float" value="50"/>
+    <property name="newLevelPath" value="maps/cliff.lua"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="176" name="changeLevel" x="1634" y="1544">
+   <properties>
+    <property name="cameraDistance" type="float" value="50"/>
+    <property name="newLevelPath" value="maps/cliff.lua"/>
+   </properties>
+   <point/>
   </object>
  </objectgroup>
 </map>

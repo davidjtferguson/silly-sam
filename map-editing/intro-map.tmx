@@ -221,7 +221,7 @@
   <object id="57" name="changeLevel" x="5558.06" y="4894.48">
    <properties>
     <property name="cameraDistance" type="float" value="50"/>
-    <property name="newLevelPath" value="maps/cliff.lua"/>
+    <property name="newLevelPath" value="maps/survival-map.lua"/>
    </properties>
    <point/>
   </object>
@@ -367,28 +367,28 @@
   <object id="83" name="changeLevel" x="5720.06" y="4884.48">
    <properties>
     <property name="cameraDistance" type="float" value="50"/>
-    <property name="newLevelPath" value="maps/cliff.lua"/>
+    <property name="newLevelPath" value="maps/survival-map.lua"/>
    </properties>
    <point/>
   </object>
   <object id="84" name="changeLevel" x="5858.06" y="4880.48">
    <properties>
     <property name="cameraDistance" type="float" value="50"/>
-    <property name="newLevelPath" value="maps/cliff.lua"/>
+    <property name="newLevelPath" value="maps/survival-map.lua"/>
    </properties>
    <point/>
   </object>
   <object id="85" name="changeLevel" x="5970.06" y="4880.48">
    <properties>
     <property name="cameraDistance" type="float" value="50"/>
-    <property name="newLevelPath" value="maps/cliff.lua"/>
+    <property name="newLevelPath" value="maps/survival-map.lua"/>
    </properties>
    <point/>
   </object>
   <object id="86" name="changeLevel" x="6088.06" y="4864.48">
    <properties>
     <property name="cameraDistance" type="float" value="50"/>
-    <property name="newLevelPath" value="maps/cliff.lua"/>
+    <property name="newLevelPath" value="maps/survival-map.lua"/>
    </properties>
    <point/>
   </object>
@@ -502,329 +502,329 @@
   <object id="104" name="changeLevel" x="6256" y="4860">
    <properties>
     <property name="cameraDistance" type="float" value="50"/>
-    <property name="newLevelPath" value="maps/cliff.lua"/>
+    <property name="newLevelPath" value="maps/survival-map.lua"/>
    </properties>
    <point/>
   </object>
   <object id="105" name="changeLevel" x="6418" y="4850">
    <properties>
     <property name="cameraDistance" type="float" value="50"/>
-    <property name="newLevelPath" value="maps/cliff.lua"/>
+    <property name="newLevelPath" value="maps/survival-map.lua"/>
    </properties>
    <point/>
   </object>
   <object id="106" name="changeLevel" x="6556" y="4846">
    <properties>
     <property name="cameraDistance" type="float" value="50"/>
-    <property name="newLevelPath" value="maps/cliff.lua"/>
+    <property name="newLevelPath" value="maps/survival-map.lua"/>
    </properties>
    <point/>
   </object>
   <object id="107" name="changeLevel" x="6668" y="4846">
    <properties>
     <property name="cameraDistance" type="float" value="50"/>
-    <property name="newLevelPath" value="maps/cliff.lua"/>
+    <property name="newLevelPath" value="maps/survival-map.lua"/>
    </properties>
    <point/>
   </object>
   <object id="108" name="changeLevel" x="6786" y="4830">
    <properties>
     <property name="cameraDistance" type="float" value="50"/>
-    <property name="newLevelPath" value="maps/cliff.lua"/>
+    <property name="newLevelPath" value="maps/survival-map.lua"/>
    </properties>
    <point/>
   </object>
   <object id="113" name="changeLevel" x="6924.55" y="4828.12">
    <properties>
     <property name="cameraDistance" type="float" value="50"/>
-    <property name="newLevelPath" value="maps/cliff.lua"/>
+    <property name="newLevelPath" value="maps/survival-map.lua"/>
    </properties>
    <point/>
   </object>
   <object id="114" name="changeLevel" x="7036.55" y="4828.12">
    <properties>
     <property name="cameraDistance" type="float" value="50"/>
-    <property name="newLevelPath" value="maps/cliff.lua"/>
+    <property name="newLevelPath" value="maps/survival-map.lua"/>
    </properties>
    <point/>
   </object>
   <object id="115" name="changeLevel" x="7154.55" y="4812.12">
    <properties>
     <property name="cameraDistance" type="float" value="50"/>
-    <property name="newLevelPath" value="maps/cliff.lua"/>
+    <property name="newLevelPath" value="maps/survival-map.lua"/>
    </properties>
    <point/>
   </object>
   <object id="119" name="changeLevel" x="5700.48" y="5336.91">
    <properties>
     <property name="cameraDistance" type="float" value="50"/>
-    <property name="newLevelPath" value="maps/cliff.lua"/>
+    <property name="newLevelPath" value="maps/survival-map.lua"/>
    </properties>
    <point/>
   </object>
   <object id="120" name="changeLevel" x="5862.48" y="5326.91">
    <properties>
     <property name="cameraDistance" type="float" value="50"/>
-    <property name="newLevelPath" value="maps/cliff.lua"/>
+    <property name="newLevelPath" value="maps/survival-map.lua"/>
    </properties>
    <point/>
   </object>
   <object id="121" name="changeLevel" x="6000.48" y="5322.91">
    <properties>
     <property name="cameraDistance" type="float" value="50"/>
-    <property name="newLevelPath" value="maps/cliff.lua"/>
+    <property name="newLevelPath" value="maps/survival-map.lua"/>
    </properties>
    <point/>
   </object>
   <object id="122" name="changeLevel" x="6112.48" y="5322.91">
    <properties>
     <property name="cameraDistance" type="float" value="50"/>
-    <property name="newLevelPath" value="maps/cliff.lua"/>
+    <property name="newLevelPath" value="maps/survival-map.lua"/>
    </properties>
    <point/>
   </object>
   <object id="123" name="changeLevel" x="6230.48" y="5306.91">
    <properties>
     <property name="cameraDistance" type="float" value="50"/>
-    <property name="newLevelPath" value="maps/cliff.lua"/>
+    <property name="newLevelPath" value="maps/survival-map.lua"/>
    </properties>
    <point/>
   </object>
   <object id="124" name="changeLevel" x="6398.42" y="5302.43">
    <properties>
     <property name="cameraDistance" type="float" value="50"/>
-    <property name="newLevelPath" value="maps/cliff.lua"/>
+    <property name="newLevelPath" value="maps/survival-map.lua"/>
    </properties>
    <point/>
   </object>
   <object id="125" name="changeLevel" x="6560.42" y="5292.43">
    <properties>
     <property name="cameraDistance" type="float" value="50"/>
-    <property name="newLevelPath" value="maps/cliff.lua"/>
+    <property name="newLevelPath" value="maps/survival-map.lua"/>
    </properties>
    <point/>
   </object>
   <object id="126" name="changeLevel" x="6698.42" y="5288.43">
    <properties>
     <property name="cameraDistance" type="float" value="50"/>
-    <property name="newLevelPath" value="maps/cliff.lua"/>
+    <property name="newLevelPath" value="maps/survival-map.lua"/>
    </properties>
    <point/>
   </object>
   <object id="127" name="changeLevel" x="6810.42" y="5288.43">
    <properties>
     <property name="cameraDistance" type="float" value="50"/>
-    <property name="newLevelPath" value="maps/cliff.lua"/>
+    <property name="newLevelPath" value="maps/survival-map.lua"/>
    </properties>
    <point/>
   </object>
   <object id="128" name="changeLevel" x="6928.42" y="5272.43">
    <properties>
     <property name="cameraDistance" type="float" value="50"/>
-    <property name="newLevelPath" value="maps/cliff.lua"/>
+    <property name="newLevelPath" value="maps/survival-map.lua"/>
    </properties>
    <point/>
   </object>
   <object id="129" name="changeLevel" x="7066.97" y="5270.55">
    <properties>
     <property name="cameraDistance" type="float" value="50"/>
-    <property name="newLevelPath" value="maps/cliff.lua"/>
+    <property name="newLevelPath" value="maps/survival-map.lua"/>
    </properties>
    <point/>
   </object>
   <object id="130" name="changeLevel" x="7178.97" y="5270.55">
    <properties>
     <property name="cameraDistance" type="float" value="50"/>
-    <property name="newLevelPath" value="maps/cliff.lua"/>
+    <property name="newLevelPath" value="maps/survival-map.lua"/>
    </properties>
    <point/>
   </object>
   <object id="131" name="changeLevel" x="7296.97" y="5254.55">
    <properties>
     <property name="cameraDistance" type="float" value="50"/>
-    <property name="newLevelPath" value="maps/cliff.lua"/>
+    <property name="newLevelPath" value="maps/survival-map.lua"/>
    </properties>
    <point/>
   </object>
   <object id="132" name="changeLevel" x="7097.45" y="4603.57">
    <properties>
     <property name="cameraDistance" type="float" value="50"/>
-    <property name="newLevelPath" value="maps/cliff.lua"/>
+    <property name="newLevelPath" value="maps/survival-map.lua"/>
    </properties>
    <point/>
   </object>
   <object id="133" name="changeLevel" x="7086.72" y="4369.33">
    <properties>
     <property name="cameraDistance" type="float" value="50"/>
-    <property name="newLevelPath" value="maps/cliff.lua"/>
+    <property name="newLevelPath" value="maps/survival-map.lua"/>
    </properties>
    <point/>
   </object>
   <object id="134" name="changeLevel" x="7088.36" y="4144.12">
    <properties>
     <property name="cameraDistance" type="float" value="50"/>
-    <property name="newLevelPath" value="maps/cliff.lua"/>
+    <property name="newLevelPath" value="maps/survival-map.lua"/>
    </properties>
    <point/>
   </object>
   <object id="135" name="changeLevel" x="7079.15" y="3941.09">
    <properties>
     <property name="cameraDistance" type="float" value="50"/>
-    <property name="newLevelPath" value="maps/cliff.lua"/>
+    <property name="newLevelPath" value="maps/survival-map.lua"/>
    </properties>
    <point/>
   </object>
   <object id="136" name="changeLevel" x="7075.93" y="3731.15">
    <properties>
     <property name="cameraDistance" type="float" value="50"/>
-    <property name="newLevelPath" value="maps/cliff.lua"/>
+    <property name="newLevelPath" value="maps/survival-map.lua"/>
    </properties>
    <point/>
   </object>
   <object id="137" name="changeLevel" x="7080.24" y="3520.61">
    <properties>
     <property name="cameraDistance" type="float" value="50"/>
-    <property name="newLevelPath" value="maps/cliff.lua"/>
+    <property name="newLevelPath" value="maps/survival-map.lua"/>
    </properties>
    <point/>
   </object>
   <object id="138" name="changeLevel" x="7081.63" y="3343.94">
    <properties>
     <property name="cameraDistance" type="float" value="50"/>
-    <property name="newLevelPath" value="maps/cliff.lua"/>
+    <property name="newLevelPath" value="maps/survival-map.lua"/>
    </properties>
    <point/>
   </object>
   <object id="139" name="changeLevel" x="7074.18" y="3176.3">
    <properties>
     <property name="cameraDistance" type="float" value="50"/>
-    <property name="newLevelPath" value="maps/cliff.lua"/>
+    <property name="newLevelPath" value="maps/survival-map.lua"/>
    </properties>
    <point/>
   </object>
   <object id="140" name="changeLevel" x="7083.15" y="3021.76">
    <properties>
     <property name="cameraDistance" type="float" value="50"/>
-    <property name="newLevelPath" value="maps/cliff.lua"/>
+    <property name="newLevelPath" value="maps/survival-map.lua"/>
    </properties>
    <point/>
   </object>
   <object id="141" name="changeLevel" x="7104.18" y="2830">
    <properties>
     <property name="cameraDistance" type="float" value="50"/>
-    <property name="newLevelPath" value="maps/cliff.lua"/>
+    <property name="newLevelPath" value="maps/survival-map.lua"/>
    </properties>
    <point/>
   </object>
   <object id="142" name="changeLevel" x="7079.09" y="2667.52">
    <properties>
     <property name="cameraDistance" type="float" value="50"/>
-    <property name="newLevelPath" value="maps/cliff.lua"/>
+    <property name="newLevelPath" value="maps/survival-map.lua"/>
    </properties>
    <point/>
   </object>
   <object id="143" name="changeLevel" x="7091.09" y="2497.82">
    <properties>
     <property name="cameraDistance" type="float" value="50"/>
-    <property name="newLevelPath" value="maps/cliff.lua"/>
+    <property name="newLevelPath" value="maps/survival-map.lua"/>
    </properties>
    <point/>
   </object>
   <object id="144" name="changeLevel" x="7127.27" y="2312.12">
    <properties>
     <property name="cameraDistance" type="float" value="50"/>
-    <property name="newLevelPath" value="maps/cliff.lua"/>
+    <property name="newLevelPath" value="maps/survival-map.lua"/>
    </properties>
    <point/>
   </object>
   <object id="145" name="changeLevel" x="6823.45" y="4353.21">
    <properties>
     <property name="cameraDistance" type="float" value="50"/>
-    <property name="newLevelPath" value="maps/cliff.lua"/>
+    <property name="newLevelPath" value="maps/survival-map.lua"/>
    </properties>
    <point/>
   </object>
   <object id="146" name="changeLevel" x="6825.09" y="4128">
    <properties>
     <property name="cameraDistance" type="float" value="50"/>
-    <property name="newLevelPath" value="maps/cliff.lua"/>
+    <property name="newLevelPath" value="maps/survival-map.lua"/>
    </properties>
    <point/>
   </object>
   <object id="147" name="changeLevel" x="6815.88" y="3924.97">
    <properties>
     <property name="cameraDistance" type="float" value="50"/>
-    <property name="newLevelPath" value="maps/cliff.lua"/>
+    <property name="newLevelPath" value="maps/survival-map.lua"/>
    </properties>
    <point/>
   </object>
   <object id="148" name="changeLevel" x="6812.66" y="3715.03">
    <properties>
     <property name="cameraDistance" type="float" value="50"/>
-    <property name="newLevelPath" value="maps/cliff.lua"/>
+    <property name="newLevelPath" value="maps/survival-map.lua"/>
    </properties>
    <point/>
   </object>
   <object id="149" name="changeLevel" x="6816.97" y="3504.49">
    <properties>
     <property name="cameraDistance" type="float" value="50"/>
-    <property name="newLevelPath" value="maps/cliff.lua"/>
+    <property name="newLevelPath" value="maps/survival-map.lua"/>
    </properties>
    <point/>
   </object>
   <object id="150" name="changeLevel" x="6818.36" y="3327.82">
    <properties>
     <property name="cameraDistance" type="float" value="50"/>
-    <property name="newLevelPath" value="maps/cliff.lua"/>
+    <property name="newLevelPath" value="maps/survival-map.lua"/>
    </properties>
    <point/>
   </object>
   <object id="151" name="changeLevel" x="6810.91" y="3160.18">
    <properties>
     <property name="cameraDistance" type="float" value="50"/>
-    <property name="newLevelPath" value="maps/cliff.lua"/>
+    <property name="newLevelPath" value="maps/survival-map.lua"/>
    </properties>
    <point/>
   </object>
   <object id="152" name="changeLevel" x="6819.88" y="3005.64">
    <properties>
     <property name="cameraDistance" type="float" value="50"/>
-    <property name="newLevelPath" value="maps/cliff.lua"/>
+    <property name="newLevelPath" value="maps/survival-map.lua"/>
    </properties>
    <point/>
   </object>
   <object id="153" name="changeLevel" x="6840.91" y="2813.88">
    <properties>
     <property name="cameraDistance" type="float" value="50"/>
-    <property name="newLevelPath" value="maps/cliff.lua"/>
+    <property name="newLevelPath" value="maps/survival-map.lua"/>
    </properties>
    <point/>
   </object>
   <object id="154" name="changeLevel" x="6815.82" y="2651.4">
    <properties>
     <property name="cameraDistance" type="float" value="50"/>
-    <property name="newLevelPath" value="maps/cliff.lua"/>
+    <property name="newLevelPath" value="maps/survival-map.lua"/>
    </properties>
    <point/>
   </object>
   <object id="155" name="changeLevel" x="6827.82" y="2481.7">
    <properties>
     <property name="cameraDistance" type="float" value="50"/>
-    <property name="newLevelPath" value="maps/cliff.lua"/>
+    <property name="newLevelPath" value="maps/survival-map.lua"/>
    </properties>
    <point/>
   </object>
   <object id="156" name="changeLevel" x="6864" y="2296">
    <properties>
     <property name="cameraDistance" type="float" value="50"/>
-    <property name="newLevelPath" value="maps/cliff.lua"/>
+    <property name="newLevelPath" value="maps/survival-map.lua"/>
    </properties>
    <point/>
   </object>
   <object id="157" name="changeLevel" x="6820" y="4544">
    <properties>
     <property name="cameraDistance" type="float" value="50"/>
-    <property name="newLevelPath" value="maps/cliff.lua"/>
+    <property name="newLevelPath" value="maps/survival-map.lua"/>
    </properties>
    <point/>
   </object>

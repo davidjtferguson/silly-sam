@@ -25,9 +25,8 @@ function ExplodingPlatform:init(world, mapObject)
     self.cameraDistance = mapObject.properties.cameraDistance
     self.cameraFocus = mapObject.properties.cameraFocus
 
-    -- start timer
-    -- TODO: randomize respawn/despawned times
-    self.timer = 5
+    -- start timer (seconds)
+    self.timer = 3 + love.math.random(9)
 
     self.state = "exists"
 
@@ -77,24 +76,35 @@ end
 function ExplodingPlatform:update(dt, world)
     self.timer=self.timer-dt
 
+    if self.timer < 3 then
+        self.color = {1, 0.5, 0.5, 1}
+    end
+
     if self.timer < 0 then
         if self.state=="exists" then
             -- blow up
-            self.body:destroy()
             self.state = "recovering"
-            self.timer = 5
+            self.timer = 1.5
+            
+            self.body:destroy()
         elseif self.state=="recovering" then
             -- respawn
+            self.state = "exists"
+            self.timer = 3 + love.math.random(9)
+
             self:resetPhysicsObject(world)
-            self.timer = 5
+            self.color = {1, 1, 1, 1}
         end
     end
 end
 
 function ExplodingPlatform:draw()
+    love.graphics.setColor(self:getColor())
     if self.body and not self.body:isDestroyed() then
         self:drawRectangleObject(self)
     end
+    
+    love.graphics.setColor(1, 1, 1, 1)
 end
 
 return ExplodingPlatform

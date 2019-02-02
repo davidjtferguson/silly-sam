@@ -9,7 +9,7 @@ return {
   tilewidth = 32,
   tileheight = 32,
   nextlayerid = 10,
-  nextobjectid = 159,
+  nextobjectid = 177,
   properties = {},
   tilesets = {
     {
@@ -297,11 +297,11 @@ return {
         1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
         1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
         1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
-        47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
-        47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47,
-        47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47,
-        47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47,
-        47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47
+        1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+        1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+        1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+        1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+        1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1
       }
     },
     {
@@ -320,8 +320,8 @@ return {
           name = "",
           type = "",
           shape = "rectangle",
-          x = 137.998,
-          y = 1069.16,
+          x = 477.392,
+          y = 1035.83,
           width = 196.226,
           height = 378,
           rotation = -2.71126,
@@ -334,8 +334,8 @@ return {
           name = "",
           type = "",
           shape = "rectangle",
-          x = 533.632,
-          y = 1047.53,
+          x = 873.026,
+          y = 1014.2,
           width = 225.339,
           height = 414.023,
           rotation = 9.0832,
@@ -361,8 +361,8 @@ return {
           name = "sam",
           type = "",
           shape = "point",
-          x = 410.788,
-          y = 904.303,
+          x = 760,
+          y = 396.97,
           width = 0,
           height = 0,
           rotation = 0,
@@ -370,14 +370,14 @@ return {
           properties = {}
         },
         {
-          id = 87,
-          name = "rectangle",
+          id = 158,
+          name = "explodingPlatform",
           type = "",
           shape = "rectangle",
-          x = -169.273,
-          y = 1411.21,
-          width = 1979.92,
-          height = 569.865,
+          x = 645,
+          y = 995,
+          width = 230,
+          height = 54.7135,
           rotation = 0,
           visible = true,
           properties = {
@@ -386,19 +386,274 @@ return {
           }
         },
         {
-          id = 158,
+          id = 160,
           name = "explodingPlatform",
           type = "",
           shape = "rectangle",
-          x = 268.222,
-          y = 1036.4,
-          width = 279.92,
+          x = 415,
+          y = 995,
+          width = 230,
           height = 54.7135,
           rotation = 0,
           visible = true,
           properties = {
             ["static"] = true,
             ["texturePath"] = "assets/art/environment-textures/ground-base.png"
+          }
+        },
+        {
+          id = 161,
+          name = "explodingPlatform",
+          type = "",
+          shape = "rectangle",
+          x = 875,
+          y = 995,
+          width = 230,
+          height = 54.7135,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["static"] = true,
+            ["texturePath"] = "assets/art/environment-textures/ground-base.png"
+          }
+        },
+        {
+          id = 162,
+          name = "cameraFocus",
+          type = "",
+          shape = "point",
+          x = 760,
+          y = 790,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["cameraDistance"] = 1000
+          }
+        },
+        {
+          id = 163,
+          name = "changeLevel",
+          type = "",
+          shape = "point",
+          x = -41.94,
+          y = 1528.48,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["cameraDistance"] = 50,
+            ["newLevelPath"] = "maps/cliff.lua"
+          }
+        },
+        {
+          id = 164,
+          name = "changeLevel",
+          type = "",
+          shape = "point",
+          x = 120.06,
+          y = 1518.48,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["cameraDistance"] = 50,
+            ["newLevelPath"] = "maps/cliff.lua"
+          }
+        },
+        {
+          id = 165,
+          name = "changeLevel",
+          type = "",
+          shape = "point",
+          x = 258.06,
+          y = 1514.48,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["cameraDistance"] = 50,
+            ["newLevelPath"] = "maps/cliff.lua"
+          }
+        },
+        {
+          id = 166,
+          name = "changeLevel",
+          type = "",
+          shape = "point",
+          x = 370.06,
+          y = 1514.48,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["cameraDistance"] = 50,
+            ["newLevelPath"] = "maps/cliff.lua"
+          }
+        },
+        {
+          id = 167,
+          name = "changeLevel",
+          type = "",
+          shape = "point",
+          x = 488.06,
+          y = 1498.48,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["cameraDistance"] = 50,
+            ["newLevelPath"] = "maps/cliff.lua"
+          }
+        },
+        {
+          id = 168,
+          name = "changeLevel",
+          type = "",
+          shape = "point",
+          x = 656,
+          y = 1494,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["cameraDistance"] = 50,
+            ["newLevelPath"] = "maps/cliff.lua"
+          }
+        },
+        {
+          id = 169,
+          name = "changeLevel",
+          type = "",
+          shape = "point",
+          x = 818,
+          y = 1484,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["cameraDistance"] = 50,
+            ["newLevelPath"] = "maps/cliff.lua"
+          }
+        },
+        {
+          id = 170,
+          name = "changeLevel",
+          type = "",
+          shape = "point",
+          x = 774.06,
+          y = 1588.48,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["cameraDistance"] = 50,
+            ["newLevelPath"] = "maps/cliff.lua"
+          }
+        },
+        {
+          id = 171,
+          name = "changeLevel",
+          type = "",
+          shape = "point",
+          x = 936.06,
+          y = 1578.48,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["cameraDistance"] = 50,
+            ["newLevelPath"] = "maps/cliff.lua"
+          }
+        },
+        {
+          id = 172,
+          name = "changeLevel",
+          type = "",
+          shape = "point",
+          x = 1074.06,
+          y = 1574.48,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["cameraDistance"] = 50,
+            ["newLevelPath"] = "maps/cliff.lua"
+          }
+        },
+        {
+          id = 173,
+          name = "changeLevel",
+          type = "",
+          shape = "point",
+          x = 1186.06,
+          y = 1574.48,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["cameraDistance"] = 50,
+            ["newLevelPath"] = "maps/cliff.lua"
+          }
+        },
+        {
+          id = 174,
+          name = "changeLevel",
+          type = "",
+          shape = "point",
+          x = 1304.06,
+          y = 1558.48,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["cameraDistance"] = 50,
+            ["newLevelPath"] = "maps/cliff.lua"
+          }
+        },
+        {
+          id = 175,
+          name = "changeLevel",
+          type = "",
+          shape = "point",
+          x = 1472,
+          y = 1554,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["cameraDistance"] = 50,
+            ["newLevelPath"] = "maps/cliff.lua"
+          }
+        },
+        {
+          id = 176,
+          name = "changeLevel",
+          type = "",
+          shape = "point",
+          x = 1634,
+          y = 1544,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["cameraDistance"] = 50,
+            ["newLevelPath"] = "maps/cliff.lua"
           }
         }
       }
