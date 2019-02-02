@@ -81,6 +81,9 @@ function HangingBag:draw()
     self:drawCircleObject(self.anchor)
 
     self:drawRectangleObject(self.bag)
+    
+    -- reset color
+    love.graphics.setColor(1, 1, 1, 1)
 end
 
 return HangingBag

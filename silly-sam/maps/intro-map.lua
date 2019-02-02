@@ -606,7 +606,7 @@ return {
           visible = true,
           properties = {
             ["cameraDistance"] = 50,
-            ["newLevelPath"] = "maps/cliff.lua"
+            ["newLevelPath"] = "maps/survival-map.lua"
           }
         },
         {
@@ -990,7 +990,7 @@ return {
           visible = true,
           properties = {
             ["cameraDistance"] = 50,
-            ["newLevelPath"] = "maps/cliff.lua"
+            ["newLevelPath"] = "maps/survival-map.lua"
           }
         },
         {
@@ -1006,7 +1006,7 @@ return {
           visible = true,
           properties = {
             ["cameraDistance"] = 50,
-            ["newLevelPath"] = "maps/cliff.lua"
+            ["newLevelPath"] = "maps/survival-map.lua"
           }
         },
         {
@@ -1022,7 +1022,7 @@ return {
           visible = true,
           properties = {
             ["cameraDistance"] = 50,
-            ["newLevelPath"] = "maps/cliff.lua"
+            ["newLevelPath"] = "maps/survival-map.lua"
           }
         },
         {
@@ -1038,7 +1038,7 @@ return {
           visible = true,
           properties = {
             ["cameraDistance"] = 50,
-            ["newLevelPath"] = "maps/cliff.lua"
+            ["newLevelPath"] = "maps/survival-map.lua"
           }
         },
         {
@@ -1327,7 +1327,7 @@ return {
           visible = true,
           properties = {
             ["cameraDistance"] = 50,
-            ["newLevelPath"] = "maps/cliff.lua"
+            ["newLevelPath"] = "maps/survival-map.lua"
           }
         },
         {
@@ -1343,7 +1343,7 @@ return {
           visible = true,
           properties = {
             ["cameraDistance"] = 50,
-            ["newLevelPath"] = "maps/cliff.lua"
+            ["newLevelPath"] = "maps/survival-map.lua"
           }
         },
         {
@@ -1359,7 +1359,7 @@ return {
           visible = true,
           properties = {
             ["cameraDistance"] = 50,
-            ["newLevelPath"] = "maps/cliff.lua"
+            ["newLevelPath"] = "maps/survival-map.lua"
           }
         },
         {
@@ -1375,7 +1375,7 @@ return {
           visible = true,
           properties = {
             ["cameraDistance"] = 50,
-            ["newLevelPath"] = "maps/cliff.lua"
+            ["newLevelPath"] = "maps/survival-map.lua"
           }
         },
         {
@@ -1391,7 +1391,7 @@ return {
           visible = true,
           properties = {
             ["cameraDistance"] = 50,
-            ["newLevelPath"] = "maps/cliff.lua"
+            ["newLevelPath"] = "maps/survival-map.lua"
           }
         },
         {
@@ -1407,7 +1407,7 @@ return {
           visible = true,
           properties = {
             ["cameraDistance"] = 50,
-            ["newLevelPath"] = "maps/cliff.lua"
+            ["newLevelPath"] = "maps/survival-map.lua"
           }
         },
         {
@@ -1423,7 +1423,7 @@ return {
           visible = true,
           properties = {
             ["cameraDistance"] = 50,
-            ["newLevelPath"] = "maps/cliff.lua"
+            ["newLevelPath"] = "maps/survival-map.lua"
           }
         },
         {
@@ -1439,7 +1439,7 @@ return {
           visible = true,
           properties = {
             ["cameraDistance"] = 50,
-            ["newLevelPath"] = "maps/cliff.lua"
+            ["newLevelPath"] = "maps/survival-map.lua"
           }
         },
         {
@@ -1455,7 +1455,7 @@ return {
           visible = true,
           properties = {
             ["cameraDistance"] = 50,
-            ["newLevelPath"] = "maps/cliff.lua"
+            ["newLevelPath"] = "maps/survival-map.lua"
           }
         },
         {
@@ -1471,7 +1471,7 @@ return {
           visible = true,
           properties = {
             ["cameraDistance"] = 50,
-            ["newLevelPath"] = "maps/cliff.lua"
+            ["newLevelPath"] = "maps/survival-map.lua"
           }
         },
         {
@@ -1487,7 +1487,7 @@ return {
           visible = true,
           properties = {
             ["cameraDistance"] = 50,
-            ["newLevelPath"] = "maps/cliff.lua"
+            ["newLevelPath"] = "maps/survival-map.lua"
           }
         },
         {
@@ -1503,7 +1503,7 @@ return {
           visible = true,
           properties = {
             ["cameraDistance"] = 50,
-            ["newLevelPath"] = "maps/cliff.lua"
+            ["newLevelPath"] = "maps/survival-map.lua"
           }
         },
         {
@@ -1519,7 +1519,7 @@ return {
           visible = true,
           properties = {
             ["cameraDistance"] = 50,
-            ["newLevelPath"] = "maps/cliff.lua"
+            ["newLevelPath"] = "maps/survival-map.lua"
           }
         },
         {
@@ -1535,7 +1535,7 @@ return {
           visible = true,
           properties = {
             ["cameraDistance"] = 50,
-            ["newLevelPath"] = "maps/cliff.lua"
+            ["newLevelPath"] = "maps/survival-map.lua"
           }
         },
         {
@@ -1551,7 +1551,7 @@ return {
           visible = true,
           properties = {
             ["cameraDistance"] = 50,
-            ["newLevelPath"] = "maps/cliff.lua"
+            ["newLevelPath"] = "maps/survival-map.lua"
           }
         },
         {
@@ -1567,7 +1567,7 @@ return {
           visible = true,
           properties = {
             ["cameraDistance"] = 50,
-            ["newLevelPath"] = "maps/cliff.lua"
+            ["newLevelPath"] = "maps/survival-map.lua"
           }
         },
         {
@@ -1583,7 +1583,7 @@ return {
           visible = true,
           properties = {
             ["cameraDistance"] = 50,
-            ["newLevelPath"] = "maps/cliff.lua"
+            ["newLevelPath"] = "maps/survival-map.lua"
           }
         },
         {
@@ -1599,7 +1599,7 @@ return {
           visible = true,
           properties = {
             ["cameraDistance"] = 50,
-            ["newLevelPath"] = "maps/cliff.lua"
+            ["newLevelPath"] = "maps/survival-map.lua"
           }
         },
         {
@@ -1615,7 +1615,7 @@ return {
           visible = true,
           properties = {
             ["cameraDistance"] = 50,
-            ["newLevelPath"] = "maps/cliff.lua"
+            ["newLevelPath"] = "maps/survival-map.lua"
           }
         },
         {
@@ -1631,7 +1631,7 @@ return {
           visible = true,
           properties = {
             ["cameraDistance"] = 50,
-            ["newLevelPath"] = "maps/cliff.lua"
+            ["newLevelPath"] = "maps/survival-map.lua"
           }
         },
         {
@@ -1647,7 +1647,7 @@ return {
           visible = true,
           properties = {
             ["cameraDistance"] = 50,
-            ["newLevelPath"] = "maps/cliff.lua"
+            ["newLevelPath"] = "maps/survival-map.lua"
           }
         },
         {
@@ -1663,7 +1663,7 @@ return {
           visible = true,
           properties = {
             ["cameraDistance"] = 50,
-            ["newLevelPath"] = "maps/cliff.lua"
+            ["newLevelPath"] = "maps/survival-map.lua"
           }
         },
         {
@@ -1679,7 +1679,7 @@ return {
           visible = true,
           properties = {
             ["cameraDistance"] = 50,
-            ["newLevelPath"] = "maps/cliff.lua"
+            ["newLevelPath"] = "maps/survival-map.lua"
           }
         },
         {
@@ -1695,7 +1695,7 @@ return {
           visible = true,
           properties = {
             ["cameraDistance"] = 50,
-            ["newLevelPath"] = "maps/cliff.lua"
+            ["newLevelPath"] = "maps/survival-map.lua"
           }
         },
         {
@@ -1711,7 +1711,7 @@ return {
           visible = true,
           properties = {
             ["cameraDistance"] = 50,
-            ["newLevelPath"] = "maps/cliff.lua"
+            ["newLevelPath"] = "maps/survival-map.lua"
           }
         },
         {
@@ -1727,7 +1727,7 @@ return {
           visible = true,
           properties = {
             ["cameraDistance"] = 50,
-            ["newLevelPath"] = "maps/cliff.lua"
+            ["newLevelPath"] = "maps/survival-map.lua"
           }
         },
         {
@@ -1743,7 +1743,7 @@ return {
           visible = true,
           properties = {
             ["cameraDistance"] = 50,
-            ["newLevelPath"] = "maps/cliff.lua"
+            ["newLevelPath"] = "maps/survival-map.lua"
           }
         },
         {
@@ -1759,7 +1759,7 @@ return {
           visible = true,
           properties = {
             ["cameraDistance"] = 50,
-            ["newLevelPath"] = "maps/cliff.lua"
+            ["newLevelPath"] = "maps/survival-map.lua"
           }
         },
         {
@@ -1775,7 +1775,7 @@ return {
           visible = true,
           properties = {
             ["cameraDistance"] = 50,
-            ["newLevelPath"] = "maps/cliff.lua"
+            ["newLevelPath"] = "maps/survival-map.lua"
           }
         },
         {
@@ -1791,7 +1791,7 @@ return {
           visible = true,
           properties = {
             ["cameraDistance"] = 50,
-            ["newLevelPath"] = "maps/cliff.lua"
+            ["newLevelPath"] = "maps/survival-map.lua"
           }
         },
         {
@@ -1807,7 +1807,7 @@ return {
           visible = true,
           properties = {
             ["cameraDistance"] = 50,
-            ["newLevelPath"] = "maps/cliff.lua"
+            ["newLevelPath"] = "maps/survival-map.lua"
           }
         },
         {
@@ -1823,7 +1823,7 @@ return {
           visible = true,
           properties = {
             ["cameraDistance"] = 50,
-            ["newLevelPath"] = "maps/cliff.lua"
+            ["newLevelPath"] = "maps/survival-map.lua"
           }
         },
         {
@@ -1839,7 +1839,7 @@ return {
           visible = true,
           properties = {
             ["cameraDistance"] = 50,
-            ["newLevelPath"] = "maps/cliff.lua"
+            ["newLevelPath"] = "maps/survival-map.lua"
           }
         },
         {
@@ -1855,7 +1855,7 @@ return {
           visible = true,
           properties = {
             ["cameraDistance"] = 50,
-            ["newLevelPath"] = "maps/cliff.lua"
+            ["newLevelPath"] = "maps/survival-map.lua"
           }
         },
         {
@@ -1871,7 +1871,7 @@ return {
           visible = true,
           properties = {
             ["cameraDistance"] = 50,
-            ["newLevelPath"] = "maps/cliff.lua"
+            ["newLevelPath"] = "maps/survival-map.lua"
           }
         },
         {
@@ -1887,7 +1887,7 @@ return {
           visible = true,
           properties = {
             ["cameraDistance"] = 50,
-            ["newLevelPath"] = "maps/cliff.lua"
+            ["newLevelPath"] = "maps/survival-map.lua"
           }
         },
         {
@@ -1903,7 +1903,7 @@ return {
           visible = true,
           properties = {
             ["cameraDistance"] = 50,
-            ["newLevelPath"] = "maps/cliff.lua"
+            ["newLevelPath"] = "maps/survival-map.lua"
           }
         },
         {
@@ -1919,7 +1919,7 @@ return {
           visible = true,
           properties = {
             ["cameraDistance"] = 50,
-            ["newLevelPath"] = "maps/cliff.lua"
+            ["newLevelPath"] = "maps/survival-map.lua"
           }
         },
         {
@@ -1935,7 +1935,7 @@ return {
           visible = true,
           properties = {
             ["cameraDistance"] = 50,
-            ["newLevelPath"] = "maps/cliff.lua"
+            ["newLevelPath"] = "maps/survival-map.lua"
           }
         },
         {
@@ -1951,7 +1951,7 @@ return {
           visible = true,
           properties = {
             ["cameraDistance"] = 50,
-            ["newLevelPath"] = "maps/cliff.lua"
+            ["newLevelPath"] = "maps/survival-map.lua"
           }
         },
         {
@@ -1967,7 +1967,7 @@ return {
           visible = true,
           properties = {
             ["cameraDistance"] = 50,
-            ["newLevelPath"] = "maps/cliff.lua"
+            ["newLevelPath"] = "maps/survival-map.lua"
           }
         },
         {
@@ -1983,7 +1983,7 @@ return {
           visible = true,
           properties = {
             ["cameraDistance"] = 50,
-            ["newLevelPath"] = "maps/cliff.lua"
+            ["newLevelPath"] = "maps/survival-map.lua"
           }
         },
         {
@@ -1999,7 +1999,7 @@ return {
           visible = true,
           properties = {
             ["cameraDistance"] = 50,
-            ["newLevelPath"] = "maps/cliff.lua"
+            ["newLevelPath"] = "maps/survival-map.lua"
           }
         },
         {
@@ -2015,7 +2015,7 @@ return {
           visible = true,
           properties = {
             ["cameraDistance"] = 50,
-            ["newLevelPath"] = "maps/cliff.lua"
+            ["newLevelPath"] = "maps/survival-map.lua"
           }
         },
         {
@@ -2031,7 +2031,7 @@ return {
           visible = true,
           properties = {
             ["cameraDistance"] = 50,
-            ["newLevelPath"] = "maps/cliff.lua"
+            ["newLevelPath"] = "maps/survival-map.lua"
           }
         },
         {
@@ -2047,7 +2047,7 @@ return {
           visible = true,
           properties = {
             ["cameraDistance"] = 50,
-            ["newLevelPath"] = "maps/cliff.lua"
+            ["newLevelPath"] = "maps/survival-map.lua"
           }
         },
         {
@@ -2063,7 +2063,7 @@ return {
           visible = true,
           properties = {
             ["cameraDistance"] = 50,
-            ["newLevelPath"] = "maps/cliff.lua"
+            ["newLevelPath"] = "maps/survival-map.lua"
           }
         }
       }

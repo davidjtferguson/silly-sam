@@ -117,3 +117,14 @@ Here are the descriptions of the specific objects.
 	static - bool: if true, object will never move. If false will be a 'dynamic' object and move.
 	
 	texturePath - string: a filepath to the texture to be used for the rectangle.
+
+------
+
+- name: explodingPlatform
+- tiled object: rectangle
+- description: creates a rectangle at the x and y position of the tiled rectangle, with the same rotation. After a few seconds it will grow red then disappear ('explode'). After a moment it will reappear in the original spawn location. If you make it non-static and make it a camera object the camera will follow it as it moves but when it de-spawns the camera will focus on the location it will re-spawn untill it re-spawns.
+- custom properties:
+
+	static - bool: if true, object will never move. If false will be a 'dynamic' object and move.
+	
+	texturePath - string: a filepath to the texture to be used for the explodingPlatform. Will always fade towards the same hue of red.
