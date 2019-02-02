@@ -30,7 +30,7 @@ function ExplodingPlatform:init(world, mapObject)
 
     self.state = "exists"
 
-    -- TODO: become more red as we get closer to exploding
+    -- Becomes more red as we get closer to exploding
     self.color = {1, 1, 1, 1}
 end
 
@@ -77,7 +77,10 @@ function ExplodingPlatform:update(dt, world)
     self.timer=self.timer-dt
 
     if self.timer < 3 then
-        self.color = {1, 0.5, 0.5, 1}
+        -- normalize (kinda (not really lol)) timer from 3 - 0 to 1 - 0.3
+        local newGB = (self.timer/3) + 0.3
+
+        self.color = {1, newGB, newGB, 1}
     end
 
     if self.timer < 0 then
