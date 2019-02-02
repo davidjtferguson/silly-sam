@@ -500,6 +500,29 @@ function Sam:draw(drawShapes, drawSprites)
             (self.head.shape:getRadius()*3.5)/hairImage:getWidth(), (self.head.shape:getRadius()*4.5)/hairImage:getHeight(),
             hairImage:getWidth()/2, hairImage:getHeight()/1.75)
 
+        -- shadows of arms across the body
+        -- I dunno how to make it just check the non-transparant pixels of the texture so drawing two circles that
+        -- roughly cover the body. doesn't match well when Sam falls over but w/e
+        love.graphics.stencil(
+            function()
+                love.graphics.circle("fill", self.chest.body:getX()-2, self.chest.body:getY()-7, self.chest.width/1.6)
+                love.graphics.circle("fill", self.chest.body:getX()-1, self.chest.body:getY()+10, self.chest.width/1.7)
+            end,
+            "increment"
+        )
+        love.graphics.setStencilTest("gequal", 1)
+    
+        -- Draw arm shadows
+        -- colar colour, slightly bigger than we're going to draw the arm over it
+        love.graphics.setColor(0.5, 0.5, 0.7, 0.8)
+        self:drawRectangleTexturedObject(self.leftArm, 1.35)
+        self:drawRectangleTexturedObject(self.rightArm, 1.35)
+
+        love.graphics.setStencilTest()
+
+        love.graphics.setColor(1, 1, 1, 1)
+
+        -- Face parts
         self:drawCircleTexturedObject(self.head, 2, 0, -35)
         
         self:drawCircleTexturedObject(self.leftEye, 3, 10, 10)
@@ -508,6 +531,7 @@ function Sam:draw(drawShapes, drawSprites)
         self:drawRectangleTexturedObject(self.nose, 1.25)
         self:drawRectangleTexturedObject(self.toupee, 3)
 
+        -- arm parts
         self:drawRectangleTexturedObject(self.leftArm, 1.25)
         self:drawRectangleTexturedObject(self.rightArm, 1.25)
 

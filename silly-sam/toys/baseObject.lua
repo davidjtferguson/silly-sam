@@ -17,8 +17,6 @@ function BaseObject:drawRectanglePhysicsObject(object)
 end
 
 function BaseObject:drawRectangleTexturedObject(object, upscale)
-    love.graphics.setColor(1, 1, 1, 1)
-
     -- draw(image, xpos, ypos, angle, ratiox, ratioy, offsetx, offsety)
     love.graphics.draw(object.image,
         object.body:getX(), object.body:getY(),
