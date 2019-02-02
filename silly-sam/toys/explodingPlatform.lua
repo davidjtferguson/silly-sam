@@ -32,6 +32,9 @@ function ExplodingPlatform:init(world, mapObject)
 
     -- Becomes more red as we get closer to exploding
     self.color = {1, 1, 1, 1}
+
+    -- keep track of to gradually get more difficult
+    self.timesExploded = 0
 end
 
 function ExplodingPlatform:resetPhysicsObject(world)
@@ -88,12 +91,24 @@ function ExplodingPlatform:update(dt, world)
             -- blow up
             self.state = "recovering"
             self.timer = 1.5
-            
+            self.timesExploded = self.timesExploded + 1
+
             self.body:destroy()
         elseif self.state=="recovering" then
             -- respawn
             self.state = "exists"
-            self.timer = 3 + love.math.random(9)
+            
+            -- timer has a shorter potental maximum each time. Goes down to a mimimum of 3 seconds, which probably isn't survivable.
+            -- GOOD. They're not supposed to survive. muahahaha. Should just survive long enough to find it funny, then move onto the next level.
+            -- Might be annoying if it's unfair though? But only if people care about getting a 'high score'.
+            -- and the game doesn't even track score. So, I dunno. Hmm. This game's all about the ride, mmaann
+            -- and if we want to use this exploding object somewhere else should make fuse shortening a tiled attribute...
+            -- ... Should chat to Rory about it.
+            self.timer = (3 + love.math.random(9)) - (self.timesExploded * 0.5)
+
+            if self.timer < 3 then
+                self.timer = 3
+            end
 
             self:resetPhysicsObject(world)
             self.color = {1, 1, 1, 1}
