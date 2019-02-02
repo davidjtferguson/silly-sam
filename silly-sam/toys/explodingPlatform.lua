@@ -61,11 +61,11 @@ function ExplodingPlatform:resetPhysicsObject(world)
 end
 
 function ExplodingPlatform:getPosition()
-    -- TODO: untested... test as camera object
-    -- if self.body and not self.body:isDestroyed() then
-    --     return self.body:getPosition()
-    -- end
+    if self.body and not self.body:isDestroyed() then
+        return self.body:getPosition()
+    end
 
+    -- if body doesn't exist, return where it's about to be
     return self.xSpawn, self.ySpawn
 end
 
