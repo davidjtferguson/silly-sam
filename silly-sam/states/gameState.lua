@@ -8,6 +8,7 @@ local Skateboard = require "toys/skateboard"
 local HangingBag = require "toys/hangingBag"
 local Ball = require "toys/ball"
 local Rectangle = require "toys/rectangle"
+local ExplodingPlatform = require "toys/explodingPlatform" 
 
 local CameraPoint = require "helpers/cameraPoint"
 local NewLevelPoint = require "helpers/newLevelPoint"
@@ -24,9 +25,10 @@ local function checkStaticBool(static)
 end
 
 function GameState:init()
-    self:loadMap("maps/rory-test-map-2.lua")
+    --self:loadMap("maps/rory-test-map-2.lua")
     --self:loadMap("maps/cliff.lua")
     --self:loadMap("maps/test-map-limited-level.lua")
+    self:loadMap("maps/survival-map.lua")
     
     self.controls = {
         bindings = {
@@ -141,6 +143,9 @@ function GameState:loadMap(mapPath)
 
         elseif object.name == "rectangle" then
             table.insert(self.toys, Rectangle(self.physicsWorld, object))
+        
+        elseif object.name == "explodingPlatform" then
+            table.insert(self.toys, ExplodingPlatform(self.physicsWorld, object))
         end
     end
 
@@ -204,6 +209,13 @@ function GameState:update(dt)
     self.physicsWorld:update(dt)
 
     self.camera:gamestateUpdate(self.sam, self.cameraInfluencePoints, self.cameraFocusPoints, self.map, dt)
+
+
+    for _, toy in pairs(self.toys) do
+        if toy.update then
+            toy:update(dt, self.physicsWorld)
+        end
+    end
 
     self.sam:update(dt, self.controls)
 
