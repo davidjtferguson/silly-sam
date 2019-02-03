@@ -203,7 +203,7 @@
   <object id="164" gid="13" x="2357.9" y="1271" width="152.618" height="38.3278" rotation="-402.055"/>
  </objectgroup>
  <objectgroup name="GameLogo">
-  <object id="169" gid="14" x="1418.77" y="1335" width="475.808" height="179"/>
+  <object id="169" gid="14" x="1431.77" y="1321" width="475.808" height="179"/>
  </objectgroup>
  <layer name="terrain" width="100" height="100">
   <data encoding="csv">
