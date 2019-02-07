@@ -25,12 +25,13 @@ local function checkStaticBool(static)
 end
 
 function GameState:init()
-    --self:loadMap("maps/rory-test-map-2.lua")
+    self:loadMap("maps/intro-map.lua")
     --self:loadMap("maps/cliff.lua")
-    --self:loadMap("maps/test-map-limited-level.lua")
-    self:loadMap("maps/survival-map.lua")
-    --self:loadMap("maps/intro-map.lua")
+    --self:loadMap("maps/survival-map.lua")
+    --self:loadMap("maps/rory-level.lua")
     
+    --self:loadMap("maps/test-map-limited-level.lua")
+
     self.controls = {
         bindings = {
             left = function() self.sam:moveLeft() end,
@@ -315,6 +316,7 @@ function GameState:postSolve(body1, body2, contact)
 end
 
 function GameState:draw()
+    love.graphics.setBackgroundColor(1, 0.96, 0.93)
     love.graphics.setColor(1, 1, 1)
 
     self.map:draw(self.camera:getCameraToStiTransforms(self.map))
