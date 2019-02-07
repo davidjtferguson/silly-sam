@@ -315,6 +315,7 @@ function GameState:postSolve(body1, body2, contact)
 end
 
 function GameState:draw()
+    love.graphics.setBackgroundColor(1, 0.96, 0.93)
     love.graphics.setColor(1, 1, 1)
 
     self.map:draw(self.camera:getCameraToStiTransforms(self.map))

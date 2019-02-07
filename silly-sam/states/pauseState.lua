@@ -21,7 +21,9 @@ function PauseState:gamepadpressed(gamepad, button)
 end
 
 function PauseState:draw()
-    love.graphics.setColor(1, 1, 1)
+    love.graphics.setBackgroundColor(0.9, 0.96, 0.988)
+
+    love.graphics.setColor(0, 0, 0)
     
     love.graphics.print("paused", 300, 300)
 end
