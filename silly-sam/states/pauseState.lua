@@ -22,7 +22,6 @@ end
 
 function PauseState:draw()
     love.graphics.setBackgroundColor(0.9, 0.96, 0.988)
-
     love.graphics.setColor(0, 0, 0)
     
     love.graphics.print("paused", 300, 300)
