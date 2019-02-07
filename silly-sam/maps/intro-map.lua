@@ -15,7 +15,7 @@ return {
     {
       name = "test-tileset",
       firstgid = 1,
-      filename = "../../map-editing/test-tileset.tsx",
+      filename = "../../map-editing/tilesets/test-tileset.tsx",
       tilewidth = 32,
       tileheight = 32,
       spacing = 0,
@@ -41,7 +41,7 @@ return {
     {
       name = "tree-square",
       firstgid = 3,
-      filename = "../../map-editing/tree-square-tileset.tsx",
+      filename = "../../map-editing/tilesets/tree-square-tileset.tsx",
       tilewidth = 353,
       tileheight = 680,
       spacing = 0,
@@ -67,7 +67,7 @@ return {
     {
       name = "tree-triangle",
       firstgid = 4,
-      filename = "../../map-editing/tree-triangle-tileset.tsx",
+      filename = "../../map-editing/tilesets/tree-triangle-tileset.tsx",
       tilewidth = 390,
       tileheight = 775,
       spacing = 0,
@@ -93,7 +93,7 @@ return {
     {
       name = "ground-base",
       firstgid = 5,
-      filename = "../../map-editing/ground-base.tsx",
+      filename = "../../map-editing/tilesets/ground-base.tsx",
       tilewidth = 32,
       tileheight = 32,
       spacing = 0,
@@ -119,7 +119,7 @@ return {
     {
       name = "groupedtrees-001",
       firstgid = 294,
-      filename = "../../map-editing/groupedtrees-001.tsx",
+      filename = "../../map-editing/tilesets/groupedtrees-001.tsx",
       tilewidth = 769,
       tileheight = 1221,
       spacing = 0,
@@ -145,7 +145,7 @@ return {
     {
       name = "groupedtrees-002",
       firstgid = 295,
-      filename = "../../map-editing/groupedtrees-002.tsx",
+      filename = "../../map-editing/tilesets/groupedtrees-002.tsx",
       tilewidth = 735,
       tileheight = 1241,
       spacing = 0,
@@ -171,7 +171,7 @@ return {
     {
       name = "groupedtrees-003",
       firstgid = 296,
-      filename = "../../map-editing/groupedtrees-003.tsx",
+      filename = "../../map-editing/tilesets/groupedtrees-003.tsx",
       tilewidth = 727,
       tileheight = 1241,
       spacing = 0,

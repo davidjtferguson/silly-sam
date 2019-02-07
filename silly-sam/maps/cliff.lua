@@ -15,7 +15,7 @@ return {
     {
       name = "test-tileset",
       firstgid = 1,
-      filename = "../../map-editing/test-tileset.tsx",
+      filename = "../../map-editing/tilesets/test-tileset.tsx",
       tilewidth = 32,
       tileheight = 32,
       spacing = 0,
@@ -41,7 +41,7 @@ return {
     {
       name = "could-001",
       firstgid = 3,
-      filename = "../../map-editing/could-001-tileset.tsx",
+      filename = "../../map-editing/tilesets/could-001-tileset.tsx",
       tilewidth = 337,
       tileheight = 193,
       spacing = 0,
@@ -67,7 +67,7 @@ return {
     {
       name = "cloud-003",
       firstgid = 4,
-      filename = "../../map-editing/cloud-003-tileset.tsx",
+      filename = "../../map-editing/tilesets/cloud-003-tileset.tsx",
       tilewidth = 337,
       tileheight = 193,
       spacing = 0,
@@ -93,7 +93,7 @@ return {
     {
       name = "grass-tuft-006",
       firstgid = 5,
-      filename = "../../map-editing/grass-tuft-006-tileset.tsx",
+      filename = "../../map-editing/tilesets/grass-tuft-006-tileset.tsx",
       tilewidth = 280,
       tileheight = 57,
       spacing = 0,
@@ -119,7 +119,7 @@ return {
     {
       name = "grass-tuft-005",
       firstgid = 6,
-      filename = "../../map-editing/grass-tuft-005-tileset.tsx",
+      filename = "../../map-editing/tilesets/grass-tuft-005-tileset.tsx",
       tilewidth = 317,
       tileheight = 51,
       spacing = 0,
@@ -145,7 +145,7 @@ return {
     {
       name = "cloud-002",
       firstgid = 7,
-      filename = "../../map-editing/cloud-002-tileset.tsx",
+      filename = "../../map-editing/tilesets/cloud-002-tileset.tsx",
       tilewidth = 315,
       tileheight = 144,
       spacing = 0,

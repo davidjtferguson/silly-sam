@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <map version="1.2" tiledversion="1.2.1" orientation="orthogonal" renderorder="right-down" width="225" height="170" tilewidth="32" tileheight="32" infinite="0" nextlayerid="9" nextobjectid="158">
- <tileset firstgid="1" source="test-tileset.tsx"/>
- <tileset firstgid="3" source="tree-square-tileset.tsx"/>
- <tileset firstgid="4" source="tree-triangle-tileset.tsx"/>
- <tileset firstgid="5" source="ground-base.tsx"/>
- <tileset firstgid="294" source="groupedtrees-001.tsx"/>
- <tileset firstgid="295" source="groupedtrees-002.tsx"/>
- <tileset firstgid="296" source="groupedtrees-003.tsx"/>
+ <tileset firstgid="1" source="../tilesets/test-tileset.tsx"/>
+ <tileset firstgid="3" source="../tilesets/tree-square-tileset.tsx"/>
+ <tileset firstgid="4" source="../tilesets/tree-triangle-tileset.tsx"/>
+ <tileset firstgid="5" source="../tilesets/ground-base.tsx"/>
+ <tileset firstgid="294" source="../tilesets/groupedtrees-001.tsx"/>
+ <tileset firstgid="295" source="../tilesets/groupedtrees-002.tsx"/>
+ <tileset firstgid="296" source="../tilesets/groupedtrees-003.tsx"/>
  <layer id="7" name="background" width="225" height="170">
   <data encoding="csv">
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,

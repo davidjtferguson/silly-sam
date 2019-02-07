@@ -15,7 +15,7 @@ return {
     {
       name = "test-tileset",
       firstgid = 1,
-      filename = "../../map-editing/test-tileset.tsx",
+      filename = "../../map-editing/tilesets/test-tileset.tsx",
       tilewidth = 32,
       tileheight = 32,
       spacing = 0,
@@ -36,32 +36,6 @@ return {
       properties = {},
       terrains = {},
       tilecount = 2,
-      tiles = {}
-    },
-    {
-      name = "BG",
-      firstgid = 3,
-      filename = "../../map-editing/rory-tileset.tsx",
-      tilewidth = 32,
-      tileheight = 32,
-      spacing = 0,
-      margin = 0,
-      columns = 2,
-      image = "../assets/art/map/BGtile.png",
-      imagewidth = 88,
-      imageheight = 88,
-      tileoffset = {
-        x = 0,
-        y = 0
-      },
-      grid = {
-        orientation = "orthogonal",
-        width = 32,
-        height = 32
-      },
-      properties = {},
-      terrains = {},
-      tilecount = 4,
       tiles = {}
     }
   },

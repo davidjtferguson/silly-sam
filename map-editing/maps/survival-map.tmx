@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <map version="1.2" tiledversion="1.2.1" orientation="orthogonal" renderorder="right-down" width="50" height="50" tilewidth="32" tileheight="32" infinite="0" nextlayerid="10" nextobjectid="215">
- <tileset firstgid="1" source="test-tileset.tsx"/>
- <tileset firstgid="3" source="tree-square-tileset.tsx"/>
- <tileset firstgid="4" source="tree-triangle-tileset.tsx"/>
- <tileset firstgid="5" source="ground-base.tsx"/>
- <tileset firstgid="294" source="groupedtrees-001.tsx"/>
- <tileset firstgid="295" source="groupedtrees-002.tsx"/>
- <tileset firstgid="296" source="groupedtrees-003.tsx"/>
+ <tileset firstgid="1" source="../tilesets/test-tileset.tsx"/>
+ <tileset firstgid="3" source="../tilesets/tree-square-tileset.tsx"/>
+ <tileset firstgid="4" source="../tilesets/tree-triangle-tileset.tsx"/>
+ <tileset firstgid="5" source="../tilesets/ground-base.tsx"/>
+ <tileset firstgid="294" source="../tilesets/groupedtrees-001.tsx"/>
+ <tileset firstgid="295" source="../tilesets/groupedtrees-002.tsx"/>
+ <tileset firstgid="296" source="../tilesets/groupedtrees-003.tsx"/>
  <objectgroup id="8" name="background objects">
   <object id="111" gid="3" x="477.392" y="1035.83" width="196.226" height="378" rotation="-2.71126"/>
   <object id="112" gid="4" x="873.026" y="1014.2" width="225.339" height="414.023" rotation="9.0832"/>
