@@ -326,6 +326,7 @@ function GameState:draw()
         self.toys[i]:draw()
     end
 
+    -- bool: draw physics boxes, bool: draw sprites
     self.sam:draw(false, true)
 
     self.camera:detach()

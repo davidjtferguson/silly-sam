@@ -113,14 +113,14 @@ function Sam:init(world, mapObject)
     self.toupee.width = 20
     self.toupee.height = 7.3
     self.toupee.image = love.graphics.newImage("assets/art/sam-textures/toupee.png")
-    self.toupee.body = love.physics.newBody(world, spawn.x+5, spawn.y-75, "dynamic")
-    self.toupee.body:setMass(500)
+    self.toupee.body = love.physics.newBody(world, spawn.x, spawn.y-74, "dynamic")
+    self.toupee.body:setMass(0)
     self.toupee.shape = love.physics.newRectangleShape(self.toupee.width, self.toupee.height)
     self.toupee.fixture = love.physics.newFixture(self.toupee.body, self.toupee.shape, 1);
     self.toupee.fixture:setFriction(1)
     self.toupee.color = {0.1, 0.4, 1}
 
-    self.toupee.joint = love.physics.newRevoluteJoint(self.toupee.body, self.head.body, spawn.x-15, spawn.y-75)
+    self.toupee.joint = love.physics.newRevoluteJoint(self.toupee.body, self.head.body, spawn.x+1, spawn.y-74+self.toupee.height)
     
     -- self.toupee.joint:enableLimit(enable) trying to enable limit on joint
 
@@ -158,10 +158,10 @@ function Sam:init(world, mapObject)
 
     -- nose
     self.nose = {}
-    self.nose.width = 15
-    self.nose.height = 28
+    self.nose.width = 13
+    self.nose.height = 26
     self.nose.image = love.graphics.newImage("assets/art/sam-textures/nose.png")
-    self.nose.body = love.physics.newBody(world, spawn.x+1, spawn.y-57, "dynamic")
+    self.nose.body = love.physics.newBody(world, spawn.x+1, spawn.y-55, "dynamic")
     self.nose.shape = love.physics.newRectangleShape(self.nose.width, self.nose.height)
     self.nose.fixture = love.physics.newFixture(self.nose.body, self.nose.shape, 1);
     self.nose.fixture:setFriction(.8)
