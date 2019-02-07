@@ -114,13 +114,13 @@ function Sam:init(world, mapObject)
     self.toupee.height = 7.3
     self.toupee.image = love.graphics.newImage("assets/art/sam-textures/toupee.png")
     self.toupee.body = love.physics.newBody(world, spawn.x+5, spawn.y-75, "dynamic")
-    self.toupee.body:setMass(0)
+    self.toupee.body:setMass(500)
     self.toupee.shape = love.physics.newRectangleShape(self.toupee.width, self.toupee.height)
     self.toupee.fixture = love.physics.newFixture(self.toupee.body, self.toupee.shape, 1);
     self.toupee.fixture:setFriction(1)
     self.toupee.color = {0.1, 0.4, 1}
 
-    self.toupee.joint = love.physics.newRevoluteJoint(self.toupee.body, self.head.body, spawn.x-20, spawn.y-75)
+    self.toupee.joint = love.physics.newRevoluteJoint(self.toupee.body, self.head.body, spawn.x-15, spawn.y-75)
     
     -- self.toupee.joint:enableLimit(enable) trying to enable limit on joint
 
