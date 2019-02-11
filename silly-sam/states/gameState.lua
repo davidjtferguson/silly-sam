@@ -36,41 +36,43 @@ function GameState:init()
         bindings = {
             left = function() self.sam:moveLeft() end,
             right = function() self.sam:moveRight() end,
-            reset = reset,
-            closeGame = function() love.event.quit() end,
-            pause = function() StateManager.push(PauseState, self) end,
-            toggleFullscreen = function() self:toggleFullscreen() end,
             leftGrab = function() self.sam:leftGrab() end,
             rightGrab = function() self.sam:rightGrab() end,
             leftRelease = function() self.sam:leftRelease() end,
             rightRelease = function() self.sam:rightRelease() end,
+            
+            toggleFullscreen = function() self:toggleFullscreen() end,
+            reset = reset,
+            pause = function() StateManager.push(PauseState, self) end,
         },
         keysPressed = {
             c = "left",
             n = "right",
-            r = "reset",
-            f = "toggleFullscreen",
-            escape = "closeGame",
-            p = "pause",
             e = "leftGrab",
             u = "rightGrab",
         },
         keysReleased = {
             e = "leftRelease",
             u = "rightRelease",
+            
+            f = "toggleFullscreen",
+            r = "reset",
+            escape = "pause",
+            p = "pause",
         },
         buttonsPressed = {
             -- legs done via update with triggers
-            dpright = "toggleFullscreen",
-            back = "closeGame",
-            b = "reset",
-            start = "pause",
             leftshoulder = "leftGrab",
             rightshoulder = "rightGrab",
         },
         buttonsReleased = {
             leftshoulder = "leftRelease",
             rightshoulder = "rightRelease",
+
+            dpright = "toggleFullscreen",
+            b = "reset",
+            back = "pause",
+            start = "pause",
         },
         -- clockwise arm inputs
         keysLeftArm = {
@@ -88,12 +90,20 @@ function GameState:init()
     }
 end
 
--- Expect previous state to be pause state
-function GameState:enter(previousState)
-    love.graphics.setBackgroundColor(1, 0.96, 0.93)
+function GameState:getBackgroundColor() 
+    return 1, 0.96, 0.93
+end
+
+function GameState:enter()
+    love.graphics.setBackgroundColor(self:getBackgroundColor())
+end
+
+function GameState:resume()
+    love.graphics.setBackgroundColor(self:getBackgroundColor())
 
     --TODO: Grab any info needed from pause state
     -- eg - if we should reset the level
+    --... how do we take info from the popped state?
 end
 
 -- Everything that needs reset on loading a new map
@@ -248,6 +258,7 @@ function GameState:checkNewLevelPoints()
 end
 
 -- input handling callbacks
+-- TODO: Duplicated in pauseState. Should be generic somewhere.
 
 function GameState:keypressed(k)
     local binding = self.controls.keysPressed[k]
