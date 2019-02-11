@@ -3,6 +3,8 @@ local StateManager = require "hump.gamestate"
 local PauseState = {}
 
 function PauseState:init()
+    self.pauseOptionsImage = love.graphics.newImage("assets/art/pause-screen.png")
+
     self.controls = {
         bindings = {
             restart = self.restart,
@@ -71,9 +73,13 @@ end
 function PauseState:draw()
     -- draw current gamestate as a background
     self.gameState:draw()
-    
-    love.graphics.setColor(0, 0, 0)
-    love.graphics.print("paused", 300, 300)
+
+    -- draw image with instructions on top at the centre of the screen
+    love.graphics.draw(self.pauseOptionsImage,
+        love.graphics.getWidth()/2, love.graphics.getHeight()/2,
+        0,
+        1, 1,
+        self.pauseOptionsImage:getWidth()/2, self.pauseOptionsImage:getHeight()/2)
 end
 
 return PauseState

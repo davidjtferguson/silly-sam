@@ -68,7 +68,7 @@ function GameState:init()
             rightshoulder = "rightRelease",
 
             dpright = "toggleFullscreen",
-            back = "pause",
+            back = "toggleFullscreen",
             start = "pause",
         },
         -- clockwise arm inputs
