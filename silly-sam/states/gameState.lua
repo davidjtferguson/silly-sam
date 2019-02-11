@@ -38,7 +38,7 @@ function GameState:init()
             right = function() self.sam:moveRight() end,
             reset = reset,
             closeGame = function() love.event.quit() end,
-            pause = function() StateManager.push(PauseState) end,
+            pause = function() StateManager.push(PauseState, self) end,
             toggleFullscreen = function() self:toggleFullscreen() end,
             leftGrab = function() self.sam:leftGrab() end,
             rightGrab = function() self.sam:rightGrab() end,
@@ -88,9 +88,18 @@ function GameState:init()
     }
 end
 
+-- Expect previous state to be pause state
+function GameState:enter(previousState)
+    love.graphics.setBackgroundColor(1, 0.96, 0.93)
+
+    --TODO: Grab any info needed from pause state
+    -- eg - if we should reset the level
+end
+
 -- Everything that needs reset on loading a new map
 function GameState:loadMap(mapPath)
     -- [re]create a physics world
+    -- (Pretty inefficient. Would be better to create the world once and re-set everything inside it. Then maybe level loading would be smoother)
     -- maybe some physics manager should own the world?
     love.physics.setMeter(100)
     if self.physicsWorld then
@@ -212,7 +221,6 @@ function GameState:update(dt)
 
     self.camera:gamestateUpdate(self.sam, self.cameraInfluencePoints, self.cameraFocusPoints, self.map, dt)
 
-
     for _, toy in pairs(self.toys) do
         if toy.update then
             toy:update(dt, self.physicsWorld)
@@ -316,7 +324,6 @@ function GameState:postSolve(body1, body2, contact)
 end
 
 function GameState:draw()
-    love.graphics.setBackgroundColor(1, 0.96, 0.93)
     love.graphics.setColor(1, 1, 1)
 
     self.map:draw(self.camera:getCameraToStiTransforms(self.map))

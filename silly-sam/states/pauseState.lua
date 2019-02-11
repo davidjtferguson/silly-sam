@@ -5,6 +5,11 @@ local PauseState = {}
 function PauseState:init()
 end
 
+function PauseState:enter(gameState)
+    self.gameState = gameState
+    love.graphics.setBackgroundColor(0.9, 0.96, 0.988)
+end
+
 function PauseState:update(dt)
 end
 
@@ -21,8 +26,8 @@ function PauseState:gamepadpressed(gamepad, button)
 end
 
 function PauseState:draw()
-    love.graphics.setBackgroundColor(0.9, 0.96, 0.988)
-    love.graphics.setColor(0, 0, 0)
+    -- draw current gamestate as a background
+    self.gameState:draw()
     
     love.graphics.print("paused", 300, 300)
 end
