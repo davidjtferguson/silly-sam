@@ -42,7 +42,6 @@ function GameState:init()
             rightRelease = function() self.sam:rightRelease() end,
             
             toggleFullscreen = function() self:toggleFullscreen() end,
-            reset = reset,
             pause = function() StateManager.push(PauseState, self) end,
         },
         keysPressed = {
@@ -56,7 +55,6 @@ function GameState:init()
             u = "rightRelease",
             
             f = "toggleFullscreen",
-            r = "reset",
             escape = "pause",
             p = "pause",
         },
@@ -70,7 +68,6 @@ function GameState:init()
             rightshoulder = "rightRelease",
 
             dpright = "toggleFullscreen",
-            b = "reset",
             back = "pause",
             start = "pause",
         },

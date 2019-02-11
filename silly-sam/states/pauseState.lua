@@ -5,9 +5,9 @@ local PauseState = {}
 function PauseState:init()
     self.controls = {
         bindings = {
-            restart = function() print("restart level") end,
-            resume = function() StateManager.pop() end,
-            quit = function() love.event.quit() end,
+            restart = self.restart,
+            resume = StateManager.pop,
+            quit = love.event.quit,
             toggleFullscreen = function() self.gameState:toggleFullscreen() end,
         },
         keysPressed = {
@@ -34,6 +34,12 @@ end
 function PauseState:enter(gameState)
     self.gameState = gameState
     love.graphics.setBackgroundColor(0.9, 0.96, 0.988)
+end
+
+-- TODO: Currently resets whole game, just want to restart the level... OR DO WE??
+function PauseState:restart()
+    StateManager.pop()
+    reset()
 end
 
 function PauseState:update(dt)
