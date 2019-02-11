@@ -5,6 +5,10 @@ local PauseState = {}
 function PauseState:init()
     self.pauseOptionsImage = love.graphics.newImage("assets/art/pause-screen.png")
 
+    local source = love.filesystem.read('shaders/generalBlur.glsl')
+    self.blurTimer = 0
+    self.blurEffect = love.graphics.newShader(source)
+
     self.controls = {
         bindings = {
             restart = function() self:restart() end,
@@ -76,8 +80,14 @@ function PauseState:gamepadreleased(gamepad, button)
 end
 
 function PauseState:draw()
-    -- draw current gamestate as a background
+    -- add blur shader
+    love.graphics.setShader(self.blurEffect)
+
+    -- draw current gamestate as blurred background
     self.gameState:draw()
+
+    -- remove shader
+    love.graphics.setShader()
 
     -- draw image with instructions on top at the centre of the screen
     love.graphics.draw(self.pauseOptionsImage,
