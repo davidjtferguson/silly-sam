@@ -7,7 +7,7 @@ function PauseState:init()
 
     self.controls = {
         bindings = {
-            restart = self.restart,
+            restart = function() self:restart() end,
             resume = StateManager.pop,
             quit = love.event.quit,
             toggleFullscreen = function() self.gameState:toggleFullscreen() end,
@@ -38,10 +38,15 @@ function PauseState:enter(gameState)
     love.graphics.setBackgroundColor(0.9, 0.96, 0.988)
 end
 
--- TODO: Currently resets whole game, just want to restart the level... OR DO WE??
+-- restart current level
 function PauseState:restart()
+    -- Would be better to have this line in the gamestate, but not sure how to pass back that the pauseState:restart() function was hit in a tidy fashion
+    self.gameState:loadMap(self.gameState.currentLevelPath)
+
     StateManager.pop()
-    reset()
+
+    -- If we wanted to reset the entire game (i.e, go back to the initial level instead of just restart the current level) use:
+    -- reset()
 end
 
 function PauseState:update(dt)

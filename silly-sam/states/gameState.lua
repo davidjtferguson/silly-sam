@@ -105,6 +105,9 @@ end
 
 -- Everything that needs reset on loading a new map
 function GameState:loadMap(mapPath)
+    -- Remember where we are for level re-starting
+    self.currentLevelPath = mapPath
+
     -- [re]create a physics world
     -- (Pretty inefficient. Would be better to create the world once and re-set everything inside it. Then maybe level loading would be smoother)
     -- maybe some physics manager should own the world?
