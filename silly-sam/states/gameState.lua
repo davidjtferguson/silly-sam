@@ -334,9 +334,9 @@ end
 function GameState:postSolve(body1, body2, contact)
 end
 
-function GameState:draw(drawSam)
-    if drawSam == nil then
-        drawSam = true
+function GameState:draw(drawSamArmShadows)
+    if drawSamArmShadows == nil then
+        drawSamArmShadows = true
     end
 
     love.graphics.setColor(1, 1, 1)
@@ -348,10 +348,8 @@ function GameState:draw(drawSam)
         self.toys[i]:draw()
     end
 
-    if drawSam then
-        -- bool: draw physics boxes, bool: draw sprites
-        self.sam:draw(false, true)
-    end
+    -- bool: draw physics boxes, bool: draw sprites
+    self.sam:draw(false, true, drawSamArmShadows)
 
     self.camera:detach()
 end
