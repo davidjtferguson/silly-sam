@@ -93,14 +93,9 @@ end
 
 function PauseState:draw()
     -- Draw the gamestate to a canvas
-    -- TODO: This stencil=true flag doesn't seem to work at all, having to not draw sam's arms when paused instead.
-    -- Drawing the arm shadows causes crash with error:
-    -- Drawing to the stencil buffer with a Canvas active requires either stencil=true or a custom stencil-type Canvas to be used, in setCanvas.
-    -- Despite me clearly setting stencil=true here. Want to get this working.
-    -- Then I can draw sam as normal instead of passing all the way through if I should draw his arm shadows or not
     love.graphics.setCanvas( {self.canvas, stencil=true} )
         love.graphics.clear(self:getBackgroundColor())
-        self.gameState:draw(false)
+        self.gameState:draw()
     love.graphics.setCanvas()
 
     -- Draw the canvas of the gamestate with the blur effect

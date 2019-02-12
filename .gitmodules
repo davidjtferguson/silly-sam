@@ -1,0 +1,3 @@
+[submodule "silly-sam/Simple-Tiled-Implementation"]
+	path = silly-sam/Simple-Tiled-Implementation
+	url = https://github.com/davidjtferguson/Simple-Tiled-Implementation.git
