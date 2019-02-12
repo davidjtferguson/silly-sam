@@ -36,41 +36,40 @@ function GameState:init()
         bindings = {
             left = function() self.sam:moveLeft() end,
             right = function() self.sam:moveRight() end,
-            reset = reset,
-            closeGame = function() love.event.quit() end,
-            pause = function() StateManager.push(PauseState) end,
-            toggleFullscreen = function() self:toggleFullscreen() end,
             leftGrab = function() self.sam:leftGrab() end,
             rightGrab = function() self.sam:rightGrab() end,
             leftRelease = function() self.sam:leftRelease() end,
             rightRelease = function() self.sam:rightRelease() end,
+            
+            toggleFullscreen = function() self:toggleFullscreen() end,
+            pause = function() StateManager.push(PauseState, self) end,
         },
         keysPressed = {
             c = "left",
             n = "right",
-            r = "reset",
-            f = "toggleFullscreen",
-            escape = "closeGame",
-            p = "pause",
             e = "leftGrab",
             u = "rightGrab",
         },
         keysReleased = {
             e = "leftRelease",
             u = "rightRelease",
+            
+            f = "toggleFullscreen",
+            escape = "pause",
+            p = "pause",
         },
         buttonsPressed = {
             -- legs done via update with triggers
-            dpright = "toggleFullscreen",
-            back = "closeGame",
-            b = "reset",
-            start = "pause",
             leftshoulder = "leftGrab",
             rightshoulder = "rightGrab",
         },
         buttonsReleased = {
             leftshoulder = "leftRelease",
             rightshoulder = "rightRelease",
+
+            dpright = "toggleFullscreen",
+            back = "toggleFullscreen",
+            start = "pause",
         },
         -- clockwise arm inputs
         keysLeftArm = {
@@ -88,9 +87,25 @@ function GameState:init()
     }
 end
 
+function GameState:getBackgroundColor() 
+    return 1, 0.96, 0.93
+end
+
+function GameState:enter()
+    love.graphics.setBackgroundColor(self:getBackgroundColor())
+end
+
+function GameState:resume()
+    love.graphics.setBackgroundColor(self:getBackgroundColor())
+end
+
 -- Everything that needs reset on loading a new map
 function GameState:loadMap(mapPath)
+    -- Remember where we are for level re-starting
+    self.currentLevelPath = mapPath
+
     -- [re]create a physics world
+    -- TECHDEBT: (Pretty inefficient. Would be better to create the world once and re-set everything inside it. Then maybe level loading would be smoother)
     -- maybe some physics manager should own the world?
     love.physics.setMeter(100)
     if self.physicsWorld then
@@ -212,7 +227,6 @@ function GameState:update(dt)
 
     self.camera:gamestateUpdate(self.sam, self.cameraInfluencePoints, self.cameraFocusPoints, self.map, dt)
 
-
     for _, toy in pairs(self.toys) do
         if toy.update then
             toy:update(dt, self.physicsWorld)
@@ -240,6 +254,7 @@ function GameState:checkNewLevelPoints()
 end
 
 -- input handling callbacks
+-- TECHDEBT: Duplicated in pauseState. Should be generic somewhere.
 
 function GameState:keypressed(k)
     local binding = self.controls.keysPressed[k]
@@ -316,7 +331,6 @@ function GameState:postSolve(body1, body2, contact)
 end
 
 function GameState:draw()
-    love.graphics.setBackgroundColor(1, 0.96, 0.93)
     love.graphics.setColor(1, 1, 1)
 
     self.map:draw(self.camera:getCameraToStiTransforms(self.map))

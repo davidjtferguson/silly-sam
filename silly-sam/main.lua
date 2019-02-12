@@ -13,9 +13,7 @@ function love.load()
 
     love.window.setTitle("Silly Sam")
 
-    love.graphics.setBackgroundColor(1, 0.96, 0.93)
-    
-    -- find controller... should probs be some update check so the controller doesn't need to be in as the game boots up to find it
+    -- find controller... TODO: should probs be some update check so the controller doesn't need to be in as the game boots up to find it
     local joysticks = love.joystick.getJoysticks()
     joystick = joysticks[1]
     
