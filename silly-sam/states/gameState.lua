@@ -334,7 +334,11 @@ end
 function GameState:postSolve(body1, body2, contact)
 end
 
-function GameState:draw()
+function GameState:draw(drawSam)
+    if drawSam == nil then
+        drawSam = true
+    end
+
     love.graphics.setColor(1, 1, 1)
 
     self.map:draw(self.camera:getCameraToStiTransforms(self.map))
@@ -344,8 +348,10 @@ function GameState:draw()
         self.toys[i]:draw()
     end
 
-    -- bool: draw physics boxes, bool: draw sprites
-    self.sam:draw(false, true)
+    if drawSam then
+        -- bool: draw physics boxes, bool: draw sprites
+        self.sam:draw(false, true)
+    end
 
     self.camera:detach()
 end

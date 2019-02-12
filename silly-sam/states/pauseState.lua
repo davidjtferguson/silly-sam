@@ -6,15 +6,16 @@ function PauseState:init()
     self.pauseOptionsImage = love.graphics.newImage("assets/art/pause-screen.png")
 
     local source = love.filesystem.read('shaders/generalBlur.glsl')
-    self.blurTimer = 0
     self.blurEffect = love.graphics.newShader(source)
+
+    self.canvas = love.graphics.newCanvas()
 
     self.controls = {
         bindings = {
             restart = function() self:restart() end,
             resume = StateManager.pop,
             quit = love.event.quit,
-            toggleFullscreen = function() self.gameState:toggleFullscreen() end,
+            toggleFullscreen = function() self:toggleFullscreen() end,
         },
         keysPressed = {
         },
@@ -36,10 +37,14 @@ function PauseState:init()
     }
 end
 
+function PauseState:getBackgroundColor() 
+    return 0.9, 0.96, 0.988
+end
+
 -- Should only ever come from gamestate. Will need to make more flexable if there was ever to be other states that could lead here
 function PauseState:enter(gameState)
     self.gameState = gameState
-    love.graphics.setBackgroundColor(0.9, 0.96, 0.988)
+    love.graphics.setBackgroundColor(self:getBackgroundColor())
 end
 
 -- restart current level
@@ -51,6 +56,13 @@ function PauseState:restart()
 
     -- If we wanted to reset the entire game (i.e, go back to the initial level instead of just restart the current level) use:
     -- reset()
+end
+
+function PauseState:toggleFullscreen()
+    self.gameState:toggleFullscreen()
+
+    -- reset canvas for new screen size
+    self.canvas = love.graphics.newCanvas()
 end
 
 function PauseState:update(dt)
@@ -80,13 +92,17 @@ function PauseState:gamepadreleased(gamepad, button)
 end
 
 function PauseState:draw()
-    -- add blur shader
+    -- Draw the gamestate to a canvas
+    -- TODO: This stencil true flag doesn't seem to work at all, having to not draw sam when paused instead. Want it to... work. so I can draw sam as normal.
+    love.graphics.setCanvas( {self.canvas, stencil=true} )
+        love.graphics.clear(self:getBackgroundColor())
+        self.gameState:draw(false)
+    love.graphics.setCanvas()
+
+    -- Draw the canvas of the gamestate with the blur effect
     love.graphics.setShader(self.blurEffect)
-
-    -- draw current gamestate as blurred background
-    self.gameState:draw()
-
-    -- remove shader
+        love.graphics.setColor(1, 1, 1, 1)
+        love.graphics.draw(self.canvas)
     love.graphics.setShader()
 
     -- draw image with instructions on top at the centre of the screen
