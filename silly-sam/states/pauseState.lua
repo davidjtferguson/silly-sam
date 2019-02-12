@@ -5,7 +5,7 @@ local PauseState = {}
 function PauseState:init()
     self.pauseOptionsImage = love.graphics.newImage("assets/art/pause-screen.png")
 
-    local source = love.filesystem.read('shaders/generalBlur.glsl')
+    local source = love.filesystem.read("shaders/generalBlur.glsl")
     self.blurEffect = love.graphics.newShader(source)
 
     self.canvas = love.graphics.newCanvas()
@@ -72,7 +72,7 @@ function PauseState:update(dt)
 end
 
 -- input handling callbacks
--- TODO: Duplicated from gameState. Should be generic somewhere.
+-- TECHDEBT: Duplicated from gameState. Should be generic somewhere.
 
 function PauseState:keypressed(k)
     local binding = self.controls.keysPressed[k]

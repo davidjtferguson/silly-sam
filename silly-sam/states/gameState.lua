@@ -97,10 +97,6 @@ end
 
 function GameState:resume()
     love.graphics.setBackgroundColor(self:getBackgroundColor())
-
-    --TODO: Grab any info needed from pause state
-    -- eg - if we should reset the level
-    --... how do we take info from the popped state?
 end
 
 -- Everything that needs reset on loading a new map
@@ -109,7 +105,7 @@ function GameState:loadMap(mapPath)
     self.currentLevelPath = mapPath
 
     -- [re]create a physics world
-    -- (Pretty inefficient. Would be better to create the world once and re-set everything inside it. Then maybe level loading would be smoother)
+    -- TECHDEBT: (Pretty inefficient. Would be better to create the world once and re-set everything inside it. Then maybe level loading would be smoother)
     -- maybe some physics manager should own the world?
     love.physics.setMeter(100)
     if self.physicsWorld then
@@ -258,7 +254,7 @@ function GameState:checkNewLevelPoints()
 end
 
 -- input handling callbacks
--- TODO: Duplicated in pauseState. Should be generic somewhere.
+-- TECHDEBT: Duplicated in pauseState. Should be generic somewhere.
 
 function GameState:keypressed(k)
     local binding = self.controls.keysPressed[k]
