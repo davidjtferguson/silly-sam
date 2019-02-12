@@ -45,6 +45,9 @@ end
 function PauseState:enter(gameState)
     self.gameState = gameState
     love.graphics.setBackgroundColor(self:getBackgroundColor())
+
+    -- Screensize may have changed since we last initiated our canvas, so re-size
+    self.canvas = love.graphics.newCanvas()
 end
 
 -- restart current level
