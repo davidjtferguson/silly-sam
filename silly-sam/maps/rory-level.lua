@@ -1,26 +1,24 @@
 return {
-  version = "1.2",
+  version = "1.1",
   luaversion = "5.1",
-  tiledversion = "1.2.1",
+  tiledversion = "1.1.6",
   orientation = "orthogonal",
   renderorder = "right-down",
   width = 100,
   height = 100,
   tilewidth = 32,
   tileheight = 32,
-  nextlayerid = 7,
-  nextobjectid = 168,
+  nextobjectid = 191,
   properties = {},
   tilesets = {
     {
       name = "tree-triangle",
       firstgid = 1,
-      filename = "../../map-editing/tree-triangle-tileset.tsx",
+      filename = "../../map-editing/tilesets/tree-triangle-tileset.tsx",
       tilewidth = 390,
       tileheight = 775,
       spacing = 0,
       margin = 0,
-      columns = 1,
       image = "../assets/art/environment-textures/tree-triangle.png",
       imagewidth = 390,
       imageheight = 775,
@@ -41,12 +39,11 @@ return {
     {
       name = "tree-leaf",
       firstgid = 2,
-      filename = "../../map-editing/tree-leaf-tileset.tsx",
+      filename = "../../map-editing/tilesets/tree-leaf-tileset.tsx",
       tilewidth = 332,
       tileheight = 600,
       spacing = 0,
       margin = 0,
-      columns = 1,
       image = "../assets/art/environment-textures/tree-leaf.png",
       imagewidth = 332,
       imageheight = 600,
@@ -65,14 +62,263 @@ return {
       tiles = {}
     },
     {
-      name = "tree-square",
+      name = "cloud-003",
       firstgid = 3,
-      filename = "../../map-editing/tree-square-tileset.tsx",
+      filename = "../../map-editing/tilesets/cloud-003.tsx",
+      tilewidth = 337,
+      tileheight = 165,
+      spacing = 0,
+      margin = 0,
+      image = "../assets/art/environment-textures/cloud-003.png",
+      imagewidth = 337,
+      imageheight = 165,
+      tileoffset = {
+        x = 0,
+        y = 0
+      },
+      grid = {
+        orientation = "orthogonal",
+        width = 337,
+        height = 165
+      },
+      properties = {},
+      terrains = {},
+      tilecount = 1,
+      tiles = {}
+    },
+    {
+      name = "cloud-002",
+      firstgid = 4,
+      filename = "../../map-editing/tilesets/cloud-002.tsx",
+      tilewidth = 319,
+      tileheight = 148,
+      spacing = 0,
+      margin = 0,
+      image = "../assets/art/environment-textures/cloud-002.png",
+      imagewidth = 319,
+      imageheight = 148,
+      tileoffset = {
+        x = 0,
+        y = 0
+      },
+      grid = {
+        orientation = "orthogonal",
+        width = 319,
+        height = 148
+      },
+      properties = {},
+      terrains = {},
+      tilecount = 1,
+      tiles = {}
+    },
+    {
+      name = "grass-tuft-002",
+      firstgid = 5,
+      filename = "../../map-editing/tilesets/grass-tuft-002.tsx",
+      tilewidth = 72,
+      tileheight = 115,
+      spacing = 0,
+      margin = 0,
+      image = "../assets/art/environment-textures/grass-tuft-002.png",
+      imagewidth = 72,
+      imageheight = 115,
+      tileoffset = {
+        x = 0,
+        y = 0
+      },
+      grid = {
+        orientation = "orthogonal",
+        width = 72,
+        height = 115
+      },
+      properties = {},
+      terrains = {},
+      tilecount = 1,
+      tiles = {}
+    },
+    {
+      name = "grass-tuft-003",
+      firstgid = 6,
+      filename = "../../map-editing/tilesets/grass-tuft-003.tsx",
+      tilewidth = 102,
+      tileheight = 95,
+      spacing = 0,
+      margin = 0,
+      image = "../assets/art/environment-textures/grass-tuft-003.png",
+      imagewidth = 102,
+      imageheight = 95,
+      tileoffset = {
+        x = 0,
+        y = 0
+      },
+      grid = {
+        orientation = "orthogonal",
+        width = 102,
+        height = 95
+      },
+      properties = {},
+      terrains = {},
+      tilecount = 1,
+      tiles = {}
+    },
+    {
+      name = "grass-tuft-005",
+      firstgid = 7,
+      filename = "../../map-editing/tilesets/grass-tuft-005.tsx",
+      tilewidth = 81,
+      tileheight = 119,
+      spacing = 0,
+      margin = 0,
+      image = "../assets/art/environment-textures/grass-tuft-005.png",
+      imagewidth = 81,
+      imageheight = 119,
+      tileoffset = {
+        x = 0,
+        y = 0
+      },
+      grid = {
+        orientation = "orthogonal",
+        width = 81,
+        height = 119
+      },
+      properties = {},
+      terrains = {},
+      tilecount = 1,
+      tiles = {}
+    },
+    {
+      name = "grass-tuft-007",
+      firstgid = 8,
+      filename = "../../map-editing/tilesets/grass-tuft-007.tsx",
+      tilewidth = 183,
+      tileheight = 97,
+      spacing = 0,
+      margin = 0,
+      image = "../assets/art/environment-textures/grass-tuft-007.png",
+      imagewidth = 183,
+      imageheight = 97,
+      tileoffset = {
+        x = 0,
+        y = 0
+      },
+      grid = {
+        orientation = "orthogonal",
+        width = 183,
+        height = 97
+      },
+      properties = {},
+      terrains = {},
+      tilecount = 1,
+      tiles = {}
+    },
+    {
+      name = "grass-tuft-008",
+      firstgid = 9,
+      filename = "../../map-editing/tilesets/grass-tuft-008.tsx",
+      tilewidth = 137,
+      tileheight = 129,
+      spacing = 0,
+      margin = 0,
+      image = "../assets/art/environment-textures/grass-tuft-008.png",
+      imagewidth = 137,
+      imageheight = 129,
+      tileoffset = {
+        x = 0,
+        y = 0
+      },
+      grid = {
+        orientation = "orthogonal",
+        width = 137,
+        height = 129
+      },
+      properties = {},
+      terrains = {},
+      tilecount = 1,
+      tiles = {}
+    },
+    {
+      name = "grass-tuft-009",
+      firstgid = 10,
+      filename = "../../map-editing/tilesets/grass-tuft-009.tsx",
+      tilewidth = 171,
+      tileheight = 211,
+      spacing = 0,
+      margin = 0,
+      image = "../assets/art/environment-textures/grass-tuft-009.png",
+      imagewidth = 171,
+      imageheight = 211,
+      tileoffset = {
+        x = 0,
+        y = 0
+      },
+      grid = {
+        orientation = "orthogonal",
+        width = 171,
+        height = 211
+      },
+      properties = {},
+      terrains = {},
+      tilecount = 1,
+      tiles = {}
+    },
+    {
+      name = "rock-007",
+      firstgid = 11,
+      filename = "../../map-editing/tilesets/rock-007.tsx",
+      tilewidth = 210,
+      tileheight = 136,
+      spacing = 0,
+      margin = 0,
+      image = "../assets/art/environment-textures/rock-007.png",
+      imagewidth = 210,
+      imageheight = 136,
+      tileoffset = {
+        x = 0,
+        y = 0
+      },
+      grid = {
+        orientation = "orthogonal",
+        width = 210,
+        height = 136
+      },
+      properties = {},
+      terrains = {},
+      tilecount = 1,
+      tiles = {}
+    },
+    {
+      name = "rock-002",
+      firstgid = 12,
+      filename = "../../map-editing/tilesets/rock-002.tsx",
+      tilewidth = 126,
+      tileheight = 106,
+      spacing = 0,
+      margin = 0,
+      image = "../assets/art/environment-textures/rock-002.png",
+      imagewidth = 126,
+      imageheight = 106,
+      tileoffset = {
+        x = 0,
+        y = 0
+      },
+      grid = {
+        orientation = "orthogonal",
+        width = 126,
+        height = 106
+      },
+      properties = {},
+      terrains = {},
+      tilecount = 1,
+      tiles = {}
+    },
+    {
+      name = "tree-square",
+      firstgid = 13,
+      filename = "../../map-editing/tilesets/tree-square-tileset.tsx",
       tilewidth = 353,
       tileheight = 680,
       spacing = 0,
       margin = 0,
-      columns = 1,
       image = "../assets/art/environment-textures/tree-square.png",
       imagewidth = 353,
       imageheight = 680,
@@ -89,168 +335,11 @@ return {
       terrains = {},
       tilecount = 1,
       tiles = {}
-    },
-    {
-      name = "could-001",
-      firstgid = 4,
-      filename = "../../map-editing/could-001-tileset.tsx",
-      tilewidth = 337,
-      tileheight = 193,
-      spacing = 0,
-      margin = 0,
-      columns = 1,
-      image = "../assets/art/environment-textures/cloud-001.png",
-      imagewidth = 337,
-      imageheight = 193,
-      tileoffset = {
-        x = 0,
-        y = 0
-      },
-      grid = {
-        orientation = "orthogonal",
-        width = 337,
-        height = 193
-      },
-      properties = {},
-      terrains = {},
-      tilecount = 1,
-      tiles = {}
-    },
-    {
-      name = "cloud-003",
-      firstgid = 5,
-      filename = "../../map-editing/cloud-003-tileset.tsx",
-      tilewidth = 337,
-      tileheight = 193,
-      spacing = 0,
-      margin = 0,
-      columns = 1,
-      image = "../assets/art/environment-textures/cloud-003.png",
-      imagewidth = 337,
-      imageheight = 193,
-      tileoffset = {
-        x = 0,
-        y = 0
-      },
-      grid = {
-        orientation = "orthogonal",
-        width = 337,
-        height = 193
-      },
-      properties = {},
-      terrains = {},
-      tilecount = 1,
-      tiles = {}
-    },
-    {
-      name = "cloud-002",
-      firstgid = 6,
-      filename = "../../map-editing/cloud-002-tileset.tsx",
-      tilewidth = 315,
-      tileheight = 144,
-      spacing = 0,
-      margin = 0,
-      columns = 1,
-      image = "../assets/art/environment-textures/cloud-002.png",
-      imagewidth = 315,
-      imageheight = 144,
-      tileoffset = {
-        x = 0,
-        y = 0
-      },
-      grid = {
-        orientation = "orthogonal",
-        width = 315,
-        height = 144
-      },
-      properties = {},
-      terrains = {},
-      tilecount = 1,
-      tiles = {}
-    },
-    {
-      name = "grass-tuft-004",
-      firstgid = 7,
-      filename = "../../map-editing/grass-tuft-004-tileset.tsx",
-      tilewidth = 353,
-      tileheight = 48,
-      spacing = 0,
-      margin = 0,
-      columns = 1,
-      image = "../assets/art/environment-textures/grass-tuft-004.png",
-      imagewidth = 353,
-      imageheight = 48,
-      tileoffset = {
-        x = 0,
-        y = 0
-      },
-      grid = {
-        orientation = "orthogonal",
-        width = 353,
-        height = 48
-      },
-      properties = {},
-      terrains = {},
-      tilecount = 1,
-      tiles = {}
-    },
-    {
-      name = "grass-tuft-005",
-      firstgid = 8,
-      filename = "../../map-editing/grass-tuft-005-tileset.tsx",
-      tilewidth = 317,
-      tileheight = 51,
-      spacing = 0,
-      margin = 0,
-      columns = 1,
-      image = "../assets/art/environment-textures/grass-tuft-005.png",
-      imagewidth = 317,
-      imageheight = 51,
-      tileoffset = {
-        x = 0,
-        y = 0
-      },
-      grid = {
-        orientation = "orthogonal",
-        width = 317,
-        height = 51
-      },
-      properties = {},
-      terrains = {},
-      tilecount = 1,
-      tiles = {}
-    },
-    {
-      name = "grass-tuft-006",
-      firstgid = 9,
-      filename = "../../map-editing/grass-tuft-006-tileset.tsx",
-      tilewidth = 280,
-      tileheight = 57,
-      spacing = 0,
-      margin = 0,
-      columns = 1,
-      image = "../assets/art/environment-textures/grass-tuft-006.png",
-      imagewidth = 280,
-      imageheight = 57,
-      tileoffset = {
-        x = 0,
-        y = 0
-      },
-      grid = {
-        orientation = "orthogonal",
-        width = 280,
-        height = 57
-      },
-      properties = {},
-      terrains = {},
-      tilecount = 1,
-      tiles = {}
     }
   },
   layers = {
     {
       type = "objectgroup",
-      id = 2,
       name = "objects",
       visible = true,
       opacity = 1,
@@ -280,8 +369,8 @@ return {
           name = "sam",
           type = "",
           shape = "point",
-          x = 1273.33,
-          y = 1401.33,
+          x = 1284.33,
+          y = 1216.33,
           width = 0,
           height = 0,
           rotation = 0,
@@ -415,12 +504,53 @@ return {
             ["static"] = true,
             ["texturePath"] = "assets/art/environment-textures/ground-base-circle.png"
           }
+        },
+        {
+          id = 176,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 1472,
+          y = 1157,
+          width = 337,
+          height = 165,
+          rotation = 0,
+          gid = 3,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 177,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 788,
+          y = 1305,
+          width = 319,
+          height = 148,
+          rotation = 0,
+          gid = 4,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 178,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 2167,
+          y = 1277,
+          width = 319,
+          height = 148,
+          rotation = 0,
+          gid = 4,
+          visible = true,
+          properties = {}
         }
       }
     },
     {
       type = "objectgroup",
-      id = 3,
       name = "TileSetObjectsBack",
       visible = true,
       opacity = 1,
@@ -428,82 +558,10 @@ return {
       offsety = 0,
       draworder = "topdown",
       properties = {},
-      objects = {
-        {
-          id = 139,
-          name = "",
-          type = "",
-          shape = "rectangle",
-          x = 1319.97,
-          y = 1504.16,
-          width = 167.614,
-          height = 253.753,
-          rotation = 7.03132,
-          gid = 2,
-          visible = true,
-          properties = {}
-        },
-        {
-          id = 143,
-          name = "",
-          type = "",
-          shape = "rectangle",
-          x = 1111,
-          y = 1150,
-          width = 289.855,
-          height = 166,
-          rotation = 0,
-          gid = 4,
-          visible = true,
-          properties = {}
-        },
-        {
-          id = 144,
-          name = "",
-          type = "",
-          shape = "rectangle",
-          x = 1623,
-          y = 1239,
-          width = 180,
-          height = 108,
-          rotation = 0,
-          gid = 5,
-          visible = true,
-          properties = {}
-        },
-        {
-          id = 145,
-          name = "",
-          type = "",
-          shape = "rectangle",
-          x = 1835,
-          y = 1080.86,
-          width = 225,
-          height = 102.857,
-          rotation = 0,
-          gid = 6,
-          visible = true,
-          properties = {}
-        },
-        {
-          id = 146,
-          name = "",
-          type = "",
-          shape = "rectangle",
-          x = 720.5,
-          y = 1184.5,
-          width = 190,
-          height = 88,
-          rotation = 0,
-          gid = 5,
-          visible = true,
-          properties = {}
-        }
-      }
+      objects = {}
     },
     {
       type = "objectgroup",
-      id = 4,
       name = "TileSetObjectsMid",
       visible = true,
       opacity = 1,
@@ -513,16 +571,30 @@ return {
       properties = {},
       objects = {
         {
-          id = 137,
+          id = 168,
           name = "",
           type = "",
           shape = "rectangle",
-          x = 1133.02,
-          y = 1536.81,
-          width = 225.339,
-          height = 414.023,
-          rotation = -14.1898,
-          gid = 1,
+          x = 1548.48,
+          y = 1509.36,
+          width = 138.404,
+          height = 273.238,
+          rotation = 5.14791,
+          gid = 2,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 190,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 1029.58,
+          y = 1520.77,
+          width = 206.844,
+          height = 398.453,
+          rotation = -5.6583,
+          gid = 13,
           visible = true,
           properties = {}
         }
@@ -530,7 +602,6 @@ return {
     },
     {
       type = "objectgroup",
-      id = 5,
       name = "TileSetObjectsFront",
       visible = true,
       opacity = 1,
@@ -549,105 +620,119 @@ return {
           width = 196.226,
           height = 378,
           rotation = 14.3542,
-          gid = 3,
+          gid = 1,
           visible = true,
           properties = {}
         },
         {
-          id = 148,
+          id = 180,
           name = "",
           type = "",
           shape = "rectangle",
-          x = 1388,
+          x = 1415,
+          y = 1523,
+          width = 72,
+          height = 115,
+          rotation = 0,
+          gid = 5,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 181,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 1074.55,
+          y = 1521,
+          width = 79.4526,
+          height = 74,
+          rotation = 0,
+          gid = 6,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 182,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 1941,
+          y = 1527,
+          width = 81,
+          height = 119,
+          rotation = 0,
+          gid = 7,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 184,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 721.932,
+          y = 1275.47,
+          width = 95.7193,
+          height = 90.1299,
+          rotation = 22.0348,
+          gid = 9,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 185,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 880,
           y = 1515,
-          width = 88,
-          height = 38,
+          width = 109,
+          height = 133,
           rotation = 0,
-          gid = 8,
+          gid = 10,
           visible = true,
           properties = {}
         },
         {
-          id = 149,
+          id = 186,
           name = "",
           type = "",
           shape = "rectangle",
-          x = 1226,
-          y = 1518,
-          width = 70.193,
-          height = 44,
+          x = 2166,
+          y = 1521.01,
+          width = 137,
+          height = 129,
+          rotation = -0.00428476,
+          gid = 9,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 187,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 924.279,
+          y = 1512,
+          width = 112.721,
+          height = 73,
           rotation = 0,
-          gid = 9,
+          gid = 11,
           visible = true,
           properties = {}
         },
         {
-          id = 150,
+          id = 188,
           name = "",
           type = "",
           shape = "rectangle",
-          x = 1929.84,
-          y = 1514.51,
-          width = 56.193,
-          height = 45,
-          rotation = 15.7859,
-          gid = 9,
-          visible = true,
-          properties = {}
-        },
-        {
-          id = 151,
-          name = "",
-          type = "",
-          shape = "rectangle",
-          x = 812,
-          y = 1510,
-          width = 150,
-          height = 39,
+          x = 2121,
+          y = 1511,
+          width = 48.8679,
+          height = 41.1111,
           rotation = 0,
-          gid = 8,
-          visible = true,
-          properties = {}
-        },
-        {
-          id = 162,
-          name = "",
-          type = "",
-          shape = "rectangle",
-          x = 797.61,
-          y = 1311.37,
-          width = 70.193,
-          height = 44,
-          rotation = -325.66,
-          gid = 9,
-          visible = true,
-          properties = {}
-        },
-        {
-          id = 163,
-          name = "",
-          type = "",
-          shape = "rectangle",
-          x = 2285.97,
-          y = 1467.48,
-          width = 70.193,
-          height = 44,
-          rotation = -402.055,
-          gid = 9,
-          visible = true,
-          properties = {}
-        },
-        {
-          id = 164,
-          name = "",
-          type = "",
-          shape = "rectangle",
-          x = 2357.9,
-          y = 1271,
-          width = 152.618,
-          height = 38.3278,
-          rotation = -402.055,
-          gid = 9,
+          gid = 12,
           visible = true,
           properties = {}
         }
@@ -655,7 +740,6 @@ return {
     },
     {
       type = "tilelayer",
-      id = 6,
       name = "terrain",
       x = 0,
       y = 0,
