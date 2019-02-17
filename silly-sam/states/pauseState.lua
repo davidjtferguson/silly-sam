@@ -50,15 +50,10 @@ function PauseState:enter(gameState)
     self.canvas = love.graphics.newCanvas()
 end
 
--- restart current level
+-- restart game
 function PauseState:restart()
-    -- Would be better to have this line in the gamestate, but not sure how to pass back that the pauseState:restart() function was hit in a tidy fashion
-    self.gameState:loadMap(self.gameState.currentLevelPath)
-
     StateManager.pop()
-
-    -- If we wanted to reset the entire game (i.e, go back to the initial level instead of just restart the current level) use:
-    -- reset()
+    reset()
 end
 
 function PauseState:toggleFullscreen()
