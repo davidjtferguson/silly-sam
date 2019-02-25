@@ -9,7 +9,7 @@ return {
   tilewidth = 32,
   tileheight = 32,
   nextlayerid = 12,
-  nextobjectid = 356,
+  nextobjectid = 360,
   properties = {},
   tilesets = {
     {
@@ -300,8 +300,8 @@ return {
           name = "changeLevel",
           type = "",
           shape = "point",
-          x = 7993.45,
-          y = 3549.57,
+          x = 6499.51,
+          y = 1967.75,
           width = 0,
           height = 0,
           rotation = 0,
@@ -316,8 +316,8 @@ return {
           name = "changeLevel",
           type = "",
           shape = "point",
-          x = 6948,
-          y = 3676,
+          x = 6532.85,
+          y = 2854.79,
           width = 0,
           height = 0,
           rotation = 0,
@@ -332,8 +332,8 @@ return {
           name = "changeLevel",
           type = "",
           shape = "point",
-          x = 7424,
-          y = 3992,
+          x = 6572.48,
+          y = 3273.82,
           width = 0,
           height = 0,
           rotation = 0,
@@ -399,7 +399,7 @@ return {
           properties = {
             ["cameraDistance"] = 300,
             ["static"] = false,
-            ["texturePath"] = "assets/art/environment-textures/ground-base.png"
+            ["texturePath"] = "assets/art/gameobject-textures/skateboard-deck.png"
           }
         },
         {
@@ -847,6 +847,54 @@ return {
           properties = {
             ["static"] = false,
             ["texturePath"] = "assets/art/environment-textures/ground-base.png"
+          }
+        },
+        {
+          id = 357,
+          name = "rectangle",
+          type = "",
+          shape = "rectangle",
+          x = 6008.98,
+          y = 1669.42,
+          width = 537.198,
+          height = 1504.79,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["static"] = true,
+            ["texturePath"] = "assets/art/environment-textures/ground-base.png"
+          }
+        },
+        {
+          id = 358,
+          name = "ball",
+          type = "",
+          shape = "ellipse",
+          x = 5879.33,
+          y = 2773.33,
+          width = 10,
+          height = 10,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["static"] = true,
+            ["texturePath"] = "assets/art/environment-textures/ground-base-circle.png"
+          }
+        },
+        {
+          id = 359,
+          name = "ball",
+          type = "",
+          shape = "ellipse",
+          x = 5477,
+          y = 2823,
+          width = 10,
+          height = 10,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["static"] = true,
+            ["texturePath"] = "assets/art/environment-textures/ground-base-circle.png"
           }
         }
       }

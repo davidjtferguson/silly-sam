@@ -298,8 +298,8 @@ function GameState:endContact(fixture1, fixture2, contact)
 end
 
 function GameState:bodyOnGround(body1, body2)
+    -- TECHDEBT: Would probably be better to re-write using body:getUserData. Should set the user data for each body part to some identifier and then won't need the sam.allParts table or all this looping.
 
-    -- TODO: re-write using body:getUserData. Should set the user data for each body part to some identifier and then won't need the sam.allParts table or all this looping.
     -- if one body is a bodypart
     local isBody1Part = false
 

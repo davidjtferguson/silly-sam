@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.2" tiledversion="1.2.1" orientation="orthogonal" renderorder="right-down" width="200" height="150" tilewidth="32" tileheight="32" infinite="0" nextlayerid="12" nextobjectid="356">
+<map version="1.2" tiledversion="1.2.1" orientation="orthogonal" renderorder="right-down" width="200" height="150" tilewidth="32" tileheight="32" infinite="0" nextlayerid="12" nextobjectid="360">
  <tileset firstgid="1" source="../tilesets/test-tileset.tsx"/>
  <tileset firstgid="3" source="../tilesets/cloud-001.tsx"/>
  <tileset firstgid="4" source="../tilesets/cloud-003.tsx"/>
@@ -57,21 +57,21 @@
    </properties>
    <point/>
   </object>
-  <object id="353" name="changeLevel" x="7993.45" y="3549.57">
+  <object id="353" name="changeLevel" x="6499.51" y="1967.75">
    <properties>
     <property name="cameraDistance" type="float" value="500"/>
     <property name="newLevelPath" value="maps/rory-level.lua"/>
    </properties>
    <point/>
   </object>
-  <object id="354" name="changeLevel" x="6948" y="3676">
+  <object id="354" name="changeLevel" x="6532.85" y="2854.79">
    <properties>
     <property name="cameraDistance" type="float" value="500"/>
     <property name="newLevelPath" value="maps/rory-level.lua"/>
    </properties>
    <point/>
   </object>
-  <object id="355" name="changeLevel" x="7424" y="3992">
+  <object id="355" name="changeLevel" x="6572.48" y="3273.82">
    <properties>
     <property name="cameraDistance" type="float" value="500"/>
     <property name="newLevelPath" value="maps/rory-level.lua"/>
@@ -93,7 +93,7 @@
    <properties>
     <property name="cameraDistance" type="float" value="300"/>
     <property name="static" type="bool" value="false"/>
-    <property name="texturePath" value="assets/art/environment-textures/ground-base.png"/>
+    <property name="texturePath" value="assets/art/gameobject-textures/skateboard-deck.png"/>
    </properties>
   </object>
   <object id="275" name="rectangle" x="594.112" y="528.898" width="519.105" height="432.004" rotation="23.1292">
@@ -268,6 +268,26 @@
     <property name="static" type="bool" value="false"/>
     <property name="texturePath" value="assets/art/environment-textures/ground-base.png"/>
    </properties>
+  </object>
+  <object id="357" name="rectangle" x="6008.98" y="1669.42" width="537.198" height="1504.79">
+   <properties>
+    <property name="static" type="bool" value="true"/>
+    <property name="texturePath" value="assets/art/environment-textures/ground-base.png"/>
+   </properties>
+  </object>
+  <object id="358" name="ball" x="5879.33" y="2773.33" width="10" height="10">
+   <properties>
+    <property name="static" type="bool" value="true"/>
+    <property name="texturePath" value="assets/art/environment-textures/ground-base-circle.png"/>
+   </properties>
+   <ellipse/>
+  </object>
+  <object id="359" name="ball" x="5477" y="2823" width="10" height="10">
+   <properties>
+    <property name="static" type="bool" value="true"/>
+    <property name="texturePath" value="assets/art/environment-textures/ground-base-circle.png"/>
+   </properties>
+   <ellipse/>
   </object>
  </objectgroup>
  <layer id="11" name="terrain" width="200" height="150">
