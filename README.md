@@ -6,6 +6,8 @@ Physics based silly movement joke toy thing.
 
 ## Getting Started
 
+On checking out the project there are two main folders. The 'silly-sam' folder contains all the game files as the Love2D project. 'map-editing' contains the Tiled files and the Silly Sam specific object instructions.
+
 Things you'd need to download and learn
 - Love2D for the game creation framework
 - Tiled for creating the maps
@@ -16,34 +18,28 @@ Basics I'm using
 
 ## Controls
 
-Xbox controller recommended.
-
 ### Joystick controls
 
-When on the ground left trigger puts a force up Sam's leg to make them move left, and right trigger puts a force up Sam's leg to make them move right.
+If the corrisponding leg is on the ground, the left trigger puts a force up Sam's left leg and the right trigger puts a force up Sam's right leg. These should be alternated to make Sam shuffle around.
 
-The left and right sticks make Sam's arms point at the same angle you put the stick in.
+The left and right bumpers clench Sam's left and right hands respectively. If Sam's hand is overlapping something he'll grab that object untill the bumper is released.
+
+The left and right sticks make Sam's arms point at the same angle you push the stick in.
 So if you push both sticks up Sam will hold their arms in the air.
 
-Press start to pause and unpause.
+Press start to pause.
 
-Press B to reset the game.
-
-Press back to close the game.
-
-Press right on the d-pad to toggle fullscreen.
+Press back or right on the d-pad to toggle fullscreen. (Note you may have performance issues in fullscreen - if this occurs keeping the game windowed is recommended).
 
 ### Keyboard controls
 
-C shuffles Sam left, N shuffles sam right.
+C lifts Sam's left leg if it's on the ground, N lifts Sam's right leg if it's on the ground.
+
+E grabs with left hand, U grabs with right hand.
 
 Use WASD to direct the left arm and IJKL to direct the right arm.
 
-Press P to pause and unpause.
-
-Press R to reset the game.
-
-Press Esc. to close the game.
+Press P to pause.
 
 Use F to toggle fullscreen.
 
