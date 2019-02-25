@@ -176,7 +176,7 @@ function GameState:loadMap(mapPath)
     if self.map.layers["objects"] then
         self.map:removeLayer("objects")
     end
-    
+
     -- make camera focus on Sam
     self.camera = Camera(self.sam.chest.body:getPosition())
 
