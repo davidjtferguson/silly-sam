@@ -9,7 +9,7 @@ return {
   tilewidth = 32,
   tileheight = 32,
   nextlayerid = 10,
-  nextobjectid = 215,
+  nextobjectid = 220,
   properties = {},
   tilesets = {
     {
@@ -212,11 +212,11 @@ return {
           name = "",
           type = "",
           shape = "rectangle",
-          x = 477.392,
-          y = 1035.83,
-          width = 196.226,
-          height = 378,
-          rotation = -2.71126,
+          x = 419.392,
+          y = 787.83,
+          width = 137,
+          height = 264,
+          rotation = 0,
           gid = 3,
           visible = true,
           properties = {}
@@ -226,11 +226,11 @@ return {
           name = "",
           type = "",
           shape = "rectangle",
-          x = 873.026,
-          y = 1014.2,
-          width = 225.339,
-          height = 414.023,
-          rotation = 9.0832,
+          x = 983.026,
+          y = 783.2,
+          width = 158,
+          height = 290,
+          rotation = 0,
           gid = 4,
           visible = true,
           properties = {}
@@ -315,7 +315,7 @@ return {
           type = "",
           shape = "point",
           x = 760,
-          y = 790,
+          y = 760,
           width = 0,
           height = 0,
           rotation = 0,
@@ -1106,6 +1106,38 @@ return {
           properties = {
             ["cameraDistance"] = 100,
             ["newLevelPath"] = "maps/cliff.lua"
+          }
+        },
+        {
+          id = 218,
+          name = "ball",
+          type = "",
+          shape = "ellipse",
+          x = 1026,
+          y = 765,
+          width = 50,
+          height = 50,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["static"] = true,
+            ["texturePath"] = "assets/art/environment-textures/ground-base-circle.png"
+          }
+        },
+        {
+          id = 219,
+          name = "ball",
+          type = "",
+          shape = "ellipse",
+          x = 483,
+          y = 771,
+          width = 42,
+          height = 42,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["static"] = true,
+            ["texturePath"] = "assets/art/environment-textures/ground-base-circle.png"
           }
         }
       }

@@ -9,7 +9,7 @@ return {
   tilewidth = 32,
   tileheight = 32,
   nextlayerid = 9,
-  nextobjectid = 158,
+  nextobjectid = 160,
   properties = {},
   tilesets = {
     {
@@ -482,8 +482,8 @@ return {
           name = "sam",
           type = "",
           shape = "point",
-          x = 410.788,
-          y = 904.303,
+          x = 434.788,
+          y = 943.303,
           width = 0,
           height = 0,
           rotation = 0,
@@ -1005,11 +1005,11 @@ return {
           name = "rectangle",
           type = "",
           shape = "rectangle",
-          x = 58,
-          y = 1047.57,
+          x = 58.0508,
+          y = 1043.49,
           width = 713.25,
           height = 569.865,
-          rotation = 0,
+          rotation = 0.328738,
           visible = true,
           properties = {
             ["static"] = true,
@@ -1165,9 +1165,9 @@ return {
           name = "rectangle",
           type = "",
           shape = "rectangle",
-          x = 3972.79,
-          y = 2908.78,
-          width = 159.369,
+          x = 3939.6,
+          y = 2960.99,
+          width = 221.24,
           height = 124.075,
           rotation = -57.5545,
           visible = true,
@@ -2023,6 +2023,24 @@ return {
           properties = {
             ["cameraDistance"] = 50,
             ["newLevelPath"] = "maps/survival-map.lua"
+          }
+        },
+        {
+          id = 158,
+          name = "rectangle",
+          type = "",
+          shape = "rectangle",
+          x = 227.893,
+          y = 730.734,
+          width = 416,
+          height = 156,
+          rotation = -3.63325,
+          visible = true,
+          properties = {
+            ["cameraDistance"] = 350,
+            ["cameraFocus"] = true,
+            ["static"] = true,
+            ["texturePath"] = "assets/art/game-logo.png"
           }
         }
       }

@@ -26,8 +26,10 @@ end
 
 function GameState:init()
     self:loadMap("maps/intro-map.lua")
-    --self:loadMap("maps/cliff.lua")
     --self:loadMap("maps/survival-map.lua")
+    --self:loadMap("maps/cliff.lua")
+    --self:loadMap("maps/swinging.lua")
+    --self:loadMap("maps/bonus.lua")
     --self:loadMap("maps/rory-level.lua")
     
     --self:loadMap("maps/test-map-limited-level.lua")
@@ -176,7 +178,7 @@ function GameState:loadMap(mapPath)
     if self.map.layers["objects"] then
         self.map:removeLayer("objects")
     end
-    
+
     -- make camera focus on Sam
     self.camera = Camera(self.sam.chest.body:getPosition())
 
@@ -290,11 +292,14 @@ end
 function GameState:endContact(fixture1, fixture2, contact)
     self:bodyOnGround(fixture1:getBody(), fixture2:getBody())
     self:bodyOnGround(fixture2:getBody(), fixture1:getBody())
+
+    -- make sure garbage is collected properly: https://love2d.org/forums/viewtopic.php?t=9643
+    collectgarbage()
 end
 
 function GameState:bodyOnGround(body1, body2)
+    -- TECHDEBT: Would probably be better to re-write using body:getUserData. Should set the user data for each body part to some identifier and then won't need the sam.allParts table or all this looping.
 
-    -- TODO: re-write using body:getUserData. Should set the user data for each body part to some identifier and then won't need the sam.allParts table or all this looping.
     -- if one body is a bodypart
     local isBody1Part = false
 
