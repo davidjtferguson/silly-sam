@@ -9,7 +9,7 @@ return {
   tilewidth = 32,
   tileheight = 32,
   nextlayerid = 10,
-  nextobjectid = 257,
+  nextobjectid = 259,
   properties = {},
   tilesets = {
     {
@@ -1703,7 +1703,7 @@ return {
           visible = true,
           properties = {
             ["cameraDistance"] = 1000,
-            ["newLevelPath"] = "maps/rory-level.lua"
+            ["newLevelPath"] = "maps/swinging.lua"
           }
         },
         {
@@ -1719,7 +1719,7 @@ return {
           visible = true,
           properties = {
             ["cameraDistance"] = 1000,
-            ["newLevelPath"] = "maps/rory-level.lua"
+            ["newLevelPath"] = "maps/swinging.lua"
           }
         },
         {
@@ -1735,7 +1735,7 @@ return {
           visible = true,
           properties = {
             ["cameraDistance"] = 1000,
-            ["newLevelPath"] = "maps/rory-level.lua"
+            ["newLevelPath"] = "maps/swinging.lua"
           }
         },
         {
@@ -1751,7 +1751,39 @@ return {
           visible = true,
           properties = {
             ["cameraDistance"] = 1000,
-            ["newLevelPath"] = "maps/rory-level.lua"
+            ["newLevelPath"] = "maps/swinging.lua"
+          }
+        },
+        {
+          id = 257,
+          name = "changeLevel",
+          type = "",
+          shape = "point",
+          x = 3480,
+          y = 8304,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["cameraDistance"] = 1000,
+            ["newLevelPath"] = "maps/swinging.lua"
+          }
+        },
+        {
+          id = 258,
+          name = "changeLevel",
+          type = "",
+          shape = "point",
+          x = -108,
+          y = 8148,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["cameraDistance"] = 1000,
+            ["newLevelPath"] = "maps/swinging.lua"
           }
         }
       }

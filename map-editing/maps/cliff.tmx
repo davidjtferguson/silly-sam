@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.2" tiledversion="1.2.1" orientation="orthogonal" renderorder="right-down" width="100" height="300" tilewidth="32" tileheight="32" infinite="0" nextlayerid="10" nextobjectid="257">
+<map version="1.2" tiledversion="1.2.1" orientation="orthogonal" renderorder="right-down" width="100" height="300" tilewidth="32" tileheight="32" infinite="0" nextlayerid="10" nextobjectid="259">
  <tileset firstgid="1" source="../tilesets/test-tileset.tsx"/>
  <tileset firstgid="3" source="../tilesets/cloud-001.tsx"/>
  <tileset firstgid="4" source="../tilesets/cloud-003.tsx"/>
@@ -591,28 +591,42 @@
   <object id="252" name="changeLevel" x="982.909" y="9292.36">
    <properties>
     <property name="cameraDistance" type="float" value="1000"/>
-    <property name="newLevelPath" value="maps/rory-level.lua"/>
+    <property name="newLevelPath" value="maps/swinging.lua"/>
    </properties>
    <point/>
   </object>
   <object id="254" name="changeLevel" x="2064.73" y="9289.33">
    <properties>
     <property name="cameraDistance" type="float" value="1000"/>
-    <property name="newLevelPath" value="maps/rory-level.lua"/>
+    <property name="newLevelPath" value="maps/swinging.lua"/>
    </properties>
    <point/>
   </object>
   <object id="255" name="changeLevel" x="2734.42" y="9280.24">
    <properties>
     <property name="cameraDistance" type="float" value="1000"/>
-    <property name="newLevelPath" value="maps/rory-level.lua"/>
+    <property name="newLevelPath" value="maps/swinging.lua"/>
    </properties>
    <point/>
   </object>
   <object id="256" name="changeLevel" x="337.455" y="9234.79">
    <properties>
     <property name="cameraDistance" type="float" value="1000"/>
-    <property name="newLevelPath" value="maps/rory-level.lua"/>
+    <property name="newLevelPath" value="maps/swinging.lua"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="257" name="changeLevel" x="3480" y="8304">
+   <properties>
+    <property name="cameraDistance" type="float" value="1000"/>
+    <property name="newLevelPath" value="maps/swinging.lua"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="258" name="changeLevel" x="-108" y="8148">
+   <properties>
+    <property name="cameraDistance" type="float" value="1000"/>
+    <property name="newLevelPath" value="maps/swinging.lua"/>
    </properties>
    <point/>
   </object>
