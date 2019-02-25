@@ -377,7 +377,7 @@ return {
           x = -85.9306,
           y = -579.368,
           width = 537.198,
-          height = 1504.79,
+          height = 1668.43,
           rotation = 0,
           visible = true,
           properties = {
@@ -410,7 +410,7 @@ return {
           x = 594.112,
           y = 528.898,
           width = 519.105,
-          height = 432.004,
+          height = 603.101,
           rotation = 23.1292,
           visible = true,
           properties = {
@@ -442,7 +442,7 @@ return {
           x = 1069.73,
           y = 733.729,
           width = 506.601,
-          height = 432.004,
+          height = 606.934,
           rotation = 30.5564,
           visible = true,
           properties = {
@@ -506,7 +506,7 @@ return {
           x = 1505.46,
           y = 990.924,
           width = 437.856,
-          height = 432.004,
+          height = 633.275,
           rotation = -316.289,
           visible = true,
           properties = {
@@ -522,7 +522,7 @@ return {
           x = 1821.72,
           y = 1293.54,
           width = 616.094,
-          height = 432.004,
+          height = 639.942,
           rotation = -315.19,
           visible = true,
           properties = {
@@ -538,7 +538,7 @@ return {
           x = 2090.91,
           y = 1631.35,
           width = 866.653,
-          height = 432.004,
+          height = 617.681,
           rotation = 29.7359,
           visible = true,
           properties = {
@@ -554,7 +554,7 @@ return {
           x = 2663.71,
           y = 1963.33,
           width = 519.105,
-          height = 432.004,
+          height = 642.991,
           rotation = 17.0671,
           visible = true,
           properties = {
@@ -847,54 +847,6 @@ return {
           properties = {
             ["static"] = false,
             ["texturePath"] = "assets/art/environment-textures/ground-base.png"
-          }
-        },
-        {
-          id = 357,
-          name = "rectangle",
-          type = "",
-          shape = "rectangle",
-          x = 6008.98,
-          y = 1669.42,
-          width = 537.198,
-          height = 1504.79,
-          rotation = 0,
-          visible = true,
-          properties = {
-            ["static"] = true,
-            ["texturePath"] = "assets/art/environment-textures/ground-base.png"
-          }
-        },
-        {
-          id = 358,
-          name = "ball",
-          type = "",
-          shape = "ellipse",
-          x = 5879.33,
-          y = 2773.33,
-          width = 10,
-          height = 10,
-          rotation = 0,
-          visible = true,
-          properties = {
-            ["static"] = true,
-            ["texturePath"] = "assets/art/environment-textures/ground-base-circle.png"
-          }
-        },
-        {
-          id = 359,
-          name = "ball",
-          type = "",
-          shape = "ellipse",
-          x = 5477,
-          y = 2823,
-          width = 10,
-          height = 10,
-          rotation = 0,
-          visible = true,
-          properties = {
-            ["static"] = true,
-            ["texturePath"] = "assets/art/environment-textures/ground-base-circle.png"
           }
         }
       }

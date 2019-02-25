@@ -128,7 +128,7 @@
   </object>
  </objectgroup>
  <objectgroup id="2" name="objects">
-  <object id="4" name="sam" x="388.454" y="454.819">
+  <object id="4" name="sam" x="376.454" y="96.8189">
    <point/>
   </object>
   <object id="52" name="rectangle" x="129.707" y="624.9" width="537.198" height="644.183">
@@ -137,7 +137,7 @@
     <property name="texturePath" value="assets/art/environment-textures/ground-base.png"/>
    </properties>
   </object>
-  <object id="54" name="rectangle" x="-771.508" y="-161.004" width="834.3" height="1094.9" rotation="-6.026">
+  <object id="54" name="rectangle" x="-835.142" y="-763.81" width="834.3" height="2118.33" rotation="-6.026">
    <properties>
     <property name="static" type="bool" value="true"/>
     <property name="texturePath" value="assets/art/environment-textures/ground-base.png"/>
@@ -241,13 +241,13 @@
    </properties>
    <ellipse/>
   </object>
-  <object id="271" name="rectangle" x="4304.13" y="1376.39" width="537.198" height="507.819">
+  <object id="271" name="rectangle" x="4304.13" y="1376.39" width="537.198" height="539.819">
    <properties>
     <property name="static" type="bool" value="true"/>
     <property name="texturePath" value="assets/art/environment-textures/ground-base.png"/>
    </properties>
   </object>
-  <object id="273" name="rectangle" x="4429.4" y="1408.09" width="537.198" height="507.819">
+  <object id="273" name="rectangle" x="4839.4" y="1408.09" width="127.198" height="507.819">
    <properties>
     <property name="static" type="bool" value="true"/>
     <property name="texturePath" value="assets/art/environment-textures/ground-base.png"/>
@@ -279,13 +279,13 @@
     <property name="texturePath" value="assets/art/environment-textures/ground-base.png"/>
    </properties>
   </object>
-  <object id="278" name="rectangle" x="5850.82" y="1749.52" width="519.105" height="658.593" rotation="5.71011">
+  <object id="278" name="rectangle" x="5850.82" y="1749.52" width="519.105" height="422.57" rotation="5.71011">
    <properties>
     <property name="static" type="bool" value="true"/>
     <property name="texturePath" value="assets/art/environment-textures/ground-base.png"/>
    </properties>
   </object>
-  <object id="279" name="rectangle" x="6293.78" y="1798.7" width="519.105" height="658.593">
+  <object id="279" name="rectangle" x="6293.78" y="1798.7" width="519.105" height="420.593">
    <properties>
     <property name="static" type="bool" value="true"/>
     <property name="texturePath" value="assets/art/environment-textures/ground-base.png"/>
