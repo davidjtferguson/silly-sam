@@ -39,17 +39,17 @@ return {
       tiles = {}
     },
     {
-      name = "could-001",
+      name = "cloud-001",
       firstgid = 3,
-      filename = "../../map-editing/tilesets/could-001-tileset.tsx",
+      filename = "../../map-editing/tilesets/cloud-001.tsx",
       tilewidth = 337,
-      tileheight = 193,
+      tileheight = 155,
       spacing = 0,
       margin = 0,
       columns = 1,
       image = "../assets/art/environment-textures/cloud-001.png",
       imagewidth = 337,
-      imageheight = 193,
+      imageheight = 155,
       tileoffset = {
         x = 0,
         y = 0
@@ -57,7 +57,7 @@ return {
       grid = {
         orientation = "orthogonal",
         width = 337,
-        height = 193
+        height = 155
       },
       properties = {},
       terrains = {},
@@ -67,15 +67,15 @@ return {
     {
       name = "cloud-003",
       firstgid = 4,
-      filename = "../../map-editing/tilesets/cloud-003-tileset.tsx",
+      filename = "../../map-editing/tilesets/cloud-003.tsx",
       tilewidth = 337,
-      tileheight = 193,
+      tileheight = 165,
       spacing = 0,
       margin = 0,
       columns = 1,
       image = "../assets/art/environment-textures/cloud-003.png",
       imagewidth = 337,
-      imageheight = 193,
+      imageheight = 165,
       tileoffset = {
         x = 0,
         y = 0
@@ -83,7 +83,7 @@ return {
       grid = {
         orientation = "orthogonal",
         width = 337,
-        height = 193
+        height = 165
       },
       properties = {},
       terrains = {},
@@ -93,23 +93,23 @@ return {
     {
       name = "grass-tuft-006",
       firstgid = 5,
-      filename = "../../map-editing/tilesets/grass-tuft-006-tileset.tsx",
-      tilewidth = 280,
-      tileheight = 57,
+      filename = "../../map-editing/tilesets/grass-tuft-006.tsx",
+      tilewidth = 127,
+      tileheight = 163,
       spacing = 0,
       margin = 0,
       columns = 1,
       image = "../assets/art/environment-textures/grass-tuft-006.png",
-      imagewidth = 280,
-      imageheight = 57,
+      imagewidth = 127,
+      imageheight = 163,
       tileoffset = {
         x = 0,
         y = 0
       },
       grid = {
         orientation = "orthogonal",
-        width = 280,
-        height = 57
+        width = 127,
+        height = 163
       },
       properties = {},
       terrains = {},
@@ -119,23 +119,23 @@ return {
     {
       name = "grass-tuft-005",
       firstgid = 6,
-      filename = "../../map-editing/tilesets/grass-tuft-005-tileset.tsx",
-      tilewidth = 317,
-      tileheight = 51,
+      filename = "../../map-editing/tilesets/grass-tuft-005.tsx",
+      tilewidth = 81,
+      tileheight = 119,
       spacing = 0,
       margin = 0,
       columns = 1,
       image = "../assets/art/environment-textures/grass-tuft-005.png",
-      imagewidth = 317,
-      imageheight = 51,
+      imagewidth = 81,
+      imageheight = 119,
       tileoffset = {
         x = 0,
         y = 0
       },
       grid = {
         orientation = "orthogonal",
-        width = 317,
-        height = 51
+        width = 81,
+        height = 119
       },
       properties = {},
       terrains = {},
@@ -145,23 +145,23 @@ return {
     {
       name = "cloud-002",
       firstgid = 7,
-      filename = "../../map-editing/tilesets/cloud-002-tileset.tsx",
-      tilewidth = 315,
-      tileheight = 144,
+      filename = "../../map-editing/tilesets/cloud-002.tsx",
+      tilewidth = 319,
+      tileheight = 148,
       spacing = 0,
       margin = 0,
       columns = 1,
       image = "../assets/art/environment-textures/cloud-002.png",
-      imagewidth = 315,
-      imageheight = 144,
+      imagewidth = 319,
+      imageheight = 148,
       tileoffset = {
         x = 0,
         y = 0
       },
       grid = {
         orientation = "orthogonal",
-        width = 315,
-        height = 144
+        width = 319,
+        height = 148
       },
       properties = {},
       terrains = {},
@@ -186,11 +186,11 @@ return {
           name = "",
           type = "",
           shape = "rectangle",
-          x = 3.24583,
-          y = 604.321,
+          x = 44.4543,
+          y = 641.265,
           width = 150,
           height = 39,
-          rotation = 382.495,
+          rotation = 721.701,
           gid = 6,
           visible = true,
           properties = {}
@@ -896,7 +896,7 @@ return {
           x = 814.68,
           y = 1333.87,
           width = 554.891,
-          height = 407.013,
+          height = 407.2,
           rotation = 288.668,
           visible = true,
           properties = {
@@ -941,8 +941,8 @@ return {
           name = "ball",
           type = "",
           shape = "ellipse",
-          x = 409.333,
-          y = 659.333,
+          x = 409.208,
+          y = 659.145,
           width = 417.333,
           height = 401.333,
           rotation = 0,
@@ -973,10 +973,10 @@ return {
           name = "rectangle",
           type = "",
           shape = "rectangle",
-          x = 1152.61,
-          y = 1469.76,
-          width = 577.973,
-          height = 410.891,
+          x = 1152.7,
+          y = 1470.76,
+          width = 577.993,
+          height = 410.895,
           rotation = 292.95,
           visible = true,
           properties = {
