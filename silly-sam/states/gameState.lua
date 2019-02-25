@@ -290,6 +290,9 @@ end
 function GameState:endContact(fixture1, fixture2, contact)
     self:bodyOnGround(fixture1:getBody(), fixture2:getBody())
     self:bodyOnGround(fixture2:getBody(), fixture1:getBody())
+
+    -- make sure garbage is collected properly: https://love2d.org/forums/viewtopic.php?t=9643
+    collectgarbage()
 end
 
 function GameState:bodyOnGround(body1, body2)

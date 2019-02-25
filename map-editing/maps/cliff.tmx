@@ -298,7 +298,7 @@
    </properties>
    <ellipse/>
   </object>
-  <object id="61" name="ball" x="2087.33" y="1195.33" width="50" height="50">
+  <object id="61" name="ball" x="2088" y="1189.33" width="50" height="50">
    <properties>
     <property name="static" type="bool" value="true"/>
     <property name="texturePath" value="assets/art/environment-textures/ground-base-circle.png"/>
@@ -311,7 +311,7 @@
     <property name="texturePath" value="assets/art/environment-textures/ground-base.png"/>
    </properties>
   </object>
-  <object id="63" name="rectangle" x="1463.46" y="1669.13" width="636.727" height="491.408" rotation="288.668">
+  <object id="63" name="rectangle" x="1471.33" y="1676.61" width="636.727" height="491.408" rotation="287.435">
    <properties>
     <property name="static" type="bool" value="true"/>
     <property name="texturePath" value="assets/art/environment-textures/ground-base.png"/>
