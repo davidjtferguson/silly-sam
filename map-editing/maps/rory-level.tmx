@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" tiledversion="1.1.6" orientation="orthogonal" renderorder="right-down" width="100" height="100" tilewidth="32" tileheight="32" infinite="0" nextobjectid="191">
+<map version="1.2" tiledversion="1.2.2" orientation="orthogonal" renderorder="right-down" width="100" height="100" tilewidth="32" tileheight="32" infinite="0" nextlayerid="6" nextobjectid="194">
  <tileset firstgid="1" source="../tilesets/tree-triangle-tileset.tsx"/>
  <tileset firstgid="2" source="../tilesets/tree-leaf-tileset.tsx"/>
  <tileset firstgid="3" source="../tilesets/cloud-003.tsx"/>
@@ -13,8 +13,8 @@
  <tileset firstgid="11" source="../tilesets/rock-007.tsx"/>
  <tileset firstgid="12" source="../tilesets/rock-002.tsx"/>
  <tileset firstgid="13" source="../tilesets/tree-square-tileset.tsx"/>
- <objectgroup name="objects">
-  <object id="7" name="ball" x="1600.33" y="1435.33" width="417.333" height="401.333">
+ <objectgroup id="1" name="objects">
+  <object id="7" name="ball" x="1600.33" y="1435.33" width="410" height="410">
    <properties>
     <property name="static" type="bool" value="true"/>
     <property name="texturePath" value="assets/art/environment-textures/ground-base-circle.png"/>
@@ -83,12 +83,19 @@
   <object id="177" gid="4" x="788" y="1305" width="319" height="148"/>
   <object id="178" gid="4" x="2167" y="1277" width="319" height="148"/>
  </objectgroup>
- <objectgroup name="TileSetObjectsBack"/>
- <objectgroup name="TileSetObjectsMid">
+ <objectgroup id="2" name="TileSetObjectsBack"/>
+ <objectgroup id="3" name="TileSetObjectsMid">
   <object id="168" gid="2" x="1548.48" y="1509.36" width="138.404" height="273.238" rotation="5.14791"/>
-  <object id="190" gid="13" x="1029.58" y="1520.77" width="206.844" height="398.453" rotation="-5.6583"/>
+  <object id="190" gid="13" x="1124.58" y="1510.77" width="206.844" height="398.453" rotation="-19.9571"/>
+  <object id="192" gid="13" x="1124.58" y="1510.77" width="206.844" height="398.453"/>
+  <object id="193" name="cameraFocus" x="1178" y="1214">
+   <properties>
+    <property name="cameraDistance" type="float" value="1000"/>
+   </properties>
+   <point/>
+  </object>
  </objectgroup>
- <objectgroup name="TileSetObjectsFront">
+ <objectgroup id="4" name="TileSetObjectsFront">
   <object id="140" gid="1" x="1735.21" y="1423.78" width="196.226" height="378" rotation="14.3542"/>
   <object id="180" gid="5" x="1415" y="1523" width="72" height="115"/>
   <object id="181" gid="6" x="1074.55" y="1521" width="79.4526" height="74"/>
@@ -99,7 +106,7 @@
   <object id="187" gid="11" x="924.279" y="1512" width="112.721" height="73"/>
   <object id="188" gid="12" x="2121" y="1511" width="48.8679" height="41.1111"/>
  </objectgroup>
- <layer name="terrain" width="100" height="100">
+ <layer id="5" name="terrain" width="100" height="100">
   <data encoding="csv">
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,

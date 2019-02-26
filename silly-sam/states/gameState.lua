@@ -170,44 +170,7 @@ function GameState:loadMap(mapPath)
         
         elseif object.name == "explodingPlatform" then
             table.insert(self.toys, ExplodingPlatform(self.physicsWorld, object))
-        else
-            -- Need to move and rotate objects, since Tiled rotates them around the centre but love2D rotates them around the top left corner >: (
 
-            --local centre = Vector(self.body:getPosition())
-            local centre = Vector(object.x, object.y)
-
-            -- get the rotation point (top left corner)
-            --local rotationPoint = Vector(centre.x - self.width/2, centre.y - self.height/2)
-            local rotationPoint = Vector(centre.x - object.width/2, centre.y - object.width/2)
-
-            -- move to be around rotation point
-            --centre = centre - rotationPoint
-            centre = centre - rotationPoint
-
-            -- rotate
-            --local new = centre:rotated(math.rad(mapObject.rotation))
-            local new = centre:rotated(math.rad(object.rotation))
-
-            -- move point back
-            --centre = new + rotationPoint
-            centre = new + rotationPoint
-
-            -- ... Changing the object's x and y here doesn't seem to edit the object's actual position at all. Really confused.
-            -- Is the data static in some way?
-
-            --self.body:setPosition(centre:unpack())
-            object.x, object.y = centre.x, centre.y
-            --self.body:setAngle(math.rad(mapObject.rotation))
-            
-            -- Considered putting everything in some new decorationSprites table and drawing them myself but that seems verbose and can't get image anyway
-            -- table.insert(self.decorationSprites, {
-            --     x = centre.x,
-            --     y = centre.y,
-            --     rotation = math.rad(object.rotation),
-            --     width = object.width,
-            --     height = object.height,
-            --     image = ...?
-            -- })
         end
     end
 

@@ -20,7 +20,7 @@ function Rectangle:init(world, mapObject)
 
     local centre = Vector(self.body:getPosition())
 
-    -- get the rotation point (top left corner)
+    -- get the rotation point (bottom left corner)
     local rotationPoint = Vector(centre.x - self.width/2, centre.y - self.height/2)
 
     -- move to be around rotation point
