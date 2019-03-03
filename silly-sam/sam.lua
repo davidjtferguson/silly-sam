@@ -128,10 +128,10 @@ function Sam:init(world, mapObject)
 
     -- left eye
     self.leftEye = {}
-    self.leftEye.width = 20
-    self.leftEye.height = 100
+    self.leftEye.width = 5
+    self.leftEye.height = 5
     self.leftEye.image = love.graphics.newImage("assets/art/sam-textures/eye-right.png")
-    self.leftEye.body = love.physics.newBody(world, spawn.x-7, spawn.y-51, "dynamic")
+    self.leftEye.body = love.physics.newBody(world, spawn.x-7, spawn.y-52, "dynamic")
     self.leftEye.shape = love.physics.newCircleShape(2)
     self.leftEye.fixture = love.physics.newFixture(self.leftEye.body, self.leftEye.shape, 0.5);
     self.leftEye.fixture:setFriction(0.9)
@@ -143,12 +143,12 @@ function Sam:init(world, mapObject)
 
     -- right eye
     self.rightEye = {}
-    self.rightEye.width = 20
-    self.rightEye.height = 100
+    self.rightEye.width = 5
+    self.rightEye.height = 5
     self.rightEye.image = love.graphics.newImage("assets/art/sam-textures/eye-left.png")
-    self.rightEye.body = love.physics.newBody(world, spawn.x+10, spawn.y-50, "dynamic")
+    self.rightEye.body = love.physics.newBody(world, spawn.x+20, spawn.y-51, "dynamic")
     self.rightEye.shape = love.physics.newCircleShape(2)
-    self.rightEye.fixture = love.physics.newFixture(self.rightEye.body, self.rightEye.shape, 0.5);
+    self.rightEye.fixture = love.physics.newFixture(self.rightEye.body, self.rightEye.shape, 0.1);
     self.rightEye.fixture:setFriction(0.9)
     self.rightEye.color = {0.20, 0.70, 0.20}
 
@@ -493,12 +493,12 @@ function Sam:draw(drawShapes, drawSprites)
         self:drawRectangleTexturedObject(self.chest, 1.25)
 
         -- just drawing statically - should put into head sprite
-        local hairImage = love.graphics.newImage("assets/art/sam-textures/hair.png")
-        love.graphics.draw(hairImage,
-            self.head.body:getX(), self.head.body:getY(),
-            self.head.body:getAngle(),
-            (self.head.shape:getRadius()*3.5)/hairImage:getWidth(), (self.head.shape:getRadius()*4.5)/hairImage:getHeight(),
-            hairImage:getWidth()/2, hairImage:getHeight()/1.75)
+        -- local hairImage = love.graphics.newImage("assets/art/sam-textures/hair.png")
+        --love.graphics.draw(hairImage,
+        --    self.head.body:getX(), self.head.body:getY(),
+        --    self.head.body:getAngle(),
+        --    (self.head.shape:getRadius()*3.5)/hairImage:getWidth(), (self.head.shape:getRadius()*4.5)/hairImage:getHeight(),
+        --    hairImage:getWidth()/2, hairImage:getHeight()/1.75) 
 
         -- shadows of arms across the body
         -- I dunno how to make it just check the non-transparant pixels of the texture so drawing two circles that
@@ -525,7 +525,7 @@ function Sam:draw(drawShapes, drawSprites)
         -- Face parts
         self:drawCircleTexturedObject(self.head, 2, 0, -35)
         
-        self:drawCircleTexturedObject(self.leftEye, 3, 10, 10)
+        self:drawCircleTexturedObject(self.leftEye, 3, 5, 10)
         self:drawCircleTexturedObject(self.rightEye, 3, 10, 10)
 
         self:drawRectangleTexturedObject(self.nose, 1.25)
