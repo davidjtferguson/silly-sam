@@ -8,7 +8,7 @@ return {
   height = 170,
   tilewidth = 32,
   tileheight = 32,
-  nextobjectid = 184,
+  nextobjectid = 185,
   properties = {},
   tilesets = {
     {
@@ -2344,15 +2344,13 @@ return {
           name = "rectangle",
           type = "",
           shape = "rectangle",
-          x = 1124.89,
-          y = 623.734,
+          x = 1138.89,
+          y = 552.734,
           width = 416,
           height = 156,
           rotation = -3.63325,
           visible = true,
           properties = {
-            ["cameraDistance"] = 350,
-            ["cameraFocus"] = true,
             ["static"] = true,
             ["texturePath"] = "assets/art/game-logo.png"
           }
@@ -2427,6 +2425,21 @@ return {
           properties = {
             ["static"] = true,
             ["texturePath"] = "assets/art/environment-textures/ground-base-circle.png"
+          }
+        },
+        {
+          id = 184,
+          name = "cameraFocus",
+          type = "",
+          shape = "point",
+          x = 1352,
+          y = 779,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["cameraDistance"] = 350
           }
         }
       }

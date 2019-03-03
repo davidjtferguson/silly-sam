@@ -85,13 +85,13 @@ function Sam:init(world, mapObject)
     -- head
     self.head = {}
     self.head.image = love.graphics.newImage("assets/art/sam-textures/face.png")
-    self.head.body = love.physics.newBody(world, spawn.x, spawn.y-55, "dynamic")
+    self.head.body = love.physics.newBody(world, spawn.x, spawn.y-45, "dynamic")
     self.head.shape = love.physics.newCircleShape(15)
     self.head.fixture = love.physics.newFixture(self.head.body, self.head.shape, 0.5);
     self.head.fixture:setFriction(0.5)
     self.head.color = {0.80, 0.20, 0.20}
 
-    self.head.joint = love.physics.newRevoluteJoint(self.chest.body, self.head.body, spawn.x, spawn.y-65)
+    self.head.joint = love.physics.newRevoluteJoint(self.chest.body, self.head.body, spawn.x, spawn.y-57)
 
     self.head.onGround = false
 
@@ -485,10 +485,9 @@ function Sam:draw(drawShapes, drawSprites)
     if drawSprites then
         love.graphics.setColor(1, 1, 1, 1)
         
-        self:drawRectangleTexturedObject(self.leftLeg, 1.25, 1.25)
-        self:drawRectangleTexturedObject(self.rightLeg, 1.25, 1.25)
-        
-        self:drawRectangleTexturedObject(self.chest, 1.25, 1.25)
+        self:drawRectangleTexturedObject(self.leftLeg, 1.55, 1.4)
+        self:drawRectangleTexturedObject(self.rightLeg, 1.55, 1.4)
+        self:drawRectangleTexturedObject(self.chest, 1.5, 1.8, 1, 30)
 
         -- just drawing statically - should put into head sprite
         -- local hairImage = love.graphics.newImage("assets/art/sam-textures/hair.png")
@@ -513,15 +512,15 @@ function Sam:draw(drawShapes, drawSprites)
         -- Draw arm shadows
         -- colar colour, slightly bigger than we're going to draw the arm over it
         love.graphics.setColor(0.5, 0.5, 0.7, 0.8)
-        self:drawRectangleTexturedObject(self.leftArm, 1.35, 1.35)
-        self:drawRectangleTexturedObject(self.rightArm, 1.35, 1.35)
+        self:drawRectangleTexturedObject(self.leftArm, 1.35, 1.35, 1, -30)
+        self:drawRectangleTexturedObject(self.rightArm, 1.35, 1.35, 1, -30)
 
         love.graphics.setStencilTest()
 
         love.graphics.setColor(1, 1, 1, 1)
 
         -- Face parts
-        self:drawCircleTexturedObject(self.head, 2.2, 0, 35)
+        self:drawCircleTexturedObject(self.head, 2.2, 2, 80)
         
         self:drawCircleTexturedObject(self.leftEye, 3, 5, 10)
         self:drawCircleTexturedObject(self.rightEye, 3, 10, 10)
@@ -530,11 +529,12 @@ function Sam:draw(drawShapes, drawSprites)
         self:drawRectangleTexturedObject(self.toupee, 3, 3)
 
         -- arm parts
-        self:drawRectangleTexturedObject(self.leftArm, 1.25, 1.25)
-        self:drawRectangleTexturedObject(self.rightArm, 1.25, 1.25)
-
         self:drawCircleTexturedObject(self.leftHand, 1.5)
         self:drawCircleTexturedObject(self.rightHand, 1.5)
+    
+        self:drawRectangleTexturedObject(self.leftArm, 1.25, 1.4, 1, -30)
+        self:drawRectangleTexturedObject(self.rightArm, 1.25, 1.4, 1 , -30)
+
     end
 end
 
