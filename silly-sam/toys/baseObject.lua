@@ -16,13 +16,18 @@ function BaseObject:drawRectanglePhysicsObject(object)
     love.graphics.polygon("fill", object.body:getWorldPoints(object.shape:getPoints()))
 end
 
-function BaseObject:drawRectangleTexturedObject(object, xupscale, yupscale)
+function BaseObject:drawRectangleTexturedObject(object, xUpscale, yUpscale, xOffset, yOffset)
+    xUpscale = xUpscale or 1
+    yUpscale = yUpscale or 1
+    xOffset = xOffset or 0
+    yOffset = yOffset or 0
+
     -- draw(image, xpos, ypos, angle, ratiox, ratioy, offsetx, offsety)
     love.graphics.draw(object.image,
         object.body:getX(), object.body:getY(),
         object.body:getAngle(),
-        object.width*xupscale/object.image:getWidth(), object.height*yupscale/object.image:getHeight(),
-        object.image:getWidth()/2, object.image:getHeight()/2)
+        object.width*xUpscale/object.image:getWidth(), object.height*yUpscale/object.image:getHeight(),
+        object.image:getWidth()/2 + xOffset, object.image:getHeight()/2 + yOffset)
 end
 
 -- draws textured object if possible, otherwise defaults to the shape
