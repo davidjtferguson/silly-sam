@@ -112,7 +112,7 @@ function Sam:init(world, mapObject)
     self.toupee = {}
     self.toupee.width = 20
     self.toupee.height = 7.3
-    self.toupee.image = love.graphics.newImage("assets/art/sam-textures/toupee.png")
+    self.toupee.image = love.graphics.newImage("assets/art/sam-textures/game-empty-texture.png")
     self.toupee.body = love.physics.newBody(world, spawn.x, spawn.y-74, "dynamic")
     self.toupee.body:setMass(0)
     self.toupee.shape = love.physics.newRectangleShape(self.toupee.width, self.toupee.height)
@@ -130,7 +130,7 @@ function Sam:init(world, mapObject)
     self.leftEye = {}
     self.leftEye.width = 5
     self.leftEye.height = 5
-    self.leftEye.image = love.graphics.newImage("assets/art/sam-textures/eye-right.png")
+    self.leftEye.image = love.graphics.newImage("assets/art/sam-textures/game-empty-texture.png")
     self.leftEye.body = love.physics.newBody(world, spawn.x-7, spawn.y-52, "dynamic")
     self.leftEye.shape = love.physics.newCircleShape(2)
     self.leftEye.fixture = love.physics.newFixture(self.leftEye.body, self.leftEye.shape, 0.5);
@@ -145,7 +145,7 @@ function Sam:init(world, mapObject)
     self.rightEye = {}
     self.rightEye.width = 5
     self.rightEye.height = 5
-    self.rightEye.image = love.graphics.newImage("assets/art/sam-textures/eye-left.png")
+    self.rightEye.image = love.graphics.newImage("assets/art/sam-textures/game-empty-texture.png")
     self.rightEye.body = love.physics.newBody(world, spawn.x+20, spawn.y-51, "dynamic")
     self.rightEye.shape = love.physics.newCircleShape(2)
     self.rightEye.fixture = love.physics.newFixture(self.rightEye.body, self.rightEye.shape, 0.1);
@@ -160,7 +160,7 @@ function Sam:init(world, mapObject)
     self.nose = {}
     self.nose.width = 13
     self.nose.height = 26
-    self.nose.image = love.graphics.newImage("assets/art/sam-textures/nose.png")
+    self.nose.image = love.graphics.newImage("assets/art/sam-textures/game-empty-texture.png")
     self.nose.body = love.physics.newBody(world, spawn.x+1, spawn.y-55, "dynamic")
     self.nose.shape = love.physics.newRectangleShape(self.nose.width, self.nose.height)
     self.nose.fixture = love.physics.newFixture(self.nose.body, self.nose.shape, 1);
@@ -490,7 +490,7 @@ function Sam:draw(drawShapes, drawSprites)
         self:drawRectangleTexturedObject(self.leftLeg, 1.25)
         self:drawRectangleTexturedObject(self.rightLeg, 1.25)
         
-        self:drawRectangleTexturedObject(self.chest, 1.25)
+        self:drawRectangleTexturedObject(self.chest, 1.3)
 
         -- just drawing statically - should put into head sprite
         -- local hairImage = love.graphics.newImage("assets/art/sam-textures/hair.png")
@@ -523,7 +523,7 @@ function Sam:draw(drawShapes, drawSprites)
         love.graphics.setColor(1, 1, 1, 1)
 
         -- Face parts
-        self:drawCircleTexturedObject(self.head, 2, 0, -35)
+        self:drawCircleTexturedObject(self.head, 2.2, 0, 35)
         
         self:drawCircleTexturedObject(self.leftEye, 3, 5, 10)
         self:drawCircleTexturedObject(self.rightEye, 3, 10, 10)
