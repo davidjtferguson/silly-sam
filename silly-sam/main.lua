@@ -13,6 +13,11 @@ function love.load()
 
     love.window.setTitle("Silly Sam")
 
+    -- set up global profiler
+    love.profiler = require("profile")
+
+    love.frame = 0
+
     -- find controller... TODO: should probs be some update check so the controller doesn't need to be in as the game boots up to find it
     local joysticks = love.joystick.getJoysticks()
     joystick = joysticks[1]
