@@ -1,7 +1,8 @@
 local Class = require "hump.class"
 local Camera = require "hump.camera"
-local Sti = require "Simple-Tiled-Implementation/sti"
 local StateManager = require "hump.gamestate"
+local Sti = require "Simple-Tiled-Implementation/sti"
+local Profiler = require "profile"
 
 local Sam = require "sam"
 local Skateboard = require "toys/skateboard"
@@ -33,6 +34,12 @@ function GameState:init()
     --self:loadMap("maps/rory-level.lua")
     
     --self:loadMap("maps/test-map-limited-level.lua")
+
+    self.frame = 0
+    Profiler.hook(self.update, 'update')
+    Profiler.hook(self.draw, 'draw')
+    Profiler.hook(self.map.draw, 'draw map')
+    Profiler.start()
 
     self.controls = {
         bindings = {
@@ -224,7 +231,13 @@ function GameState:update(dt)
     if dt > 1/60 then
         dt = 1/60
     end
-    
+
+    self.frame = self.frame+1
+    if self.frame%100 == 0 then
+        print(Profiler.report('time', 20))
+        Profiler.reset()
+    end
+
     self.physicsWorld:update(dt)
 
     self.camera:gamestateUpdate(self.sam, self.cameraInfluencePoints, self.cameraFocusPoints, self.map, dt)
