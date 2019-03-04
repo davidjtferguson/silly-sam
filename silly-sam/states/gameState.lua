@@ -34,9 +34,24 @@ function GameState:init()
     
     --self:loadMap("maps/test-map-limited-level.lua")
 
+    -- One Profiling report while in fullscreen:
+    -- +-----+----------------------------------+----------+--------------------------+----------------------------------+
+    -- | #   | Function                         | Calls    | Time                     | Code                             |
+    -- +-----+----------------------------------+----------+--------------------------+----------------------------------+
+    -- | 1   | draw                             | 100      | 1.455                    | states/gameState.lua:351         |
+    -- | 2   | draw map                         | 100      | 1.167                    | -Implementation/sti/init.lua:710 |
+    -- | 3   | update                           | 100      | 0.098000000000006        | states/gameState.lua:227         |
+    -- | 4   | draw map layer                   | 300      | 0.024999999999984        | -Implementation/sti/init.lua:743 |
+    -- +-----+----------------------------------+----------+--------------------------+----------------------------------+
+   
+    -- So, it seems like the majority of the slowdown is coming from Map:draw(tx, ty, sx, sy) but not the self:drawLayer(layer) part.
+    -- The only other work done in that function is mucking around with the canvas. So need to profile that stuff and see if I can do it a different way.
+    -- Could be barking up the wrong tree, of course. Need to test around more.
+
     love.profiler.hook(self.update, 'update')
     love.profiler.hook(self.draw, 'draw')
     love.profiler.hook(self.map.draw, 'draw map')
+	love.profiler.hook(self.map.drawLayer, 'draw map layer')
     love.profiler.start()
 
     self.controls = {
