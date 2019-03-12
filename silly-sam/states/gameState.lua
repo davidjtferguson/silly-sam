@@ -25,12 +25,12 @@ local function checkStaticBool(static)
 end
 
 function GameState:init()
-    self:loadMap("maps/intro-map.lua")
+    --self:loadMap("maps/intro-map.lua")
     --self:loadMap("maps/survival-map.lua")
     --self:loadMap("maps/cliff.lua")
     --self:loadMap("maps/swinging.lua")
     --self:loadMap("maps/bonus.lua")
-    --self:loadMap("maps/rory-level.lua")
+    self:loadMap("maps/rory-level.lua")
     
     --self:loadMap("maps/test-map-limited-level.lua")
 
@@ -323,10 +323,54 @@ function GameState:bodyOnGround(body1, body2)
         for i in pairs(self.sam.allParts) do
             if self.sam.allParts[i].body == body1 then
                 self.sam.allParts[i].onGround = self.sam.allParts[i].body:isTouching(body2)
+
+                local groundContactExists = false
+                local contacts = body1:getContacts()
+
+                -- Need to check no other connections to body1 are non-sam bodies, otherwise we are touching
+                for contactIndex in pairs(contacts) do
+                    fixture1, fixture2 = contacts[contactIndex]:getFixtures()
+
+                    -- If we find one, we want to stop checking
+                    if not groundContactExists then
+                        if fixture1:getBody() ~= body1 then
+                            groundContactExists = self:fixtureBodyOnGround(fixture1)
+                        end
+
+                        if fixture2:getBody() ~= body1 then
+                            groundContactExists = self:fixtureBodyOnGround(fixture2)
+                        end
+                    end
+                end
+
+                print('ground contact: ', groundContactExists)
+
+                -- If we found that the body owns a ground contact, this body part is on the ground
+                if groundContactExists then
+                    self.sam.allParts[i].onGround = groundContactExists
+                end
             end
         end
     end
 end
+
+function GameState:fixtureBodyOnGround(fixture)
+    -- Check if it's a sam body part. If not, we're contacting with the ground
+    local samAllPartsContainsFixtureBody = false
+
+    for partsIndex in pairs(self.sam.allParts) do
+        if self.sam.allParts[partsIndex].body == fixture:getBody()
+            --and self.sam.allParts[partsIndex].body:isTouching(fixture:getBody())
+        then
+            samAllPartsContainsFixtureBody = true
+        end
+    end
+
+    print('fixture body in sam?', samAllPartsContainsFixtureBody)
+
+    return not samAllPartsContainsFixtureBody
+end
+
 
 -- what are these?
 function GameState:preSolve(body1, body2, contact)

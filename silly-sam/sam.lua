@@ -255,8 +255,10 @@ function Sam:init(world, mapObject)
         self.rightLeg,
         self.leftArm,
         self.rightArm,
-        self.chin,
         self.nose,
+        self.leftEye,
+        self.rightEye,
+        self.chin,
         self.toupee,
         self.leftHand,
         self.rightHand,
@@ -275,6 +277,8 @@ function Sam:update(dt, controls)
     
     self:leftLegForces()
     self:rightLegForces()
+    
+    print(self.rightLeg.onGround)
 end
 
 function Sam:armForces(dt, arm, keyboardInputs, xaxis, yaxis)
