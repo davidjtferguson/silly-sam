@@ -298,27 +298,10 @@ function GameState:endContact(fixture1, fixture2, contact)
 end
 
 function GameState:bodyOnGround(body1, body2)
-    -- TECHDEBT: Would probably be better to re-write using body:getUserData. Should set the user data for each body part to some identifier and then won't need the sam.allParts table or all this looping.
+    local isBody1Part = body1:getUserData() == "samBodyPart"
+    local isBody2Part = body2:getUserData() == "samBodyPart"
 
-    -- if one body is a bodypart
-    local isBody1Part = false
-
-    for i in pairs(self.sam.allParts) do
-        if self.sam.allParts[i].body == body1 then
-            isBody1Part = true
-        end
-    end
-
-    -- and the other body is not a body part
-    local isBody2Part = false
-
-    for i in pairs(self.sam.allParts) do
-        if self.sam.allParts[i].body == body2 then
-            isBody2Part = true
-        end
-    end
-
-    -- then the trigger was a body part hitting a non body part so react
+    -- if trigger was a body part hitting a non body part react
     if isBody1Part and not isBody2Part then
         for i in pairs(self.sam.allParts) do
             if self.sam.allParts[i].body == body1 then
@@ -331,14 +314,17 @@ function GameState:bodyOnGround(body1, body2)
                 for contactIndex in pairs(contacts) do
                     fixture1, fixture2 = contacts[contactIndex]:getFixtures()
 
-                    -- If we find one, we want to stop checking
-                    if not groundContactExists then
-                        if fixture1:getBody() ~= body1 then
-                            groundContactExists = self:fixtureBodyOnGround(fixture1)
-                        end
+                    -- Don't want to count the body we're no longer colliding with, since it'll still be in the contacts list but it's already been acounted for
+                    if fixture1:getBody() ~= body2 and fixture2:getBody() ~= body2 then
+                        -- If we find one, we want to stop checking
+                        if not groundContactExists then
+                            if fixture1:getBody() ~= body1 then
+                                groundContactExists = self:fixtureBodyIsGround(fixture1)
+                            end
 
-                        if fixture2:getBody() ~= body1 then
-                            groundContactExists = self:fixtureBodyOnGround(fixture2)
+                            if fixture2:getBody() ~= body1 then
+                                groundContactExists = self:fixtureBodyIsGround(fixture2)
+                            end
                         end
                     end
                 end
@@ -354,29 +340,23 @@ function GameState:bodyOnGround(body1, body2)
     end
 end
 
-function GameState:fixtureBodyOnGround(fixture)
+function GameState:fixtureBodyIsGround(fixture)
     -- Check if it's a sam body part. If not, we're contacting with the ground
-    local samAllPartsContainsFixtureBody = false
+    print('Fixture body data:', fixture:getBody():getUserData())
 
-    for partsIndex in pairs(self.sam.allParts) do
-        if self.sam.allParts[partsIndex].body == fixture:getBody()
-            --and self.sam.allParts[partsIndex].body:isTouching(fixture:getBody())
-        then
-            samAllPartsContainsFixtureBody = true
-        end
-    end
+    partOfSamsBody = fixture:getBody():getUserData() == "samBodyPart"
 
-    print('fixture body in sam?', samAllPartsContainsFixtureBody)
+    print('fixture body in sam?', partOfSamsBody)
 
-    return not samAllPartsContainsFixtureBody
+    return not partOfSamsBody
 end
 
 
 -- what are these?
-function GameState:preSolve(body1, body2, contact)
+function GameState:preSolve(fixture1, fixture2, contact)
 end
 
-function GameState:postSolve(body1, body2, contact)
+function GameState:postSolve(fixture1, fixture2, contact)
 end
 
 function GameState:draw()
