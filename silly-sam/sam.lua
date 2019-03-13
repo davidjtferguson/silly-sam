@@ -30,12 +30,11 @@ function Sam:init(world, mapObject)
     self.chest.height = 60
     self.chest.image = love.graphics.newImage("assets/art/sam-textures/chest.png")
     self.chest.body = love.physics.newBody(world, spawn.x, spawn.y, "dynamic")
+    self.chest.body:setUserData("samBodyPart")
     self.chest.shape = love.physics.newRectangleShape(self.chest.width, self.chest.height)
     self.chest.fixture = love.physics.newFixture(self.chest.body, self.chest.shape);
     self.chest.fixture:setFriction(0.5)
     self.chest.color = {1, 1, 1}
-
-    self.chest.onGround = false
 
     -- left leg
     self.leftLeg = {}
@@ -43,6 +42,7 @@ function Sam:init(world, mapObject)
     self.leftLeg.height = 45
     self.leftLeg.image = love.graphics.newImage("assets/art/sam-textures/leg-left.png")
     self.leftLeg.body = love.physics.newBody(world, spawn.x-20, spawn.y+60, "dynamic")
+    self.leftLeg.body:setUserData("samBodyPart")
     self.leftLeg.shape = love.physics.newRectangleShape(self.leftLeg.width, self.leftLeg.height)
     self.leftLeg.fixture = love.physics.newFixture(self.leftLeg.body, self.leftLeg.shape, 3);
     self.leftLeg.fixture:setFriction(0.5)
@@ -58,14 +58,13 @@ function Sam:init(world, mapObject)
     self.leftLeg.joint:setLimitsEnabled(true)
     self.leftLeg.joint:setLimits(-5, 5)
 
-    self.leftLeg.onGround = false
-
     -- right leg
     self.rightLeg = {}
     self.rightLeg.width = 17
     self.rightLeg.height = 45
     self.rightLeg.image = love.graphics.newImage("assets/art/sam-textures/leg-right.png")
     self.rightLeg.body = love.physics.newBody(world, spawn.x+20, spawn.y+60, "dynamic")
+    self.rightLeg.body:setUserData("samBodyPart")
     self.rightLeg.shape = love.physics.newRectangleShape(self.rightLeg.width, self.rightLeg.height)
     self.rightLeg.fixture = love.physics.newFixture(self.rightLeg.body, self.rightLeg.shape, 3);
     self.rightLeg.fixture:setFriction(0.5)
@@ -80,12 +79,11 @@ function Sam:init(world, mapObject)
     self.rightLeg.joint:setLimitsEnabled(true)
     self.rightLeg.joint:setLimits(-5, 5)
 
-    self.rightLeg.onGround = false
-
     -- head
     self.head = {}
     self.head.image = love.graphics.newImage("assets/art/sam-textures/face.png")
     self.head.body = love.physics.newBody(world, spawn.x, spawn.y-55, "dynamic")
+    self.head.body:setUserData("samBodyPart")
     self.head.shape = love.physics.newCircleShape(15)
     self.head.fixture = love.physics.newFixture(self.head.body, self.head.shape, 0.5);
     self.head.fixture:setFriction(0.5)
@@ -93,11 +91,10 @@ function Sam:init(world, mapObject)
 
     self.head.joint = love.physics.newRevoluteJoint(self.chest.body, self.head.body, spawn.x, spawn.y-65)
 
-    self.head.onGround = false
-
     -- chin (not visible, for weighting)
     self.chin = {}
     self.chin.body = love.physics.newBody(world, spawn.x, spawn.y-35, "dynamic")
+    self.chin.body:setUserData("samBodyPart")
     self.chin.shape = love.physics.newCircleShape(4)
     self.chin.body:setMass(1000)
     self.chin.fixture = love.physics.newFixture(self.chin.body, self.chin.shape, 0.5);
@@ -106,14 +103,13 @@ function Sam:init(world, mapObject)
 
     self.chin.joint = love.physics.newWeldJoint(self.head.body, self.chin.body, spawn.x, spawn.y-65)
 
-    self.chin.onGround = false
-
     -- toupee
     self.toupee = {}
     self.toupee.width = 20
     self.toupee.height = 7.3
     self.toupee.image = love.graphics.newImage("assets/art/sam-textures/toupee.png")
     self.toupee.body = love.physics.newBody(world, spawn.x, spawn.y-74, "dynamic")
+    self.toupee.body:setUserData("samBodyPart")
     self.toupee.body:setMass(0)
     self.toupee.shape = love.physics.newRectangleShape(self.toupee.width, self.toupee.height)
     self.toupee.fixture = love.physics.newFixture(self.toupee.body, self.toupee.shape, 1);
@@ -124,13 +120,12 @@ function Sam:init(world, mapObject)
     
     -- self.toupee.joint:enableLimit(enable) trying to enable limit on joint
 
-    self.toupee.onGround = false
-
     -- left eye
     self.leftEye = {}
     self.leftEye.radius = 2
     self.leftEye.image = love.graphics.newImage("assets/art/sam-textures/eye-right.png")
     self.leftEye.body = love.physics.newBody(world, spawn.x-7, spawn.y-51, "dynamic")
+    self.leftEye.body:setUserData("samBodyPart")
     self.leftEye.shape = love.physics.newCircleShape(self.leftEye.radius)
     self.leftEye.fixture = love.physics.newFixture(self.leftEye.body, self.leftEye.shape, 0.5);
     self.leftEye.fixture:setFriction(0.9)
@@ -138,13 +133,12 @@ function Sam:init(world, mapObject)
 
     self.leftEye.joint = love.physics.newRevoluteJoint(self.leftEye.body, self.head.body, spawn.x, spawn.y-51)
 
-    self.leftEye.onGround = false
-
     -- right eye
     self.rightEye = {}
     self.rightEye.radius = 2
     self.rightEye.image = love.graphics.newImage("assets/art/sam-textures/eye-left.png")
     self.rightEye.body = love.physics.newBody(world, spawn.x+10, spawn.y-50, "dynamic")
+    self.rightEye.body:setUserData("samBodyPart")
     self.rightEye.shape = love.physics.newCircleShape(self.rightEye.radius)
     self.rightEye.fixture = love.physics.newFixture(self.rightEye.body, self.rightEye.shape, 0.5);
     self.rightEye.fixture:setFriction(0.9)
@@ -152,14 +146,13 @@ function Sam:init(world, mapObject)
 
     self.rightEye.joint = love.physics.newRevoluteJoint(self.rightEye.body, self.head.body, spawn.x+7, spawn.y-56)
 
-    self.rightEye.onGround = false
-
     -- nose
     self.nose = {}
     self.nose.width = 13
     self.nose.height = 26
     self.nose.image = love.graphics.newImage("assets/art/sam-textures/nose.png")
     self.nose.body = love.physics.newBody(world, spawn.x+1, spawn.y-55, "dynamic")
+    self.nose.body:setUserData("samBodyPart")
     self.nose.shape = love.physics.newRectangleShape(self.nose.width, self.nose.height)
     self.nose.fixture = love.physics.newFixture(self.nose.body, self.nose.shape, 1);
     self.nose.fixture:setFriction(.8)
@@ -167,14 +160,13 @@ function Sam:init(world, mapObject)
 
     self.nose.joint = love.physics.newRevoluteJoint(self.nose.body, self.head.body, spawn.x+1, spawn.y-66)
 
-    self.nose.onGround = false
-
     -- left arm
     self.leftArm = {}
     self.leftArm.width = 20
     self.leftArm.height = 35
     self.leftArm.image = love.graphics.newImage("assets/art/sam-textures/arm-left.png")
     self.leftArm.body = love.physics.newBody(world, spawn.x-30, spawn.y, "dynamic")
+    self.leftArm.body:setUserData("samBodyPart")
     self.leftArm.shape = love.physics.newRectangleShape(self.leftArm.width, self.leftArm.height)
     self.leftArm.fixture = love.physics.newFixture(self.leftArm.body, self.leftArm.shape, 1);
     self.leftArm.fixture:setFriction(0.5)
@@ -182,14 +174,13 @@ function Sam:init(world, mapObject)
 
     self.leftArm.joint = love.physics.newRevoluteJoint(self.chest.body, self.leftArm.body, spawn.x-30, spawn.y-10)
 
-    self.leftArm.onGround = false
-
     local handToArmDistance = -8
 
     -- left hand
     self.leftHand = {}
     self.leftHand.image = love.graphics.newImage("assets/art/sam-textures/hand-left-open.png")
     self.leftHand.body = love.physics.newBody(world, spawn.x-30, spawn.y+self.leftArm.height+handToArmDistance, "dynamic")
+    self.leftHand.body:setUserData("samBodyPart")
     self.leftHand.shape = love.physics.newCircleShape(8)
     self.leftHand.fixture = love.physics.newFixture(self.leftHand.body, self.leftHand.shape, 1);
     self.leftHand.color = {0.8, 0.4, 1}
@@ -205,6 +196,7 @@ function Sam:init(world, mapObject)
     self.rightArm.height = 35
     self.rightArm.image = love.graphics.newImage("assets/art/sam-textures/arm-right.png")
     self.rightArm.body = love.physics.newBody(world, spawn.x+30, spawn.y, "dynamic")
+    self.rightArm.body:setUserData("samBodyPart")
     self.rightArm.shape = love.physics.newRectangleShape(self.rightArm.width, self.rightArm.height)
     self.rightArm.fixture = love.physics.newFixture(self.rightArm.body, self.rightArm.shape, 1);
     self.rightArm.fixture:setFriction(0.5)
@@ -212,12 +204,11 @@ function Sam:init(world, mapObject)
 
     self.rightArm.joint = love.physics.newRevoluteJoint(self.chest.body, self.rightArm.body, spawn.x+30, spawn.y-10)
 
-    self.rightArm.onGround = false
-
     -- left hand
     self.rightHand = {}
     self.rightHand.image = love.graphics.newImage("assets/art/sam-textures/hand-right-open.png")
     self.rightHand.body = love.physics.newBody(world, spawn.x+30, spawn.y+self.rightArm.height+handToArmDistance, "dynamic")
+    self.rightHand.body:setUserData("samBodyPart")
     self.rightHand.shape = love.physics.newCircleShape(8)
     self.rightHand.fixture = love.physics.newFixture(self.rightHand.body, self.rightHand.shape, 1);
     self.rightHand.color = {0.8, 0.4, 1}
@@ -227,7 +218,7 @@ function Sam:init(world, mapObject)
     -- physics not applied - for checking collisions on 'grabbing'
     self.rightHand.fixture:setSensor(true)
 
-    -- this is for drawing
+    -- These are for drawing
     self.rectParts = {
         self.leftLeg,
         self.rightLeg,
@@ -243,21 +234,6 @@ function Sam:init(world, mapObject)
         self.leftEye,
         self.rightEye,
         self.chin,
-        self.leftHand,
-        self.rightHand,
-    }
-
-    -- for logic
-    self.allParts = {
-        self.head,
-        self.chest,
-        self.leftLeg,
-        self.rightLeg,
-        self.leftArm,
-        self.rightArm,
-        self.chin,
-        self.nose,
-        self.toupee,
         self.leftHand,
         self.rightHand,
     }
@@ -312,7 +288,8 @@ function Sam:armForces(dt, arm, keyboardInputs, xaxis, yaxis)
     local pushThreshold = -20*dt
 
     if xaxis == "leftx" then
-        if arm.onGround and (yFactor - self.yPrevLeftFactor) < pushThreshold then
+
+        if self:partHasGroundContact(arm) and (yFactor - self.yPrevLeftFactor) < pushThreshold then
             forceFactor = self.statics.pushForce*dt
     
             -- don't want any horizontal
@@ -321,7 +298,8 @@ function Sam:armForces(dt, arm, keyboardInputs, xaxis, yaxis)
     
         self.yPrevLeftFactor = yFactor
     elseif xaxis == "rightx" then
-        if arm.onGround and (yFactor - self.yPrevRightFactor) < pushThreshold then
+
+        if self:partHasGroundContact(arm) and (yFactor - self.yPrevRightFactor) < pushThreshold then
             forceFactor = self.statics.pushForce*dt
             xFactor = 0
         end
@@ -396,7 +374,7 @@ function Sam:rightLegForces()
 end
 
 function Sam:moveLeft()
-    if self.leftLeg.onGround then
+    if self:partHasGroundContact(self.leftLeg) then
         self:forceUpLeg(self.leftLeg)
 
         -- shove a little bit left as well to help travelling
@@ -405,7 +383,7 @@ function Sam:moveLeft()
 end
 
 function Sam:moveRight()
-    if self.rightLeg.onGround then
+    if self:partHasGroundContact(self.rightLeg) then
         self:forceUpLeg(self.rightLeg)
         
         -- shove a little bit right as well to help travelling
@@ -436,12 +414,12 @@ function Sam:handGrab(hand)
         for _, contact in ipairs(hand.body:getContacts()) do
             if contact:isTouching() then
                 -- great, find the correct body to join to the hand
-                fixturea, fixtureb = contact:getFixtures()
+                fixture1, fixture2 = contact:getFixtures()
 
-                if fixturea == hand.fixture then
-                    hand.worldJoint = love.physics.newRevoluteJoint(hand.body, fixtureb:getBody(), hand.body:getX(), hand.body:getY())
+                if fixture1 == hand.fixture then
+                    hand.worldJoint = love.physics.newRevoluteJoint(hand.body, fixture2:getBody(), hand.body:getX(), hand.body:getY())
                 else
-                    hand.worldJoint = love.physics.newRevoluteJoint(hand.body, fixturea:getBody(), hand.body:getX(), hand.body:getY())
+                    hand.worldJoint = love.physics.newRevoluteJoint(hand.body, fixture1:getBody(), hand.body:getX(), hand.body:getY())
                 end
 
                 break
@@ -465,6 +443,32 @@ function Sam:handRelease(hand)
     if hand.worldJoint and not hand.worldJoint:isDestroyed() then
         hand.worldJoint:destroy()
     end
+end
+
+function Sam:partHasGroundContact(samPart)
+    -- Check through fixture's contacts and see if any of them are non-sam's bodies
+    
+    local groundContactExists = false
+    local contacts = samPart.body:getContacts()
+
+    for contactIndex in pairs(contacts) do
+        if contacts[contactIndex]:isTouching() then
+            fixture1, fixture2 = contacts[contactIndex]:getFixtures()
+
+            -- Only want to check as long as we haven't found a contact
+            if not groundContactExists then
+                if fixture1:getBody() ~= samPart.body then
+                    groundContactExists = fixture1:getBody():getUserData() ~= "samBodyPart"
+                end
+
+                if fixture2:getBody() ~= samPart.body then
+                    groundContactExists = fixture2:getBody():getUserData() ~= "samBodyPart"
+                end
+            end
+        end
+    end
+
+    return groundContactExists
 end
 
 function Sam:draw(drawShapes, drawSprites)

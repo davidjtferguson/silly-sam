@@ -11,6 +11,7 @@ function Ball:init(world, mapObject)
     local bodyType = self:checkStaticBool(mapObject.properties.static)
 
     self.body = love.physics.newBody(world, xSpawn, ySpawn, bodyType)
+    self.body:setUserData("ball")
     self.shape = love.physics.newCircleShape(radius)
     self.fixture = love.physics.newFixture(self.body, self.shape, 0.5);
     self.fixture:setFriction(0.5)

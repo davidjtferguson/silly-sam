@@ -280,59 +280,21 @@ end
 
 -- Should these should all be in a physics helper?
 function GameState:beginContact(fixture1, fixture2, contact)
-    -- check the contact created is actually touching
-    if not contact:isTouching() then
-        return
-    end
-    
-    self:bodyOnGround(fixture1:getBody(), fixture2:getBody())
-    self:bodyOnGround(fixture2:getBody(), fixture1:getBody())
+    -- If I did anything here, first I'd need to check the contact created is actually touching
+    -- if not contact:isTouching() then
+    --     return
+    -- end
 end
 
 function GameState:endContact(fixture1, fixture2, contact)
-    self:bodyOnGround(fixture1:getBody(), fixture2:getBody())
-    self:bodyOnGround(fixture2:getBody(), fixture1:getBody())
-
     -- make sure garbage is collected properly: https://love2d.org/forums/viewtopic.php?t=9643
     collectgarbage()
 end
 
-function GameState:bodyOnGround(body1, body2)
-    -- TECHDEBT: Would probably be better to re-write using body:getUserData. Should set the user data for each body part to some identifier and then won't need the sam.allParts table or all this looping.
-
-    -- if one body is a bodypart
-    local isBody1Part = false
-
-    for i in pairs(self.sam.allParts) do
-        if self.sam.allParts[i].body == body1 then
-            isBody1Part = true
-        end
-    end
-
-    -- and the other body is not a body part
-    local isBody2Part = false
-
-    for i in pairs(self.sam.allParts) do
-        if self.sam.allParts[i].body == body2 then
-            isBody2Part = true
-        end
-    end
-
-    -- then the trigger was a body part hitting a non body part so react
-    if isBody1Part and not isBody2Part then
-        for i in pairs(self.sam.allParts) do
-            if self.sam.allParts[i].body == body1 then
-                self.sam.allParts[i].onGround = self.sam.allParts[i].body:isTouching(body2)
-            end
-        end
-    end
+function GameState:preSolve(fixture1, fixture2, contact)
 end
 
--- what are these?
-function GameState:preSolve(body1, body2, contact)
-end
-
-function GameState:postSolve(body1, body2, contact)
+function GameState:postSolve(fixture1, fixture2, contact)
 end
 
 function GameState:draw()

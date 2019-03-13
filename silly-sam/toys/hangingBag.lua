@@ -15,6 +15,7 @@ function HangingBag:init(world, mapObject)
     -- create a static anchor point
     self.anchor = {}
     self.anchor.body = love.physics.newBody(world, xSpawn, ySpawn, "static")
+    self.anchor.body:setUserData("hangingBagAnchor")
     self.anchor.shape = love.physics.newCircleShape(5)
     self.anchor.fixture = love.physics.newFixture(self.anchor.body, self.anchor.shape, 0.5);
     self.anchor.fixture:setFriction(0.5)
@@ -23,6 +24,7 @@ function HangingBag:init(world, mapObject)
     self.bag = {}
     self.bag.width, self.bag.height = mapObject.properties.bagWidth, mapObject.properties.bagHeight
     self.bag.body = love.physics.newBody(world, xSpawn, ySpawn+ropeLength, "dynamic")
+    self.bag.body:setUserData("hangingBag")
     self.bag.shape = love.physics.newRectangleShape(0, 0, self.bag.width, self.bag.height)
     self.bag.fixture = love.physics.newFixture(self.bag.body, self.bag.shape, 0.5);
     self.bag.fixture:setFriction(0.5)
@@ -37,6 +39,7 @@ function HangingBag:init(world, mapObject)
         -- create another object between the bag and the rope to allow the bag to rotate around the join to the rope
         self.bagPivotPoint = {}
         self.bagPivotPoint.body = love.physics.newBody(world, xSpawn, ySpawn+ropeLength-self.bag.height/2, "dynamic")
+        self.bagPivotPoint.body:setUserData("bagPivotPoint")
         self.bagPivotPoint.shape = love.physics.newCircleShape(5)
         self.bagPivotPoint.fixture = love.physics.newFixture(self.bagPivotPoint.body, self.bagPivotPoint.shape, 0.5);
         self.bagPivotPoint.fixture:setFriction(0.5)

@@ -11,6 +11,7 @@ function Skateboard:init(world, mapObject)
     self.board = {}
     self.board.width, self.board.height = 100, 5
     self.board.body = love.physics.newBody(world, xSpawn, ySpawn, "dynamic")
+    self.board.body:setUserData("skateboard")
     self.board.shape = love.physics.newRectangleShape(0, 0, self.board.width, self.board.height)
     self.board.fixture = love.physics.newFixture(self.board.body, self.board.shape);
     self.board.fixture:setFriction(0.9)
@@ -34,6 +35,7 @@ function Skateboard:init(world, mapObject)
     -- left wheel
     self.leftWheel = {}
     self.leftWheel.body = love.physics.newBody(world, xLeftWheelSpawn, yLeftWheelSpawn, "dynamic")
+    self.leftWheel.body:setUserData("skateboardLeftWheel")
     self.leftWheel.shape = love.physics.newCircleShape(wheelRadius)
     self.leftWheel.fixture = love.physics.newFixture(self.leftWheel.body, self.leftWheel.shape, 0.5);
     self.leftWheel.fixture:setFriction(0.5)
@@ -47,6 +49,7 @@ function Skateboard:init(world, mapObject)
     self.rightWheel = {}
 
     self.rightWheel.body = love.physics.newBody(world, xRightWheelSpawn, yRightWheelSpawn, "dynamic")
+    self.rightWheel.body:setUserData("skateboardRightWheel")
     self.rightWheel.shape = love.physics.newCircleShape(wheelRadius)
     self.rightWheel.fixture = love.physics.newFixture(self.rightWheel.body, self.rightWheel.shape, 0.5);
     self.rightWheel.fixture:setFriction(0.5)
