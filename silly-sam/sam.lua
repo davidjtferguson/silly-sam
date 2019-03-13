@@ -251,8 +251,6 @@ function Sam:update(dt, controls)
     
     self:leftLegForces()
     self:rightLegForces()
-    
-    print(self:bodyPartHasGroundContact(self.rightLeg))
 end
 
 function Sam:armForces(dt, arm, keyboardInputs, xaxis, yaxis)
@@ -291,7 +289,7 @@ function Sam:armForces(dt, arm, keyboardInputs, xaxis, yaxis)
 
     if xaxis == "leftx" then
 
-        if self:bodyPartHasGroundContact(arm) and (yFactor - self.yPrevLeftFactor) < pushThreshold then
+        if self:partHasGroundContact(arm) and (yFactor - self.yPrevLeftFactor) < pushThreshold then
             forceFactor = self.statics.pushForce*dt
     
             -- don't want any horizontal
@@ -301,7 +299,7 @@ function Sam:armForces(dt, arm, keyboardInputs, xaxis, yaxis)
         self.yPrevLeftFactor = yFactor
     elseif xaxis == "rightx" then
 
-        if self:bodyPartHasGroundContact(arm) and (yFactor - self.yPrevRightFactor) < pushThreshold then
+        if self:partHasGroundContact(arm) and (yFactor - self.yPrevRightFactor) < pushThreshold then
             forceFactor = self.statics.pushForce*dt
             xFactor = 0
         end
@@ -376,7 +374,7 @@ function Sam:rightLegForces()
 end
 
 function Sam:moveLeft()
-    if self:bodyPartHasGroundContact(self.leftLeg) then
+    if self:partHasGroundContact(self.leftLeg) then
         self:forceUpLeg(self.leftLeg)
 
         -- shove a little bit left as well to help travelling
@@ -385,7 +383,7 @@ function Sam:moveLeft()
 end
 
 function Sam:moveRight()
-    if self:bodyPartHasGroundContact(self.rightLeg) then
+    if self:partHasGroundContact(self.rightLeg) then
         self:forceUpLeg(self.rightLeg)
         
         -- shove a little bit right as well to help travelling
@@ -416,12 +414,12 @@ function Sam:handGrab(hand)
         for _, contact in ipairs(hand.body:getContacts()) do
             if contact:isTouching() then
                 -- great, find the correct body to join to the hand
-                fixturea, fixtureb = contact:getFixtures()
+                fixture1, fixture2 = contact:getFixtures()
 
-                if fixturea == hand.fixture then
-                    hand.worldJoint = love.physics.newRevoluteJoint(hand.body, fixtureb:getBody(), hand.body:getX(), hand.body:getY())
+                if fixture1 == hand.fixture then
+                    hand.worldJoint = love.physics.newRevoluteJoint(hand.body, fixture2:getBody(), hand.body:getX(), hand.body:getY())
                 else
-                    hand.worldJoint = love.physics.newRevoluteJoint(hand.body, fixturea:getBody(), hand.body:getX(), hand.body:getY())
+                    hand.worldJoint = love.physics.newRevoluteJoint(hand.body, fixture1:getBody(), hand.body:getX(), hand.body:getY())
                 end
 
                 break
@@ -447,46 +445,30 @@ function Sam:handRelease(hand)
     end
 end
 
-function Sam:bodyPartHasGroundContact(bodyPart)
+function Sam:partHasGroundContact(samPart)
     -- Check through fixture's contacts and see if any of them are non-sam's bodies
     
     local groundContactExists = false
-    local contacts = bodyPart.body:getContacts()
+    local contacts = samPart.body:getContacts()
 
-    -- Need to check no other connections to body1 are non-sam bodies, otherwise we are touching
     for contactIndex in pairs(contacts) do
-        
         if contacts[contactIndex]:isTouching() then
             fixture1, fixture2 = contacts[contactIndex]:getFixtures()
 
-            -- If we find one, we want to stop checking
+            -- Only want to check as long as we haven't found a contact
             if not groundContactExists then
-                if fixture1:getBody() ~= body1 then
-                    groundContactExists = self:fixtureBodyIsGround(fixture1)
+                if fixture1:getBody() ~= samPart.body then
+                    groundContactExists = fixture1:getBody():getUserData() ~= "samBodyPart"
                 end
 
-                if fixture2:getBody() ~= body1 then
-                    groundContactExists = self:fixtureBodyIsGround(fixture2)
+                if fixture2:getBody() ~= samPart.body then
+                    groundContactExists = fixture2:getBody():getUserData() ~= "samBodyPart"
                 end
             end
         end
     end
 
-    print('ground contact: ', groundContactExists)
-
     return groundContactExists
-end
-
-
-function Sam:fixtureBodyIsGround(fixture)
-    -- Check if it's a sam body part. If not, we're contacting with the ground
-    print('Fixture body data:', fixture:getBody():getUserData())
-
-    partOfSamsBody = fixture:getBody():getUserData() == "samBodyPart"
-
-    print('fixture body in sam?', partOfSamsBody)
-
-    return not partOfSamsBody
 end
 
 function Sam:draw(drawShapes, drawSprites)
