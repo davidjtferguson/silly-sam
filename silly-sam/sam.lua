@@ -36,8 +36,6 @@ function Sam:init(world, mapObject)
     self.chest.fixture:setFriction(0.5)
     self.chest.color = {1, 1, 1}
 
-    self.chest.onGround = false
-
     -- left leg
     self.leftLeg = {}
     self.leftLeg.width = 17
@@ -60,8 +58,6 @@ function Sam:init(world, mapObject)
     self.leftLeg.joint:setLimitsEnabled(true)
     self.leftLeg.joint:setLimits(-5, 5)
 
-    self.leftLeg.onGround = false
-
     -- right leg
     self.rightLeg = {}
     self.rightLeg.width = 17
@@ -83,8 +79,6 @@ function Sam:init(world, mapObject)
     self.rightLeg.joint:setLimitsEnabled(true)
     self.rightLeg.joint:setLimits(-5, 5)
 
-    self.rightLeg.onGround = false
-
     -- head
     self.head = {}
     self.head.image = love.graphics.newImage("assets/art/sam-textures/face.png")
@@ -97,8 +91,6 @@ function Sam:init(world, mapObject)
 
     self.head.joint = love.physics.newRevoluteJoint(self.chest.body, self.head.body, spawn.x, spawn.y-65)
 
-    self.head.onGround = false
-
     -- chin (not visible, for weighting)
     self.chin = {}
     self.chin.body = love.physics.newBody(world, spawn.x, spawn.y-35, "dynamic")
@@ -110,8 +102,6 @@ function Sam:init(world, mapObject)
     self.chin.color = {0.80, 0.20, 0.20}
 
     self.chin.joint = love.physics.newWeldJoint(self.head.body, self.chin.body, spawn.x, spawn.y-65)
-
-    self.chin.onGround = false
 
     -- toupee
     self.toupee = {}
@@ -130,8 +120,6 @@ function Sam:init(world, mapObject)
     
     -- self.toupee.joint:enableLimit(enable) trying to enable limit on joint
 
-    self.toupee.onGround = false
-
     -- left eye
     self.leftEye = {}
     self.leftEye.radius = 2
@@ -145,8 +133,6 @@ function Sam:init(world, mapObject)
 
     self.leftEye.joint = love.physics.newRevoluteJoint(self.leftEye.body, self.head.body, spawn.x, spawn.y-51)
 
-    self.leftEye.onGround = false
-
     -- right eye
     self.rightEye = {}
     self.rightEye.radius = 2
@@ -159,8 +145,6 @@ function Sam:init(world, mapObject)
     self.rightEye.color = {0.20, 0.70, 0.20}
 
     self.rightEye.joint = love.physics.newRevoluteJoint(self.rightEye.body, self.head.body, spawn.x+7, spawn.y-56)
-
-    self.rightEye.onGround = false
 
     -- nose
     self.nose = {}
@@ -176,8 +160,6 @@ function Sam:init(world, mapObject)
 
     self.nose.joint = love.physics.newRevoluteJoint(self.nose.body, self.head.body, spawn.x+1, spawn.y-66)
 
-    self.nose.onGround = false
-
     -- left arm
     self.leftArm = {}
     self.leftArm.width = 20
@@ -191,8 +173,6 @@ function Sam:init(world, mapObject)
     self.leftArm.color = {0.1, 0.4, 1}
 
     self.leftArm.joint = love.physics.newRevoluteJoint(self.chest.body, self.leftArm.body, spawn.x-30, spawn.y-10)
-
-    self.leftArm.onGround = false
 
     local handToArmDistance = -8
 
@@ -224,8 +204,6 @@ function Sam:init(world, mapObject)
 
     self.rightArm.joint = love.physics.newRevoluteJoint(self.chest.body, self.rightArm.body, spawn.x+30, spawn.y-10)
 
-    self.rightArm.onGround = false
-
     -- left hand
     self.rightHand = {}
     self.rightHand.image = love.graphics.newImage("assets/art/sam-textures/hand-right-open.png")
@@ -240,7 +218,7 @@ function Sam:init(world, mapObject)
     -- physics not applied - for checking collisions on 'grabbing'
     self.rightHand.fixture:setSensor(true)
 
-    -- this is for drawing
+    -- These are for drawing
     self.rectParts = {
         self.leftLeg,
         self.rightLeg,
@@ -260,23 +238,6 @@ function Sam:init(world, mapObject)
         self.rightHand,
     }
 
-    -- for logic
-    self.allParts = {
-        self.head,
-        self.chest,
-        self.leftLeg,
-        self.rightLeg,
-        self.leftArm,
-        self.rightArm,
-        self.nose,
-        self.leftEye,
-        self.rightEye,
-        self.chin,
-        self.toupee,
-        self.leftHand,
-        self.rightHand,
-    }
-
     self.yPrevLeftFactor = 0
     self.yPrevRightFactor = 0
 
@@ -291,7 +252,7 @@ function Sam:update(dt, controls)
     self:leftLegForces()
     self:rightLegForces()
     
-    print(self.rightLeg.onGround)
+    print(self:bodyPartHasGroundContact(self.rightLeg))
 end
 
 function Sam:armForces(dt, arm, keyboardInputs, xaxis, yaxis)
@@ -329,7 +290,8 @@ function Sam:armForces(dt, arm, keyboardInputs, xaxis, yaxis)
     local pushThreshold = -20*dt
 
     if xaxis == "leftx" then
-        if arm.onGround and (yFactor - self.yPrevLeftFactor) < pushThreshold then
+
+        if self:bodyPartHasGroundContact(arm) and (yFactor - self.yPrevLeftFactor) < pushThreshold then
             forceFactor = self.statics.pushForce*dt
     
             -- don't want any horizontal
@@ -338,7 +300,8 @@ function Sam:armForces(dt, arm, keyboardInputs, xaxis, yaxis)
     
         self.yPrevLeftFactor = yFactor
     elseif xaxis == "rightx" then
-        if arm.onGround and (yFactor - self.yPrevRightFactor) < pushThreshold then
+
+        if self:bodyPartHasGroundContact(arm) and (yFactor - self.yPrevRightFactor) < pushThreshold then
             forceFactor = self.statics.pushForce*dt
             xFactor = 0
         end
@@ -413,7 +376,7 @@ function Sam:rightLegForces()
 end
 
 function Sam:moveLeft()
-    if self.leftLeg.onGround then
+    if self:bodyPartHasGroundContact(self.leftLeg) then
         self:forceUpLeg(self.leftLeg)
 
         -- shove a little bit left as well to help travelling
@@ -422,7 +385,7 @@ function Sam:moveLeft()
 end
 
 function Sam:moveRight()
-    if self.rightLeg.onGround then
+    if self:bodyPartHasGroundContact(self.rightLeg) then
         self:forceUpLeg(self.rightLeg)
         
         -- shove a little bit right as well to help travelling
@@ -482,6 +445,48 @@ function Sam:handRelease(hand)
     if hand.worldJoint and not hand.worldJoint:isDestroyed() then
         hand.worldJoint:destroy()
     end
+end
+
+function Sam:bodyPartHasGroundContact(bodyPart)
+    -- Check through fixture's contacts and see if any of them are non-sam's bodies
+    
+    local groundContactExists = false
+    local contacts = bodyPart.body:getContacts()
+
+    -- Need to check no other connections to body1 are non-sam bodies, otherwise we are touching
+    for contactIndex in pairs(contacts) do
+        
+        if contacts[contactIndex]:isTouching() then
+            fixture1, fixture2 = contacts[contactIndex]:getFixtures()
+
+            -- If we find one, we want to stop checking
+            if not groundContactExists then
+                if fixture1:getBody() ~= body1 then
+                    groundContactExists = self:fixtureBodyIsGround(fixture1)
+                end
+
+                if fixture2:getBody() ~= body1 then
+                    groundContactExists = self:fixtureBodyIsGround(fixture2)
+                end
+            end
+        end
+    end
+
+    print('ground contact: ', groundContactExists)
+
+    return groundContactExists
+end
+
+
+function Sam:fixtureBodyIsGround(fixture)
+    -- Check if it's a sam body part. If not, we're contacting with the ground
+    print('Fixture body data:', fixture:getBody():getUserData())
+
+    partOfSamsBody = fixture:getBody():getUserData() == "samBodyPart"
+
+    print('fixture body in sam?', partOfSamsBody)
+
+    return not partOfSamsBody
 end
 
 function Sam:draw(drawShapes, drawSprites)
