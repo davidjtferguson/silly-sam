@@ -38,7 +38,7 @@ function PauseState:init()
 end
 
 function PauseState:getBackgroundColor() 
-    return 0.9, 0.96, 0.988
+    return 0.76, 0.9, 1
 end
 
 -- Should only ever come from gamestate. Will need to make more flexable if there was ever to be other states that could lead here

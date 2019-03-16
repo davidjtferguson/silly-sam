@@ -50,6 +50,7 @@ function GameState:init()
 
     love.profiler.hook(self.update, 'update')
     love.profiler.hook(self.draw, 'draw')
+    love.profiler.hook(self.sam.draw, 'draw sam')
     love.profiler.hook(self.map.draw, 'draw map')
 	love.profiler.hook(self.map.drawLayer, 'draw map layer')
     love.profiler.start()
@@ -110,7 +111,7 @@ function GameState:init()
 end
 
 function GameState:getBackgroundColor() 
-    return 1, 0.96, 0.93
+    return 0.76, 0.9, 1, 0
 end
 
 function GameState:enter()
