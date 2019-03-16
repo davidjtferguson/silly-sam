@@ -8,8 +8,8 @@ return {
   height = 170,
   tilewidth = 32,
   tileheight = 32,
-  nextlayerid = 5,
-  nextobjectid = 185,
+  nextlayerid = 6,
+  nextobjectid = 193,
   properties = {},
   tilesets = {
     {
@@ -663,6 +663,33 @@ return {
     }
   },
   layers = {
+    {
+      type = "objectgroup",
+      id = 5,
+      name = "background colour",
+      visible = true,
+      opacity = 1,
+      offsetx = 0,
+      offsety = 0,
+      draworder = "topdown",
+      properties = {},
+      objects = {
+        {
+          id = 192,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = -291.5,
+          y = 5732.5,
+          width = 7975,
+          height = 6039,
+          rotation = 0,
+          gid = 312,
+          visible = true,
+          properties = {}
+        }
+      }
+    },
     {
       type = "objectgroup",
       id = 2,

@@ -111,7 +111,7 @@ function GameState:init()
 end
 
 function GameState:getBackgroundColor() 
-    return 0.76, 0.9, 1, 0
+    return 0.76, 0.9, 1
 end
 
 function GameState:enter()

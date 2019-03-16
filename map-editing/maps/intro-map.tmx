@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.2" tiledversion="1.2.1" orientation="orthogonal" renderorder="right-down" width="225" height="170" tilewidth="32" tileheight="32" infinite="0" nextlayerid="5" nextobjectid="185">
+<map version="1.2" tiledversion="1.2.1" orientation="orthogonal" renderorder="right-down" width="225" height="170" tilewidth="32" tileheight="32" infinite="0" nextlayerid="6" nextobjectid="193">
  <tileset firstgid="1" source="../tilesets/test-tileset.tsx"/>
  <tileset firstgid="3" source="../tilesets/tree-square-tileset.tsx"/>
  <tileset firstgid="4" name="tree-triangle" tilewidth="390" tileheight="775" tilecount="1" columns="1">
@@ -27,6 +27,9 @@
  <tileset firstgid="312" source="../tilesets/sky.tsx"/>
  <tileset firstgid="313" source="../tilesets/grass-tuft-006.tsx"/>
  <tileset firstgid="314" source="../tilesets/bush-004.tsx"/>
+ <objectgroup id="5" name="background colour">
+  <object id="192" gid="312" x="-291.5" y="5732.5" width="7975" height="6039"/>
+ </objectgroup>
  <objectgroup id="2" name="background objects">
   <object id="111" gid="3" x="1844.51" y="980.337" width="196.226" height="378" rotation="17.5543"/>
   <object id="112" gid="4" x="1090.16" y="1001.69" width="225.339" height="414.023" rotation="-15.71"/>
