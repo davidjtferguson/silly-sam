@@ -129,7 +129,7 @@ function Sam:init(world, mapObject)
     -- left eye
     self.leftEye = {}
     self.leftEye.radius = 2
-    self.leftEye.image = love.graphics.newImage("assets/art/sam-textures/game-empty-texture.png")
+    self.leftEye.image = love.graphics.newImage("assets/art/sam-textures/eye-left.png")
     self.leftEye.body = love.physics.newBody(world, spawn.x-7, spawn.y-51, "dynamic")
     self.leftEye.shape = love.physics.newCircleShape(self.leftEye.radius)
     self.leftEye.fixture = love.physics.newFixture(self.leftEye.body, self.leftEye.shape, 0.5);
@@ -143,7 +143,7 @@ function Sam:init(world, mapObject)
     -- right eye
     self.rightEye = {}
     self.rightEye.radius = 2
-    self.rightEye.image = love.graphics.newImage("assets/art/sam-textures/game-empty-texture.png")
+    self.rightEye.image = love.graphics.newImage("assets/art/sam-textures/eye-right.png")
     self.rightEye.body = love.physics.newBody(world, spawn.x+10, spawn.y-50, "dynamic")
     self.rightEye.shape = love.physics.newCircleShape(self.rightEye.radius)
     self.rightEye.fixture = love.physics.newFixture(self.rightEye.body, self.rightEye.shape, 0.5);
@@ -158,7 +158,7 @@ function Sam:init(world, mapObject)
     self.nose = {}
     self.nose.width = 13
     self.nose.height = 26
-    self.nose.image = love.graphics.newImage("assets/art/sam-textures/game-empty-texture.png")
+    self.nose.image = love.graphics.newImage("assets/art/sam-textures/nose.png")
     self.nose.body = love.physics.newBody(world, spawn.x+1, spawn.y-55, "dynamic")
     self.nose.shape = love.physics.newRectangleShape(self.nose.width, self.nose.height)
     self.nose.fixture = love.physics.newFixture(self.nose.body, self.nose.shape, 1);
@@ -522,10 +522,10 @@ function Sam:draw(drawShapes, drawSprites)
         -- Face parts
         self:drawCircleTexturedObject(self.head, 2.2, 2, 80)
         
-        self:drawCircleTexturedObject(self.leftEye, 3, 5, 10)
-        self:drawCircleTexturedObject(self.rightEye, 3, 10, 10)
+        self:drawCircleTexturedObject(self.leftEye, 3, 4)
+        self:drawCircleTexturedObject(self.rightEye, 3, 4)
 
-        self:drawRectangleTexturedObject(self.nose, 1.25, 1.25)
+        self:drawRectangleTexturedObject(self.nose, 4.2, .8, 10, 10)
         self:drawRectangleTexturedObject(self.toupee, 3, 3)
 
         -- arm parts
