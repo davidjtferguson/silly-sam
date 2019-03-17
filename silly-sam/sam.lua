@@ -122,28 +122,28 @@ function Sam:init(world, mapObject)
 
     self.toupee.joint = love.physics.newRevoluteJoint(self.toupee.body, self.head.body, spawn.x+1, spawn.y-74+self.toupee.height)
     
-    -- self.toupee.joint:enableLimit(enable) trying to enable limit on joint
+    -- self.toupee.joint:enableLimit(enable) trying to enable limit on joint - rory
 
     self.toupee.onGround = false
 
     -- left eye
     self.leftEye = {}
     self.leftEye.radius = 2
-    self.leftEye.image = love.graphics.newImage("assets/art/sam-textures/eye-left.png")
-    self.leftEye.body = love.physics.newBody(world, spawn.x-7, spawn.y-51, "dynamic")
+    self.leftEye.image = love.graphics.newImage("assets/art/sam-textures/game-empty-texture.png")
+    self.leftEye.body = love.physics.newBody(world, spawn.x-10, spawn.y-60, "dynamic")
     self.leftEye.shape = love.physics.newCircleShape(self.leftEye.radius)
     self.leftEye.fixture = love.physics.newFixture(self.leftEye.body, self.leftEye.shape, 0.5);
     self.leftEye.fixture:setFriction(0.9)
     self.leftEye.color = {0.20, 0.70, 0.20}
 
-    self.leftEye.joint = love.physics.newRevoluteJoint(self.leftEye.body, self.head.body, spawn.x, spawn.y-51)
+    self.leftEye.joint = love.physics.newRevoluteJoint(self.leftEye.body, self.head.body, spawn.x-7, spawn.y-60)
 
     self.leftEye.onGround = false
 
     -- right eye
     self.rightEye = {}
     self.rightEye.radius = 2
-    self.rightEye.image = love.graphics.newImage("assets/art/sam-textures/eye-right.png")
+    self.rightEye.image = love.graphics.newImage("assets/art/sam-textures/game-empty-texture.png")
     self.rightEye.body = love.physics.newBody(world, spawn.x+10, spawn.y-50, "dynamic")
     self.rightEye.shape = love.physics.newCircleShape(self.rightEye.radius)
     self.rightEye.fixture = love.physics.newFixture(self.rightEye.body, self.rightEye.shape, 0.5);
@@ -522,8 +522,8 @@ function Sam:draw(drawShapes, drawSprites)
         -- Face parts
         self:drawCircleTexturedObject(self.head, 2.2, 2, 80)
         
-        self:drawCircleTexturedObject(self.leftEye, 3, 4)
-        self:drawCircleTexturedObject(self.rightEye, 3, 4)
+        self:drawCircleTexturedObject(self.leftEye, 3, 0, 30)
+        self:drawCircleTexturedObject(self.rightEye, 3, -10, 30)
 
         self:drawRectangleTexturedObject(self.nose, 4.2, .8, 10, 10)
         self:drawRectangleTexturedObject(self.toupee, 3, 3)
