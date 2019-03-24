@@ -8,7 +8,7 @@ return {
   height = 170,
   tilewidth = 32,
   tileheight = 32,
-  nextobjectid = 185,
+  nextobjectid = 195,
   properties = {},
   tilesets = {
     {
@@ -634,6 +634,56 @@ return {
       terrains = {},
       tilecount = 1,
       tiles = {}
+    },
+    {
+      name = "terrain",
+      firstgid = 315,
+      filename = "../../map-editing/tilesets/grass-pattern-001.tsx",
+      tilewidth = 712,
+      tileheight = 498,
+      spacing = 0,
+      margin = 0,
+      image = "../assets/art/environment-textures/grass-pattern-001.png",
+      imagewidth = 712,
+      imageheight = 498,
+      tileoffset = {
+        x = 0,
+        y = 0
+      },
+      grid = {
+        orientation = "orthogonal",
+        width = 712,
+        height = 498
+      },
+      properties = {},
+      terrains = {},
+      tilecount = 1,
+      tiles = {}
+    },
+    {
+      name = "terrain-002",
+      firstgid = 316,
+      filename = "../../map-editing/tilesets/grass-pattern-002.tsx",
+      tilewidth = 712,
+      tileheight = 498,
+      spacing = 0,
+      margin = 0,
+      image = "../assets/art/environment-textures/grass-pattern-002.png",
+      imagewidth = 712,
+      imageheight = 498,
+      tileoffset = {
+        x = 0,
+        y = 0
+      },
+      grid = {
+        orientation = "orthogonal",
+        width = 712,
+        height = 498
+      },
+      properties = {},
+      terrains = {},
+      tilecount = 1,
+      tiles = {}
     }
   },
   layers = {
@@ -825,6 +875,17 @@ return {
     },
     {
       type = "objectgroup",
+      name = "grassaintworkin",
+      visible = true,
+      opacity = 1,
+      offsetx = 0,
+      offsety = 0,
+      draworder = "topdown",
+      properties = {},
+      objects = {}
+    },
+    {
+      type = "objectgroup",
       name = "background objects",
       visible = true,
       opacity = 1,
@@ -852,11 +913,11 @@ return {
           name = "",
           type = "",
           shape = "rectangle",
-          x = 1090.16,
-          y = 1001.69,
+          x = 1071.08,
+          y = 1008.6,
           width = 225.339,
-          height = 414.023,
-          rotation = -15.71,
+          height = 456.439,
+          rotation = -13.3919,
           gid = 4,
           visible = true,
           properties = {}
@@ -886,20 +947,6 @@ return {
           height = 119,
           rotation = 0,
           gid = 299,
-          visible = true,
-          properties = {}
-        },
-        {
-          id = 163,
-          name = "",
-          type = "",
-          shape = "rectangle",
-          x = 1638,
-          y = 1000,
-          width = 102,
-          height = 95,
-          rotation = 0,
-          gid = 300,
           visible = true,
           properties = {}
         },
@@ -984,6 +1031,48 @@ return {
           height = 155,
           rotation = 0,
           gid = 311,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 185,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 932.035,
+          y = 619.5,
+          width = 205.93,
+          height = 323,
+          rotation = 4.60213,
+          gid = 297,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 186,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 1802.32,
+          y = 1003.82,
+          width = 75.3633,
+          height = 98.3581,
+          rotation = -34.4473,
+          gid = 298,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 188,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 1580.84,
+          y = 988.561,
+          width = 118.689,
+          height = 84.3107,
+          rotation = 0.522698,
+          gid = 304,
           visible = true,
           properties = {}
         }
@@ -1399,10 +1488,10 @@ return {
           name = "rectangle",
           type = "",
           shape = "rectangle",
-          x = 970.051,
-          y = 979.49,
-          width = 713.25,
-          height = 569.865,
+          x = 972.074,
+          y = 979.456,
+          width = 719.227,
+          height = 573.899,
           rotation = 0.328738,
           visible = true,
           properties = {
@@ -2356,34 +2445,6 @@ return {
           }
         },
         {
-          id = 160,
-          name = "",
-          type = "",
-          shape = "rectangle",
-          x = 943.374,
-          y = 605.218,
-          width = 205.93,
-          height = 323,
-          rotation = 4.60213,
-          gid = 297,
-          visible = true,
-          properties = {}
-        },
-        {
-          id = 161,
-          name = "",
-          type = "",
-          shape = "rectangle",
-          x = 1814.68,
-          y = 1018.87,
-          width = 75.3633,
-          height = 98.3581,
-          rotation = -34.4473,
-          gid = 298,
-          visible = true,
-          properties = {}
-        },
-        {
           id = 174,
           name = "",
           type = "",
@@ -2549,6 +2610,34 @@ return {
           height = 92.6854,
           rotation = 19.9943,
           gid = 299,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 190,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 999,
+          y = 1486,
+          width = 712,
+          height = 498,
+          rotation = 0,
+          gid = 315,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 192,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 1636,
+          y = 995.5,
+          width = 102,
+          height = 95,
+          rotation = 0,
+          gid = 300,
           visible = true,
           properties = {}
         }

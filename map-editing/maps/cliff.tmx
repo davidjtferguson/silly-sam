@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" tiledversion="1.1.6" orientation="orthogonal" renderorder="right-down" width="100" height="300" tilewidth="32" tileheight="32" infinite="0" nextobjectid="260">
+<map version="1.0" tiledversion="1.1.6" orientation="orthogonal" renderorder="right-down" width="100" height="300" tilewidth="32" tileheight="32" infinite="0" nextobjectid="267">
  <tileset firstgid="1" source="../tilesets/test-tileset.tsx"/>
  <tileset firstgid="3" source="../tilesets/cloud-001.tsx"/>
  <tileset firstgid="4" source="../tilesets/cloud-003.tsx"/>
@@ -7,7 +7,7 @@
  <tileset firstgid="6" source="../tilesets/grass-tuft-005.tsx"/>
  <tileset firstgid="7" source="../tilesets/cloud-002.tsx"/>
  <tileset firstgid="8" source="../tilesets/ground-base.tsx"/>
- <layer name="background" width="100" height="300">
+ <layer name="background" width="100" height="300" locked="1">
   <data encoding="csv">
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
@@ -315,33 +315,15 @@
   <object id="69" gid="6" x="44.4543" y="641.265" width="150" height="39" rotation="721.701"/>
   <object id="70" gid="5" x="6.34552" y="80.8124" width="70.193" height="44" rotation="83.8128"/>
   <object id="71" gid="6" x="28.4493" y="266.258" width="88" height="38" rotation="83.9238"/>
-  <object id="72" gid="4" x="1117.31" y="584.895" width="190" height="88" rotation="24.362"/>
-  <object id="73" gid="3" x="79.0725" y="355" width="289.855" height="166"/>
-  <object id="74" gid="7" x="718.838" y="444.645" width="225" height="102.857" rotation="19.2318"/>
-  <object id="75" gid="4" x="1728.24" y="846.125" width="276.455" height="124.953" rotation="24.362"/>
-  <object id="76" gid="7" x="1563.76" y="787.875" width="225" height="102.857" rotation="19.2318"/>
-  <object id="77" gid="3" x="1333.65" y="674.938" width="210.782" height="112.079" rotation="28.9908"/>
+  <object id="72" gid="4" x="1089.11" y="146.595" width="264.047" height="122.296" rotation="-0.201703"/>
+  <object id="73" gid="3" x="181.072" y="185" width="289.855" height="166"/>
+  <object id="74" gid="7" x="617.01" y="356.673" width="225" height="102.857" rotation="-0.56234"/>
+  <object id="75" gid="4" x="2188.44" y="605.842" width="276.455" height="124.953" rotation="1.18196"/>
+  <object id="76" gid="7" x="1852.95" y="264.938" width="225" height="102.857" rotation="-0.57999"/>
+  <object id="77" gid="3" x="1451.85" y="447.502" width="210.782" height="112.079" rotation="-0.251864"/>
   <object id="89" gid="5" x="2279.66" y="4630.52" width="70.193" height="44" rotation="141.124"/>
   <object id="90" gid="6" x="2460.85" y="4492.62" width="88" height="38" rotation="143.315"/>
   <object id="95" gid="3" x="2337.75" y="4673.55" width="289.855" height="166" rotation="8.83884"/>
-  <object id="96" name="hangingBag" x="1466.91" y="4391.94">
-   <properties>
-    <property name="bagHeight" type="float" value="70"/>
-    <property name="bagWidth" type="float" value="40"/>
-    <property name="pivotingJoint" type="bool" value="true"/>
-    <property name="ropeLength" type="float" value="420"/>
-   </properties>
-   <point/>
-  </object>
-  <object id="97" name="hangingBag" x="1232.24" y="4973.27">
-   <properties>
-    <property name="bagHeight" type="float" value="70"/>
-    <property name="bagWidth" type="float" value="40"/>
-    <property name="pivotingJoint" type="bool" value="true"/>
-    <property name="ropeLength" type="float" value="420"/>
-   </properties>
-   <point/>
-  </object>
   <object id="98" name="hangingBag" x="1634.24" y="5287.94">
    <properties>
     <property name="bagHeight" type="float" value="70"/>
@@ -360,61 +342,7 @@
    </properties>
    <point/>
   </object>
-  <object id="102" name="hangingBag" x="1294.24" y="5175.94">
-   <properties>
-    <property name="bagHeight" type="float" value="70"/>
-    <property name="bagWidth" type="float" value="40"/>
-    <property name="pivotingJoint" type="bool" value="true"/>
-    <property name="ropeLength" type="float" value="420"/>
-   </properties>
-   <point/>
-  </object>
   <object id="103" name="hangingBag" x="1699.58" y="5076.61">
-   <properties>
-    <property name="bagHeight" type="float" value="70"/>
-    <property name="bagWidth" type="float" value="40"/>
-    <property name="pivotingJoint" type="bool" value="true"/>
-    <property name="ropeLength" type="float" value="420"/>
-   </properties>
-   <point/>
-  </object>
-  <object id="104" name="hangingBag" x="1362.91" y="4415.94">
-   <properties>
-    <property name="bagHeight" type="float" value="70"/>
-    <property name="bagWidth" type="float" value="40"/>
-    <property name="pivotingJoint" type="bool" value="true"/>
-    <property name="ropeLength" type="float" value="420"/>
-   </properties>
-   <point/>
-  </object>
-  <object id="108" name="hangingBag" x="1306.24" y="4629.94">
-   <properties>
-    <property name="bagHeight" type="float" value="70"/>
-    <property name="bagWidth" type="float" value="40"/>
-    <property name="pivotingJoint" type="bool" value="true"/>
-    <property name="ropeLength" type="float" value="420"/>
-   </properties>
-   <point/>
-  </object>
-  <object id="109" name="hangingBag" x="1145.58" y="4788.61">
-   <properties>
-    <property name="bagHeight" type="float" value="70"/>
-    <property name="bagWidth" type="float" value="40"/>
-    <property name="pivotingJoint" type="bool" value="true"/>
-    <property name="ropeLength" type="float" value="420"/>
-   </properties>
-   <point/>
-  </object>
-  <object id="110" name="hangingBag" x="1053.58" y="5070.61">
-   <properties>
-    <property name="bagHeight" type="float" value="70"/>
-    <property name="bagWidth" type="float" value="40"/>
-    <property name="pivotingJoint" type="bool" value="true"/>
-    <property name="ropeLength" type="float" value="420"/>
-   </properties>
-   <point/>
-  </object>
-  <object id="111" name="hangingBag" x="1208.91" y="4515.94">
    <properties>
     <property name="bagHeight" type="float" value="70"/>
     <property name="bagWidth" type="float" value="40"/>
@@ -702,7 +630,7 @@
    </properties>
    <ellipse/>
   </object>
-  <object id="113" name="rectangle" x="-129.162" y="4910.52" width="2201.63" height="246.391" rotation="333.306">
+  <object id="113" name="rectangle" x="-138.162" y="4911.52" width="2201.63" height="246.391" rotation="333.306">
    <properties>
     <property name="static" type="bool" value="true"/>
     <property name="texturePath" value="assets/art/environment-textures/ground-base.png"/>
@@ -932,6 +860,68 @@
    <properties>
     <property name="cameraDistance" type="float" value="1000"/>
     <property name="newLevelPath" value="maps/swinging.lua"/>
+   </properties>
+   <point/>
+  </object>
+ </objectgroup>
+ <objectgroup name="hangybags">
+  <object id="261" name="hangingBag" x="1314" y="5054">
+   <properties>
+    <property name="bagHeight" type="float" value="70"/>
+    <property name="bagWidth" type="float" value="40"/>
+    <property name="pivotingJoint" type="bool" value="true"/>
+    <property name="ropeLength" type="float" value="420"/>
+    <property name="texturePath" value="assets/art/gameobject-textures/housetextures_002.png"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="262" name="hangingBag" x="919" y="4856">
+   <properties>
+    <property name="bagHeight" type="float" value="70"/>
+    <property name="bagWidth" type="float" value="40"/>
+    <property name="pivotingJoint" type="bool" value="true"/>
+    <property name="ropeLength" type="float" value="420"/>
+    <property name="texturePath" value="assets/art/gameobject-textures/housetextures_002.png"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="263" name="hangingBag" x="849" y="5119">
+   <properties>
+    <property name="bagHeight" type="float" value="70"/>
+    <property name="bagWidth" type="float" value="40"/>
+    <property name="pivotingJoint" type="bool" value="true"/>
+    <property name="ropeLength" type="float" value="420"/>
+    <property name="texturePath" value="assets/art/gameobject-textures/housetextures_002.png"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="264" name="hangingBag" x="1503" y="4564">
+   <properties>
+    <property name="bagHeight" type="float" value="70"/>
+    <property name="bagWidth" type="float" value="40"/>
+    <property name="pivotingJoint" type="bool" value="true"/>
+    <property name="ropeLength" type="float" value="420"/>
+    <property name="texturePath" value="assets/art/gameobject-textures/housetextures_001.png"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="265" name="hangingBag" x="1755" y="4373">
+   <properties>
+    <property name="bagHeight" type="float" value="70"/>
+    <property name="bagWidth" type="float" value="40"/>
+    <property name="pivotingJoint" type="bool" value="true"/>
+    <property name="ropeLength" type="float" value="420"/>
+    <property name="texturePath" value="assets/art/gameobject-textures/housetextures_004.png"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="266" name="hangingBag" x="2002" y="4207">
+   <properties>
+    <property name="bagHeight" type="float" value="70"/>
+    <property name="bagWidth" type="float" value="40"/>
+    <property name="pivotingJoint" type="bool" value="true"/>
+    <property name="ropeLength" type="float" value="420"/>
+    <property name="texturePath" value="assets/art/gameobject-textures/housetextures_005.png"/>
    </properties>
    <point/>
   </object>
