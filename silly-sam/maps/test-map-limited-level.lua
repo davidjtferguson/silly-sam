@@ -208,8 +208,8 @@ return {
             ["bagWidth"] = 100,
             ["pivotingJoint"] = false,
             ["ropeLength"] = 250,
-            ["texturePath"] = "assets/art/sam-textures/arm-left.png",
             ["texturePathAnchor"] = "assets/art/sam-textures/arm-left.png",
+            ["texturePathBag"] = "assets/art/sam-textures/arm-left.png",
             ["texturePathPivot"] = "assets/art/sam-textures/arm-left.png",
             ["texturePathRope"] = "assets/art/sam-textures/arm-left.png"
           }
@@ -425,7 +425,7 @@ return {
       y = 0,
       width = 100,
       height = 100,
-      visible = false,
+      visible = true,
       opacity = 1,
       offsetx = 0,
       offsety = 0,

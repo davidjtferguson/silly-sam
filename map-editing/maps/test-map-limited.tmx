@@ -24,8 +24,8 @@
     <property name="bagWidth" type="float" value="100"/>
     <property name="pivotingJoint" type="bool" value="false"/>
     <property name="ropeLength" type="float" value="250"/>
-    <property name="texturePath" value="assets/art/sam-textures/arm-left.png"/>
     <property name="texturePathAnchor" value="assets/art/sam-textures/arm-left.png"/>
+    <property name="texturePathBag" value="assets/art/sam-textures/arm-left.png"/>
     <property name="texturePathPivot" value="assets/art/sam-textures/arm-left.png"/>
     <property name="texturePathRope" value="assets/art/sam-textures/arm-left.png"/>
    </properties>

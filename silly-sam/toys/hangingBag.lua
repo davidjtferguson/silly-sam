@@ -35,8 +35,8 @@ function HangingBag:init(world, mapObject)
     self.bag.fixture:setDensity(1)
     self.bag.color = {0.2, 0.2, 0.2}
 
-    if mapObject.properties.texturePath then
-        self.bag.image = love.graphics.newImage(mapObject.properties.texturePath)
+    if mapObject.properties.texturePathBag then
+        self.bag.image = love.graphics.newImage(mapObject.properties.texturePathBag)
     end
 
     if pivotingJoint then
