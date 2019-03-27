@@ -111,9 +111,9 @@ function HangingBag:drawRope(x1, y1, x2, y2)
         
         -- soh-cah-TOA
         local angle = math.atan(ropeXDistance/ropeYDistance)
-        angle = angle*-1
 
-        print(math.deg(angle))
+        -- not sure... why this is needed
+        angle = angle*-1
 
         -- draw(image, xpos, ypos, angle, ratiox, ratioy, offsetx, offsety)
         love.graphics.draw(self.ropeImage,
