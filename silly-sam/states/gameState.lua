@@ -173,10 +173,16 @@ function GameState:loadMap(mapPath)
         self:assignObjectToCameraTable(toy)
     end
 
-    -- remove the objects layer now we've created all the objects from it
-    -- ... the instructions say to call it objects so if it's not called objects it's outta my hands
-    if self.map.layers["objects"] then
-        self.map:removeLayer("objects")
+    -- all the info for the toys should be in a layer called 'objects'
+    -- TODO: rename to toys in all maps... or, just, anything that's not 'objects'
+    -- Instead of drawing the objects/toys layer as normal, replace the draw function with drawing all the toy physics objects instead
+    self.map.layers["objects"].draw = function()
+        for i in pairs(self.toys) do
+            self.toys[i]:draw()
+        end
+        
+        -- bool: draw physics shapes, bool: draw sprites
+        self.sam:draw(false, true)
     end
 
     -- make camera focus on Sam
@@ -280,7 +286,7 @@ end
 
 -- Should these should all be in a physics helper?
 function GameState:beginContact(fixture1, fixture2, contact)
-    -- If I did anything here, first I'd need to check the contact created is actually touching
+    -- If anything was done here, first check the contact created is actually touching
     -- if not contact:isTouching() then
     --     return
     -- end
@@ -301,16 +307,6 @@ function GameState:draw()
     love.graphics.setColor(1, 1, 1)
 
     self.map:draw(self.camera:getCameraToStiTransforms(self.map))
-
-    self.camera:attach()
-    for i in pairs(self.toys) do
-        self.toys[i]:draw()
-    end
-
-    -- bool: draw physics boxes, bool: draw sprites
-    self.sam:draw(false, true)
-
-    self.camera:detach()
 end
 
 -- if the gamestate is left (popped or switched), reset it so if the same instance is returned to it's back from the start of the level
