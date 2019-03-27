@@ -7,10 +7,15 @@ HangingBag = Class{__includes = BaseObject}
 function HangingBag:init(world, mapObject)
     -- calculate values from map object
     local xSpawn, ySpawn = mapObject.x, mapObject.y
-    local ropeLength = mapObject.properties.ropeLength
     local pivotingJoint = mapObject.properties.pivotingJoint
-
+    
+    -- Some details for the rope, which isn't a physics object, just a line or texture drawn from the anchor to the pivot
     self.ropeColour = {0.9, 0.9, 0.9}
+    self.ropeWidth = 10
+    self.ropeLength = mapObject.properties.ropeLength
+    if mapObject.properties.texturePathRope then
+        self.ropeImage = love.graphics.newImage(mapObject.properties.texturePathRope)
+    end
 
     -- create a static anchor point
     self.anchor = {}
@@ -27,7 +32,7 @@ function HangingBag:init(world, mapObject)
 
     self.bag = {}
     self.bag.width, self.bag.height = mapObject.properties.bagWidth, mapObject.properties.bagHeight
-    self.bag.body = love.physics.newBody(world, xSpawn, ySpawn+ropeLength, "dynamic")
+    self.bag.body = love.physics.newBody(world, xSpawn, ySpawn+self.ropeLength, "dynamic")
     self.bag.body:setUserData("hangingBag")
     self.bag.shape = love.physics.newRectangleShape(0, 0, self.bag.width, self.bag.height)
     self.bag.fixture = love.physics.newFixture(self.bag.body, self.bag.shape, 0.5);
@@ -42,7 +47,7 @@ function HangingBag:init(world, mapObject)
     if pivotingJoint then
         -- create another object between the bag and the rope to allow the bag to rotate around the join to the rope
         self.bagPivotPoint = {}
-        self.bagPivotPoint.body = love.physics.newBody(world, xSpawn, ySpawn+ropeLength-self.bag.height/2, "dynamic")
+        self.bagPivotPoint.body = love.physics.newBody(world, xSpawn, ySpawn+self.ropeLength-self.bag.height/2, "dynamic")
         self.bagPivotPoint.body:setUserData("bagPivotPoint")
         self.bagPivotPoint.shape = love.physics.newCircleShape(5)
         self.bagPivotPoint.fixture = love.physics.newFixture(self.bagPivotPoint.body, self.bagPivotPoint.shape, 0.5);
@@ -58,7 +63,7 @@ function HangingBag:init(world, mapObject)
             self.anchor.body, self.bagPivotPoint.body,
             xSpawn, ySpawn,
             self.bagPivotPoint.body:getX(), self.bagPivotPoint.body:getY(),
-            ropeLength, false)
+            self.ropeLength, false)
 
         -- join bag to pivot
         self.bag.joint = love.physics.newRevoluteJoint(self.bag.body, self.bagPivotPoint.body, self.bagPivotPoint.body:getX(), self.bagPivotPoint.body:getY())
@@ -78,15 +83,15 @@ end
 
 function HangingBag:draw()
     -- draw 'rope'
-    love.graphics.setLineWidth(10)
+    love.graphics.setLineWidth(self.ropeWidth)
     love.graphics.setColor(self.ropeColour)
     if self.bagPivotPoint then
-        love.graphics.line(self.anchor.body:getX(), self.anchor.body:getY(), self.bagPivotPoint.body:getX(), self.bagPivotPoint.body:getY())
+        self:drawRope(self.anchor.body:getX(), self.anchor.body:getY(), self.bagPivotPoint.body:getX(), self.bagPivotPoint.body:getY())
 
         -- some visual indicator of what type of bag it is
         self:drawCircleObject(self.bagPivotPoint)
     else
-        love.graphics.line(self.anchor.body:getX(), self.anchor.body:getY(), self.bag.body:getX(), self.bag.body:getY())
+        self:drawRope(self.anchor.body:getX(), self.anchor.body:getY(), self.bag.body:getX(), self.bag.body:getY())
     end
     
     self:drawCircleObject(self.anchor)
@@ -95,6 +100,30 @@ function HangingBag:draw()
     
     -- reset color
     love.graphics.setColor(1, 1, 1, 1)
+end
+
+function HangingBag:drawRope(x1, y1, x2, y2)
+    if self.ropeImage then
+        -- draw the rope texture
+        -- it'd be better if the texture repeated for its height, instead of stretched out for the whole rope
+        local ropeXDistance = x2-x1
+        local ropeYDistance = y2-y1
+        
+        -- soh-cah-TOA
+        local angle = math.atan(ropeXDistance/ropeYDistance)
+        angle = angle*-1
+
+        print(math.deg(angle))
+
+        -- draw(image, xpos, ypos, angle, ratiox, ratioy, offsetx, offsety)
+        love.graphics.draw(self.ropeImage,
+            x1 - (self.ropeWidth/2), y1,
+            angle,
+            self.ropeWidth/self.ropeImage:getWidth(), self.ropeLength/self.ropeImage:getHeight(),
+            0, 0)
+    else
+        love.graphics.line(x1, y1, x2, y2)
+    end
 end
 
 return HangingBag
