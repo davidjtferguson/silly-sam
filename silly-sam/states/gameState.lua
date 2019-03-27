@@ -180,6 +180,9 @@ function GameState:loadMap(mapPath)
         for i in pairs(self.toys) do
             self.toys[i]:draw()
         end
+        
+        -- bool: draw physics shapes, bool: draw sprites
+        self.sam:draw(false, true)
     end
 
     -- make camera focus on Sam
@@ -304,13 +307,6 @@ function GameState:draw()
     love.graphics.setColor(1, 1, 1)
 
     self.map:draw(self.camera:getCameraToStiTransforms(self.map))
-
-    self.camera:attach()
-
-    -- bool: draw physics boxes, bool: draw sprites
-    self.sam:draw(false, true)
-
-    self.camera:detach()
 end
 
 -- if the gamestate is left (popped or switched), reset it so if the same instance is returned to it's back from the start of the level
