@@ -95,6 +95,12 @@ Here are the descriptions of the specific objects.
    ropeLength - float: the distance between the anchor and the bag.
    
    texturePath - string: a filepath to the texture to be used for the bag.
+   
+   texturePathAnchor - string: a filepath to the texture to be used for the anchor. That is the static point that the rope comes out from.
+   
+   texturePathRope - string: a filepath to the texture to be used for the rope. (TODO: NOT IMPLEMENTED)
+   
+   texturePathPivot - string: a filepath to the texture to be used for the knotch that appears between the bag and the rope if the pivotingJoint custom attribute is true. (if it's false there will be no pivot here)
 
 ------
 

@@ -21,6 +21,10 @@ function HangingBag:init(world, mapObject)
     self.anchor.fixture:setFriction(0.5)
     self.anchor.color = {0.5, 0.5, 0.5}
 
+    if mapObject.properties.texturePathAnchor then
+        self.anchor.image = love.graphics.newImage(mapObject.properties.texturePathAnchor)
+    end
+
     self.bag = {}
     self.bag.width, self.bag.height = mapObject.properties.bagWidth, mapObject.properties.bagHeight
     self.bag.body = love.physics.newBody(world, xSpawn, ySpawn+ropeLength, "dynamic")
@@ -45,6 +49,10 @@ function HangingBag:init(world, mapObject)
         self.bagPivotPoint.fixture:setFriction(0.5)
         self.bagPivotPoint.color = {0.5, 0.5, 0.5}
 
+        if mapObject.properties.texturePathPivot then
+            self.bagPivotPoint.image = love.graphics.newImage(mapObject.properties.texturePathPivot)
+        end
+    
         -- join pivot to the anchor
         self.anchor.joint = love.physics.newRopeJoint(
             self.anchor.body, self.bagPivotPoint.body,
