@@ -208,7 +208,10 @@ return {
             ["bagWidth"] = 100,
             ["pivotingJoint"] = false,
             ["ropeLength"] = 250,
-            ["texturePath"] = "assets/art/sam-textures/arm-left.png"
+            ["texturePathAnchor"] = "assets/art/sam-textures/arm-left.png",
+            ["texturePathBag"] = "assets/art/sam-textures/arm-left.png",
+            ["texturePathPivot"] = "assets/art/sam-textures/arm-left.png",
+            ["texturePathRope"] = "assets/art/sam-textures/arm-left.png"
           }
         },
         {
@@ -226,7 +229,8 @@ return {
             ["bagHeight"] = 70,
             ["bagWidth"] = 40,
             ["pivotingJoint"] = true,
-            ["ropeLength"] = 300
+            ["ropeLength"] = 300,
+            ["texturePathPivot"] = "assets/art/sam-textures/arm-left.png"
           }
         },
         {
@@ -244,7 +248,8 @@ return {
             ["bagHeight"] = 70,
             ["bagWidth"] = 40,
             ["pivotingJoint"] = true,
-            ["ropeLength"] = 420
+            ["ropeLength"] = 420,
+            ["texturePathPivot"] = "assets/art/sam-textures/arm-left.png"
           }
         },
         {
