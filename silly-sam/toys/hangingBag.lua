@@ -82,30 +82,26 @@ function HangingBag:getPosition()
 end
 
 function HangingBag:draw()
-    -- draw 'rope'
-    love.graphics.setLineWidth(self.ropeWidth)
-    love.graphics.setColor(self.ropeColour)
     if self.bagPivotPoint then
+        -- draw the rope to the pivot point at the top of the bag
         self:drawRope(self.anchor.body:getX(), self.anchor.body:getY(), self.bagPivotPoint.body:getX(), self.bagPivotPoint.body:getY())
 
-        -- some visual indicator of what type of bag it is
+        -- Draw pivot point for a visual indicator of what type of bag it is
         self:drawCircleObject(self.bagPivotPoint)
     else
+        -- drawing to the centre of the bag but it doesn't matter because without a pivot point it isn't rotating independently
         self:drawRope(self.anchor.body:getX(), self.anchor.body:getY(), self.bag.body:getX(), self.bag.body:getY())
     end
     
     self:drawCircleObject(self.anchor)
 
     self:drawRectangleObject(self.bag)
-    
-    -- reset color
-    love.graphics.setColor(1, 1, 1, 1)
 end
 
 function HangingBag:drawRope(x1, y1, x2, y2)
     if self.ropeImage then
         -- draw the rope texture
-        -- it'd be better if the texture repeated for its height, instead of stretched out for the whole rope
+        -- TODO: it'd be better if the texture repeated for its height, instead of stretched out for the whole rope
         local ropeXDistance = x2-x1
         local ropeYDistance = y2-y1
         
@@ -122,7 +118,14 @@ function HangingBag:drawRope(x1, y1, x2, y2)
             self.ropeWidth/self.ropeImage:getWidth(), self.ropeLength/self.ropeImage:getHeight(),
             0, 0)
     else
+        -- If we've no texture, just use a line
+        love.graphics.setLineWidth(self.ropeWidth)
+        love.graphics.setColor(self.ropeColour)
+
         love.graphics.line(x1, y1, x2, y2)
+        
+        -- reset color
+        love.graphics.setColor(1, 1, 1, 1)
     end
 end
 
