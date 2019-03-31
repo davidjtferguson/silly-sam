@@ -14,6 +14,8 @@ end
 function BaseObject:drawRectanglePhysicsObject(object)
     love.graphics.setColor(object.color)
     love.graphics.polygon("fill", object.body:getWorldPoints(object.shape:getPoints()))
+
+    love.graphics.setColor(1, 1, 1, 1)
 end
 
 function BaseObject:drawRectangleTexturedObject(object, xUpscale, yUpscale, xOffset, yOffset)
@@ -44,13 +46,13 @@ function BaseObject:drawCirclePhysicsObject(object)
 
     local wx, wy = object.body:getWorldPoint(object.shape:getPoint())
     love.graphics.circle("fill", wx, wy, object.shape:getRadius())
+
+    love.graphics.setColor(1, 1, 1, 1)
 end
 
 function BaseObject:drawCircleTexturedObject(object, upscale, xOffset, yOffset)
     xOffset = xOffset or 0
     yOffset = yOffset or 0
-
-    love.graphics.setColor(1, 1, 1, 1)
 
     -- draw(image, xpos, ypos, angle, ratiox, ratioy, offsetx, offsety)
     love.graphics.draw(object.image,

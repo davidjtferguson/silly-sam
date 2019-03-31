@@ -10,7 +10,7 @@ function HangingBag:init(world, mapObject)
     local pivotingJoint = mapObject.properties.pivotingJoint
     
     -- Some details for the rope, which isn't a physics object, just a line or texture drawn from the anchor to the pivot
-    self.ropeColour = {0.9, 0.9, 0.9}
+    self.ropeColor = {0.9, 0.9, 0.9}
     self.ropeWidth = 10
     self.ropeLength = mapObject.properties.ropeLength
     if mapObject.properties.texturePathRope then
@@ -120,7 +120,7 @@ function HangingBag:drawRope(x1, y1, x2, y2)
     else
         -- If we've no texture, just use a line
         love.graphics.setLineWidth(self.ropeWidth)
-        love.graphics.setColor(self.ropeColour)
+        love.graphics.setColor(self.ropeColor)
 
         love.graphics.line(x1, y1, x2, y2)
         

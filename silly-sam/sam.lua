@@ -487,8 +487,6 @@ function Sam:draw(drawShapes, drawSprites)
     end
 
     if drawSprites then
-        love.graphics.setColor(1, 1, 1, 1)
-        
         self:drawRectangleTexturedObject(self.leftLeg, 1.25, 1.25)
         self:drawRectangleTexturedObject(self.rightLeg, 1.25, 1.25)
         
@@ -515,7 +513,7 @@ function Sam:draw(drawShapes, drawSprites)
         love.graphics.setStencilTest("gequal", 1)
     
         -- Draw arm shadows
-        -- colar colour, slightly bigger than we're going to draw the arm over it
+        -- colar color, slightly bigger than we're going to draw the arm over it
         love.graphics.setColor(0.5, 0.5, 0.7, 0.8)
         self:drawRectangleTexturedObject(self.leftArm, 1.35, 1.35)
         self:drawRectangleTexturedObject(self.rightArm, 1.35, 1.35)
