@@ -1,15 +1,15 @@
 return {
   version = "1.2",
   luaversion = "5.1",
-  tiledversion = "1.2.1",
+  tiledversion = "1.2.3",
   orientation = "orthogonal",
   renderorder = "right-down",
   width = 100,
   height = 100,
   tilewidth = 32,
   tileheight = 32,
-  nextlayerid = 5,
-  nextobjectid = 59,
+  nextlayerid = 8,
+  nextobjectid = 63,
   properties = {},
   tilesets = {
     {
@@ -36,10 +36,122 @@ return {
       properties = {},
       terrains = {},
       tilecount = 2,
+      tiles = {
+        {
+          id = 1,
+          properties = {
+            ["collidable"] = true
+          }
+        }
+      }
+    },
+    {
+      name = "bush-001",
+      firstgid = 3,
+      filename = "../../map-editing/tilesets/bush-001.tsx",
+      tilewidth = 236,
+      tileheight = 173,
+      spacing = 0,
+      margin = 0,
+      columns = 1,
+      image = "../assets/art/environment-textures/bush-001.png",
+      imagewidth = 236,
+      imageheight = 173,
+      tileoffset = {
+        x = 0,
+        y = 0
+      },
+      grid = {
+        orientation = "orthogonal",
+        width = 236,
+        height = 173
+      },
+      properties = {},
+      terrains = {},
+      tilecount = 1,
+      tiles = {}
+    },
+    {
+      name = "bush-002",
+      firstgid = 4,
+      filename = "../../map-editing/tilesets/bush-002.tsx",
+      tilewidth = 261,
+      tileheight = 410,
+      spacing = 0,
+      margin = 0,
+      columns = 1,
+      image = "../assets/art/environment-textures/bush-002.png",
+      imagewidth = 261,
+      imageheight = 410,
+      tileoffset = {
+        x = 0,
+        y = 0
+      },
+      grid = {
+        orientation = "orthogonal",
+        width = 261,
+        height = 410
+      },
+      properties = {},
+      terrains = {},
+      tilecount = 1,
+      tiles = {}
+    },
+    {
+      name = "bush-003",
+      firstgid = 5,
+      filename = "../../map-editing/tilesets/bush-003.tsx",
+      tilewidth = 337,
+      tileheight = 301,
+      spacing = 0,
+      margin = 0,
+      columns = 1,
+      image = "../assets/art/environment-textures/bush-003.png",
+      imagewidth = 337,
+      imageheight = 301,
+      tileoffset = {
+        x = 0,
+        y = 0
+      },
+      grid = {
+        orientation = "orthogonal",
+        width = 337,
+        height = 301
+      },
+      properties = {},
+      terrains = {},
+      tilecount = 1,
       tiles = {}
     }
   },
   layers = {
+    {
+      type = "objectgroup",
+      id = 6,
+      name = "background",
+      visible = true,
+      opacity = 1,
+      offsetx = 0,
+      offsety = 0,
+      draworder = "topdown",
+      properties = {},
+      objects = {
+        {
+          id = 59,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 451.333,
+          y = 482,
+          width = 236,
+          height = 173,
+          rotation = 0,
+          gid = 3,
+          visible = true,
+          properties = {}
+        }
+      }
+    },
     {
       type = "objectgroup",
       id = 2,
@@ -96,7 +208,10 @@ return {
             ["bagWidth"] = 100,
             ["pivotingJoint"] = false,
             ["ropeLength"] = 250,
-            ["texturePath"] = "assets/art/sam-textures/arm-left.png"
+            ["texturePathAnchor"] = "assets/art/sam-textures/arm-left.png",
+            ["texturePathBag"] = "assets/art/sam-textures/arm-left.png",
+            ["texturePathPivot"] = "assets/art/sam-textures/arm-left.png",
+            ["texturePathRope"] = "assets/art/sam-textures/arm-left.png"
           }
         },
         {
@@ -114,7 +229,8 @@ return {
             ["bagHeight"] = 70,
             ["bagWidth"] = 40,
             ["pivotingJoint"] = true,
-            ["ropeLength"] = 300
+            ["ropeLength"] = 300,
+            ["texturePathPivot"] = "assets/art/sam-textures/arm-left.png"
           }
         },
         {
@@ -132,7 +248,8 @@ return {
             ["bagHeight"] = 70,
             ["bagWidth"] = 40,
             ["pivotingJoint"] = true,
-            ["ropeLength"] = 420
+            ["ropeLength"] = 420,
+            ["texturePathPivot"] = "assets/art/sam-textures/arm-left.png"
           }
         },
         {
@@ -182,7 +299,7 @@ return {
           visible = true,
           properties = {
             ["static"] = true,
-            ["texturePath"] = "assets/art/map/BGtile.png"
+            ["texturePath"] = "assets/art/environment-textures/ground-base.png"
           }
         },
         {
@@ -295,7 +412,7 @@ return {
           visible = true,
           properties = {
             ["static"] = true,
-            ["texturePath"] = "assets/art/map/BGtile.png"
+            ["texturePath"] = "assets/art/environment-textures/ground-base.png"
           }
         }
       }
@@ -415,6 +532,47 @@ return {
         0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 2, 0, 0, 0, 0, 0, 0, 0,
         0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 2, 2, 2, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0,
         0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+      }
+    },
+    {
+      type = "objectgroup",
+      id = 7,
+      name = "foreground",
+      visible = true,
+      opacity = 1,
+      offsetx = 0,
+      offsety = 0,
+      draworder = "topdown",
+      properties = {},
+      objects = {
+        {
+          id = 60,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 384.667,
+          y = 479.667,
+          width = 261,
+          height = 410,
+          rotation = 0,
+          gid = 4,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 62,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 1258,
+          y = 668,
+          width = 337,
+          height = 301,
+          rotation = 0,
+          gid = 5,
+          visible = true,
+          properties = {}
+        }
       }
     }
   }

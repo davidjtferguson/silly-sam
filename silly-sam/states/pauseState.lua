@@ -98,7 +98,6 @@ function PauseState:draw()
 
     -- Draw the canvas of the gamestate with the blur effect
     love.graphics.setShader(self.blurEffect)
-        love.graphics.setColor(1, 1, 1, 1)
         love.graphics.draw(self.canvas)
     love.graphics.setShader()
 
