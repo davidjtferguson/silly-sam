@@ -44,6 +44,7 @@ function GameState:init()
             rightRelease = function() self.sam:rightRelease() end,
             
             toggleFullscreen = function() self:toggleFullscreen() end,
+            toggleMusic = function() self:toggleMusic() end,
             pause = function() self:toPauseState() end,
         },
         keysPressed = {
@@ -57,6 +58,7 @@ function GameState:init()
             u = "rightRelease",
             
             f = "toggleFullscreen",
+            m = "toggleMusic",
             escape = "pause",
             p = "pause",
         },
@@ -71,6 +73,7 @@ function GameState:init()
 
             dpright = "toggleFullscreen",
             back = "toggleFullscreen",
+            dpdown = "toggleMusic",
             start = "pause",
         },
         -- clockwise arm inputs
@@ -102,9 +105,10 @@ function GameState:resume()
 end
 
 function GameState:toPauseState()
-    local changeSfx = love.audio.newSource("assets/sounds/sfx/weird-sound.wav", "static")
-    changeSfx:play()
+    mainThemeMusic:pause()
 
+    love.audio.play("assets/sounds/sfx/weird-sound.wav", "static")
+    
     StateManager.push(PauseState, self)
 end
 
@@ -229,6 +233,16 @@ function GameState:toggleFullscreen()
 
     -- need to reset the map's scale.
     self.camera:zoomTo(self.camera.scale, self.map)
+end
+
+function GameState:toggleMusic()
+    if mainThemeMusic:isPlaying() then
+        mainThemeMusic:pause()
+        musicMuted = true
+    else
+        mainThemeMusic:play()
+        musicMuted = false
+    end
 end
 
 function GameState:update(dt)

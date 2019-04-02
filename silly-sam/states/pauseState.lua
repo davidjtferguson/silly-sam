@@ -51,8 +51,10 @@ function PauseState:enter(gameState)
 end
 
 function PauseState:toGameState()
-    local changeSfx = love.audio.newSource("assets/sounds/sfx/begin.wav", "static")
-    changeSfx:play()
+    if not musicMuted then
+        mainThemeMusic:play()
+    end
+    love.audio.play("assets/sounds/sfx/begin.wav", "static")
 
     StateManager.pop()
 end
