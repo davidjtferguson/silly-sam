@@ -16,6 +16,7 @@ function PauseState:init()
             resume = function() self:toGameState() end,
             quit = love.event.quit,
             toggleFullscreen = function() self:toggleFullscreen() end,
+            toggleMusic = function() musicMuted = not musicMuted end,
         },
         keysPressed = {
         },
@@ -24,6 +25,7 @@ function PauseState:init()
             r = "restart",
             escape = "quit",
             f = "toggleFullscreen",
+            m = "toggleMusic",
         },
         buttonsPressed = {
         },
@@ -33,6 +35,7 @@ function PauseState:init()
             y = "restart",
             back = "quit",
             dpright = "toggleFullscreen",
+            dpdown = "toggleMusic",
         },
     }
 end

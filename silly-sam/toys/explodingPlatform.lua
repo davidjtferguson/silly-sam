@@ -90,6 +90,8 @@ function ExplodingPlatform:update(dt, world)
     if self.timer < 0 then
         if self.state=="exists" then
             -- blow up
+            love.audio.play("assets/sounds/sfx/box-disappear.wav", "static")
+
             self.state = "recovering"
             self.timer = 1.5
             self.timesExploded = self.timesExploded + 1
@@ -97,6 +99,8 @@ function ExplodingPlatform:update(dt, world)
             self.body:destroy()
         elseif self.state=="recovering" then
             -- respawn
+            love.audio.play("assets/sounds/sfx/box-reappear.wav", "static")
+
             self.state = "exists"
             
             -- timer has a shorter potental maximum each time. Goes down to a mimimum of 3 seconds, which probably isn't survivable.
