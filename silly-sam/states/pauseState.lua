@@ -13,7 +13,7 @@ function PauseState:init()
     self.controls = {
         bindings = {
             restart = function() self:restart() end,
-            resume = StateManager.pop,
+            resume = function() self:toGameState() end,
             quit = love.event.quit,
             toggleFullscreen = function() self:toggleFullscreen() end,
         },
@@ -48,6 +48,13 @@ function PauseState:enter(gameState)
 
     -- Screensize may have changed since we last initiated our canvas, so re-size
     self.canvas = love.graphics.newCanvas()
+end
+
+function PauseState:toGameState()
+    local changeSfx = love.audio.newSource("assets/sounds/sfx/begin.wav", "static")
+    changeSfx:play()
+
+    StateManager.pop()
 end
 
 -- restart game

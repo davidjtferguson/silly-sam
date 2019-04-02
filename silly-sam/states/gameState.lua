@@ -44,7 +44,7 @@ function GameState:init()
             rightRelease = function() self.sam:rightRelease() end,
             
             toggleFullscreen = function() self:toggleFullscreen() end,
-            pause = function() StateManager.push(PauseState, self) end,
+            pause = function() self:toPauseState() end,
         },
         keysPressed = {
             c = "left",
@@ -99,6 +99,13 @@ end
 
 function GameState:resume()
     love.graphics.setBackgroundColor(self:getBackgroundColor())
+end
+
+function GameState:toPauseState()
+    local changeSfx = love.audio.newSource("assets/sounds/sfx/weird-sound.wav", "static")
+    changeSfx:play()
+
+    StateManager.push(PauseState, self)
 end
 
 -- Everything that needs reset on loading a new map
