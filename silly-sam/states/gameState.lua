@@ -329,8 +329,11 @@ function GameState:beginContact(fixture1, fixture2, contact)
 
     local collisionSfx = love.audio.play("assets/sounds/sfx/collisions/generic/" .. filenames[math.floor(love.math.random(#filenames))], "static")
 
+    -- TODO: convert sfx to mono so this will work
+    -- TODO: play around with love.audio.setDistanceModel(...) to get distance changes to sound right
+    --collisionSfx:setPosition(x1, y1, 0)
+
     -- volume scaled from 1 to 100. If the force is > 100, will play at full volume
-    -- TODO: Should also take into account distance from Sam. further away = quieter.
     collisionSfx:setVolume(force/100)
 end
 
