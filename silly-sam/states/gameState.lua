@@ -308,9 +308,30 @@ end
 -- Should these should all be in a physics helper?
 function GameState:beginContact(fixture1, fixture2, contact)
     -- If anything was done here, first check the contact created is actually touching
-    -- if not contact:isTouching() then
-    --     return
-    -- end
+    if not contact:isTouching() then
+        return
+    end
+
+    local body1, body2 = fixture1:getBody(), fixture2:getBody()
+
+    if body1:getUserData() == "samBodyPart" and body2:getUserData() == "samBodyPart" then
+        return
+    end
+
+    -- Do I want to do this or use postSolve's normalImpulse?
+    local x1, y1 = body1:getLinearVelocity()
+    local x2, y2 = body2:getLinearVelocity()
+
+    local force = (math.abs(x1) + math.abs(y1) + math.abs(x2) + math.abs(y2)) / 4
+
+    -- pick a random sfx to play
+    local filenames = love.filesystem.getDirectoryItems("assets/sounds/sfx/collisions/generic/")
+
+    local collisionSfx = love.audio.play("assets/sounds/sfx/collisions/generic/" .. filenames[math.floor(love.math.random(#filenames))], "static")
+
+    -- volume scaled from 1 to 100. If the force is > 100, will play at full volume
+    -- TODO: Should also take into account distance from Sam. further away = quieter.
+    collisionSfx:setVolume(force/100)
 end
 
 function GameState:endContact(fixture1, fixture2, contact)
