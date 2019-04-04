@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.2" tiledversion="1.2.1" orientation="orthogonal" renderorder="right-down" width="330" height="100" tilewidth="32" tileheight="32" infinite="0" nextlayerid="12" nextobjectid="322">
+<map version="1.0" tiledversion="1.1.6" orientation="orthogonal" renderorder="right-down" width="330" height="100" tilewidth="32" tileheight="32" infinite="0" nextobjectid="324">
  <tileset firstgid="1" source="../tilesets/test-tileset.tsx"/>
  <tileset firstgid="3" source="../tilesets/cloud-001.tsx"/>
  <tileset firstgid="4" source="../tilesets/cloud-003.tsx"/>
  <tileset firstgid="5" source="../tilesets/grass-tuft-006.tsx"/>
  <tileset firstgid="6" source="../tilesets/grass-tuft-005.tsx"/>
  <tileset firstgid="7" source="../tilesets/cloud-002.tsx"/>
- <objectgroup id="6" name="backgroundObjects">
+ <objectgroup name="backgroundObjects">
   <object id="285" name="changeLevel" x="2117.45" y="2997.57">
    <properties>
     <property name="cameraDistance" type="float" value="1000"/>
@@ -127,7 +127,7 @@
    <point/>
   </object>
  </objectgroup>
- <objectgroup id="2" name="objects">
+ <objectgroup name="objects">
   <object id="4" name="sam" x="1819" y="150.031">
    <point/>
   </object>
@@ -149,15 +149,6 @@
     <property name="texturePath" value="assets/art/gameobject-textures/ball.png"/>
    </properties>
    <ellipse/>
-  </object>
-  <object id="258" name="hangingBag" x="2300.67" y="404.667">
-   <properties>
-    <property name="bagHeight" type="float" value="40"/>
-    <property name="bagWidth" type="float" value="200"/>
-    <property name="pivotingJoint" type="bool" value="false"/>
-    <property name="ropeLength" type="float" value="400"/>
-   </properties>
-   <point/>
   </object>
   <object id="259" name="rectangle" x="2537.64" y="910.212" width="593.198" height="644.183">
    <properties>
@@ -291,31 +282,31 @@
     <property name="texturePath" value="assets/art/environment-textures/ground-base.png"/>
    </properties>
   </object>
-  <object id="280" name="rectangle" x="8098.23" y="1866.23" width="397.772" height="62.593" rotation="-11.6645">
+  <object id="280" name="rectangle" x="8098.23" y="1866.23" width="397.772" height="77.4036" rotation="-11.6645">
    <properties>
     <property name="static" type="bool" value="true"/>
     <property name="texturePath" value="assets/art/environment-textures/ground-base.png"/>
    </properties>
   </object>
-  <object id="281" name="rectangle" x="8914.06" y="2076.14" width="116.117" height="658.593" rotation="-38.4181">
+  <object id="281" name="rectangle" x="8715.02" y="2234" width="370.159" height="658.593" rotation="-38.4181">
    <properties>
     <property name="static" type="bool" value="true"/>
     <property name="texturePath" value="assets/art/environment-textures/ground-base.png"/>
    </properties>
   </object>
-  <object id="282" name="rectangle" x="10547.8" y="968.768" width="87.8259" height="1757.9" rotation="26.1269">
+  <object id="282" name="rectangle" x="10547.8" y="968.768" width="579.93" height="1757.9" rotation="26.1269">
    <properties>
     <property name="static" type="bool" value="true"/>
     <property name="texturePath" value="assets/art/environment-textures/ground-base.png"/>
    </properties>
   </object>
-  <object id="283" name="rectangle" x="9290.12" y="2537.64" width="133.332" height="1058.14" rotation="-8.22435">
+  <object id="283" name="rectangle" x="8987.76" y="2578.04" width="429.744" height="1058.14" rotation="-8.22435">
    <properties>
     <property name="static" type="bool" value="true"/>
     <property name="texturePath" value="assets/art/environment-textures/ground-base.png"/>
    </properties>
   </object>
-  <object id="284" name="rectangle" x="9780.14" y="2538.68" width="89.998" height="1013.77" rotation="3.11796">
+  <object id="284" name="rectangle" x="9773.14" y="2542.68" width="544.286" height="1013.77" rotation="3.11796">
    <properties>
     <property name="static" type="bool" value="true"/>
     <property name="texturePath" value="assets/art/environment-textures/ground-base.png"/>
@@ -352,8 +343,20 @@
    </properties>
    <point/>
   </object>
+  <object id="323" name="hangingBag" x="2360" y="392">
+   <properties>
+    <property name="bagHeight" type="float" value="80"/>
+    <property name="bagWidth" type="float" value="150"/>
+    <property name="pivotingJoint" type="bool" value="true"/>
+    <property name="ropeLength" type="float" value="150"/>
+    <property name="texturPpathAnchor" value="assets/art/gameobject-textures/sandbag_anchortexture.png"/>
+    <property name="texturePathBag" value="assets/art/gameobject-textures/sandbag_bag2texture.png"/>
+    <property name="texturePathRope" value="assets/art/gameobject-textures/sandbag_ropetexture.png"/>
+   </properties>
+   <point/>
+  </object>
  </objectgroup>
- <layer id="11" name="terrain" width="330" height="100">
+ <layer name="terrain" width="330" height="100">
   <data encoding="csv">
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,

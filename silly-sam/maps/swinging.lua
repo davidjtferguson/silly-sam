@@ -1,15 +1,14 @@
 return {
-  version = "1.2",
+  version = "1.1",
   luaversion = "5.1",
-  tiledversion = "1.2.1",
+  tiledversion = "1.1.6",
   orientation = "orthogonal",
   renderorder = "right-down",
   width = 330,
   height = 100,
   tilewidth = 32,
   tileheight = 32,
-  nextlayerid = 12,
-  nextobjectid = 322,
+  nextobjectid = 324,
   properties = {},
   tilesets = {
     {
@@ -20,7 +19,6 @@ return {
       tileheight = 32,
       spacing = 0,
       margin = 0,
-      columns = 1,
       image = "../assets/art/map/test-tileset-image.png",
       imagewidth = 32,
       imageheight = 64,
@@ -36,7 +34,14 @@ return {
       properties = {},
       terrains = {},
       tilecount = 2,
-      tiles = {}
+      tiles = {
+        {
+          id = 1,
+          properties = {
+            ["collidable"] = true
+          }
+        }
+      }
     },
     {
       name = "cloud-001",
@@ -46,7 +51,6 @@ return {
       tileheight = 155,
       spacing = 0,
       margin = 0,
-      columns = 1,
       image = "../assets/art/environment-textures/cloud-001.png",
       imagewidth = 337,
       imageheight = 155,
@@ -72,7 +76,6 @@ return {
       tileheight = 165,
       spacing = 0,
       margin = 0,
-      columns = 1,
       image = "../assets/art/environment-textures/cloud-003.png",
       imagewidth = 337,
       imageheight = 165,
@@ -98,7 +101,6 @@ return {
       tileheight = 163,
       spacing = 0,
       margin = 0,
-      columns = 1,
       image = "../assets/art/environment-textures/grass-tuft-006.png",
       imagewidth = 127,
       imageheight = 163,
@@ -124,7 +126,6 @@ return {
       tileheight = 119,
       spacing = 0,
       margin = 0,
-      columns = 1,
       image = "../assets/art/environment-textures/grass-tuft-005.png",
       imagewidth = 81,
       imageheight = 119,
@@ -150,7 +151,6 @@ return {
       tileheight = 148,
       spacing = 0,
       margin = 0,
-      columns = 1,
       image = "../assets/art/environment-textures/cloud-002.png",
       imagewidth = 319,
       imageheight = 148,
@@ -172,7 +172,6 @@ return {
   layers = {
     {
       type = "objectgroup",
-      id = 6,
       name = "backgroundObjects",
       visible = true,
       opacity = 1,
@@ -457,7 +456,6 @@ return {
     },
     {
       type = "objectgroup",
-      id = 2,
       name = "objects",
       visible = true,
       opacity = 1,
@@ -525,24 +523,6 @@ return {
           properties = {
             ["static"] = false,
             ["texturePath"] = "assets/art/gameobject-textures/ball.png"
-          }
-        },
-        {
-          id = 258,
-          name = "hangingBag",
-          type = "",
-          shape = "point",
-          x = 2300.67,
-          y = 404.667,
-          width = 0,
-          height = 0,
-          rotation = 0,
-          visible = true,
-          properties = {
-            ["bagHeight"] = 40,
-            ["bagWidth"] = 200,
-            ["pivotingJoint"] = false,
-            ["ropeLength"] = 400
           }
         },
         {
@@ -865,7 +845,7 @@ return {
           x = 8098.23,
           y = 1866.23,
           width = 397.772,
-          height = 62.593,
+          height = 77.4036,
           rotation = -11.6645,
           visible = true,
           properties = {
@@ -878,9 +858,9 @@ return {
           name = "rectangle",
           type = "",
           shape = "rectangle",
-          x = 8914.06,
-          y = 2076.14,
-          width = 116.117,
+          x = 8715.02,
+          y = 2234,
+          width = 370.159,
           height = 658.593,
           rotation = -38.4181,
           visible = true,
@@ -896,7 +876,7 @@ return {
           shape = "rectangle",
           x = 10547.8,
           y = 968.768,
-          width = 87.8259,
+          width = 579.93,
           height = 1757.9,
           rotation = 26.1269,
           visible = true,
@@ -910,9 +890,9 @@ return {
           name = "rectangle",
           type = "",
           shape = "rectangle",
-          x = 9290.12,
-          y = 2537.64,
-          width = 133.332,
+          x = 8987.76,
+          y = 2578.04,
+          width = 429.744,
           height = 1058.14,
           rotation = -8.22435,
           visible = true,
@@ -926,9 +906,9 @@ return {
           name = "rectangle",
           type = "",
           shape = "rectangle",
-          x = 9780.14,
-          y = 2538.68,
-          width = 89.998,
+          x = 9773.14,
+          y = 2542.68,
+          width = 544.286,
           height = 1013.77,
           rotation = 3.11796,
           visible = true,
@@ -1014,12 +994,32 @@ return {
           properties = {
             ["cameraDistance"] = 500
           }
+        },
+        {
+          id = 323,
+          name = "hangingBag",
+          type = "",
+          shape = "point",
+          x = 2360,
+          y = 392,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["bagHeight"] = 80,
+            ["bagWidth"] = 150,
+            ["pivotingJoint"] = true,
+            ["ropeLength"] = 150,
+            ["texturPpathAnchor"] = "assets/art/gameobject-textures/sandbag_anchortexture.png",
+            ["texturePathBag"] = "assets/art/gameobject-textures/sandbag_bag2texture.png",
+            ["texturePathRope"] = "assets/art/gameobject-textures/sandbag_ropetexture.png"
+          }
         }
       }
     },
     {
       type = "tilelayer",
-      id = 11,
       name = "terrain",
       x = 0,
       y = 0,
