@@ -324,7 +324,7 @@ end
 function GameState:postSolve(fixture1, fixture2, contact, linearImpulse)
     local body1, body2 = fixture1:getBody(), fixture2:getBody()
 
-    if body1:getUserData() == "samBodyPart" and body2:getUserData() == "samBodyPart" then
+    if body1:getUserData().type == "samBodyPart" and body2:getUserData().type == "samBodyPart" then
         return
     end
 
@@ -333,10 +333,20 @@ function GameState:postSolve(fixture1, fixture2, contact, linearImpulse)
         return
     end
 
-    -- pick a random sfx to play
-    local filenames = love.filesystem.getDirectoryItems("assets/sounds/sfx/collisions/generic/")
+    -- If there's any non-generic collision sfx in question, play one.
+    -- If both are non-generic, we'll just play the first one (basically randomly)
+    local sfxFolder = "generic"
 
-    local collisionSfx = love.audio.play("assets/sounds/sfx/collisions/generic/" .. filenames[math.floor(love.math.random(#filenames))], "static")
+    if body1:getUserData().collisionSfxFolder ~= "generic" then
+        sfxFolder = body1:getUserData().collisionSfxFolder
+    elseif body2:getUserData().collisionSfxFolder ~= "generic" then
+        sfxFolder = body2:getUserData().collisionSfxFolder
+    end
+
+    -- pick a random sfx to play from within the specified folder
+    local filenames = love.filesystem.getDirectoryItems("assets/sounds/sfx/collisions/" .. sfxFolder)
+
+    local collisionSfx = love.audio.play("assets/sounds/sfx/collisions/" .. sfxFolder .. "/" .. filenames[math.floor(love.math.random(#filenames))], "static")
     
     -- For some reason a contact can have two positions... I'm going to assume they're always close to eachother and just grab the first one
     x1, y1 = contact:getPositions()
