@@ -210,8 +210,8 @@ function GameState:loadMap(mapPath)
         function(body1, body2, contact)
             self:preSolve(body1, body2, contact)
         end,
-        function(body1, body2, contact)
-            self:postSolve(body1, body2, contact)
+        function(body1, body2, contact, normalImpulse)
+            self:postSolve(body1, body2, contact, normalImpulse)
         end
     )
 end
@@ -308,36 +308,9 @@ end
 -- Should these should all be in a physics helper?
 function GameState:beginContact(fixture1, fixture2, contact)
     -- If anything was done here, first check the contact created is actually touching
-    if not contact:isTouching() then
-        return
-    end
-
-    local body1, body2 = fixture1:getBody(), fixture2:getBody()
-
-    if body1:getUserData() == "samBodyPart" and body2:getUserData() == "samBodyPart" then
-        return
-    end
-
-    -- Do I want to do this or use postSolve's normalImpulse?
-    local x1, y1 = body1:getLinearVelocity()
-    local x2, y2 = body2:getLinearVelocity()
-
-    local force = (math.abs(x1) + math.abs(y1) + math.abs(x2) + math.abs(y2)) / 4
-
-    -- pick a random sfx to play
-    local filenames = love.filesystem.getDirectoryItems("assets/sounds/sfx/collisions/generic/")
-
-    local collisionSfx = love.audio.play("assets/sounds/sfx/collisions/generic/" .. filenames[math.floor(love.math.random(#filenames))], "static")
-
-    -- TODO: play around with love.audio.setDistanceModel(...) and attenuation distances to get distance changes to sound right
-    -- seems to just sometimes not play even when it's close. Kinda tempted to manually do it :K
-    -- Could be an issue with the math above, should be set by impulse not total force
-    -- because total force doesn't make any sense as it doesn't take into account the axis of the forces
-    collisionSfx:setPosition(x1, y1, 0)
-    collisionSfx:setAttenuationDistances(50, 2000)
-
-    -- volume scaled from 1 to 100. If the force is > 100, will play at full volume
-    collisionSfx:setVolume(force/100)
+    -- if not contact:isTouching() then
+    --     return
+    -- end
 end
 
 function GameState:endContact(fixture1, fixture2, contact)
@@ -348,7 +321,31 @@ end
 function GameState:preSolve(fixture1, fixture2, contact)
 end
 
-function GameState:postSolve(fixture1, fixture2, contact)
+function GameState:postSolve(fixture1, fixture2, contact, linearImpulse)
+    local body1, body2 = fixture1:getBody(), fixture2:getBody()
+
+    if body1:getUserData() == "samBodyPart" and body2:getUserData() == "samBodyPart" then
+        return
+    end
+
+    -- Only play sfx for impacts over a threshold.
+    if linearImpulse < 25 then
+        return
+    end
+
+    -- pick a random sfx to play
+    local filenames = love.filesystem.getDirectoryItems("assets/sounds/sfx/collisions/generic/")
+
+    local collisionSfx = love.audio.play("assets/sounds/sfx/collisions/generic/" .. filenames[math.floor(love.math.random(#filenames))], "static")
+    
+    -- For some reason a contact can have two positions... I'm going to assume they're always close to eachother and just grab the first one
+    x1, y1 = contact:getPositions()
+
+    collisionSfx:setPosition(x1, y1, 0)
+    collisionSfx:setAttenuationDistances(50, 1500)
+
+    -- volume, scaled by impulse of impact
+    collisionSfx:setVolume(linearImpulse/100)
 end
 
 function GameState:draw()
