@@ -188,6 +188,8 @@ return {
           rotation = 0,
           visible = true,
           properties = {
+            ["collisionSfxFolderBoard"] = "generic",
+            ["collisionSfxFolderWheel"] = "squeaky",
             ["texturePathBoard"] = "assets/art/gameobject-textures/skateboard-deck.png",
             ["texturePathWheel"] = "assets/art/gameobject-textures/skateboard-wheel.png"
           }
@@ -206,6 +208,7 @@ return {
           properties = {
             ["bagHeight"] = 40,
             ["bagWidth"] = 100,
+            ["collisionSfxFolder"] = "squeaky",
             ["pivotingJoint"] = false,
             ["ropeLength"] = 250,
             ["texturePathAnchor"] = "assets/art/sam-textures/arm-left.png",
@@ -283,6 +286,7 @@ return {
           visible = true,
           properties = {
             ["cameraDistance"] = 700,
+            ["collisionSfxFolder"] = "squeaky",
             ["static"] = false
           }
         },

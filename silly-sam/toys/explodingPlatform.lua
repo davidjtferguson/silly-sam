@@ -40,7 +40,10 @@ end
 function ExplodingPlatform:resetPhysicsObject(world)
     -- [re]-create based on saved values
     self.body = love.physics.newBody(world, self.xSpawn, self.ySpawn, self.bodyType)
-    self.body:setUserData("explodingPlatform")
+    self.body:setUserData({
+        type = "explodingPlatform",
+        collisionSfxFolder = self.mapObject.properties.collisionSfxFolder or "generic"
+    })
     self.shape = love.physics.newRectangleShape(0, 0, self.width, self.height)
     self.fixture = love.physics.newFixture(self.body, self.shape);
     self.fixture:setFriction(0.9)

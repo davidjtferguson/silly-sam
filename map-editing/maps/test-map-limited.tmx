@@ -13,6 +13,8 @@
   </object>
   <object id="5" name="skateboard" x="824" y="470">
    <properties>
+    <property name="collisionSfxFolderBoard" value="generic"/>
+    <property name="collisionSfxFolderWheel" value="squeaky"/>
     <property name="texturePathBoard" value="assets/art/gameobject-textures/skateboard-deck.png"/>
     <property name="texturePathWheel" value="assets/art/gameobject-textures/skateboard-wheel.png"/>
    </properties>
@@ -22,6 +24,7 @@
    <properties>
     <property name="bagHeight" type="float" value="40"/>
     <property name="bagWidth" type="float" value="100"/>
+    <property name="collisionSfxFolder" value="squeaky"/>
     <property name="pivotingJoint" type="bool" value="false"/>
     <property name="ropeLength" type="float" value="250"/>
     <property name="texturePathAnchor" value="assets/art/sam-textures/arm-left.png"/>
@@ -63,6 +66,7 @@
   <object id="15" name="ball" x="1223" y="429" width="210" height="210">
    <properties>
     <property name="cameraDistance" type="float" value="700"/>
+    <property name="collisionSfxFolder" value="squeaky"/>
     <property name="static" type="bool" value="false"/>
    </properties>
    <ellipse/>

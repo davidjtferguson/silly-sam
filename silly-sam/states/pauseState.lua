@@ -64,6 +64,10 @@ end
 
 -- restart game
 function PauseState:restart()
+    if not musicMuted then
+        mainThemeMusic:play()
+    end
+    
     StateManager.pop()
     reset()
 end
