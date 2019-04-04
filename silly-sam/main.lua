@@ -60,6 +60,9 @@ function love.load()
         end
     end
 
+    -- set up distance model
+    love.audio.setDistanceModel("linear")
+
     -- play the main theme
     mainThemeMusic = love.audio.play("assets/sounds/music/sam-theme.mp3", "stream", true)
     musicMuted = false

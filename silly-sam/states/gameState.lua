@@ -329,9 +329,12 @@ function GameState:beginContact(fixture1, fixture2, contact)
 
     local collisionSfx = love.audio.play("assets/sounds/sfx/collisions/generic/" .. filenames[math.floor(love.math.random(#filenames))], "static")
 
-    -- TODO: convert sfx to mono so this will work
-    -- TODO: play around with love.audio.setDistanceModel(...) to get distance changes to sound right
-    --collisionSfx:setPosition(x1, y1, 0)
+    -- TODO: play around with love.audio.setDistanceModel(...) and attenuation distances to get distance changes to sound right
+    -- seems to just sometimes not play even when it's close. Kinda tempted to manually do it :K
+    -- Could be an issue with the math above, should be set by impulse not total force
+    -- because total force doesn't make any sense as it doesn't take into account the axis of the forces
+    collisionSfx:setPosition(x1, y1, 0)
+    collisionSfx:setAttenuationDistances(50, 2000)
 
     -- volume scaled from 1 to 100. If the force is > 100, will play at full volume
     collisionSfx:setVolume(force/100)
