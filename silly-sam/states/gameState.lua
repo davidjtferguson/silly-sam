@@ -28,9 +28,9 @@ function GameState:init()
     --self:loadMap("maps/intro-map.lua")
     --self:loadMap("maps/survival-map.lua")
     --self:loadMap("maps/cliff.lua")
-    self:loadMap("maps/swinging.lua")
+    --self:loadMap("maps/swinging.lua")
     --self:loadMap("maps/bonus.lua")
-    --self:loadMap("maps/rory-level.lua")
+    self:loadMap("maps/rory-level.lua")
     
     --self:loadMap("maps/test-map-limited-level.lua")
 
