@@ -246,6 +246,9 @@ function Sam:init(world, mapObject)
 end
 
 function Sam:update(dt, controls)
+    -- our audio listener position, at Sam's ears
+    love.audio.setPosition(self.head.body:getX(), self.head.body:getY(), 0)
+
     self:armForces(dt, self.leftArm, controls.keysLeftArm, "leftx", "lefty");
     self:armForces(dt, self.rightArm, controls.keysRightArm, "rightx", "righty");
     
