@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" tiledversion="1.1.6" orientation="orthogonal" renderorder="right-down" width="100" height="100" tilewidth="32" tileheight="32" infinite="0" nextobjectid="204">
+<map version="1.0" tiledversion="1.1.6" orientation="orthogonal" renderorder="right-down" width="100" height="100" tilewidth="32" tileheight="32" infinite="0" nextobjectid="205">
  <tileset firstgid="1" source="../tilesets/tree-triangle-tileset.tsx"/>
  <tileset firstgid="2" source="../tilesets/tree-leaf-tileset.tsx"/>
  <tileset firstgid="3" source="../tilesets/cloud-003.tsx"/>
@@ -201,18 +201,18 @@
   <object id="200" gid="11" x="931.639" y="1515.5" width="112.721" height="73"/>
  </objectgroup>
  <objectgroup name="TileSetObjectsMid">
-  <object id="168" gid="2" x="1533.81" y="1512.03" width="138.404" height="273.238" rotation="5.14791"/>
-  <object id="190" gid="13" x="1017.58" y="1519.44" width="206.844" height="398.453" rotation="-5.6583"/>
+  <object id="168" gid="2" x="1514.81" y="1512.03" width="138.404" height="273.238" rotation="5.14791"/>
+  <object id="190" gid="13" x="1017.58" y="1526.44" width="206.844" height="398.453" rotation="-5.6583"/>
  </objectgroup>
  <objectgroup name="TileSetObjectsFront">
   <object id="140" gid="1" x="1745.88" y="1430.45" width="196.226" height="378" rotation="14.3542"/>
-  <object id="180" gid="5" x="1415" y="1523" width="72" height="115"/>
-  <object id="181" gid="6" x="1074.55" y="1521" width="79.4526" height="74"/>
+  <object id="180" gid="5" x="1574" y="1531" width="45.1043" height="72.0417"/>
+  <object id="181" gid="6" x="1096.55" y="1525" width="89.1158" height="83"/>
   <object id="182" gid="7" x="1931.67" y="1524.33" width="81" height="119"/>
   <object id="184" gid="9" x="721.932" y="1275.47" width="95.7193" height="90.1299" rotation="22.0348"/>
   <object id="185" gid="10" x="894" y="1514" width="109" height="133"/>
-  <object id="186" gid="9" x="2152" y="1525.68" width="137" height="129" rotation="-0.00428476"/>
-  <object id="188" gid="12" x="2151" y="1513.67" width="48.8679" height="41.1111"/>
+  <object id="186" gid="9" x="1794" y="1462.68" width="89.514" height="84.2869" rotation="-0.00428476"/>
+  <object id="188" gid="12" x="2017" y="1509.67" width="48.8679" height="41.1111"/>
   <object id="191" gid="22" x="854.667" y="1909" width="520" height="363.708"/>
   <object id="192" gid="23" x="1432" y="1918.55" width="556" height="388.888"/>
   <object id="193" gid="24" x="2038.67" y="1949.07" width="611.074" height="427.408"/>
@@ -223,5 +223,6 @@
   <object id="201" gid="3" x="1472.66" y="1156.67" width="337" height="165"/>
   <object id="202" gid="4" x="720.665" y="1260.67" width="319" height="148"/>
   <object id="203" gid="4" x="2108.34" y="1265.33" width="319" height="148"/>
+  <object id="204" gid="16" x="1760.66" y="1445" width="109.345" height="42"/>
  </objectgroup>
 </map>
