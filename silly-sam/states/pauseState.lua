@@ -13,9 +13,10 @@ function PauseState:init()
     self.controls = {
         bindings = {
             restart = function() self:restart() end,
-            resume = StateManager.pop,
+            resume = function() self:toGameState() end,
             quit = love.event.quit,
             toggleFullscreen = function() self:toggleFullscreen() end,
+            toggleMusic = function() musicMuted = not musicMuted end,
         },
         keysPressed = {
         },
@@ -24,6 +25,7 @@ function PauseState:init()
             r = "restart",
             escape = "quit",
             f = "toggleFullscreen",
+            m = "toggleMusic",
         },
         buttonsPressed = {
         },
@@ -33,6 +35,7 @@ function PauseState:init()
             y = "restart",
             back = "quit",
             dpright = "toggleFullscreen",
+            dpdown = "toggleMusic",
         },
     }
 end
@@ -50,8 +53,21 @@ function PauseState:enter(gameState)
     self.canvas = love.graphics.newCanvas()
 end
 
+function PauseState:toGameState()
+    if not musicMuted then
+        mainThemeMusic:play()
+    end
+    love.audio.play("assets/sounds/sfx/begin.wav", "static")
+
+    StateManager.pop()
+end
+
 -- restart game
 function PauseState:restart()
+    if not musicMuted then
+        mainThemeMusic:play()
+    end
+    
     StateManager.pop()
     reset()
 end

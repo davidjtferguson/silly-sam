@@ -30,7 +30,10 @@ function Sam:init(world, mapObject)
     self.chest.height = 60
     self.chest.image = love.graphics.newImage("assets/art/sam-textures/chest.png")
     self.chest.body = love.physics.newBody(world, spawn.x, spawn.y, "dynamic")
-    self.chest.body:setUserData("samBodyPart")
+    self.chest.body:setUserData({
+        type = "samBodyPart",
+        collisionSfxFolder = "generic"
+    })
     self.chest.shape = love.physics.newRectangleShape(self.chest.width, self.chest.height)
     self.chest.fixture = love.physics.newFixture(self.chest.body, self.chest.shape);
     self.chest.fixture:setFriction(0.5)
@@ -42,7 +45,10 @@ function Sam:init(world, mapObject)
     self.leftLeg.height = 45
     self.leftLeg.image = love.graphics.newImage("assets/art/sam-textures/leg-left.png")
     self.leftLeg.body = love.physics.newBody(world, spawn.x-20, spawn.y+60, "dynamic")
-    self.leftLeg.body:setUserData("samBodyPart")
+    self.leftLeg.body:setUserData({
+        type = "samBodyPart",
+        collisionSfxFolder = "generic"
+    })
     self.leftLeg.shape = love.physics.newRectangleShape(self.leftLeg.width, self.leftLeg.height)
     self.leftLeg.fixture = love.physics.newFixture(self.leftLeg.body, self.leftLeg.shape, 3);
     self.leftLeg.fixture:setFriction(0.5)
@@ -64,7 +70,10 @@ function Sam:init(world, mapObject)
     self.rightLeg.height = 45
     self.rightLeg.image = love.graphics.newImage("assets/art/sam-textures/leg-right.png")
     self.rightLeg.body = love.physics.newBody(world, spawn.x+20, spawn.y+60, "dynamic")
-    self.rightLeg.body:setUserData("samBodyPart")
+    self.rightLeg.body:setUserData({
+        type = "samBodyPart",
+        collisionSfxFolder = "generic"
+    })
     self.rightLeg.shape = love.physics.newRectangleShape(self.rightLeg.width, self.rightLeg.height)
     self.rightLeg.fixture = love.physics.newFixture(self.rightLeg.body, self.rightLeg.shape, 3);
     self.rightLeg.fixture:setFriction(0.5)
@@ -82,8 +91,16 @@ function Sam:init(world, mapObject)
     -- head
     self.head = {}
     self.head.image = love.graphics.newImage("assets/art/sam-textures/face.png")
+<<<<<<< HEAD
     self.head.body = love.physics.newBody(world, spawn.x, spawn.y-45, "dynamic")
     self.head.body:setUserData("samBodyPart")
+=======
+    self.head.body = love.physics.newBody(world, spawn.x, spawn.y-55, "dynamic")
+    self.head.body:setUserData({
+        type = "samBodyPart",
+        collisionSfxFolder = "generic"
+    })
+>>>>>>> master
     self.head.shape = love.physics.newCircleShape(15)
     self.head.fixture = love.physics.newFixture(self.head.body, self.head.shape, 0.5);
     self.head.fixture:setFriction(0.5)
@@ -94,7 +111,10 @@ function Sam:init(world, mapObject)
     -- chin (not visible, for weighting)
     self.chin = {}
     self.chin.body = love.physics.newBody(world, spawn.x, spawn.y-35, "dynamic")
-    self.chin.body:setUserData("samBodyPart")
+    self.chin.body:setUserData({
+        type = "samBodyPart",
+        collisionSfxFolder = "generic"
+    })
     self.chin.shape = love.physics.newCircleShape(4)
     self.chin.body:setMass(1000)
     self.chin.fixture = love.physics.newFixture(self.chin.body, self.chin.shape, 0.5);
@@ -109,7 +129,10 @@ function Sam:init(world, mapObject)
     self.toupee.height = 7.3
     self.toupee.image = love.graphics.newImage("assets/art/sam-textures/game-empty-texture.png")
     self.toupee.body = love.physics.newBody(world, spawn.x, spawn.y-74, "dynamic")
-    self.toupee.body:setUserData("samBodyPart")
+    self.toupee.body:setUserData({
+        type = "samBodyPart",
+        collisionSfxFolder = "generic"
+    })
     self.toupee.body:setMass(0)
     self.toupee.shape = love.physics.newRectangleShape(self.toupee.width, self.toupee.height)
     self.toupee.fixture = love.physics.newFixture(self.toupee.body, self.toupee.shape, 1);
@@ -123,9 +146,18 @@ function Sam:init(world, mapObject)
     -- left eye
     self.leftEye = {}
     self.leftEye.radius = 2
+<<<<<<< HEAD
     self.leftEye.image = love.graphics.newImage("assets/art/sam-textures/game-empty-texture.png")
     self.leftEye.body = love.physics.newBody(world, spawn.x-10, spawn.y-60, "dynamic")
     self.leftEye.body:setUserData("samBodyPart")
+=======
+    self.leftEye.image = love.graphics.newImage("assets/art/sam-textures/eye-right.png")
+    self.leftEye.body = love.physics.newBody(world, spawn.x-7, spawn.y-51, "dynamic")
+    self.leftEye.body:setUserData({
+        type = "samBodyPart",
+        collisionSfxFolder = "generic"
+    })
+>>>>>>> master
     self.leftEye.shape = love.physics.newCircleShape(self.leftEye.radius)
     self.leftEye.fixture = love.physics.newFixture(self.leftEye.body, self.leftEye.shape, 0.5);
     self.leftEye.fixture:setFriction(0.9)
@@ -138,7 +170,10 @@ function Sam:init(world, mapObject)
     self.rightEye.radius = 2
     self.rightEye.image = love.graphics.newImage("assets/art/sam-textures/game-empty-texture.png")
     self.rightEye.body = love.physics.newBody(world, spawn.x+10, spawn.y-50, "dynamic")
-    self.rightEye.body:setUserData("samBodyPart")
+    self.rightEye.body:setUserData({
+        type = "samBodyPart",
+        collisionSfxFolder = "generic"
+    })
     self.rightEye.shape = love.physics.newCircleShape(self.rightEye.radius)
     self.rightEye.fixture = love.physics.newFixture(self.rightEye.body, self.rightEye.shape, 0.5);
     self.rightEye.fixture:setFriction(0.9)
@@ -152,7 +187,10 @@ function Sam:init(world, mapObject)
     self.nose.height = 26
     self.nose.image = love.graphics.newImage("assets/art/sam-textures/nose.png")
     self.nose.body = love.physics.newBody(world, spawn.x+1, spawn.y-55, "dynamic")
-    self.nose.body:setUserData("samBodyPart")
+    self.nose.body:setUserData({
+        type = "samBodyPart",
+        collisionSfxFolder = "generic"
+    })
     self.nose.shape = love.physics.newRectangleShape(self.nose.width, self.nose.height)
     self.nose.fixture = love.physics.newFixture(self.nose.body, self.nose.shape, 1);
     self.nose.fixture:setFriction(.8)
@@ -166,7 +204,10 @@ function Sam:init(world, mapObject)
     self.leftArm.height = 35
     self.leftArm.image = love.graphics.newImage("assets/art/sam-textures/arm-left.png")
     self.leftArm.body = love.physics.newBody(world, spawn.x-30, spawn.y, "dynamic")
-    self.leftArm.body:setUserData("samBodyPart")
+    self.leftArm.body:setUserData({
+        type = "samBodyPart",
+        collisionSfxFolder = "generic"
+    })
     self.leftArm.shape = love.physics.newRectangleShape(self.leftArm.width, self.leftArm.height)
     self.leftArm.fixture = love.physics.newFixture(self.leftArm.body, self.leftArm.shape, 1);
     self.leftArm.fixture:setFriction(0.5)
@@ -180,7 +221,10 @@ function Sam:init(world, mapObject)
     self.leftHand = {}
     self.leftHand.image = love.graphics.newImage("assets/art/sam-textures/hand-left-open.png")
     self.leftHand.body = love.physics.newBody(world, spawn.x-30, spawn.y+self.leftArm.height+handToArmDistance, "dynamic")
-    self.leftHand.body:setUserData("samBodyPart")
+    self.leftHand.body:setUserData({
+        type = "samBodyPart",
+        collisionSfxFolder = "generic"
+    })
     self.leftHand.shape = love.physics.newCircleShape(8)
     self.leftHand.fixture = love.physics.newFixture(self.leftHand.body, self.leftHand.shape, 1);
     self.leftHand.color = {0.8, 0.4, 1}
@@ -196,7 +240,10 @@ function Sam:init(world, mapObject)
     self.rightArm.height = 35
     self.rightArm.image = love.graphics.newImage("assets/art/sam-textures/arm-right.png")
     self.rightArm.body = love.physics.newBody(world, spawn.x+30, spawn.y, "dynamic")
-    self.rightArm.body:setUserData("samBodyPart")
+    self.rightArm.body:setUserData({
+        type = "samBodyPart",
+        collisionSfxFolder = "generic"
+    })
     self.rightArm.shape = love.physics.newRectangleShape(self.rightArm.width, self.rightArm.height)
     self.rightArm.fixture = love.physics.newFixture(self.rightArm.body, self.rightArm.shape, 1);
     self.rightArm.fixture:setFriction(0.5)
@@ -208,7 +255,10 @@ function Sam:init(world, mapObject)
     self.rightHand = {}
     self.rightHand.image = love.graphics.newImage("assets/art/sam-textures/hand-right-open.png")
     self.rightHand.body = love.physics.newBody(world, spawn.x+30, spawn.y+self.rightArm.height+handToArmDistance, "dynamic")
-    self.rightHand.body:setUserData("samBodyPart")
+    self.rightHand.body:setUserData({
+        type = "samBodyPart",
+        collisionSfxFolder = "generic"
+    })
     self.rightHand.shape = love.physics.newCircleShape(8)
     self.rightHand.fixture = love.physics.newFixture(self.rightHand.body, self.rightHand.shape, 1);
     self.rightHand.color = {0.8, 0.4, 1}
@@ -246,6 +296,9 @@ function Sam:init(world, mapObject)
 end
 
 function Sam:update(dt, controls)
+    -- our audio listener position, at Sam's ears
+    love.audio.setPosition(self.head.body:getX(), self.head.body:getY(), 0)
+
     self:armForces(dt, self.leftArm, controls.keysLeftArm, "leftx", "lefty");
     self:armForces(dt, self.rightArm, controls.keysRightArm, "rightx", "righty");
     

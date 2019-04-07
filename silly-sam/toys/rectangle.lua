@@ -13,7 +13,10 @@ function Rectangle:init(world, mapObject)
     local bodyType = self:checkStaticBool(mapObject.properties.static)
 
     self.body = love.physics.newBody(world, xSpawn, ySpawn, bodyType)
-    self.body:setUserData("rectangle")
+    self.body:setUserData({
+        type = "rectangle",
+        collisionSfxFolder = mapObject.properties.collisionSfxFolder or "generic"
+    })
     self.shape = love.physics.newRectangleShape(0, 0, self.width, self.height)
     self.fixture = love.physics.newFixture(self.body, self.shape);
     self.fixture:setFriction(0.9)

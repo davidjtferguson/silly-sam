@@ -31,6 +31,8 @@ Press start to pause.
 
 Press back or right on the d-pad to toggle fullscreen. (Note you may have performance issues in fullscreen - if this occurs keeping the game windowed is recommended).
 
+Press down on the d-pad to toggle music.
+
 ### Keyboard controls
 
 C lifts Sam's left leg if it's on the ground, N lifts Sam's right leg if it's on the ground.
@@ -42,6 +44,8 @@ Use WASD to direct the left arm and IJKL to direct the right arm.
 Press P to pause.
 
 Use F to toggle fullscreen.
+
+Use M to toggle music.
 
 ## Branch labels
 

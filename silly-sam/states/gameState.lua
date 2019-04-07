@@ -44,7 +44,8 @@ function GameState:init()
             rightRelease = function() self.sam:rightRelease() end,
             
             toggleFullscreen = function() self:toggleFullscreen() end,
-            pause = function() StateManager.push(PauseState, self) end,
+            toggleMusic = function() self:toggleMusic() end,
+            pause = function() self:toPauseState() end,
         },
         keysPressed = {
             c = "left",
@@ -57,6 +58,7 @@ function GameState:init()
             u = "rightRelease",
             
             f = "toggleFullscreen",
+            m = "toggleMusic",
             escape = "pause",
             p = "pause",
         },
@@ -71,6 +73,7 @@ function GameState:init()
 
             dpright = "toggleFullscreen",
             back = "toggleFullscreen",
+            dpdown = "toggleMusic",
             start = "pause",
         },
         -- clockwise arm inputs
@@ -99,6 +102,14 @@ end
 
 function GameState:resume()
     love.graphics.setBackgroundColor(self:getBackgroundColor())
+end
+
+function GameState:toPauseState()
+    mainThemeMusic:pause()
+
+    love.audio.play("assets/sounds/sfx/weird-sound.wav", "static")
+    
+    StateManager.push(PauseState, self)
 end
 
 -- Everything that needs reset on loading a new map
@@ -199,8 +210,8 @@ function GameState:loadMap(mapPath)
         function(body1, body2, contact)
             self:preSolve(body1, body2, contact)
         end,
-        function(body1, body2, contact)
-            self:postSolve(body1, body2, contact)
+        function(body1, body2, contact, normalImpulse)
+            self:postSolve(body1, body2, contact, normalImpulse)
         end
     )
 end
@@ -222,6 +233,16 @@ function GameState:toggleFullscreen()
 
     -- need to reset the map's scale.
     self.camera:zoomTo(self.camera.scale, self.map)
+end
+
+function GameState:toggleMusic()
+    if mainThemeMusic:isPlaying() then
+        mainThemeMusic:pause()
+        musicMuted = true
+    else
+        mainThemeMusic:play()
+        musicMuted = false
+    end
 end
 
 function GameState:update(dt)
@@ -300,7 +321,62 @@ end
 function GameState:preSolve(fixture1, fixture2, contact)
 end
 
-function GameState:postSolve(fixture1, fixture2, contact)
+function GameState:postSolve(fixture1, fixture2, contact, linearImpulse)
+    local body1, body2 = fixture1:getBody(), fixture2:getBody()
+
+    local body1Data, body2Data = body1:getUserData(), body2:getUserData()
+
+    -- Bodies might not have user data set (e.g. map tiles)
+    if body1Data == nil then
+        body1Data = {
+            type = "unknown",
+            collisionSfxFolder = "generic"
+        }
+    end
+
+    if body2Data == nil then
+        body2Data = {
+            type = "unknown",
+            collisionSfxFolder = "generic"
+        }
+    end
+
+    -- No sounds for sam colliding with himself
+    if body1Data.type == "samBodyPart" and body2Data.type == "samBodyPart" then
+        return
+    end
+
+    -- Only play sfx for impacts over a threshold.
+    -- TODO: This is for the force of the collision, not the speed of objects.
+    -- so, for example, if a very heavy object sits on sam it constantly collides with sam with a high impulse because of the object's weight
+    -- causing this threshold to be met and an sfx to play when we don't want it to
+    if linearImpulse < 25 then
+        return
+    end
+
+    -- If there's any non-generic collision sfx in question, play one.
+    -- If both are non-generic, we'll just play the first one (basically randomly)
+    local sfxFolder = "generic"
+
+    if body1Data.collisionSfxFolder ~= "generic" then
+        sfxFolder = body1Data.collisionSfxFolder
+    elseif body2Data.collisionSfxFolder ~= "generic" then
+        sfxFolder = body2Data.collisionSfxFolder
+    end
+
+    -- pick a random sfx to play from within the specified folder
+    local filenames = love.filesystem.getDirectoryItems("assets/sounds/sfx/collisions/" .. sfxFolder)
+
+    local collisionSfx = love.audio.play("assets/sounds/sfx/collisions/" .. sfxFolder .. "/" .. filenames[math.floor(love.math.random(#filenames))], "static")
+    
+    -- For some reason a contact can have two positions... I'm going to assume they're always close to eachother and just grab the first one
+    x1, y1 = contact:getPositions()
+
+    collisionSfx:setPosition(x1, y1, 0)
+    collisionSfx:setAttenuationDistances(50, 1500)
+
+    -- volume, scaled by impulse of impact
+    collisionSfx:setVolume(linearImpulse/100)
 end
 
 function GameState:draw()
