@@ -91,16 +91,11 @@ function Sam:init(world, mapObject)
     -- head
     self.head = {}
     self.head.image = love.graphics.newImage("assets/art/sam-textures/face.png")
-<<<<<<< HEAD
     self.head.body = love.physics.newBody(world, spawn.x, spawn.y-45, "dynamic")
-    self.head.body:setUserData("samBodyPart")
-=======
-    self.head.body = love.physics.newBody(world, spawn.x, spawn.y-55, "dynamic")
     self.head.body:setUserData({
         type = "samBodyPart",
         collisionSfxFolder = "generic"
     })
->>>>>>> master
     self.head.shape = love.physics.newCircleShape(15)
     self.head.fixture = love.physics.newFixture(self.head.body, self.head.shape, 0.5);
     self.head.fixture:setFriction(0.5)
@@ -146,18 +141,12 @@ function Sam:init(world, mapObject)
     -- left eye
     self.leftEye = {}
     self.leftEye.radius = 2
-<<<<<<< HEAD
     self.leftEye.image = love.graphics.newImage("assets/art/sam-textures/game-empty-texture.png")
     self.leftEye.body = love.physics.newBody(world, spawn.x-10, spawn.y-60, "dynamic")
-    self.leftEye.body:setUserData("samBodyPart")
-=======
-    self.leftEye.image = love.graphics.newImage("assets/art/sam-textures/eye-right.png")
-    self.leftEye.body = love.physics.newBody(world, spawn.x-7, spawn.y-51, "dynamic")
     self.leftEye.body:setUserData({
         type = "samBodyPart",
         collisionSfxFolder = "generic"
     })
->>>>>>> master
     self.leftEye.shape = love.physics.newCircleShape(self.leftEye.radius)
     self.leftEye.fixture = love.physics.newFixture(self.leftEye.body, self.leftEye.shape, 0.5);
     self.leftEye.fixture:setFriction(0.9)
@@ -544,14 +533,6 @@ function Sam:draw(drawShapes, drawSprites)
         self:drawRectangleTexturedObject(self.rightLeg, 1.55, 1.4)
         
         self:drawRectangleTexturedObject(self.chest, 1.5, 1.8, 1, 30)
-
-        -- just drawing statically - should put into head sprite
-        -- local hairImage = love.graphics.newImage("assets/art/sam-textures/hair.png")
-        --love.graphics.draw(hairImage,
-        --    self.head.body:getX(), self.head.body:getY(),
-        --    self.head.body:getAngle(),
-        --    (self.head.shape:getRadius()*3.5)/hairImage:getWidth(), (self.head.shape:getRadius()*4.5)/hairImage:getHeight(),
-        --    hairImage:getWidth()/2, hairImage:getHeight()/1.75) 
 
         -- shadows of arms across the body
         -- I dunno how to make it just check the non-transparant pixels of the texture so drawing two circles that
