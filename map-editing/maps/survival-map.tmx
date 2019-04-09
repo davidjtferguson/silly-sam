@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.2" tiledversion="1.2.1" orientation="orthogonal" renderorder="right-down" width="50" height="50" tilewidth="32" tileheight="32" infinite="0" nextlayerid="10" nextobjectid="220">
+<map version="1.0" tiledversion="1.1.6" orientation="orthogonal" renderorder="right-down" width="50" height="50" tilewidth="32" tileheight="32" infinite="0" nextobjectid="223">
  <tileset firstgid="1" source="../tilesets/test-tileset.tsx"/>
  <tileset firstgid="3" source="../tilesets/tree-square-tileset.tsx"/>
  <tileset firstgid="4" source="../tilesets/tree-triangle-tileset.tsx"/>
@@ -7,30 +7,40 @@
  <tileset firstgid="294" source="../tilesets/groupedtrees-001.tsx"/>
  <tileset firstgid="295" source="../tilesets/groupedtrees-002.tsx"/>
  <tileset firstgid="296" source="../tilesets/groupedtrees-003.tsx"/>
- <objectgroup id="8" name="background objects">
-  <object id="111" gid="3" x="419.392" y="787.83" width="137" height="264"/>
-  <object id="112" gid="4" x="983.026" y="783.2" width="158" height="290"/>
+ <tileset firstgid="297" source="../tilesets/sky.tsx"/>
+ <tileset firstgid="298" source="../tilesets/cloud-003.tsx"/>
+ <tileset firstgid="299" source="../tilesets/cloud-002.tsx"/>
+ <tileset firstgid="300" source="../tilesets/cloud-001.tsx"/>
+ <layer name="Tile Layer 1" width="50" height="50">
+  <data encoding="base64" compression="zlib">
+   eJztVtEOAyEIu33O/v8H925E2lq4u8UmJpt6QLUg13VwcHDwDnw/+KiwqYyVv1VMaMy7UGJhzho5n47zj3iMaw5NuaHweDpWuorm3blYxWMVs8unm0/GA42JPX83l5Wf7Dulns3WHFB4qP6jesnaYs6kWg87ebebr1X5ycQ1vq+qzyqgfByarASi92iOsd3xtmd5yuTxbE9Xf4L0ENF6ZrezF1RrJBofW0dUqG8lmyOOfYwdphY79jA+GX8uHmxsjh5Z+barH2V7YLV3c9pTfO7cX2QzmnNh7I9m/a9qF5nbxRgz22cj9llbTC4rOatA5TH+n+mjsx9VepYoxtkdRbWYGSqPbN45Mr+MfpH5TDtdw8lD0f0K2f0gfjP9jL+dUHNpl4fjLlCNsBzQNURnyh4GkR3kTJC4lLx0APVTHUcXDg+ff4deO9+3yvy6+z5c6Kw9lXh7/P+Gu3PcNX7IQ2B5
+  </data>
+ </layer>
+ <objectgroup name="background objects">
+  <object id="220" gid="298" x="770" y="798.437" width="196" height="89.4369"/>
+  <object id="221" gid="299" x="312" y="647.235" width="257" height="119.235"/>
+  <object id="222" gid="300" x="915" y="561" width="252.206" height="116"/>
  </objectgroup>
- <objectgroup id="2" name="objects">
+ <objectgroup name="objects">
   <object id="4" name="sam" x="760" y="396.97">
    <point/>
   </object>
-  <object id="158" name="explodingPlatform" x="645" y="995" width="230" height="54.7135">
+  <object id="158" name="explodingPlatform" x="651" y="934" width="230" height="59.7135">
    <properties>
     <property name="static" type="bool" value="true"/>
-    <property name="texturePath" value="assets/art/environment-textures/ground-base.png"/>
+    <property name="texturePath" value="assets/art/gameobject-textures/housetextures_006.png"/>
    </properties>
   </object>
-  <object id="160" name="explodingPlatform" x="415" y="995" width="230" height="54.7135">
+  <object id="160" name="explodingPlatform" x="419" y="934" width="230" height="59.7135">
    <properties>
     <property name="static" type="bool" value="true"/>
-    <property name="texturePath" value="assets/art/environment-textures/ground-base.png"/>
+    <property name="texturePath" value="assets/art/gameobject-textures/housetextures_001.png"/>
    </properties>
   </object>
-  <object id="161" name="explodingPlatform" x="875" y="995" width="230" height="54.7135">
+  <object id="161" name="explodingPlatform" x="883" y="934" width="230" height="59.7135">
    <properties>
     <property name="static" type="bool" value="true"/>
-    <property name="texturePath" value="assets/art/environment-textures/ground-base.png"/>
+    <property name="texturePath" value="assets/art/gameobject-textures/housetextures_003.png"/>
    </properties>
   </object>
   <object id="162" name="cameraFocus" x="760" y="760">
@@ -381,20 +391,6 @@
     <property name="newLevelPath" value="maps/cliff.lua"/>
    </properties>
    <point/>
-  </object>
-  <object id="218" name="ball" x="1026" y="765" width="50" height="50">
-   <properties>
-    <property name="static" type="bool" value="true"/>
-    <property name="texturePath" value="assets/art/environment-textures/ground-base-circle.png"/>
-   </properties>
-   <ellipse/>
-  </object>
-  <object id="219" name="ball" x="483" y="771" width="42" height="42">
-   <properties>
-    <property name="static" type="bool" value="true"/>
-    <property name="texturePath" value="assets/art/environment-textures/ground-base-circle.png"/>
-   </properties>
-   <ellipse/>
   </object>
  </objectgroup>
 </map>

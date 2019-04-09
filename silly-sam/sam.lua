@@ -91,7 +91,7 @@ function Sam:init(world, mapObject)
     -- head
     self.head = {}
     self.head.image = love.graphics.newImage("assets/art/sam-textures/face.png")
-    self.head.body = love.physics.newBody(world, spawn.x, spawn.y-55, "dynamic")
+    self.head.body = love.physics.newBody(world, spawn.x, spawn.y-45, "dynamic")
     self.head.body:setUserData({
         type = "samBodyPart",
         collisionSfxFolder = "generic"
@@ -101,7 +101,7 @@ function Sam:init(world, mapObject)
     self.head.fixture:setFriction(0.5)
     self.head.color = {0.80, 0.20, 0.20}
 
-    self.head.joint = love.physics.newRevoluteJoint(self.chest.body, self.head.body, spawn.x, spawn.y-65)
+    self.head.joint = love.physics.newRevoluteJoint(self.chest.body, self.head.body, spawn.x, spawn.y-57)
 
     -- chin (not visible, for weighting)
     self.chin = {}
@@ -122,7 +122,7 @@ function Sam:init(world, mapObject)
     self.toupee = {}
     self.toupee.width = 20
     self.toupee.height = 7.3
-    self.toupee.image = love.graphics.newImage("assets/art/sam-textures/toupee.png")
+    self.toupee.image = love.graphics.newImage("assets/art/sam-textures/game-empty-texture.png")
     self.toupee.body = love.physics.newBody(world, spawn.x, spawn.y-74, "dynamic")
     self.toupee.body:setUserData({
         type = "samBodyPart",
@@ -136,13 +136,13 @@ function Sam:init(world, mapObject)
 
     self.toupee.joint = love.physics.newRevoluteJoint(self.toupee.body, self.head.body, spawn.x+1, spawn.y-74+self.toupee.height)
     
-    -- self.toupee.joint:enableLimit(enable) trying to enable limit on joint
+    -- self.toupee.joint:enableLimit(enable) trying to enable limit on joint - rory
 
     -- left eye
     self.leftEye = {}
     self.leftEye.radius = 2
-    self.leftEye.image = love.graphics.newImage("assets/art/sam-textures/eye-right.png")
-    self.leftEye.body = love.physics.newBody(world, spawn.x-7, spawn.y-51, "dynamic")
+    self.leftEye.image = love.graphics.newImage("assets/art/sam-textures/game-empty-texture.png")
+    self.leftEye.body = love.physics.newBody(world, spawn.x-10, spawn.y-60, "dynamic")
     self.leftEye.body:setUserData({
         type = "samBodyPart",
         collisionSfxFolder = "generic"
@@ -152,12 +152,12 @@ function Sam:init(world, mapObject)
     self.leftEye.fixture:setFriction(0.9)
     self.leftEye.color = {0.20, 0.70, 0.20}
 
-    self.leftEye.joint = love.physics.newRevoluteJoint(self.leftEye.body, self.head.body, spawn.x, spawn.y-51)
+    self.leftEye.joint = love.physics.newRevoluteJoint(self.leftEye.body, self.head.body, spawn.x-7, spawn.y-60)
 
     -- right eye
     self.rightEye = {}
     self.rightEye.radius = 2
-    self.rightEye.image = love.graphics.newImage("assets/art/sam-textures/eye-left.png")
+    self.rightEye.image = love.graphics.newImage("assets/art/sam-textures/game-empty-texture.png")
     self.rightEye.body = love.physics.newBody(world, spawn.x+10, spawn.y-50, "dynamic")
     self.rightEye.body:setUserData({
         type = "samBodyPart",
@@ -529,18 +529,10 @@ function Sam:draw(drawShapes, drawSprites)
     end
 
     if drawSprites then
-        self:drawRectangleTexturedObject(self.leftLeg, 1.25, 1.25)
-        self:drawRectangleTexturedObject(self.rightLeg, 1.25, 1.25)
+        self:drawRectangleTexturedObject(self.leftLeg, 1.55, 1.4)
+        self:drawRectangleTexturedObject(self.rightLeg, 1.55, 1.4)
         
-        self:drawRectangleTexturedObject(self.chest, 1.25, 1.25)
-
-        -- just drawing statically - should put into head sprite
-        local hairImage = love.graphics.newImage("assets/art/sam-textures/hair.png")
-        love.graphics.draw(hairImage,
-            self.head.body:getX(), self.head.body:getY(),
-            self.head.body:getAngle(),
-            (self.head.shape:getRadius()*3.5)/hairImage:getWidth(), (self.head.shape:getRadius()*4.5)/hairImage:getHeight(),
-            hairImage:getWidth()/2, hairImage:getHeight()/1.75)
+        self:drawRectangleTexturedObject(self.chest, 1.5, 1.8, 1, 30)
 
         -- shadows of arms across the body
         -- I dunno how to make it just check the non-transparant pixels of the texture so drawing two circles that
@@ -557,28 +549,29 @@ function Sam:draw(drawShapes, drawSprites)
         -- Draw arm shadows
         -- colar color, slightly bigger than we're going to draw the arm over it
         love.graphics.setColor(0.5, 0.5, 0.7, 0.8)
-        self:drawRectangleTexturedObject(self.leftArm, 1.35, 1.35)
-        self:drawRectangleTexturedObject(self.rightArm, 1.35, 1.35)
+        self:drawRectangleTexturedObject(self.leftArm, 1.35, 1.35, 1, -30)
+        self:drawRectangleTexturedObject(self.rightArm, 1.35, 1.35, 1, -30)
 
         love.graphics.setStencilTest()
 
         love.graphics.setColor(1, 1, 1, 1)
 
         -- Face parts
-        self:drawCircleTexturedObject(self.head, 2, 0, -35)
+        self:drawCircleTexturedObject(self.head, 2.2, 2, 80)
         
-        self:drawCircleTexturedObject(self.leftEye, 3, 10, 10)
-        self:drawCircleTexturedObject(self.rightEye, 3, 10, 10)
+        self:drawCircleTexturedObject(self.leftEye, 3, 0, 30)
+        self:drawCircleTexturedObject(self.rightEye, 3, -10, 30)
 
-        self:drawRectangleTexturedObject(self.nose, 1.25, 1.25)
+        self:drawRectangleTexturedObject(self.nose, 4.2, .8, 10, 10)
         self:drawRectangleTexturedObject(self.toupee, 3, 3)
 
         -- arm parts
-        self:drawRectangleTexturedObject(self.leftArm, 1.25, 1.25)
-        self:drawRectangleTexturedObject(self.rightArm, 1.25, 1.25)
-
         self:drawCircleTexturedObject(self.leftHand, 1.5)
         self:drawCircleTexturedObject(self.rightHand, 1.5)
+    
+        self:drawRectangleTexturedObject(self.leftArm, 1.25, 1.4, 1, -30)
+        self:drawRectangleTexturedObject(self.rightArm, 1.25, 1.4, 1 , -30)
+
     end
 end
 
