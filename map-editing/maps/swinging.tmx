@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" tiledversion="1.1.6" orientation="orthogonal" renderorder="right-down" width="330" height="100" tilewidth="32" tileheight="32" infinite="0" nextobjectid="413">
+<map version="1.2" tiledversion="1.2.3" orientation="orthogonal" renderorder="right-down" width="330" height="100" tilewidth="32" tileheight="32" infinite="0" nextlayerid="5" nextobjectid="427">
  <tileset firstgid="1" source="../tilesets/test-tileset.tsx"/>
  <tileset firstgid="3" source="../tilesets/cloud-001.tsx"/>
  <tileset firstgid="4" source="../tilesets/cloud-003.tsx"/>
@@ -24,7 +24,7 @@
  <tileset firstgid="23" source="../tilesets/rock-006.tsx"/>
  <tileset firstgid="24" source="../tilesets/rock-007.tsx"/>
  <tileset firstgid="25" source="../tilesets/tree-leaf-tileset.tsx"/>
- <layer name="terrain" width="330" height="100">
+ <layer id="1" name="terrain" width="330" height="100">
   <data encoding="csv">
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
@@ -128,7 +128,7 @@
 8,0,0,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,0,0,8,0,0,0,0,0,0,0,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8
 </data>
  </layer>
- <objectgroup name="backgroundObjects">
+ <objectgroup id="2" name="backgroundObjects">
   <object id="285" name="changeLevel" x="2117.45" y="2997.57">
    <properties>
     <property name="cameraDistance" type="float" value="1000"/>
@@ -185,7 +185,7 @@
    </properties>
    <point/>
   </object>
-  <object id="312" name="changeLevel" x="477" y="1260">
+  <object id="312" name="changeLevel" x="537" y="1280">
    <properties>
     <property name="cameraDistance" type="float" value="100"/>
     <property name="newLevelPath" value="maps/rory-level.lua"/>
@@ -199,7 +199,7 @@
    </properties>
    <point/>
   </object>
-  <object id="315" name="changeLevel" x="632" y="1259">
+  <object id="315" name="changeLevel" x="692" y="1279">
    <properties>
     <property name="cameraDistance" type="float" value="100"/>
     <property name="newLevelPath" value="maps/rory-level.lua"/>
@@ -220,14 +220,7 @@
    </properties>
    <point/>
   </object>
-  <object id="318" name="changeLevel" x="7918.18" y="2948.48">
-   <properties>
-    <property name="cameraDistance" type="float" value="500"/>
-    <property name="newLevelPath" value="maps/swinging.lua"/>
-   </properties>
-   <point/>
-  </object>
-  <object id="319" name="changeLevel" x="6184" y="2816">
+  <object id="319" name="changeLevel" x="6317.33" y="3085.7">
    <properties>
     <property name="cameraDistance" type="float" value="1000"/>
     <property name="newLevelPath" value="maps/swinging.lua"/>
@@ -248,86 +241,89 @@
    </properties>
    <point/>
   </object>
-  <object id="346" gid="16" x="1332.2" y="629.212" width="173.802" height="334.803"/>
-  <object id="347" gid="17" x="3127.33" y="1320.27" width="153.333" height="203.333"/>
-  <object id="348" gid="18" x="2122.74" y="808.354" width="116.707" height="145.976" rotation="2.17631"/>
+  <object id="346" gid="16" x="1392.2" y="649.212" width="173.802" height="334.803"/>
+  <object id="347" gid="17" x="3223.33" y="1308.27" width="153.333" height="203.333"/>
+  <object id="348" gid="18" x="2182.74" y="974.354" width="116.707" height="145.976" rotation="2.17631"/>
   <object id="349" gid="19" x="2583.33" y="921.879" width="101" height="68"/>
   <object id="350" gid="20" x="3808.88" y="1071.21" width="163.149" height="62.6667"/>
-  <object id="351" gid="21" x="174.424" y="410.667" width="125" height="105"/>
-  <object id="352" gid="21" x="805.03" y="747.818" width="125" height="105"/>
+  <object id="351" gid="21" x="234.424" y="430.667" width="125" height="105"/>
   <object id="354" gid="25" x="4549.53" y="1141.72" width="210.364" height="380.177" rotation="-6.21813"/>
-  <object id="407" gid="3" x="1455.5" y="349.833" width="337" height="155"/>
- </objectgroup>
- <objectgroup name="objects">
-  <object id="4" name="sam" x="1799" y="456.031">
+  <object id="407" gid="3" x="1515.5" y="369.833" width="337" height="155"/>
+  <object id="416" name="changeLevel" x="7024.24" y="3357.58">
+   <properties>
+    <property name="cameraDistance" type="float" value="1000"/>
+    <property name="newLevelPath" value="maps/swinging.lua"/>
+   </properties>
    <point/>
   </object>
-  <object id="52" name="rectangle" x="1517.71" y="656.9" width="605.198" height="550.183">
+ </objectgroup>
+ <objectgroup id="3" name="objects">
+  <object id="4" name="sam" x="1887.85" y="466.94">
+   <point/>
+  </object>
+  <object id="52" name="rectangle" x="1577.71" y="676.9" width="605.198" height="550.183">
    <properties>
     <property name="static" type="bool" value="true"/>
     <property name="texturePath" value="assets/art/environment-textures/ground-base-bevelled.png"/>
    </properties>
   </object>
-  <object id="54" name="rectangle" x="776.479" y="742.387" width="815.177" height="548.533" rotation="-6.026">
+  <object id="54" name="rectangle" x="836.479" y="762.387" width="815.177" height="548.533" rotation="-6.026">
    <properties>
     <property name="static" type="bool" value="true"/>
     <property name="texturePath" value="assets/art/environment-textures/ground-base.png"/>
    </properties>
   </object>
-  <object id="60" name="ball" x="1941.87" y="557.145" width="72" height="72">
+  <object id="60" name="ball" x="2005.87" y="601.145" width="72" height="72">
    <properties>
+    <property name="collisionSfxFolder" value="squeaky"/>
     <property name="static" type="bool" value="false"/>
     <property name="texturePath" value="assets/art/gameobject-textures/ball.png"/>
    </properties>
    <ellipse/>
   </object>
-  <object id="259" name="rectangle" x="2537.64" y="910.212" width="593.198" height="556.183">
+  <object id="259" name="rectangle" x="2537.64" y="910.212" width="693.198" height="556.183">
    <properties>
     <property name="static" type="bool" value="true"/>
     <property name="texturePath" value="assets/art/environment-textures/ground-base-bevelled.png"/>
    </properties>
   </object>
-  <object id="261" name="ball" x="2950" y="744.667" width="100" height="100">
+  <object id="261" name="ball" x="2948" y="804.667" width="100" height="100">
    <properties>
+    <property name="collisionSfxFolder" value="squeaky"/>
     <property name="static" type="bool" value="false"/>
     <property name="texturePath" value="assets/art/gameobject-textures/ball.png"/>
    </properties>
    <ellipse/>
   </object>
-  <object id="263" name="rectangle" x="3639.4" y="1065.91" width="537.198" height="496.183">
+  <object id="263" name="rectangle" x="3541.4" y="1065.91" width="663.198" height="496.183">
    <properties>
     <property name="static" type="bool" value="true"/>
     <property name="texturePath" value="assets/art/environment-textures/ground-base-bevelled.png"/>
    </properties>
   </object>
-  <object id="265" name="ball" x="4028.42" y="898.97" width="100" height="100">
+  <object id="265" name="ball" x="4217.75" y="661.303" width="100" height="100">
    <properties>
+    <property name="collisionSfxFolder" value="squeaky"/>
     <property name="static" type="bool" value="false"/>
     <property name="texturePath" value="assets/art/gameobject-textures/ball.png"/>
    </properties>
    <ellipse/>
   </object>
-  <object id="266" name="rectangle" x="4532.86" y="1125.06" width="537.198" height="507.819">
+  <object id="266" name="rectangle" x="4458.86" y="1125.06" width="677.198" height="507.819">
    <properties>
     <property name="static" type="bool" value="true"/>
     <property name="texturePath" value="assets/art/environment-textures/ground-base-bevelled.png"/>
    </properties>
   </object>
-  <object id="268" name="ball" x="4891.46" y="787.334" width="100" height="100">
+  <object id="270" name="ball" x="5271.4" y="781.091" width="100" height="100">
    <properties>
+    <property name="collisionSfxFolder" value="squeaky"/>
     <property name="static" type="bool" value="false"/>
     <property name="texturePath" value="assets/art/gameobject-textures/ball.png"/>
    </properties>
    <ellipse/>
   </object>
-  <object id="270" name="ball" x="5381.76" y="878.97" width="100" height="100">
-   <properties>
-    <property name="static" type="bool" value="false"/>
-    <property name="texturePath" value="assets/art/gameobject-textures/ball.png"/>
-   </properties>
-   <ellipse/>
-  </object>
-  <object id="271" name="rectangle" x="5760.13" y="1408.39" width="537.198" height="539.819">
+  <object id="271" name="rectangle" x="5598.13" y="1381.06" width="673.198" height="567.152">
    <properties>
     <property name="static" type="bool" value="true"/>
     <property name="texturePath" value="assets/art/environment-textures/ground-base-bevelled.png"/>
@@ -339,7 +335,7 @@
     <property name="texturePath" value="assets/art/environment-textures/ground-base.png"/>
    </properties>
   </object>
-  <object id="274" name="skateboard" x="6260" y="1366">
+  <object id="274" name="skateboard" x="6324" y="1365.33">
    <properties>
     <property name="texturePathBoard" value="assets/art/gameobject-textures/skateboard-deck.png"/>
     <property name="texturePathWheel" value="assets/art/gameobject-textures/skateboard-wheel.png"/>
@@ -413,36 +409,36 @@
    </properties>
    <point/>
   </object>
-  <object id="308" name="rectangle" x="-526.713" y="488.08" width="834.3" height="1174.05" rotation="-6.026">
+  <object id="308" name="rectangle" x="-466.713" y="508.08" width="834.3" height="1174.05" rotation="-6.026">
    <properties>
     <property name="static" type="bool" value="true"/>
     <property name="texturePath" value="assets/art/environment-textures/ground-base-bevelled.png"/>
    </properties>
   </object>
-  <object id="310" name="ball" x="777" y="722.333" width="50" height="50">
+  <object id="310" name="ball" x="837" y="742.333" width="50" height="50">
    <properties>
     <property name="static" type="bool" value="true"/>
     <property name="texturePath" value="assets/art/environment-textures/ground-base-circle.png"/>
    </properties>
    <ellipse/>
   </object>
-  <object id="311" name="rectangle" x="779.197" y="740.614" width="141.432" height="625.057" rotation="6.90774">
+  <object id="311" name="rectangle" x="832.197" y="768.281" width="141.432" height="625.057" rotation="6.90774">
    <properties>
     <property name="static" type="bool" value="true"/>
     <property name="texturePath" value="assets/art/environment-textures/ground-base-bevelled.png"/>
    </properties>
   </object>
-  <object id="313" name="cameraFocus" x="548" y="684">
+  <object id="313" name="cameraFocus" x="608" y="704">
    <properties>
     <property name="cameraDistance" type="float" value="500"/>
    </properties>
    <point/>
   </object>
-  <object id="323" name="hangingBag" x="2362.67" y="433.333">
+  <object id="323" name="hangingBag" x="2347.34" y="558.666">
    <properties>
     <property name="bagHeight" type="float" value="75"/>
     <property name="bagWidth" type="float" value="190"/>
-    <property name="pivotingJoint" type="bool" value="true"/>
+    <property name="pivotingJoint" type="bool" value="false"/>
     <property name="ropeLength" type="float" value="200"/>
     <property name="texturPpathAnchor" value="assets/art/gameobject-textures/sandbag_anchortexture.png"/>
     <property name="texturePathBag" value="assets/art/gameobject-textures/sandbag_sidewaystexture.png"/>
@@ -450,11 +446,11 @@
    </properties>
    <point/>
   </object>
-  <object id="374" name="hangingBag" x="3397.33" y="724">
+  <object id="374" name="hangingBag" x="3369.33" y="778">
    <properties>
     <property name="bagHeight" type="float" value="75"/>
     <property name="bagWidth" type="float" value="190"/>
-    <property name="pivotingJoint" type="bool" value="true"/>
+    <property name="pivotingJoint" type="bool" value="false"/>
     <property name="ropeLength" type="float" value="200"/>
     <property name="texturPpathAnchor" value="assets/art/gameobject-textures/sandbag_anchortexture.png"/>
     <property name="texturePathBag" value="assets/art/gameobject-textures/sandbag_sidewaystexture.png"/>
@@ -462,50 +458,7 @@
    </properties>
    <point/>
   </object>
-  <object id="375" name="hangingBag" x="4366.67" y="778.667">
-   <properties>
-    <property name="bagHeight" type="float" value="75"/>
-    <property name="bagWidth" type="float" value="190"/>
-    <property name="pivotingJoint" type="bool" value="true"/>
-    <property name="ropeLength" type="float" value="200"/>
-    <property name="texturPpathAnchor" value="assets/art/gameobject-textures/sandbag_anchortexture.png"/>
-    <property name="texturePathBag" value="assets/art/gameobject-textures/sandbag_sidewaystexture.png"/>
-    <property name="texturePathRope" value="assets/art/gameobject-textures/sandbag_ropetexture.png"/>
-   </properties>
-   <point/>
-  </object>
-  <object id="376" name="hangingBag" x="5240" y="694.667">
-   <properties>
-    <property name="bagHeight" type="float" value="75"/>
-    <property name="bagWidth" type="float" value="190"/>
-    <property name="pivotingJoint" type="bool" value="true"/>
-    <property name="ropeLength" type="float" value="300"/>
-    <property name="texturPpathAnchor" value="assets/art/gameobject-textures/sandbag_anchortexture.png"/>
-    <property name="texturePathBag" value="assets/art/gameobject-textures/sandbag_sidewaystexture.png"/>
-    <property name="texturePathRope" value="assets/art/gameobject-textures/sandbag_ropetexture.png"/>
-   </properties>
-   <point/>
-  </object>
-  <object id="377" name="hangingBag" x="5589.33" y="950.667">
-   <properties>
-    <property name="bagHeight" type="float" value="75"/>
-    <property name="bagWidth" type="float" value="190"/>
-    <property name="pivotingJoint" type="bool" value="true"/>
-    <property name="ropeLength" type="float" value="200"/>
-    <property name="texturPpathAnchor" value="assets/art/gameobject-textures/sandbag_anchortexture.png"/>
-    <property name="texturePathBag" value="assets/art/gameobject-textures/sandbag_sidewaystexture.png"/>
-    <property name="texturePathRope" value="assets/art/gameobject-textures/sandbag_ropetexture.png"/>
-   </properties>
-   <point/>
-  </object>
-  <object id="400" gid="10" x="2554.67" y="1323.67" width="551.871" height="386"/>
-  <object id="401" gid="11" x="3670.67" y="1421" width="485.333" height="339.461"/>
-  <object id="402" gid="9" x="4558.67" y="1493.27" width="476" height="332.933"/>
-  <object id="403" gid="11" x="5796" y="1763.6" width="485.333" height="339.461"/>
-  <object id="404" gid="10" x="6243.16" y="1817.78" width="551.092" height="385.455" rotation="31.2189"/>
-  <object id="405" gid="9" x="6807.9" y="2224.48" width="551.871" height="386" rotation="19.2649"/>
-  <object id="406" gid="11" x="7455.5" y="2445.51" width="552" height="386.09" rotation="5.24887"/>
-  <object id="411" name="ball" x="1150.39" y="616.667" width="511.614" height="492">
+  <object id="411" name="ball" x="1210.39" y="636.667" width="511.614" height="492">
    <properties>
     <property name="static" type="bool" value="true"/>
     <property name="texturePath" value="assets/art/environment-textures/ground-base-circle.png"/>
@@ -519,30 +472,60 @@
    </properties>
    <ellipse/>
   </object>
+  <object id="414" name="hangingBag" x="4326" y="678">
+   <properties>
+    <property name="bagHeight" type="float" value="150"/>
+    <property name="bagWidth" type="float" value="80"/>
+    <property name="pivotingJoint" type="bool" value="true"/>
+    <property name="ropeLength" type="float" value="150"/>
+    <property name="texturPpathAnchor" value="assets/art/gameobject-textures/sandbag_anchortexture.png"/>
+    <property name="texturePathBag" value="assets/art/gameobject-textures/sandbag_bagtexture.png"/>
+    <property name="texturePathRope" value="assets/art/gameobject-textures/sandbag_ropetexture.png"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="415" name="hangingBag" x="5272.97" y="768.121">
+   <properties>
+    <property name="bagHeight" type="float" value="150"/>
+    <property name="bagWidth" type="float" value="80"/>
+    <property name="pivotingJoint" type="bool" value="true"/>
+    <property name="ropeLength" type="float" value="150"/>
+    <property name="texturPpathAnchor" value="assets/art/gameobject-textures/sandbag_anchortexture.png"/>
+    <property name="texturePathBag" value="assets/art/gameobject-textures/sandbag_bagtexture.png"/>
+    <property name="texturePathRope" value="assets/art/gameobject-textures/sandbag_ropetexture.png"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="417" name="ball" x="5376.18" y="1202.36" width="417.333" height="401.333">
+   <properties>
+    <property name="static" type="bool" value="true"/>
+    <property name="texturePath" value="assets/art/environment-textures/ground-base-circle.png"/>
+   </properties>
+   <ellipse/>
+  </object>
  </objectgroup>
- <objectgroup name="forgroundObjects">
-  <object id="325" gid="13" x="1730.67" y="666.333" width="58.6435" height="93.6667"/>
-  <object id="326" gid="11" x="1591.33" y="1041.37" width="520" height="363.708"/>
-  <object id="327" gid="14" x="1279.8" y="662.117" width="55" height="64.49" rotation="-13.7655"/>
+ <objectgroup id="4" name="forgroundObjects">
+  <object id="325" gid="13" x="1790.67" y="686.333" width="58.6435" height="93.6667"/>
+  <object id="326" gid="11" x="1651.33" y="1061.37" width="520" height="363.708"/>
+  <object id="327" gid="14" x="1339.8" y="682.117" width="55" height="64.49" rotation="-13.7655"/>
   <object id="328" gid="5" x="2651" y="918.333" width="91" height="116.795"/>
-  <object id="329" gid="6" x="761" y="763" width="81" height="119"/>
   <object id="330" gid="15" x="3725" y="1076.07" width="105.411" height="130.068"/>
   <object id="331" gid="5" x="4645.14" y="1141.67" width="88.5624" height="113.667"/>
   <object id="332" gid="6" x="4934" y="1136.33" width="57" height="83.7407"/>
   <object id="333" gid="12" x="4604" y="1140.27" width="48.1166" height="82.9836"/>
   <object id="334" gid="12" x="3680" y="1081" width="42.5342" height="73.3562"/>
-  <object id="337" gid="14" x="137" y="438" width="183" height="97"/>
-  <object id="338" gid="5" x="107" y="431" width="127" height="163"/>
-  <object id="339" gid="6" x="28" y="431" width="81" height="119"/>
-  <object id="343" gid="12" x="1474.5" y="651.758" width="45.8743" height="79.1166" rotation="13.6711"/>
+  <object id="337" gid="14" x="197" y="458" width="183" height="97"/>
+  <object id="338" gid="5" x="167" y="451" width="127" height="163"/>
+  <object id="339" gid="6" x="88" y="451" width="81" height="119"/>
+  <object id="343" gid="12" x="1534.5" y="671.758" width="45.8743" height="79.1166" rotation="13.6711"/>
   <object id="344" gid="12" x="2661.75" y="905.436" width="49.4409" height="85.2677"/>
   <object id="355" gid="3" x="5926" y="1003" width="337" height="155"/>
   <object id="356" gid="3" x="4215.97" y="509" width="537.026" height="247"/>
   <object id="357" gid="7" x="6408.97" y="346" width="569.027" height="264"/>
   <object id="358" gid="4" x="5328" y="200" width="337" height="165"/>
   <object id="359" gid="3" x="3443.5" y="198.5" width="337" height="155"/>
-  <object id="360" gid="4" x="1989.5" y="452.3" width="235.667" height="107.098"/>
-  <object id="362" gid="4" x="781.5" y="427.5" width="337" height="165"/>
+  <object id="360" gid="4" x="2049.5" y="472.3" width="235.667" height="107.098"/>
+  <object id="362" gid="4" x="841.5" y="447.5" width="337" height="165"/>
   <object id="363" gid="4" x="3379.5" y="1433.5" width="337" height="165"/>
   <object id="364" gid="3" x="5387.5" y="1710.5" width="337" height="155"/>
   <object id="365" gid="7" x="7766.55" y="638" width="456.946" height="212"/>
@@ -554,9 +537,9 @@
   <object id="371" gid="4" x="9963.51" y="842" width="337" height="165"/>
   <object id="372" gid="7" x="8916.61" y="1414" width="663.865" height="308"/>
   <object id="373" gid="3" x="7799.5" y="1362.5" width="337" height="155"/>
-  <object id="378" gid="5" x="275.621" y="781.204" width="127" height="163" rotation="34.5945"/>
-  <object id="379" gid="6" x="729.295" y="1167.41" width="81" height="119" rotation="-36.7333"/>
-  <object id="380" gid="14" x="317" y="1412" width="139" height="135.667"/>
+  <object id="378" gid="5" x="335.621" y="801.204" width="127" height="163" rotation="34.5945"/>
+  <object id="379" gid="6" x="789.295" y="1187.41" width="81" height="119" rotation="-36.7333"/>
+  <object id="380" gid="14" x="377" y="1432" width="139" height="135.667"/>
   <object id="382" gid="15" x="5820.33" y="1419.67" width="156.333" height="164.333"/>
   <object id="383" gid="14" x="6742.83" y="1669.34" width="112.333" height="117" rotation="25.0822"/>
   <object id="384" gid="5" x="6377.79" y="1430.33" width="96.8732" height="124.333"/>
@@ -571,9 +554,19 @@
   <object id="393" gid="5" x="9214.97" y="2458.44" width="127" height="163" rotation="3.38509"/>
   <object id="394" gid="6" x="8874.67" y="2283" width="81" height="119"/>
   <object id="395" gid="6" x="10353.4" y="1341.21" width="81" height="119" rotation="-22.134"/>
-  <object id="398" gid="11" x="1021.96" y="1082.26" width="520" height="363.708" rotation="-4.56364"/>
+  <object id="398" gid="11" x="831.293" y="1127.59" width="520" height="363.708" rotation="-4.56364"/>
   <object id="408" gid="3" x="2507.5" y="382.5" width="337" height="155"/>
   <object id="409" gid="4" x="3239.5" y="611.5" width="337" height="165"/>
   <object id="410" gid="4" x="101.5" y="11.5" width="337" height="165"/>
+  <object id="413" gid="21" x="825.988" y="797.795" width="81.044" height="43.1828" rotation="-33.3028"/>
+  <object id="418" gid="10" x="2540.06" y="1417.67" width="682.538" height="499.333"/>
+  <object id="419" gid="11" x="3549.28" y="1565.14" width="664.221" height="490.407" rotation="-0.937151"/>
+  <object id="420" gid="9" x="4464.67" y="1620.2" width="656" height="488.933"/>
+  <object id="421" gid="11" x="5598.67" y="1880.94" width="672" height="502.128"/>
+  <object id="422" gid="5" x="5398.01" y="1294.07" width="96.8732" height="124.333" rotation="-29.9264"/>
+  <object id="423" gid="10" x="6256.45" y="1784.61" width="551.092" height="385.455" rotation="31.2189"/>
+  <object id="424" gid="9" x="6801.4" y="2164.33" width="551.871" height="386" rotation="19.2649"/>
+  <object id="425" gid="11" x="7473.33" y="2461.62" width="552" height="386.09" rotation="5.24887"/>
+  <object id="426" gid="11" x="1701.3" y="1102.38" width="520" height="363.708" rotation="-97.1002"/>
  </objectgroup>
 </map>

@@ -1,13 +1,14 @@
 return {
-  version = "1.1",
+  version = "1.2",
   luaversion = "5.1",
-  tiledversion = "1.1.6",
+  tiledversion = "1.2.3",
   orientation = "orthogonal",
   renderorder = "right-down",
   width = 50,
   height = 50,
   tilewidth = 32,
   tileheight = 32,
+  nextlayerid = 4,
   nextobjectid = 223,
   properties = {},
   tilesets = {
@@ -19,6 +20,7 @@ return {
       tileheight = 32,
       spacing = 0,
       margin = 0,
+      columns = 1,
       image = "../assets/art/map/test-tileset-image.png",
       imagewidth = 32,
       imageheight = 64,
@@ -34,7 +36,14 @@ return {
       properties = {},
       terrains = {},
       tilecount = 2,
-      tiles = {}
+      tiles = {
+        {
+          id = 1,
+          properties = {
+            ["collidable"] = true
+          }
+        }
+      }
     },
     {
       name = "tree-square",
@@ -44,6 +53,7 @@ return {
       tileheight = 680,
       spacing = 0,
       margin = 0,
+      columns = 1,
       image = "../assets/art/environment-textures/tree-square.png",
       imagewidth = 353,
       imageheight = 680,
@@ -69,6 +79,7 @@ return {
       tileheight = 775,
       spacing = 0,
       margin = 0,
+      columns = 1,
       image = "../assets/art/environment-textures/tree-triangle.png",
       imagewidth = 390,
       imageheight = 775,
@@ -94,6 +105,7 @@ return {
       tileheight = 32,
       spacing = 0,
       margin = 0,
+      columns = 17,
       image = "../assets/art/environment-textures/ground-base.png",
       imagewidth = 574,
       imageheight = 566,
@@ -119,6 +131,7 @@ return {
       tileheight = 1221,
       spacing = 0,
       margin = 0,
+      columns = 1,
       image = "../assets/art/environment-textures/groupedtrees-001.png",
       imagewidth = 769,
       imageheight = 1221,
@@ -144,6 +157,7 @@ return {
       tileheight = 1241,
       spacing = 0,
       margin = 0,
+      columns = 1,
       image = "../assets/art/environment-textures/groupedtrees-002.png",
       imagewidth = 735,
       imageheight = 1241,
@@ -169,6 +183,7 @@ return {
       tileheight = 1241,
       spacing = 0,
       margin = 0,
+      columns = 1,
       image = "../assets/art/environment-textures/groupedtrees-003.png",
       imagewidth = 727,
       imageheight = 1241,
@@ -194,6 +209,7 @@ return {
       tileheight = 375,
       spacing = 0,
       margin = 0,
+      columns = 1,
       image = "../assets/art/map/sky.png",
       imagewidth = 396,
       imageheight = 376,
@@ -219,6 +235,7 @@ return {
       tileheight = 165,
       spacing = 0,
       margin = 0,
+      columns = 1,
       image = "../assets/art/environment-textures/cloud-003.png",
       imagewidth = 337,
       imageheight = 165,
@@ -244,6 +261,7 @@ return {
       tileheight = 148,
       spacing = 0,
       margin = 0,
+      columns = 1,
       image = "../assets/art/environment-textures/cloud-002.png",
       imagewidth = 319,
       imageheight = 148,
@@ -269,6 +287,7 @@ return {
       tileheight = 155,
       spacing = 0,
       margin = 0,
+      columns = 1,
       image = "../assets/art/environment-textures/cloud-001.png",
       imagewidth = 337,
       imageheight = 155,
@@ -290,6 +309,7 @@ return {
   layers = {
     {
       type = "tilelayer",
+      id = 1,
       name = "Tile Layer 1",
       x = 0,
       y = 0,
@@ -306,6 +326,7 @@ return {
     },
     {
       type = "objectgroup",
+      id = 2,
       name = "background objects",
       visible = true,
       opacity = 1,
@@ -360,6 +381,7 @@ return {
     },
     {
       type = "objectgroup",
+      id = 3,
       name = "objects",
       visible = true,
       opacity = 1,
@@ -394,7 +416,7 @@ return {
           visible = true,
           properties = {
             ["static"] = true,
-            ["texturePath"] = "assets/art/gameobject-textures/housetextures_006.png"
+            ["texturePath"] = "assets/art/gameobject-textures/housetextures_004.png"
           }
         },
         {
@@ -410,7 +432,7 @@ return {
           visible = true,
           properties = {
             ["static"] = true,
-            ["texturePath"] = "assets/art/gameobject-textures/housetextures_001.png"
+            ["texturePath"] = "assets/art/gameobject-textures/housetextures_004.png"
           }
         },
         {
@@ -426,7 +448,7 @@ return {
           visible = true,
           properties = {
             ["static"] = true,
-            ["texturePath"] = "assets/art/gameobject-textures/housetextures_003.png"
+            ["texturePath"] = "assets/art/gameobject-textures/housetextures_004.png"
           }
         },
         {

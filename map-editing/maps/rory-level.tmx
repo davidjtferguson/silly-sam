@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" tiledversion="1.1.6" orientation="orthogonal" renderorder="right-down" width="100" height="100" tilewidth="32" tileheight="32" infinite="0" nextobjectid="205">
+<map version="1.2" tiledversion="1.2.3" orientation="orthogonal" renderorder="right-down" width="100" height="100" tilewidth="32" tileheight="32" infinite="0" nextlayerid="6" nextobjectid="205">
  <tileset firstgid="1" source="../tilesets/tree-triangle-tileset.tsx"/>
  <tileset firstgid="2" source="../tilesets/tree-leaf-tileset.tsx"/>
  <tileset firstgid="3" source="../tilesets/cloud-003.tsx"/>
@@ -26,7 +26,7 @@
  <tileset firstgid="24" source="../tilesets/grass-pattern-005.tsx"/>
  <tileset firstgid="25" source="../tilesets/grass-tuft-006.tsx"/>
  <tileset firstgid="26" source="../tilesets/bush-006.tsx"/>
- <layer name="terrain" width="100" height="100" locked="1">
+ <layer id="1" name="terrain" width="100" height="100" locked="1">
   <data encoding="csv">
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
@@ -130,7 +130,7 @@
 14,0,0,0,0,0,0,0,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,0,0,0,0,0,0,0
 </data>
  </layer>
- <objectgroup name="objects">
+ <objectgroup id="2" name="objects">
   <object id="7" name="ball" x="1600.33" y="1435.33" width="417.333" height="401.333">
    <properties>
     <property name="static" type="bool" value="true"/>
@@ -143,6 +143,7 @@
   </object>
   <object id="14" name="ball" x="1747.33" y="1365.33" width="74.333" height="69.0487">
    <properties>
+    <property name="collisionSfxFolder" value="squeaky"/>
     <property name="static" type="bool" value="false"/>
     <property name="texturePath" value="assets/art/gameobject-textures/ball.png"/>
    </properties>
@@ -197,14 +198,14 @@
    <ellipse/>
   </object>
  </objectgroup>
- <objectgroup name="TileSetObjectsBack" locked="1">
+ <objectgroup id="3" name="TileSetObjectsBack" locked="1">
   <object id="200" gid="11" x="931.639" y="1515.5" width="112.721" height="73"/>
  </objectgroup>
- <objectgroup name="TileSetObjectsMid">
+ <objectgroup id="4" name="TileSetObjectsMid">
   <object id="168" gid="2" x="1514.81" y="1512.03" width="138.404" height="273.238" rotation="5.14791"/>
   <object id="190" gid="13" x="1017.58" y="1526.44" width="206.844" height="398.453" rotation="-5.6583"/>
  </objectgroup>
- <objectgroup name="TileSetObjectsFront">
+ <objectgroup id="5" name="TileSetObjectsFront">
   <object id="140" gid="1" x="1745.88" y="1430.45" width="196.226" height="378" rotation="14.3542"/>
   <object id="180" gid="5" x="1574" y="1531" width="45.1043" height="72.0417"/>
   <object id="181" gid="6" x="1096.55" y="1525" width="89.1158" height="83"/>
