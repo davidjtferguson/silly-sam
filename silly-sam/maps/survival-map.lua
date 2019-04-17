@@ -8,7 +8,7 @@ return {
   height = 50,
   tilewidth = 32,
   tileheight = 32,
-  nextlayerid = 4,
+  nextlayerid = 5,
   nextobjectid = 223,
   properties = {},
   tilesets = {
@@ -309,8 +309,8 @@ return {
   layers = {
     {
       type = "tilelayer",
-      id = 1,
-      name = "Tile Layer 1",
+      id = 4,
+      name = "sky",
       x = 0,
       y = 0,
       width = 50,
@@ -322,7 +322,7 @@ return {
       properties = {},
       encoding = "base64",
       compression = "zlib",
-      data = "eJztVtEOAyEIu33O/v8H925E2lq4u8UmJpt6QLUg13VwcHDwDnw/+KiwqYyVv1VMaMy7UGJhzho5n47zj3iMaw5NuaHweDpWuorm3blYxWMVs8unm0/GA42JPX83l5Wf7Dulns3WHFB4qP6jesnaYs6kWg87ebebr1X5ycQ1vq+qzyqgfByarASi92iOsd3xtmd5yuTxbE9Xf4L0ENF6ZrezF1RrJBofW0dUqG8lmyOOfYwdphY79jA+GX8uHmxsjh5Z+barH2V7YLV3c9pTfO7cX2QzmnNh7I9m/a9qF5nbxRgz22cj9llbTC4rOatA5TH+n+mjsx9VepYoxtkdRbWYGSqPbN45Mr+MfpH5TDtdw8lD0f0K2f0gfjP9jL+dUHNpl4fjLlCNsBzQNURnyh4GkR3kTJC4lLx0APVTHUcXDg+ff4deO9+3yvy6+z5c6Kw9lXh7/P+Gu3PcNX7IQ2B5"
+      data = "eJztwQENAAAAwqD3T20ON6AAAAAAAAAAAADg3wAnEAAB"
     },
     {
       type = "objectgroup",

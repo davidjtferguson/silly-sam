@@ -93,7 +93,7 @@ function GameState:init()
 end
 
 function GameState:getBackgroundColor() 
-	return 1, 0.96, 0.93
+	return 0.76, 0.91, 1
 end
 
 function GameState:enter()
@@ -194,6 +194,21 @@ function GameState:loadMap(mapPath)
 		
 		-- bool: draw physics shapes, bool: draw sprites
 		self.sam:draw(false, true)
+	end
+
+	-- There's this weird issue with STI where if you draw things without a background the transparancy looks very odd
+	-- There's another weird thing where tiles are slowing down the game like crazy, so just tiling in a background isn't a solution
+	-- So we have a sky layer where we draw a rectangle over the back of everything to fix it without killing performance.
+	-- A bit annoying since each map needs an empty sky layer, but it'll do.
+	-- Check issues #77 and #82. Would be great to fix.
+	self.map.layers["sky"].draw = function()
+		self.camera:detach()
+
+		love.graphics.setColor(self:getBackgroundColor())
+		love.graphics.rectangle("fill", 0, 0, love.graphics.getWidth(), love.graphics.getHeight())
+		love.graphics.setColor(1, 1, 1)
+
+		self.camera:attach()
 	end
 
 	-- make camera focus on Sam
