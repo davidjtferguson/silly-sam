@@ -65,7 +65,6 @@ function love.load()
 	-- play the main theme
 	mainThemeMusic = love.audio.play("assets/sounds/music/sam-theme.mp3", "stream", true)
 	musicMuted = false
-	mainThemeMusic:pause()
 
 	StateManager.registerEvents()
 	reset()

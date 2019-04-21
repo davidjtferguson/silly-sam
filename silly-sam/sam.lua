@@ -566,7 +566,6 @@ function Sam:draw(drawShapes, drawSprites)
 	
 		self:drawRectangleTexturedObject(self.leftArm, 1.25, 1.4, 1, -30)
 		self:drawRectangleTexturedObject(self.rightArm, 1.25, 1.4, 1 , -30)
-
 	end
 end
 

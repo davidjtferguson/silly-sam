@@ -1175,8 +1175,8 @@ return {
           name = "sam",
           type = "",
           shape = "point",
-          x = 1887.85,
-          y = 466.94,
+          x = 3863.85,
+          y = 854.94,
           width = 0,
           height = 0,
           rotation = 0,
@@ -1336,9 +1336,9 @@ return {
           name = "rectangle",
           type = "",
           shape = "rectangle",
-          x = 5598.13,
+          x = 5432.13,
           y = 1381.06,
-          width = 673.198,
+          width = 839.198,
           height = 567.152,
           rotation = 0,
           visible = true,
@@ -1731,22 +1731,6 @@ return {
             ["texturPpathAnchor"] = "assets/art/gameobject-textures/sandbag_anchortexture.png",
             ["texturePathBag"] = "assets/art/gameobject-textures/sandbag_bagtexture.png",
             ["texturePathRope"] = "assets/art/gameobject-textures/sandbag_ropetexture.png"
-          }
-        },
-        {
-          id = 417,
-          name = "ball",
-          type = "",
-          shape = "ellipse",
-          x = 5376.18,
-          y = 1202.36,
-          width = 417.333,
-          height = 401.333,
-          rotation = 0,
-          visible = true,
-          properties = {
-            ["static"] = true,
-            ["texturePath"] = "assets/art/environment-textures/ground-base-circle.png"
           }
         }
       }
@@ -2565,26 +2549,12 @@ return {
           name = "",
           type = "",
           shape = "rectangle",
-          x = 5598.67,
-          y = 1880.94,
+          x = 5482.67,
+          y = 1892.94,
           width = 672,
           height = 502.128,
           rotation = 0,
           gid = 11,
-          visible = true,
-          properties = {}
-        },
-        {
-          id = 422,
-          name = "",
-          type = "",
-          shape = "rectangle",
-          x = 5398.01,
-          y = 1294.07,
-          width = 96.8732,
-          height = 124.333,
-          rotation = -29.9264,
-          gid = 5,
           visible = true,
           properties = {}
         },

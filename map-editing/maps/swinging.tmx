@@ -258,7 +258,7 @@
   </object>
  </objectgroup>
  <objectgroup id="3" name="objects">
-  <object id="4" name="sam" x="1887.85" y="466.94">
+  <object id="4" name="sam" x="3863.85" y="854.94">
    <point/>
   </object>
   <object id="52" name="rectangle" x="1577.71" y="676.9" width="605.198" height="550.183">
@@ -323,7 +323,7 @@
    </properties>
    <ellipse/>
   </object>
-  <object id="271" name="rectangle" x="5598.13" y="1381.06" width="673.198" height="567.152">
+  <object id="271" name="rectangle" x="5432.13" y="1381.06" width="839.198" height="567.152">
    <properties>
     <property name="static" type="bool" value="true"/>
     <property name="texturePath" value="assets/art/environment-textures/ground-base-bevelled.png"/>
@@ -496,13 +496,6 @@
    </properties>
    <point/>
   </object>
-  <object id="417" name="ball" x="5376.18" y="1202.36" width="417.333" height="401.333">
-   <properties>
-    <property name="static" type="bool" value="true"/>
-    <property name="texturePath" value="assets/art/environment-textures/ground-base-circle.png"/>
-   </properties>
-   <ellipse/>
-  </object>
  </objectgroup>
  <objectgroup id="4" name="forgroundObjects">
   <object id="325" gid="13" x="1790.67" y="686.333" width="58.6435" height="93.6667"/>
@@ -562,8 +555,7 @@
   <object id="418" gid="10" x="2540.06" y="1417.67" width="682.538" height="499.333"/>
   <object id="419" gid="11" x="3549.28" y="1565.14" width="664.221" height="490.407" rotation="-0.937151"/>
   <object id="420" gid="9" x="4464.67" y="1620.2" width="656" height="488.933"/>
-  <object id="421" gid="11" x="5598.67" y="1880.94" width="672" height="502.128"/>
-  <object id="422" gid="5" x="5398.01" y="1294.07" width="96.8732" height="124.333" rotation="-29.9264"/>
+  <object id="421" gid="11" x="5482.67" y="1892.94" width="672" height="502.128"/>
   <object id="423" gid="10" x="6256.45" y="1784.61" width="551.092" height="385.455" rotation="31.2189"/>
   <object id="424" gid="9" x="6801.4" y="2164.33" width="551.871" height="386" rotation="19.2649"/>
   <object id="425" gid="11" x="7473.33" y="2461.62" width="552" height="386.09" rotation="5.24887"/>

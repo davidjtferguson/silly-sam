@@ -47,6 +47,8 @@ function ExplodingPlatform:resetPhysicsObject(world)
 	self.shape = love.physics.newRectangleShape(0, 0, self.width, self.height)
 	self.fixture = love.physics.newFixture(self.body, self.shape);
 	self.fixture:setFriction(0.9)
+
+	-- if no texture
 	self.color = {1, 0.2, 0.7}
 
 	local centre = Vector(self.body:getPosition())

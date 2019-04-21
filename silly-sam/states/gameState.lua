@@ -129,8 +129,10 @@ function GameState:loadMap(mapPath)
 
 	-- load the map
 	self.map = Sti(mapPath, { "box2d" })
-
 	self.map:box2d_init(self.physicsWorld)
+
+	-- We don't use any tile objects so could just get rid of the physics from the map. May improve performance.
+	--self.map = Sti(mapPath)
 
 	-- Clear all info that might be hanging around from a prev. map
 	-- and update the tables with our new map.
