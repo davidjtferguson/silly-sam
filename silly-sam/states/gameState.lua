@@ -123,6 +123,7 @@ function GameState:loadMap(mapPath)
 	love.physics.setMeter(100)
 	if self.physicsWorld then
 		self.physicsWorld:destroy()
+		collectgarbage()
 	end
 
 	self.physicsWorld = love.physics.newWorld(0, 10*100, true)

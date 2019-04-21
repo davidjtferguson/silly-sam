@@ -258,7 +258,7 @@
   </object>
  </objectgroup>
  <objectgroup id="3" name="objects">
-  <object id="4" name="sam" x="3863.85" y="854.94">
+  <object id="4" name="sam" x="1887.85" y="466.94">
    <point/>
   </object>
   <object id="52" name="rectangle" x="1577.71" y="676.9" width="605.198" height="550.183">
