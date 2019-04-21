@@ -297,29 +297,6 @@ function GameState:checkNewLevelPoints()
 	end
 end
 
--- input handling callbacks
--- TECHDEBT: Duplicated in pauseState. Should be generic somewhere.
-
-function GameState:keypressed(k)
-	local binding = self.controls.keysPressed[k]
-	return inputHandler(binding)
-end
-
-function GameState:gamepadpressed(gamepad, button)
-	local binding = self.controls.buttonsPressed[button]
-	return inputHandler(binding)
-end
-
-function GameState:keyreleased(k)
-	local binding = self.controls.keysReleased[k]
-	return inputHandler(binding)
-end
-
-function GameState:gamepadreleased(gamepad, button)
-	local binding = self.controls.buttonsReleased[button]
-	return inputHandler(binding)
-end
-
 -- Should these should all be in a physics helper?
 function GameState:beginContact(fixture1, fixture2, contact)
 	-- If anything was done here, first check the contact created is actually touching

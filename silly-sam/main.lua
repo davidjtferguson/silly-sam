@@ -65,6 +65,7 @@ function love.load()
 	-- play the main theme
 	mainThemeMusic = love.audio.play("assets/sounds/music/sam-theme.mp3", "stream", true)
 	musicMuted = false
+	mainThemeMusic:pause()
 
 	StateManager.registerEvents()
 	reset()
@@ -76,12 +77,32 @@ function reset()
 	StateManager.switch(GameState)
 end
 
--- should be moved to a input manager of some kind?
+-- Input handling. Each state has a controls binding. should maybe be moved to a input manager of some kind?
 function inputHandler(input)
 	local action = StateManager.current().controls.bindings[input]
 	if action then
 		return action()
 	end
+end
+
+function love.keypressed(k)
+	local binding = StateManager.current().controls.keysPressed[k]
+	return inputHandler(binding)
+end
+
+function love.gamepadpressed(gamepad, button)
+	local binding = StateManager.current().controls.buttonsPressed[button]
+	return inputHandler(binding)
+end
+
+function love.keyreleased(k)
+	local binding = StateManager.current().controls.keysReleased[k]
+	return inputHandler(binding)
+end
+
+function love.gamepadreleased(gamepad, button)
+	local binding = StateManager.current().controls.buttonsReleased[button]
+	return inputHandler(binding)
 end
 
 -- should have some kinda 'physics helper' class for stuff like this
