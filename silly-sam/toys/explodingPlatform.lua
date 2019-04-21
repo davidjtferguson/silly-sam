@@ -79,7 +79,7 @@ function ExplodingPlatform:getPosition()
 end
 
 function ExplodingPlatform:getColor()
-	return self.color[1], self.color[2], self.color[3], self.color[4]
+	return self.color[1], self.color[2], self.color[3]
 end
 
 function ExplodingPlatform:update(dt, world)
@@ -132,7 +132,7 @@ function ExplodingPlatform:draw()
 		self:drawRectangleObject(self)
 	end
 	
-	love.graphics.setColor(1, 1, 1, 1)
+	love.graphics.setColor(1, 1, 1)
 end
 
 return ExplodingPlatform

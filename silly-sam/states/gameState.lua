@@ -15,6 +15,8 @@ local NewLevelPoint = require "helpers/newLevelPoint"
 
 local PauseState = require "states/pauseState"
 
+local Fader = require "fader"
+
 local GameState = {}
 
 local function checkStaticBool(static)
@@ -90,6 +92,8 @@ function GameState:init()
 			"j",
 		},
 	}
+
+	self.fader = Fader()
 end
 
 function GameState:getBackgroundColor() 
@@ -261,6 +265,12 @@ function GameState:toggleMusic()
 		mainThemeMusic:play()
 		musicMuted = false
 	end
+
+	if self.fader.stage == "clear" then
+		self.fader:toBlack()
+	elseif self.fader.stage == "black" then
+		self.fader:toClear()
+	end
 end
 
 function GameState:update(dt)
@@ -281,6 +291,8 @@ function GameState:update(dt)
 	end
 
 	self.sam:update(dt, self.controls)
+
+	self.fader:update(dt)
 
 	self:checkNewLevelPoints()
 end
@@ -375,6 +387,9 @@ function GameState:postSolve(fixture1, fixture2, contact, linearImpulse)
 end
 
 function GameState:draw()
+	
+	love.graphics.setColor(1, 1, 1, self.fader.alpha)
+
 	self.map:draw(self.camera:getCameraToStiTransforms(self.map))
 end
 
