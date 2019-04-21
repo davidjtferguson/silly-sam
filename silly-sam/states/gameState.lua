@@ -93,7 +93,7 @@ function GameState:init()
 end
 
 function GameState:getBackgroundColor() 
-	return 1, 0.96, 0.93
+	return 0.76, 0.91, 1
 end
 
 function GameState:enter()
@@ -129,8 +129,10 @@ function GameState:loadMap(mapPath)
 
 	-- load the map
 	self.map = Sti(mapPath, { "box2d" })
-
 	self.map:box2d_init(self.physicsWorld)
+
+	-- We don't use any tile objects so could just get rid of the physics from the map. May improve performance.
+	--self.map = Sti(mapPath)
 
 	-- Clear all info that might be hanging around from a prev. map
 	-- and update the tables with our new map.
@@ -194,6 +196,21 @@ function GameState:loadMap(mapPath)
 		
 		-- bool: draw physics shapes, bool: draw sprites
 		self.sam:draw(false, true)
+	end
+
+	-- There's this weird issue with STI where if you draw things without a background the transparancy looks very odd
+	-- There's another weird thing where tiles are slowing down the game like crazy, so just tiling in a background isn't a solution
+	-- So we have a sky layer where we draw a rectangle over the back of everything to fix it without killing performance.
+	-- A bit annoying since each map needs an empty sky layer, but it'll do.
+	-- Check issues #77 and #82. Would be great to fix.
+	self.map.layers["sky"].draw = function()
+		self.camera:detach()
+
+		love.graphics.setColor(self:getBackgroundColor())
+		love.graphics.rectangle("fill", 0, 0, love.graphics.getWidth(), love.graphics.getHeight())
+		love.graphics.setColor(1, 1, 1)
+
+		self.camera:attach()
 	end
 
 	-- make camera focus on Sam
@@ -280,29 +297,6 @@ function GameState:checkNewLevelPoints()
 			self:loadMap(levelChanger.newLevelPath)
 		end
 	end
-end
-
--- input handling callbacks
--- TECHDEBT: Duplicated in pauseState. Should be generic somewhere.
-
-function GameState:keypressed(k)
-	local binding = self.controls.keysPressed[k]
-	return inputHandler(binding)
-end
-
-function GameState:gamepadpressed(gamepad, button)
-	local binding = self.controls.buttonsPressed[button]
-	return inputHandler(binding)
-end
-
-function GameState:keyreleased(k)
-	local binding = self.controls.keysReleased[k]
-	return inputHandler(binding)
-end
-
-function GameState:gamepadreleased(gamepad, button)
-	local binding = self.controls.buttonsReleased[button]
-	return inputHandler(binding)
 end
 
 -- Should these should all be in a physics helper?

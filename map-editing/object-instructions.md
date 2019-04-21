@@ -4,6 +4,8 @@ See "test-map-limited.tmx" in Tiled to see examples of everthing described here.
 
 Make sure to call your game objects layer in tiled "objects". This needs to be named as such so the game knows not to draw this layer, since this layer is only for translating into game objects.
 
+Make sure to have an empty tile layer called "sky" at the bottom of the stack. This is needed because of issues #77 and #82 . If these are fixed the empty layers could be removed and the sky could be drawn a different way.
+
 ## tile custom properties
 
 - name: collidable

@@ -82,29 +82,6 @@ end
 function PauseState:update(dt)
 end
 
--- input handling callbacks
--- TECHDEBT: Duplicated from gameState. Should be generic somewhere.
-
-function PauseState:keypressed(k)
-	local binding = self.controls.keysPressed[k]
-	return inputHandler(binding)
-end
-
-function PauseState:gamepadpressed(gamepad, button)
-	local binding = self.controls.buttonsPressed[button]
-	return inputHandler(binding)
-end
-
-function PauseState:keyreleased(k)
-	local binding = self.controls.keysReleased[k]
-	return inputHandler(binding)
-end
-
-function PauseState:gamepadreleased(gamepad, button)
-	local binding = self.controls.buttonsReleased[button]
-	return inputHandler(binding)
-end
-
 function PauseState:draw()
 	-- Draw the gamestate to a canvas
 	love.graphics.setCanvas( {self.canvas, stencil=true} )

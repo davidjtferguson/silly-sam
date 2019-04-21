@@ -103,74 +103,7 @@ function Sam:init(world, mapObject)
 
 	self.head.joint = love.physics.newRevoluteJoint(self.chest.body, self.head.body, spawn.x, spawn.y-57)
 
-	-- chin (not visible, for weighting)
-	self.chin = {}
-	self.chin.body = love.physics.newBody(world, spawn.x, spawn.y-35, "dynamic")
-	self.chin.body:setUserData({
-		type = "samBodyPart",
-		collisionSfxFolder = "generic"
-	})
-	self.chin.shape = love.physics.newCircleShape(4)
-	self.chin.body:setMass(1000)
-	self.chin.fixture = love.physics.newFixture(self.chin.body, self.chin.shape, 0.5);
-	self.chin.fixture:setFriction(0.5)
-	self.chin.color = {0.80, 0.20, 0.20}
-
-	self.chin.joint = love.physics.newWeldJoint(self.head.body, self.chin.body, spawn.x, spawn.y-65)
-
-	-- toupee
-	self.toupee = {}
-	self.toupee.width = 20
-	self.toupee.height = 7.3
-	self.toupee.image = love.graphics.newImage("assets/art/sam-textures/game-empty-texture.png")
-	self.toupee.body = love.physics.newBody(world, spawn.x, spawn.y-74, "dynamic")
-	self.toupee.body:setUserData({
-		type = "samBodyPart",
-		collisionSfxFolder = "generic"
-	})
-	self.toupee.body:setMass(0)
-	self.toupee.shape = love.physics.newRectangleShape(self.toupee.width, self.toupee.height)
-	self.toupee.fixture = love.physics.newFixture(self.toupee.body, self.toupee.shape, 1);
-	self.toupee.fixture:setFriction(1)
-	self.toupee.color = {0.1, 0.4, 1}
-
-	self.toupee.joint = love.physics.newRevoluteJoint(self.toupee.body, self.head.body, spawn.x+1, spawn.y-74+self.toupee.height)
-	
-	-- self.toupee.joint:enableLimit(enable) trying to enable limit on joint - rory
-
-	-- left eye
-	self.leftEye = {}
-	self.leftEye.radius = 2
-	self.leftEye.image = love.graphics.newImage("assets/art/sam-textures/game-empty-texture.png")
-	self.leftEye.body = love.physics.newBody(world, spawn.x-10, spawn.y-60, "dynamic")
-	self.leftEye.body:setUserData({
-		type = "samBodyPart",
-		collisionSfxFolder = "generic"
-	})
-	self.leftEye.shape = love.physics.newCircleShape(self.leftEye.radius)
-	self.leftEye.fixture = love.physics.newFixture(self.leftEye.body, self.leftEye.shape, 0.5);
-	self.leftEye.fixture:setFriction(0.9)
-	self.leftEye.color = {0.20, 0.70, 0.20}
-
-	self.leftEye.joint = love.physics.newRevoluteJoint(self.leftEye.body, self.head.body, spawn.x-7, spawn.y-60)
-
-	-- right eye
-	self.rightEye = {}
-	self.rightEye.radius = 2
-	self.rightEye.image = love.graphics.newImage("assets/art/sam-textures/game-empty-texture.png")
-	self.rightEye.body = love.physics.newBody(world, spawn.x+10, spawn.y-50, "dynamic")
-	self.rightEye.body:setUserData({
-		type = "samBodyPart",
-		collisionSfxFolder = "generic"
-	})
-	self.rightEye.shape = love.physics.newCircleShape(self.rightEye.radius)
-	self.rightEye.fixture = love.physics.newFixture(self.rightEye.body, self.rightEye.shape, 0.5);
-	self.rightEye.fixture:setFriction(0.9)
-	self.rightEye.color = {0.20, 0.70, 0.20}
-
-	self.rightEye.joint = love.physics.newRevoluteJoint(self.rightEye.body, self.head.body, spawn.x+7, spawn.y-56)
-
-	-- nose
+	-- nose and glasses
 	self.nose = {}
 	self.nose.width = 13
 	self.nose.height = 26
@@ -186,6 +119,71 @@ function Sam:init(world, mapObject)
 	self.nose.color = {0.20, 0.30, 0.80}
 
 	self.nose.joint = love.physics.newRevoluteJoint(self.nose.body, self.head.body, spawn.x+1, spawn.y-66)
+
+	-- The following 4 face parts aren't visual, just for keeping the nose and glasses in the correct place
+
+	-- chin (not visible, for weighting)
+	self.chin = {}
+	self.chin.body = love.physics.newBody(world, spawn.x, spawn.y-35, "dynamic")
+	self.chin.body:setUserData({
+		type = "samBodyPart",
+		collisionSfxFolder = "generic"
+	})
+	self.chin.shape = love.physics.newCircleShape(4)
+	self.chin.body:setMass(1000)
+	self.chin.fixture = love.physics.newFixture(self.chin.body, self.chin.shape, 0.5);
+	self.chin.fixture:setFriction(0.5)
+	self.chin.color = {0.80, 0.20, 0.20}
+
+	self.chin.joint = love.physics.newWeldJoint(self.head.body, self.chin.body, spawn.x, spawn.y-35)
+
+	-- toupee (not visible, for weighting and anchoring)
+	-- (called toupee because of a previous art pass)
+	self.toupee = {}
+	self.toupee.width = 20
+	self.toupee.height = 7.3
+	self.toupee.body = love.physics.newBody(world, spawn.x, spawn.y-74, "dynamic")
+	self.toupee.body:setUserData({
+		type = "samBodyPart",
+		collisionSfxFolder = "generic"
+	})
+	self.toupee.body:setMass(0)
+	self.toupee.shape = love.physics.newRectangleShape(self.toupee.width, self.toupee.height)
+	self.toupee.fixture = love.physics.newFixture(self.toupee.body, self.toupee.shape, 1);
+	self.toupee.fixture:setFriction(1)
+	self.toupee.color = {0.1, 0.4, 1}
+
+	self.toupee.joint = love.physics.newRevoluteJoint(self.toupee.body, self.head.body, spawn.x+1, spawn.y-74+self.toupee.height)
+	
+	-- left eye (not visible, for weighting and anchoring)
+	self.leftEye = {}
+	self.leftEye.radius = 2
+	self.leftEye.body = love.physics.newBody(world, spawn.x-10, spawn.y-60, "dynamic")
+	self.leftEye.body:setUserData({
+		type = "samBodyPart",
+		collisionSfxFolder = "generic"
+	})
+	self.leftEye.shape = love.physics.newCircleShape(self.leftEye.radius)
+	self.leftEye.fixture = love.physics.newFixture(self.leftEye.body, self.leftEye.shape, 0.5);
+	self.leftEye.fixture:setFriction(0.9)
+	self.leftEye.color = {0.20, 0.70, 0.20}
+
+	self.leftEye.joint = love.physics.newRevoluteJoint(self.leftEye.body, self.head.body, spawn.x-7, spawn.y-60)
+
+	-- right eye (not visible, for weighting and anchoring)
+	self.rightEye = {}
+	self.rightEye.radius = 2
+	self.rightEye.body = love.physics.newBody(world, spawn.x+10, spawn.y-50, "dynamic")
+	self.rightEye.body:setUserData({
+		type = "samBodyPart",
+		collisionSfxFolder = "generic"
+	})
+	self.rightEye.shape = love.physics.newCircleShape(self.rightEye.radius)
+	self.rightEye.fixture = love.physics.newFixture(self.rightEye.body, self.rightEye.shape, 0.5);
+	self.rightEye.fixture:setFriction(0.9)
+	self.rightEye.color = {0.20, 0.70, 0.20}
+
+	self.rightEye.joint = love.physics.newRevoluteJoint(self.rightEye.body, self.head.body, spawn.x+7, spawn.y-56)
 
 	-- left arm
 	self.leftArm = {}
@@ -257,7 +255,7 @@ function Sam:init(world, mapObject)
 	-- physics not applied - for checking collisions on 'grabbing'
 	self.rightHand.fixture:setSensor(true)
 
-	-- These are for drawing
+	-- These are for test/debug drawing
 	self.rectParts = {
 		self.leftLeg,
 		self.rightLeg,
@@ -518,6 +516,7 @@ function Sam:draw(drawShapes, drawSprites)
 	drawShapes = drawShapes or false
 	drawSprites = drawSprites or false
 
+	-- For test/debug drawing
 	if drawShapes then
 		for i in pairs(self.circParts) do
 			self:drawCirclePhysicsObject(self.circParts[i])
@@ -556,14 +555,10 @@ function Sam:draw(drawShapes, drawSprites)
 
 		love.graphics.setColor(1, 1, 1, 1)
 
-		-- Face parts
+		-- Visible face parts
 		self:drawCircleTexturedObject(self.head, 2.2, 2, 80)
 		
-		self:drawCircleTexturedObject(self.leftEye, 3, 0, 30)
-		self:drawCircleTexturedObject(self.rightEye, 3, -10, 30)
-
-		self:drawRectangleTexturedObject(self.nose, 4.2, .8, 10, 10)
-		self:drawRectangleTexturedObject(self.toupee, 3, 3)
+		self:drawRectangleTexturedObject(self.nose, 4.2, 0.8, 10, 10)
 
 		-- arm parts
 		self:drawCircleTexturedObject(self.leftHand, 1.5)
@@ -571,7 +566,6 @@ function Sam:draw(drawShapes, drawSprites)
 	
 		self:drawRectangleTexturedObject(self.leftArm, 1.25, 1.4, 1, -30)
 		self:drawRectangleTexturedObject(self.rightArm, 1.25, 1.4, 1 , -30)
-
 	end
 end
 
