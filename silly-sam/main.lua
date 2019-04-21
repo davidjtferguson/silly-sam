@@ -60,7 +60,6 @@ function love.load()
 		end
 	end
 
-	-- set up distance model
 	love.audio.setDistanceModel("linear")
 
 	-- play the main theme
