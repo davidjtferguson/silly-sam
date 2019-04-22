@@ -1,14 +1,13 @@
 return {
-  version = "1.2",
+  version = "1.1",
   luaversion = "5.1",
-  tiledversion = "1.2.3",
+  tiledversion = "1.1.6",
   orientation = "orthogonal",
   renderorder = "right-down",
   width = 50,
   height = 50,
   tilewidth = 32,
   tileheight = 32,
-  nextlayerid = 5,
   nextobjectid = 223,
   properties = {},
   tilesets = {
@@ -20,7 +19,6 @@ return {
       tileheight = 32,
       spacing = 0,
       margin = 0,
-      columns = 1,
       image = "../assets/art/map/test-tileset-image.png",
       imagewidth = 32,
       imageheight = 64,
@@ -53,7 +51,6 @@ return {
       tileheight = 680,
       spacing = 0,
       margin = 0,
-      columns = 1,
       image = "../assets/art/environment-textures/tree-square.png",
       imagewidth = 353,
       imageheight = 680,
@@ -79,7 +76,6 @@ return {
       tileheight = 775,
       spacing = 0,
       margin = 0,
-      columns = 1,
       image = "../assets/art/environment-textures/tree-triangle.png",
       imagewidth = 390,
       imageheight = 775,
@@ -105,7 +101,6 @@ return {
       tileheight = 32,
       spacing = 0,
       margin = 0,
-      columns = 17,
       image = "../assets/art/environment-textures/ground-base.png",
       imagewidth = 574,
       imageheight = 566,
@@ -131,7 +126,6 @@ return {
       tileheight = 1221,
       spacing = 0,
       margin = 0,
-      columns = 1,
       image = "../assets/art/environment-textures/groupedtrees-001.png",
       imagewidth = 769,
       imageheight = 1221,
@@ -157,7 +151,6 @@ return {
       tileheight = 1241,
       spacing = 0,
       margin = 0,
-      columns = 1,
       image = "../assets/art/environment-textures/groupedtrees-002.png",
       imagewidth = 735,
       imageheight = 1241,
@@ -183,7 +176,6 @@ return {
       tileheight = 1241,
       spacing = 0,
       margin = 0,
-      columns = 1,
       image = "../assets/art/environment-textures/groupedtrees-003.png",
       imagewidth = 727,
       imageheight = 1241,
@@ -209,7 +201,6 @@ return {
       tileheight = 375,
       spacing = 0,
       margin = 0,
-      columns = 1,
       image = "../assets/art/map/sky.png",
       imagewidth = 396,
       imageheight = 376,
@@ -235,7 +226,6 @@ return {
       tileheight = 165,
       spacing = 0,
       margin = 0,
-      columns = 1,
       image = "../assets/art/environment-textures/cloud-003.png",
       imagewidth = 337,
       imageheight = 165,
@@ -261,7 +251,6 @@ return {
       tileheight = 148,
       spacing = 0,
       margin = 0,
-      columns = 1,
       image = "../assets/art/environment-textures/cloud-002.png",
       imagewidth = 319,
       imageheight = 148,
@@ -287,7 +276,6 @@ return {
       tileheight = 155,
       spacing = 0,
       margin = 0,
-      columns = 1,
       image = "../assets/art/environment-textures/cloud-001.png",
       imagewidth = 337,
       imageheight = 155,
@@ -309,7 +297,6 @@ return {
   layers = {
     {
       type = "tilelayer",
-      id = 4,
       name = "sky",
       x = 0,
       y = 0,
@@ -326,7 +313,6 @@ return {
     },
     {
       type = "objectgroup",
-      id = 2,
       name = "background objects",
       visible = true,
       opacity = 1,
@@ -340,10 +326,10 @@ return {
           name = "",
           type = "",
           shape = "rectangle",
-          x = 770,
-          y = 798.437,
-          width = 196,
-          height = 89.4369,
+          x = 745.936,
+          y = 811.437,
+          width = 231.064,
+          height = 105.437,
           rotation = 0,
           gid = 298,
           visible = true,
@@ -354,8 +340,8 @@ return {
           name = "",
           type = "",
           shape = "rectangle",
-          x = 312,
-          y = 647.235,
+          x = 310,
+          y = 633.235,
           width = 257,
           height = 119.235,
           rotation = 0,
@@ -368,8 +354,8 @@ return {
           name = "",
           type = "",
           shape = "rectangle",
-          x = 915,
-          y = 561,
+          x = 926,
+          y = 555,
           width = 252.206,
           height = 116,
           rotation = 0,
@@ -381,7 +367,6 @@ return {
     },
     {
       type = "objectgroup",
-      id = 3,
       name = "objects",
       visible = true,
       opacity = 1,
@@ -416,7 +401,7 @@ return {
           visible = true,
           properties = {
             ["static"] = true,
-            ["texturePath"] = "assets/art/gameobject-textures/housetextures_004.png"
+            ["texturePath"] = "assets/art/gameobject-textures/housetextures_005.png"
           }
         },
         {
@@ -432,7 +417,7 @@ return {
           visible = true,
           properties = {
             ["static"] = true,
-            ["texturePath"] = "assets/art/gameobject-textures/housetextures_004.png"
+            ["texturePath"] = "assets/art/gameobject-textures/housetextures_005.png"
           }
         },
         {
@@ -448,7 +433,7 @@ return {
           visible = true,
           properties = {
             ["static"] = true,
-            ["texturePath"] = "assets/art/gameobject-textures/housetextures_004.png"
+            ["texturePath"] = "assets/art/gameobject-textures/housetextures_005.png"
           }
         },
         {

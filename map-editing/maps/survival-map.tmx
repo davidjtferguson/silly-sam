@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.2" tiledversion="1.2.3" orientation="orthogonal" renderorder="right-down" width="50" height="50" tilewidth="32" tileheight="32" infinite="0" nextlayerid="5" nextobjectid="223">
+<map version="1.0" tiledversion="1.1.6" orientation="orthogonal" renderorder="right-down" width="50" height="50" tilewidth="32" tileheight="32" infinite="0" nextobjectid="223">
  <tileset firstgid="1" source="../tilesets/test-tileset.tsx"/>
  <tileset firstgid="3" source="../tilesets/tree-square-tileset.tsx"/>
  <tileset firstgid="4" source="../tilesets/tree-triangle-tileset.tsx"/>
@@ -11,36 +11,36 @@
  <tileset firstgid="298" source="../tilesets/cloud-003.tsx"/>
  <tileset firstgid="299" source="../tilesets/cloud-002.tsx"/>
  <tileset firstgid="300" source="../tilesets/cloud-001.tsx"/>
- <layer id="4" name="sky" width="50" height="50">
+ <layer name="sky" width="50" height="50">
   <data encoding="base64" compression="zlib">
    eJztwQENAAAAwqD3T20ON6AAAAAAAAAAAADg3wAnEAAB
   </data>
  </layer>
- <objectgroup id="2" name="background objects">
-  <object id="220" gid="298" x="770" y="798.437" width="196" height="89.4369"/>
-  <object id="221" gid="299" x="312" y="647.235" width="257" height="119.235"/>
-  <object id="222" gid="300" x="915" y="561" width="252.206" height="116"/>
+ <objectgroup name="background objects">
+  <object id="220" gid="298" x="745.936" y="811.437" width="231.064" height="105.437"/>
+  <object id="221" gid="299" x="310" y="633.235" width="257" height="119.235"/>
+  <object id="222" gid="300" x="926" y="555" width="252.206" height="116"/>
  </objectgroup>
- <objectgroup id="3" name="objects">
+ <objectgroup name="objects">
   <object id="4" name="sam" x="760" y="396.97">
    <point/>
   </object>
   <object id="158" name="explodingPlatform" x="651" y="934" width="230" height="59.7135">
    <properties>
     <property name="static" type="bool" value="true"/>
-    <property name="texturePath" value="assets/art/gameobject-textures/housetextures_004.png"/>
+    <property name="texturePath" value="assets/art/gameobject-textures/housetextures_005.png"/>
    </properties>
   </object>
   <object id="160" name="explodingPlatform" x="419" y="934" width="230" height="59.7135">
    <properties>
     <property name="static" type="bool" value="true"/>
-    <property name="texturePath" value="assets/art/gameobject-textures/housetextures_004.png"/>
+    <property name="texturePath" value="assets/art/gameobject-textures/housetextures_005.png"/>
    </properties>
   </object>
   <object id="161" name="explodingPlatform" x="883" y="934" width="230" height="59.7135">
    <properties>
     <property name="static" type="bool" value="true"/>
-    <property name="texturePath" value="assets/art/gameobject-textures/housetextures_004.png"/>
+    <property name="texturePath" value="assets/art/gameobject-textures/housetextures_005.png"/>
    </properties>
   </object>
   <object id="162" name="cameraFocus" x="760" y="760">
