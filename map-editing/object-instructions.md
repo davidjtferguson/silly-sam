@@ -1,6 +1,6 @@
 # map creation instructions
 
-See "test-map-limited.tmx" in Tiled to see examples of everthing described here.
+See "cliff.tmx" in Tiled to see examples of everthing described here.
 
 Make sure to call your game objects layer in tiled "objects". This needs to be named as such so the game knows not to draw this layer, since this layer is only for translating into game objects.
 

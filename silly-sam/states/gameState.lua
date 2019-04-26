@@ -31,8 +31,6 @@ function GameState:init()
 	--self:loadMap("maps/swinging.lua")
 	--self:loadMap("maps/bonus.lua")
 	--self:loadMap("maps/rory-level.lua")
-	
-	--self:loadMap("maps/test-map-limited-level.lua")
 
 	self.controls = {
 		bindings = {
@@ -129,20 +127,16 @@ function GameState:loadMap(mapPath)
 	self.physicsWorld = love.physics.newWorld(0, 10*100, true)
 
 	-- load the map
-	self.map = Sti(mapPath, { "box2d" })
-	self.map:box2d_init(self.physicsWorld)
-
-	-- We don't use any tile objects so could just get rid of the physics from the map. May improve performance.
-	--self.map = Sti(mapPath)
+	self.map = Sti(mapPath)
 
 	-- Clear all info that might be hanging around from a prev. map
 	-- and update the tables with our new map.
 
-	-- table of stuff to interact with
+	-- table of physics objects to interact with
 	self.toys = {}
 
 	-- tables for camera focus points
-	-- (should be in camera but cba figuring out metatables rn)
+	-- (should be in camera but cba figuring out metatables)
 	self.cameraFocusPoints = {}
 	self.cameraInfluencePoints = {}
 
@@ -236,7 +230,6 @@ end
 
 function GameState:assignObjectToCameraTable(object)
 	if object.cameraDistance then
-
 		-- check for focus/influence flag and add to focus or influence
 		if object.cameraFocus then
 			table.insert(self.cameraFocusPoints, object)
