@@ -8,7 +8,7 @@ return {
   height = 100,
   tilewidth = 32,
   tileheight = 32,
-  nextobjectid = 207,
+  nextobjectid = 208,
   properties = {},
   tilesets = {
     {
@@ -660,6 +660,31 @@ return {
       terrains = {},
       tilecount = 1,
       tiles = {}
+    },
+    {
+      name = "thnx-4-playing",
+      firstgid = 27,
+      filename = "../../map-editing/tilesets/thnx-4-playing.tsx",
+      tilewidth = 958,
+      tileheight = 612,
+      spacing = 0,
+      margin = 0,
+      image = "../assets/art/thnx-4-playing.png",
+      imagewidth = 958,
+      imageheight = 612,
+      tileoffset = {
+        x = 0,
+        y = 0
+      },
+      grid = {
+        orientation = "orthogonal",
+        width = 958,
+        height = 612
+      },
+      properties = {},
+      terrains = {},
+      tilecount = 1,
+      tiles = {}
     }
   },
   layers = {
@@ -810,8 +835,8 @@ return {
           name = "sam",
           type = "",
           shape = "point",
-          x = 1277.66,
-          y = 1225.66,
+          x = 1398.33,
+          y = 1222.33,
           width = 0,
           height = 0,
           rotation = 0,
@@ -856,8 +881,8 @@ return {
           name = "skateboard",
           type = "",
           shape = "point",
-          x = 1281,
-          y = 1475,
+          x = 1401.67,
+          y = 1471.67,
           width = 0,
           height = 0,
           rotation = 0,
@@ -1288,6 +1313,20 @@ return {
           height = 42,
           rotation = 0,
           gid = 16,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 207,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 1164.67,
+          y = 1389.34,
+          width = 450.83,
+          height = 288.004,
+          rotation = 0,
+          gid = 27,
           visible = true,
           properties = {}
         }

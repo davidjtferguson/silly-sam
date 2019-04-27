@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" tiledversion="1.1.6" orientation="orthogonal" renderorder="right-down" width="100" height="100" tilewidth="32" tileheight="32" infinite="0" nextobjectid="207">
+<map version="1.0" tiledversion="1.1.6" orientation="orthogonal" renderorder="right-down" width="100" height="100" tilewidth="32" tileheight="32" infinite="0" nextobjectid="208">
  <tileset firstgid="1" source="../tilesets/tree-triangle-tileset.tsx"/>
  <tileset firstgid="2" source="../tilesets/tree-leaf-tileset.tsx"/>
  <tileset firstgid="3" source="../tilesets/cloud-003.tsx"/>
@@ -26,6 +26,7 @@
  <tileset firstgid="24" source="../tilesets/grass-pattern-005.tsx"/>
  <tileset firstgid="25" source="../tilesets/grass-tuft-006.tsx"/>
  <tileset firstgid="26" source="../tilesets/bush-006.tsx"/>
+ <tileset firstgid="27" source="../tilesets/thnx-4-playing.tsx"/>
  <layer name="sky" width="100" height="100">
   <data encoding="csv">
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
@@ -138,7 +139,7 @@
    </properties>
    <ellipse/>
   </object>
-  <object id="9" name="sam" x="1277.66" y="1225.66">
+  <object id="9" name="sam" x="1398.33" y="1222.33">
    <point/>
   </object>
   <object id="14" name="ball" x="1747.33" y="1365.33" width="74.333" height="69.0487">
@@ -155,7 +156,7 @@
     <property name="texturePath" value="assets/art/environment-textures/ground-base.png"/>
    </properties>
   </object>
-  <object id="86" name="skateboard" x="1281" y="1475">
+  <object id="86" name="skateboard" x="1401.67" y="1471.67">
    <properties>
     <property name="texturePathBoard" value="assets/art/gameobject-textures/skateboard-deck.png"/>
     <property name="texturePathWheel" value="assets/art/gameobject-textures/skateboard-wheel.png"/>
@@ -225,5 +226,6 @@
   <object id="202" gid="4" x="720.665" y="1260.67" width="319" height="148"/>
   <object id="203" gid="4" x="2108.34" y="1265.33" width="319" height="148"/>
   <object id="204" gid="16" x="1760.66" y="1445" width="109.345" height="42"/>
+  <object id="207" gid="27" x="1164.67" y="1389.34" width="450.83" height="288.004"/>
  </objectgroup>
 </map>
