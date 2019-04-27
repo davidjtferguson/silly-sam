@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" tiledversion="1.1.6" orientation="orthogonal" renderorder="right-down" width="100" height="300" tilewidth="32" tileheight="32" infinite="0" nextobjectid="461">
+<map version="1.0" tiledversion="1.1.6" orientation="orthogonal" renderorder="right-down" width="100" height="300" tilewidth="32" tileheight="32" infinite="0" nextobjectid="472">
  <tileset firstgid="1" source="../tilesets/test-tileset.tsx"/>
  <tileset firstgid="3" source="../tilesets/cloud-001.tsx"/>
  <tileset firstgid="4" source="../tilesets/cloud-003.tsx"/>
@@ -669,14 +669,11 @@
   <object id="401" gid="307" x="767" y="6344" width="158" height="232"/>
   <object id="402" gid="311" x="1735.89" y="7902.55" width="101.821" height="98.388" rotation="-11.5444"/>
   <object id="404" gid="3" x="2251.5" y="3566.5" width="337" height="155"/>
-  <object id="418" gid="302" x="2172.83" y="4362.89" width="187.081" height="136.394" rotation="-34.5475"/>
-  <object id="422" gid="300" x="2109.74" y="2232.73" width="208.996" height="140.459" rotation="-249.954"/>
-  <object id="451" gid="315" x="2480.31" y="1971.89" width="284" height="137" rotation="-137.76"/>
   <object id="456" gid="7" x="355.652" y="7338.12" width="319" height="148"/>
   <object id="457" gid="7" x="2328.38" y="7907.82" width="319" height="148"/>
   <object id="458" gid="4" x="489.076" y="8111.44" width="337" height="165"/>
  </objectgroup>
- <objectgroup name="objects" locked="1">
+ <objectgroup name="objects">
   <object id="4" name="sam" x="240.333" y="98.031">
    <point/>
   </object>
@@ -782,7 +779,7 @@
     <property name="texturePath" value="assets/art/environment-textures/ground-base.png"/>
    </properties>
   </object>
-  <object id="91" name="ball" x="2250.49" y="1758.42" width="197.333" height="184">
+  <object id="91" name="ball" x="2238.49" y="1761.09" width="197.333" height="184">
    <properties>
     <property name="static" type="bool" value="true"/>
     <property name="texturePath" value="assets/art/environment-textures/ground-base-circle.png"/>
@@ -1034,13 +1031,6 @@
    </properties>
    <ellipse/>
   </object>
-  <object id="452" name="ball" x="2205.87" y="1879.27" width="56.7342" height="120" rotation="-39.0423">
-   <properties>
-    <property name="static" type="bool" value="true"/>
-    <property name="texturePath" value="assets/art/environment-textures/ground-base-circle.png"/>
-   </properties>
-   <ellipse/>
-  </object>
   <object id="459" name="ball" x="2395" y="2609" width="135.333" height="136.667">
    <properties>
     <property name="static" type="bool" value="true"/>
@@ -1049,6 +1039,13 @@
    <ellipse/>
   </object>
   <object id="460" name="ball" x="1973.67" y="3582.33" width="135.333" height="136.667">
+   <properties>
+    <property name="static" type="bool" value="true"/>
+    <property name="texturePath" value="assets/art/environment-textures/ground-base-circle.png"/>
+   </properties>
+   <ellipse/>
+  </object>
+  <object id="468" name="ball" x="2167" y="4214.33" width="135.333" height="136.667">
    <properties>
     <property name="static" type="bool" value="true"/>
     <property name="texturePath" value="assets/art/environment-textures/ground-base-circle.png"/>
@@ -1067,8 +1064,7 @@
   <object id="288" gid="304" x="35.8896" y="633.221" width="68" height="112.333" rotation="22.3105"/>
   <object id="289" gid="305" x="350.667" y="658.667" width="116.333" height="139.333"/>
   <object id="291" gid="306" x="1829.89" y="1565.69" width="112.074" height="108.877" rotation="-268.821"/>
-  <object id="293" gid="306" x="2696.5" y="2083.11" width="183" height="97" rotation="-182.462"/>
-  <object id="294" gid="306" x="2275.14" y="1806.4" width="117.256" height="105.96" rotation="-68.6183"/>
+  <object id="293" gid="306" x="2700.5" y="2075.11" width="183" height="97" rotation="-182.462"/>
   <object id="295" gid="306" x="2302.33" y="701.333" width="183" height="97"/>
   <object id="300" gid="5" x="1554.33" y="1119.67" width="127" height="163"/>
   <object id="305" gid="307" x="1728.67" y="1183.67" width="213.333" height="331.333"/>
@@ -1077,25 +1073,22 @@
   <object id="309" gid="311" x="1977.33" y="2962.67" width="212.333" height="247"/>
   <object id="310" gid="311" x="336.746" y="4878.96" width="160.747" height="168.581" rotation="-192.2"/>
   <object id="311" gid="6" x="2049.01" y="4041.56" width="81" height="119" rotation="-179.673"/>
-  <object id="312" gid="303" x="2257.47" y="4260.44" width="103.568" height="107.386" rotation="0.0884004"/>
   <object id="313" gid="304" x="1469.65" y="4335.66" width="72" height="115" rotation="-184.554"/>
   <object id="314" gid="305" x="1232.73" y="4463.71" width="155.3" height="200.68" rotation="179.665"/>
   <object id="315" gid="306" x="990.62" y="4575.01" width="139.961" height="112.895" rotation="172.449"/>
   <object id="316" gid="5" x="497.655" y="4843.99" width="100.993" height="116.004" rotation="-180.008"/>
   <object id="317" gid="6" x="550.74" y="4793.18" width="81" height="119" rotation="-182.15"/>
   <object id="318" gid="5" x="1699.67" y="4686" width="127" height="163"/>
-  <object id="319" gid="306" x="2388.48" y="4252.84" width="183" height="97" rotation="-58.3698"/>
+  <object id="319" gid="306" x="2393.81" y="4239.51" width="183" height="97" rotation="-58.3698"/>
   <object id="321" gid="305" x="2017.38" y="2114.99" width="134.647" height="145.931" rotation="50.484"/>
-  <object id="322" gid="5" x="2424.35" y="2627.93" width="101.033" height="132.545" rotation="-17.5746"/>
+  <object id="322" gid="5" x="2421.68" y="2629.26" width="101.033" height="132.545" rotation="-17.5746"/>
   <object id="323" gid="6" x="1985.71" y="3501.57" width="81" height="133.164" rotation="-291.252"/>
-  <object id="324" gid="6" x="2453.37" y="2787.07" width="81" height="119" rotation="-79.9744"/>
   <object id="325" gid="298" x="2428.84" y="3308.38" width="82.4069" height="106.948" rotation="-65.1169"/>
   <object id="326" gid="303" x="2408.09" y="3547.35" width="102" height="95" rotation="-58.9748"/>
   <object id="327" gid="303" x="1979.35" y="3785.45" width="102" height="95" rotation="-302.03"/>
   <object id="328" gid="304" x="1981.49" y="3507.44" width="72" height="115" rotation="9.7083"/>
   <object id="329" gid="304" x="2365.33" y="3929.67" width="72" height="115"/>
   <object id="330" gid="304" x="2404.21" y="3959.22" width="72" height="115" rotation="-65.3138"/>
-  <object id="332" gid="6" x="2478.8" y="1926.14" width="79.6337" height="107.612" rotation="-182.295"/>
   <object id="347" gid="298" x="1496.83" y="1105.5" width="69" height="119"/>
   <object id="365" gid="312" x="49.3463" y="1000.33" width="512" height="339" rotation="7.01098"/>
   <object id="368" gid="314" x="520.292" y="974.372" width="419" height="299" rotation="28.9622"/>
@@ -1145,6 +1138,17 @@
   <object id="445" gid="303" x="1909.04" y="1298.9" width="102" height="95" rotation="31.4589"/>
   <object id="446" gid="313" x="2383" y="4290.5" width="558" height="367" rotation="-210.079"/>
   <object id="455" gid="298" x="1710" y="1194" width="69" height="119"/>
+  <object id="461" gid="300" x="2107.15" y="2232.65" width="208.996" height="140.459" rotation="-247.628"/>
+  <object id="462" gid="315" x="2475.43" y="1967.15" width="279.214" height="156.005" rotation="-139.119"/>
+  <object id="469" gid="302" x="2161.37" y="4381.05" width="211.242" height="153.029" rotation="-37.6931"/>
+ </objectgroup>
+ <objectgroup name="foreground detail">
+  <object id="463" gid="6" x="2450.17" y="2791.17" width="81" height="119" rotation="-79.9744"/>
+  <object id="464" gid="306" x="2268.04" y="1847.02" width="117.256" height="105.96" rotation="-68.6183"/>
+  <object id="465" gid="6" x="2493.48" y="1933.17" width="81" height="119" rotation="184.988"/>
+  <object id="467" gid="5" x="2059.95" y="2390.57" width="144.504" height="101.993" rotation="147.115"/>
+  <object id="470" gid="303" x="2292.39" y="4268.99" width="103.568" height="107.386" rotation="-29.7115"/>
+  <object id="471" gid="6" x="2148.12" y="4403.14" width="81" height="119" rotation="-411.59"/>
  </objectgroup>
  <objectgroup name="hangybags">
   <object id="349" name="hangingBag" x="1628" y="4383">
