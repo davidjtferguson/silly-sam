@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" tiledversion="1.1.6" orientation="orthogonal" renderorder="right-down" width="100" height="300" tilewidth="32" tileheight="32" infinite="0" nextobjectid="472">
+<map version="1.2" tiledversion="1.2.3" orientation="orthogonal" renderorder="right-down" width="100" height="300" tilewidth="32" tileheight="32" infinite="0" nextlayerid="8" nextobjectid="472">
  <tileset firstgid="1" source="../tilesets/test-tileset.tsx"/>
  <tileset firstgid="3" source="../tilesets/cloud-001.tsx"/>
  <tileset firstgid="4" source="../tilesets/cloud-003.tsx"/>
@@ -31,7 +31,7 @@
  <tileset firstgid="316" source="../tilesets/rock-002.tsx"/>
  <tileset firstgid="317" source="../tilesets/rock-006.tsx"/>
  <tileset firstgid="318" source="../tilesets/rock-007.tsx"/>
- <layer name="sky" width="100" height="300">
+ <layer id="1" name="sky" width="100" height="300">
   <data encoding="csv">
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
@@ -335,7 +335,7 @@
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 </data>
  </layer>
- <layer name="background" width="100" height="300" locked="1">
+ <layer id="2" name="background" width="100" height="300" locked="1">
   <data encoding="csv">
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
@@ -639,7 +639,7 @@
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 </data>
  </layer>
- <objectgroup name="backgroundObjects">
+ <objectgroup id="3" name="backgroundObjects">
   <object id="73" gid="3" x="-85.3522" y="165.03" width="289.855" height="166"/>
   <object id="74" gid="7" x="613.474" y="253.611" width="415.621" height="203.406" rotation="0.164813"/>
   <object id="75" gid="4" x="2348.48" y="334.763" width="276.455" height="124.953" rotation="-0.463865"/>
@@ -673,7 +673,7 @@
   <object id="457" gid="7" x="2328.38" y="7907.82" width="319" height="148"/>
   <object id="458" gid="4" x="489.076" y="8111.44" width="337" height="165"/>
  </objectgroup>
- <objectgroup name="objects">
+ <objectgroup id="4" name="objects">
   <object id="4" name="sam" x="240.333" y="98.031">
    <point/>
   </object>
@@ -1045,7 +1045,7 @@
    </properties>
    <ellipse/>
   </object>
-  <object id="468" name="ball" x="2167" y="4214.33" width="135.333" height="136.667">
+  <object id="468" name="ball" x="2207.33" y="4248.33" width="109" height="109">
    <properties>
     <property name="static" type="bool" value="true"/>
     <property name="texturePath" value="assets/art/environment-textures/ground-base-circle.png"/>
@@ -1053,7 +1053,7 @@
    <ellipse/>
   </object>
  </objectgroup>
- <objectgroup name="foreground objects">
+ <objectgroup id="5" name="foreground objects">
   <object id="271" gid="300" x="2355.63" y="687.419" width="302" height="116" rotation="2.4775"/>
   <object id="272" gid="301" x="1038.18" y="887.742" width="229.958" height="502.96" rotation="2.34008"/>
   <object id="274" gid="302" x="2432.99" y="2770.4" width="187.081" height="136.394" rotation="-55.1375"/>
@@ -1140,17 +1140,17 @@
   <object id="455" gid="298" x="1710" y="1194" width="69" height="119"/>
   <object id="461" gid="300" x="2107.15" y="2232.65" width="208.996" height="140.459" rotation="-247.628"/>
   <object id="462" gid="315" x="2475.43" y="1967.15" width="279.214" height="156.005" rotation="-139.119"/>
-  <object id="469" gid="302" x="2161.37" y="4381.05" width="211.242" height="153.029" rotation="-37.6931"/>
+  <object id="469" gid="302" x="2202.54" y="4343.92" width="155.419" height="84.6199" rotation="-37.6931"/>
  </objectgroup>
- <objectgroup name="foreground detail">
+ <objectgroup id="6" name="foreground detail">
   <object id="463" gid="6" x="2450.17" y="2791.17" width="81" height="119" rotation="-79.9744"/>
   <object id="464" gid="306" x="2268.04" y="1847.02" width="117.256" height="105.96" rotation="-68.6183"/>
   <object id="465" gid="6" x="2493.48" y="1933.17" width="81" height="119" rotation="184.988"/>
   <object id="467" gid="5" x="2059.95" y="2390.57" width="144.504" height="101.993" rotation="147.115"/>
-  <object id="470" gid="303" x="2292.39" y="4268.99" width="103.568" height="107.386" rotation="-29.7115"/>
-  <object id="471" gid="6" x="2148.12" y="4403.14" width="81" height="119" rotation="-411.59"/>
+  <object id="470" gid="303" x="2292.39" y="4269.99" width="103.568" height="107.386" rotation="-29.7115"/>
+  <object id="471" gid="6" x="2190.12" y="4379.14" width="81" height="119" rotation="-411.59"/>
  </objectgroup>
- <objectgroup name="hangybags">
+ <objectgroup id="7" name="hangybags">
   <object id="349" name="hangingBag" x="1628" y="4383">
    <properties>
     <property name="bagHeight" type="float" value="150"/>
